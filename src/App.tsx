@@ -450,17 +450,19 @@ Lang: EN`
 
       {/* Footer */}
       <footer className="border-t bg-white/80">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-6 md:flex-row">
-          <p className="text-xs opacity-80">© {new Date().getFullYear()} {brand}</p>
-          <a
-            href={`https://wa.me/` + WHATSAPP_PHONE.replace(/[^0-9+]/g, "") + `?text=${encodeURIComponent(WA_TEXT)}`}
-            target="_blank"
-            className="inline-flex items-center gap-2 rounded-xl border px-4 py-2 text-sm hover:bg-slate-50"
-          >
-            <MessageCircle className="h-4 w-4" /> {t.footerWA}
-          </a>
-        </div>
-      </footer>
+	  <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-6 md:flex-row">
+		<p className="text-xs opacity-80">© {new Date().getFullYear()} {brand}</p>
+		<nav className="text-xs opacity-80 flex gap-3">
+		  <a href="/en/manas-to-karakol-transfer.html">EN: Manas → Karakol</a>
+		  <a href="/ru/manas-karakol-transfer.html">RU: Манас → Каракол</a>
+		  <a href="/ko/manas-karakol-transfer.html">KO: 마나스 → 카라콜</a>
+		</nav>
+		<a href={`https://wa.me/996701250222?text=Hi!%20Manas%20%E2%86%94%20Karakol`} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border px-4 py-2 text-sm hover:bg-slate-50">
+		  WhatsApp
+		</a>
+	  </div>
+	</footer>
+
     </div>
   );
 }

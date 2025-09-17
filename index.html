@@ -4,23 +4,51 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>Manas ↔ Karakol Private Transfer | Nomad Transfers KG</title>
-  <meta name="description" content="Private transfer Manas Airport ↔ Karakol. Meet & Greet (name board), 60-min free waiting. Sedan/Minivan. WhatsApp reply in 1–2 min." />
-  <!-- Open Graph -->
+  <meta name="description" content="Private transfer Manas Airport ↔ Karakol. English support on WhatsApp, 60-min free airport waiting, fixed price per car." />
+
+  <!-- Canonical & hreflang -->
+  <link rel="canonical" href="https://nomad-transfer.vercel.app//" />
+  <link rel="alternate" href="https://nomad-transfer.vercel.app//en/manas-to-karakol-transfer.html" hreflang="en" />
+  <link rel="alternate" href="https://nomad-transfer.vercel.app//ru/manas-karakol-transfer.html" hreflang="ru" />
+  <link rel="alternate" href="https://nomad-transfer.vercel.app//ko/manas-karakol-transfer.html" hreflang="ko" />
+  <link rel="alternate" href="https://nomad-transfer.vercel.app//" hreflang="x-default" />
+
+  <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Manas ↔ Karakol Private Transfer" />
   <meta property="og:description" content="English support on WhatsApp. Fixed price per car. Meet & Greet at Manas." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://nomad-peach.vercel.app/" />
+  <meta property="og:url" content="https://nomad-transfer.vercel.app//" />
   <meta property="og:image" content="/og-cover.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Manas ↔ Karakol Private Transfer" />
+  <meta name="twitter:description" content="English support on WhatsApp. Fixed price per car." />
+  <meta name="twitter:image" content="/og-cover.svg" />
+
   <!-- Favicon -->
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <!-- (опционально) Google Analytics
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-XXXXXXX');
+
+  <!-- Schema.org: TaxiService -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TaxiService",
+    "name": "Nomad Transfers KG",
+    "url": "https://nomad-transfer.vercel.app//",
+    "areaServed": ["Bishkek","Manas Airport (FRU)","Issyk-Kul","Cholpon-Ata","Karakol"],
+    "telephone": "+996701250222",
+    "priceRange": "$140-$375",
+    "makesOffer": {
+      "@type": "OfferCatalog",
+      "name": "Manas ↔ Karakol",
+      "itemListElement": [
+        { "@type": "Offer", "name": "One-way Manas → Karakol (Sedan/SUV/Van)", "priceCurrency": "USD", "price": "140-210" },
+        { "@type": "Offer", "name": "Round trip Manas ↔ Karakol (Sedan/SUV/Van)", "priceCurrency": "USD", "price": "250-375" }
+      ]
+    }
+  }
   </script>
-  -->
 </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
