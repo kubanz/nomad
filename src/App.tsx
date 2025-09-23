@@ -18,7 +18,7 @@ function pickLang() {
     if (l.startsWith("ko")) return "ko";
     if (l.startsWith("ru")) return "ru";
   }
-  return "en";
+  return "ko";
 }
 
 // ===== WhatsApp =====
