@@ -1,29 +1,11 @@
 User-agent: *
-Allow: /
-
-# Основные страницы для индексации
-Allow: /ko/
 Allow: /en/
+Allow: /ko/  
 Allow: /ru/
-Allow: /sitemap.xml
 
-# Блокируем служебные файлы
-Disallow: /node_modules/
-Disallow: /.git/
+# Блокируем React версию от индексации
+Disallow: /?*
 Disallow: /src/
-Disallow: /_next/
-Disallow: /api/
+Disallow: /static/
 
-# Указываем карту сайта
 Sitemap: https://nomad-transfer.vercel.app/sitemap.xml
-
-# Специально для поисковых ботов Кореи
-User-agent: Yeti
-Allow: /ko/
-
-# Для Google Bot
-User-agent: Googlebot
-Allow: /ko/
-Allow: /en/
-Allow: /ru/
-Crawl-delay: 1
