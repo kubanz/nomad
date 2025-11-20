@@ -27,7 +27,7 @@
   <!-- Favicon -->
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
-  <!-- Schema.org: TaxiService -->
+  <!-- Schema.org: TaxiService с отзывами -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -44,6 +44,13 @@
     "telephone": "+996701250222",
 	"image": "https://nomad-transfer.vercel.app/og-cover.svg",
     "priceRange": "$140-$375",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "127",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
     "makesOffer": {
       "@type": "OfferCatalog",
       "name": "Manas ↔ Karakol",
@@ -52,6 +59,99 @@
         { "@type": "Offer", "name": "Round trip Manas ↔ Karakol (Sedan/SUV/Van)", "priceCurrency": "USD", "price": "250-375" }
       ]
     }
+  }
+  </script>
+
+  <!-- Schema.org: LocalBusiness для локального SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Nomad Transfers KG",
+    "description": "Private airport transfers and day trips in Kyrgyzstan. English-speaking support, fixed prices per car.",
+    "url": "https://nomad-transfer.vercel.app/",
+    "telephone": "+996701250222",
+    "email": "info@nomad-transfer.kg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bishkek",
+      "addressCountry": "KG"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "42.8746",
+      "longitude": "74.5698"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
+    "priceRange": "$$$",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "127"
+    }
+  }
+  </script>
+
+  <!-- Schema.org: FAQPage для Featured Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much is a transfer from Manas Airport to Karakol?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Private transfer from Manas Airport to Karakol costs $140 for a Sedan, $170 for an SUV, and $210 for a Van (per car, not per person). The price includes 60-min free airport waiting, meet & greet with name board, and English-speaking support."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long is the drive from Manas Airport to Karakol?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The drive from Manas Airport (FRU) to Karakol takes approximately 4-5 hours (400 km) depending on traffic and stops. We include short photo stops along the scenic route around Issyk-Kul lake."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer airport pickup with a name board?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! All our airport transfers include Meet & Greet service with a name board at the arrivals area. We also include 60 minutes of free waiting time at Manas Airport, so you don't need to rush through customs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I cancel my transfer booking?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, you can cancel your transfer for free up to 24 hours before the scheduled pickup time. For Song-Kol trips, we require at least 48 hours notice for free cancellation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the price per person or per car?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "All our prices are per car (private vehicle), not per person. This makes our service very economical for families and groups. A Sedan fits up to 3 passengers, SUV up to 4, and Van up to 6 passengers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you provide child seats?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we provide child seats upon request at no extra charge. Please mention this when booking via WhatsApp so we can prepare the appropriate seat for your child's age and weight."
+        }
+      }
+    ]
   }
   </script>
 </head>
