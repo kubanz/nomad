@@ -60,7 +60,7 @@ const TXT = {
     notes2: "• Night rides 22:00–06:00: +15% surcharge.",
     notes3: "• Song-Kol trips: summer only; cold nights, no mobile signal; free cancel ≥48h.",
     bookWA: "Book on WhatsApp",
-    inclTitle: "What’s included",
+    inclTitle: "What's included",
     inclHdr: "Included",
     notInclHdr: "Not included",
     included: [
@@ -76,6 +76,19 @@ const TXT = {
     minutes: "min",
     langBtn: "RU",
     heroBullets: ["60 min free waiting (airport)", "Child seat on request", "Pay on the day"],
+    faqTitle: "Frequently Asked Questions",
+    faq1q: "How much is a transfer from Manas Airport to Karakol?",
+    faq1a: "Private transfer from Manas Airport to Karakol costs $140 for a Sedan, $170 for an SUV, and $210 for a Van (per car, not per person). The price includes 60-min free airport waiting, meet & greet with name board, and English-speaking support.",
+    faq2q: "How long is the drive from Manas Airport to Karakol?",
+    faq2a: "The drive from Manas Airport (FRU) to Karakol takes approximately 4-5 hours (400 km) depending on traffic and stops. We include short photo stops along the scenic route around Issyk-Kul lake.",
+    faq3q: "Do you offer airport pickup with a name board?",
+    faq3a: "Yes! All our airport transfers include Meet & Greet service with a name board at the arrivals area. We also include 60 minutes of free waiting time at Manas Airport, so you don't need to rush through customs.",
+    faq4q: "Can I cancel my transfer booking?",
+    faq4a: "Yes, you can cancel your transfer for free up to 24 hours before the scheduled pickup time. For Song-Kol trips, we require at least 48 hours notice for free cancellation.",
+    faq5q: "Is the price per person or per car?",
+    faq5a: "All our prices are per car (private vehicle), not per person. This makes our service very economical for families and groups. A Sedan fits up to 3 passengers, SUV up to 4, and Van up to 6 passengers.",
+    faq6q: "Do you provide child seats?",
+    faq6a: "Yes, we provide child seats upon request at no extra charge. Please mention this when booking via WhatsApp so we can prepare the appropriate seat for your child's age and weight.",
   },
   ru: {
     badge1: "Поддержка на англ. в WhatsApp",
@@ -127,6 +140,19 @@ const TXT = {
     minutes: "мин",
     langBtn: "KO",
     heroBullets: ["60 мин ожидания (аэропорт)", "Детское кресло по запросу", "Оплата в день поездки"],
+    faqTitle: "Частые вопросы",
+    faq1q: "Сколько стоит трансфер из аэропорта Манас в Каракол?",
+    faq1a: "Частный трансфер из аэропорта Манас в Каракол стоит $140 за Седан, $170 за SUV и $210 за Минивэн (цена за авто, не за человека). В цену включено 60 мин бесплатного ожидания в аэропорту, встреча с табличкой и англоязычная поддержка.",
+    faq2q: "Сколько времени занимает дорога из Манаса в Каракол?",
+    faq2a: "Дорога из аэропорта Манас в Каракол занимает примерно 4-5 часов (400 км) в зависимости от трафика и остановок. Мы включаем короткие фото-стопы на живописном маршруте вдоль озера Иссык-Куль.",
+    faq3q: "Вы встречаете в аэропорту с табличкой?",
+    faq3a: "Да! Все наши трансферы включают встречу с табличкой в зоне прилёта. Также включено 60 минут бесплатного ожидания в аэропорту Манас, так что вам не нужно торопиться на таможне.",
+    faq4q: "Можно ли отменить бронирование?",
+    faq4a: "Да, вы можете бесплатно отменить трансфер за 24 часа до запланированного времени встречи. Для поездок на Сон-Кёль требуется уведомление минимум за 48 часов для бесплатной отмены.",
+    faq5q: "Цена за человека или за автомобиль?",
+    faq5a: "Все наши цены указаны за автомобиль (частный транспорт), а не за человека. Это делает наш сервис очень выгодным для семей и групп. Седан вмещает до 3 пассажиров, SUV до 4, Минивэн до 6 пассажиров.",
+    faq6q: "Вы предоставляете детские кресла?",
+    faq6a: "Да, мы предоставляем детские кресла по запросу без дополнительной платы. Пожалуйста, упомяните об этом при бронировании через WhatsApp, чтобы мы могли подготовить подходящее кресло для возраста и веса вашего ребёнка.",
   },
   ko: {
     badge1: "영어 지원 (WhatsApp)",
@@ -178,6 +204,19 @@ const TXT = {
     minutes: "분",
     langBtn: "EN",
     heroBullets: ["공항 대기 60분 무료", "유아용 시트(요청 시)", "당일 결제"],
+    faqTitle: "자주 묻는 질문",
+    faq1q: "마나스 공항에서 카라콜까지 얼마인가요?",
+    faq1a: "마나스 공항에서 카라콜까지 전용 차량 요금은 세단 $140, SUV $170, 밴 $210입니다 (차량당 가격, 인당 아님). 60분 무료 공항 대기, 네임보드 미팅, 영어 지원 포함.",
+    faq2q: "마나스에서 카라콜까지 얼마나 걸리나요?",
+    faq2a: "마나스 공항에서 카라콜까지는 약 4-5시간(400km) 소요됩니다. 교통 상황과 휴게소에 따라 달라질 수 있습니다. 이식쿨 호수 주변의 경치 좋은 곳에서 짧은 포토 스톱을 포함합니다.",
+    faq3q: "공항 픽업 시 네임보드를 들고 계시나요?",
+    faq3a: "네! 모든 공항 트랜스퍼는 도착장에서 네임보드를 들고 미팅하는 서비스가 포함됩니다. 또한 마나스 공항에서 60분 무료 대기 시간이 포함되어 있어 세관 통과를 서두를 필요가 없습니다.",
+    faq4q: "예약을 취소할 수 있나요?",
+    faq4a: "네, 예정된 픽업 시간 24시간 전까지 무료로 취소할 수 있습니다. 송쿨 여행의 경우 무료 취소를 위해 최소 48시간 전 통보가 필요합니다.",
+    faq5q: "가격이 인당인가요, 차량당인가요?",
+    faq5a: "모든 가격은 차량당(전용 차량) 가격이며, 인당 가격이 아닙니다. 가족 및 그룹에게 매우 경제적입니다. 세단은 최대 3명, SUV는 최대 4명, 밴은 최대 6명까지 탑승 가능합니다.",
+    faq6q: "유아용 시트를 제공하나요?",
+    faq6a: "네, 요청 시 추가 비용 없이 유아용 시트를 제공합니다. WhatsApp으로 예약 시 자녀의 나이와 체중에 맞는 시트를 준비할 수 있도록 알려주세요.",
   },
 } as const;
 
@@ -446,6 +485,17 @@ Lang: EN`
           </ul>
         </Accordion>
         <Accordion title={t.notInclHdr}>{t.notIncl}</Accordion>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="mx-auto max-w-6xl space-y-3 px-4 py-10">
+        <SectionTitle>{t.faqTitle}</SectionTitle>
+        <Accordion title={t.faq1q} defaultOpen>{t.faq1a}</Accordion>
+        <Accordion title={t.faq2q}>{t.faq2a}</Accordion>
+        <Accordion title={t.faq3q}>{t.faq3a}</Accordion>
+        <Accordion title={t.faq4q}>{t.faq4a}</Accordion>
+        <Accordion title={t.faq5q}>{t.faq5a}</Accordion>
+        <Accordion title={t.faq6q}>{t.faq6a}</Accordion>
       </section>
 
       {/* Footer */}
