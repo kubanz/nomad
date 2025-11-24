@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Car, Plane, Mountain, Route, MessageCircle, CheckCircle2, ChevronDown } from "lucide-react";
+import { Car, Plane, Mountain, Route, MessageCircle, CheckCircle2, ChevronDown, Send } from "lucide-react";
 
 // ===== A/B бренд =====
 const BRAND_VARIANTS = { nomad: "Nomad Transfers KG", tienshan: "TienShan Transfers" };
@@ -318,7 +318,15 @@ function MobileCTA({ text, reply }: { text: string; reply: string }) {
   const ss = String(sec % 60).padStart(2, "0");
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 border-t bg-white/95 p-3 shadow-2xl md:hidden">
-      <div className="flex items-center justify-between gap-3">
+      <div className="flex items-center gap-2">
+        <a
+          href={`https://t.me/` + WHATSAPP_PHONE.replace(/[^0-9]/g, "")}
+          target="_blank"
+          className="flex items-center justify-center gap-2 rounded-xl bg-sky-500 px-3 py-3 text-sm font-semibold text-white hover:bg-sky-600"
+          aria-label="Contact via Telegram"
+        >
+          <Send className="h-4 w-4" />
+        </a>
         <a
           href={`https://wa.me/` + WHATSAPP_PHONE.replace(/[^0-9+]/g, "") + `?text=${encodeURIComponent(text)}`}
           target="_blank"
@@ -369,6 +377,14 @@ Lang: EN`
               {t.langBtn}
             </button>
             <a
+              href={`https://t.me/` + WHATSAPP_PHONE.replace(/[^0-9]/g, "")}
+              target="_blank"
+              className="hidden items-center gap-2 rounded-xl bg-sky-500 px-3 py-2 text-sm font-medium text-white hover:bg-sky-600 md:inline-flex"
+              aria-label="Contact via Telegram"
+            >
+              <Send className="h-4 w-4" />
+            </a>
+            <a
               href={`https://wa.me/` + WHATSAPP_PHONE.replace(/[^0-9+]/g, "") + `?text=${encodeURIComponent(WA_TEXT)}`}
               target="_blank"
               className="hidden items-center gap-2 rounded-xl bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700 md:inline-flex"
@@ -398,6 +414,14 @@ Lang: EN`
                 className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-3 text-sm font-medium text-slate-900 hover:bg-white/90"
               >
                 <MessageCircle className="h-4 w-4" /> {t.heroBtnWA}
+              </a>
+              <a
+                href={`https://t.me/` + WHATSAPP_PHONE.replace(/[^0-9]/g, "")}
+                target="_blank"
+                className="inline-flex items-center gap-2 rounded-xl bg-sky-500 px-4 py-3 text-sm font-medium text-white hover:bg-sky-600"
+                aria-label="Contact via Telegram"
+              >
+                <Send className="h-4 w-4" /> Telegram
               </a>
               <a href="#prices" className="inline-flex items-center gap-2 rounded-xl bg-black/20 px-4 py-3 text-sm font-medium text-white hover:bg-black/30">
                 {t.heroBtnPrices}
@@ -507,9 +531,14 @@ Lang: EN`
 		  <a href="/ru/manas-karakol-transfer.html">RU: Манас → Каракол</a>
 		  <a href="/ko/manas-karakol-transfer.html">KO: 마나스 → 카라콜</a>
 		</nav>
-		<a href={`https://wa.me/996701250222?text=Hi!%20Manas%20%E2%86%94%20Karakol`} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border px-4 py-2 text-sm hover:bg-slate-50">
-		  WhatsApp
-		</a>
+		<div className="flex gap-2">
+		  <a href={`https://t.me/996701250222`} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border border-sky-500 px-4 py-2 text-sm text-sky-600 hover:bg-sky-50">
+			<Send className="h-4 w-4" /> Telegram
+		  </a>
+		  <a href={`https://wa.me/996701250222?text=Hi!%20Manas%20%E2%86%94%20Karakol`} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border border-emerald-500 px-4 py-2 text-sm text-emerald-600 hover:bg-emerald-50">
+			<MessageCircle className="h-4 w-4" /> WhatsApp
+		  </a>
+		</div>
 	  </div>
 	</footer>
 
