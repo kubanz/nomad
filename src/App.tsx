@@ -320,17 +320,15 @@ function MobileCTA({ text, reply, lang }: { text: string; reply: string; lang: "
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 border-t bg-white/95 p-3 shadow-2xl md:hidden">
       <div className="flex items-center gap-2">
-        {lang === "ko" && (
-          <a
-            href={`https://open.kakao.com/me/nomadtransfers`}
-            target="_blank"
-            className="flex items-center justify-center gap-2 rounded-xl bg-yellow-400 px-3 py-3 text-sm font-semibold text-slate-900 hover:bg-yellow-500"
-            aria-label="Contact via KakaoTalk"
-            title={`KakaoTalk: ${KAKAO_PHONE}`}
-          >
-            <MessageCircle className="h-4 w-4" />
-          </a>
-        )}
+        <a
+          href={`https://open.kakao.com/me/nomadtransfers`}
+          target="_blank"
+          className="flex items-center justify-center gap-2 rounded-xl bg-yellow-400 px-3 py-3 text-sm font-semibold text-slate-900 hover:bg-yellow-500"
+          aria-label="Contact via KakaoTalk"
+          title={`KakaoTalk: ${KAKAO_PHONE}`}
+        >
+          <MessageCircle className="h-4 w-4" />
+        </a>
         <a
           href={`https://t.me/` + WHATSAPP_PHONE.replace(/[^0-9]/g, "")}
           target="_blank"
@@ -388,17 +386,15 @@ Lang: EN`
             <button onClick={() => setLang(lang === "en" ? "ru" : lang === "ru" ? "ko" : "en")} className="rounded-xl border px-3 py-2 text-xs font-medium hover:bg-slate-50">
               {t.langBtn}
             </button>
-            {lang === "ko" && (
-              <a
-                href={`https://open.kakao.com/me/nomadtransfers`}
-                target="_blank"
-                className="hidden items-center gap-2 rounded-xl bg-yellow-400 px-3 py-2 text-sm font-medium text-slate-900 hover:bg-yellow-500 md:inline-flex"
-                aria-label="Contact via KakaoTalk"
-                title={`KakaoTalk: ${KAKAO_PHONE}`}
-              >
-                <MessageCircle className="h-4 w-4" />
-              </a>
-            )}
+            <a
+              href={`https://open.kakao.com/me/nomadtransfers`}
+              target="_blank"
+              className="hidden items-center gap-2 rounded-xl bg-yellow-400 px-3 py-2 text-sm font-medium text-slate-900 hover:bg-yellow-500 md:inline-flex"
+              aria-label="Contact via KakaoTalk"
+              title={`KakaoTalk: ${KAKAO_PHONE}`}
+            >
+              <MessageCircle className="h-4 w-4" />
+            </a>
             <a
               href={`https://t.me/` + WHATSAPP_PHONE.replace(/[^0-9]/g, "")}
               target="_blank"
@@ -431,25 +427,13 @@ Lang: EN`
             <h1 className="mt-4 text-3xl font-bold leading-tight md:text-5xl">{t.heroTitle}</h1>
             <p className="mt-2 text-white/90 md:max-w-xl">{t.heroSubtitle}</p>
             <div className="mt-4 flex flex-wrap items-center gap-3">
-              {lang === "ko" ? (
-                <a
-                  href={`https://open.kakao.com/me/nomadtransfers`}
-                  target="_blank"
-                  className="inline-flex items-center gap-2 rounded-xl bg-yellow-400 px-4 py-3 text-sm font-medium text-slate-900 hover:bg-yellow-500"
-                  aria-label="Contact via KakaoTalk"
-                  title={`KakaoTalk: ${KAKAO_PHONE}`}
-                >
-                  <MessageCircle className="h-4 w-4" /> KakaoTalk
-                </a>
-              ) : (
-                <a
-                  href={`https://wa.me/` + WHATSAPP_PHONE.replace(/[^0-9+]/g, "") + `?text=${encodeURIComponent(WA_TEXT)}`}
-                  target="_blank"
-                  className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-3 text-sm font-medium text-slate-900 hover:bg-white/90"
-                >
-                  <MessageCircle className="h-4 w-4" /> {t.heroBtnWA}
-                </a>
-              )}
+              <a
+                href={`https://wa.me/` + WHATSAPP_PHONE.replace(/[^0-9+]/g, "") + `?text=${encodeURIComponent(WA_TEXT)}`}
+                target="_blank"
+                className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-3 text-sm font-medium text-slate-900 hover:bg-white/90"
+              >
+                <MessageCircle className="h-4 w-4" /> WhatsApp
+              </a>
               <a
                 href={`https://t.me/` + WHATSAPP_PHONE.replace(/[^0-9]/g, "")}
                 target="_blank"
@@ -457,6 +441,15 @@ Lang: EN`
                 aria-label="Contact via Telegram"
               >
                 <Send className="h-4 w-4" /> Telegram
+              </a>
+              <a
+                href={`https://open.kakao.com/me/nomadtransfers`}
+                target="_blank"
+                className="inline-flex items-center gap-2 rounded-xl bg-yellow-400 px-4 py-3 text-sm font-medium text-slate-900 hover:bg-yellow-500"
+                aria-label="Contact via KakaoTalk"
+                title={`KakaoTalk: ${KAKAO_PHONE}`}
+              >
+                <MessageCircle className="h-4 w-4" /> KakaoTalk
               </a>
               <a href="#prices" className="inline-flex items-center gap-2 rounded-xl bg-black/20 px-4 py-3 text-sm font-medium text-white hover:bg-black/30">
                 {t.heroBtnPrices}
@@ -567,11 +560,9 @@ Lang: EN`
 		  <a href="/ko/manas-karakol-transfer.html">KO: 마나스 → 카라콜</a>
 		</nav>
 		<div className="flex gap-2">
-		  {lang === "ko" && (
-			<a href={`https://open.kakao.com/me/nomadtransfers`} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border border-yellow-400 px-4 py-2 text-sm text-yellow-600 hover:bg-yellow-50" title={`KakaoTalk: ${KAKAO_PHONE}`}>
-			  <MessageCircle className="h-4 w-4" /> KakaoTalk
-			</a>
-		  )}
+		  <a href={`https://open.kakao.com/me/nomadtransfers`} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border border-yellow-400 px-4 py-2 text-sm text-yellow-600 hover:bg-yellow-50" title={`KakaoTalk: ${KAKAO_PHONE}`}>
+			<MessageCircle className="h-4 w-4" /> KakaoTalk
+		  </a>
 		  <a href={`https://t.me/996701250222`} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border border-sky-500 px-4 py-2 text-sm text-sky-600 hover:bg-sky-50">
 			<Send className="h-4 w-4" /> Telegram
 		  </a>
