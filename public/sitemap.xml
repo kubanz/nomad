@@ -5,7 +5,7 @@
   <!-- Главная -->
   <url>
     <loc>https://nomad-transfer.vercel.app/</loc>
-    <lastmod>2025-11-20</lastmod>
+    <lastmod>2025-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.vercel.app/"/>
@@ -17,7 +17,7 @@
   <!-- EN -->
   <url>
     <loc>https://nomad-transfer.vercel.app/en/manas-to-karakol-transfer.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <lastmod>2025-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.vercel.app/"/>
@@ -29,7 +29,7 @@
   <!-- RU -->
   <url>
     <loc>https://nomad-transfer.vercel.app/ru/manas-karakol-transfer.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <lastmod>2025-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.vercel.app/"/>
@@ -41,7 +41,7 @@
   <!-- KO -->
   <url>
     <loc>https://nomad-transfer.vercel.app/ko/manas-karakol-transfer.html</loc>
-    <lastmod>2025-11-20</lastmod>
+    <lastmod>2025-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.vercel.app/"/>
