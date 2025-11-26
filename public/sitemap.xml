@@ -21,7 +21,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.vercel.app/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.vercel.app/en/manas-to-karakol-transfer.html"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.vercel.app/ru/manas-karakol-transfer.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.vercel.app/ko/manas-karakol-transfer.html"/>
   </url>
@@ -34,7 +33,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.vercel.app/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.vercel.app/en/manas-to-karakol-transfer.html"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.vercel.app/ru/manas-karakol-transfer.html"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.vercel.app/ko/manas-karakol-transfer.html"/>
   </url>
 
@@ -47,7 +45,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.vercel.app/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.vercel.app/en/manas-to-karakol-transfer.html"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.vercel.app/ru/manas-karakol-transfer.html"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.vercel.app/ko/manas-karakol-transfer.html"/>
   </url>
 
 </urlset>
