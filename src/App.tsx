@@ -52,14 +52,15 @@ const TXT = {
     howS3: "Meet your driver",
     pricesTitle: "Fixed prices (per car)",
     thRoute: "Route",
-    thSedan: "Sedan",
-    thSUV: "SUV",
-    thVan: "Van",
+    thSedan: "Car (4 seats)",
+    thSUV: "Van (6-7 seats)",
+    thVan: "Bus (15 seats)",
     showAll: "Show all prices",
     showLess: "Show less",
-    notes1: "• Free waiting: 60 min at airport, 30 min in city. Extra waiting $8/h.",
-    notes2: "• Night rides 22:00–06:00: +15% surcharge.",
-    notes3: "• Song-Kol trips: summer only; cold nights, no mobile signal; free cancel ≥48h.",
+    notes1: "• Pickup/drop-off at Manas Airport: +$10 surcharge.",
+    notes2: "• Free waiting: 60 min at airport, 30 min in city. Extra waiting $8/h.",
+    notes3: "• Night rides 22:00–06:00: +15% surcharge.",
+    notes4: "• Song-Kol trips: summer only; cold nights, no mobile signal; free cancel ≥48h.",
     bookWA: "Book on WhatsApp",
     inclTitle: "What's included",
     inclHdr: "Included",
@@ -116,14 +117,15 @@ const TXT = {
     howS3: "Встреча с водителем",
     pricesTitle: "Фикс-цены (за авто)",
     thRoute: "Маршрут",
-    thSedan: "Седан",
-    thSUV: "SUV",
-    thVan: "Минивэн",
+    thSedan: "Седан (4 места)",
+    thSUV: "Минивэн (6-7 мест)",
+    thVan: "Бусы (15 мест)",
     showAll: "Показать все цены",
     showLess: "Свернуть",
-    notes1: "• Бесплатное ожидание: 60 мин аэропорт, 30 мин город. Далее $8/ч.",
-    notes2: "• Ночной тариф 22:00–06:00: +15%.",
-    notes3: "• Сон-Кёль: только летом; холодные ночи; отмена ≥48ч бесплатно.",
+    notes1: "• Трансфер из/в аэропорт Манас: доплата +$10.",
+    notes2: "• Бесплатное ожидание: 60 мин аэропорт, 30 мин город. Далее $8/ч.",
+    notes3: "• Ночной тариф 22:00–06:00: +15%.",
+    notes4: "• Сон-Кёль: только летом; холодные ночи; отмена ≥48ч бесплатно.",
     bookWA: "Забронировать в WhatsApp",
     inclTitle: "Что включено",
     inclHdr: "Включено",
@@ -180,14 +182,15 @@ const TXT = {
     howS3: "기사 미팅",
     pricesTitle: "고정 요금(차량당)",
     thRoute: "노선",
-    thSedan: "세단",
-    thSUV: "SUV",
-    thVan: "밴",
+    thSedan: "세단 (4명)",
+    thSUV: "밴 (6-7명)",
+    thVan: "버스 (15명)",
     showAll: "모든 요금 보기",
     showLess: "접기",
-    notes1: "• 무료 대기: 공항 60분, 시내 30분. 이후 대기는 $8/시간.",
-    notes2: "• 야간(22:00–06:00): +15% 할증.",
-    notes3: "• 송쿨: 여름만 운영; 밤에는 춥고 통신 없음; 48시간 이전 무료취소.",
+    notes1: "• 마나스 공항 픽업/드롭: +$10 추가 요금.",
+    notes2: "• 무료 대기: 공항 60분, 시내 30분. 이후 대기는 $8/시간.",
+    notes3: "• 야간(22:00–06:00): +15% 할증.",
+    notes4: "• 송쿨: 여름만 운영; 밤에는 춥고 통신 없음; 48시간 이전 무료취소.",
     bookWA: "WhatsApp로 예약",
     inclTitle: "포함 사항",
     inclHdr: "포함",
@@ -223,19 +226,13 @@ const TXT = {
 
 const BASE_PRICES_BY_LANG: Record<"en"|"ru"|"ko", { route: string; sedan: number; suv: number; van: number }[]> = {
   en: [
-    { route: "Manas → Bishkek (center)", sedan: 25, suv: 30, van: 45 },
-    { route: "Manas → Cholpon-Ata", sedan: 95, suv: 120, van: 150 },
-    { route: "Manas → Karakol", sedan: 140, suv: 170, van: 210 }
+    { route: "Bishkek → Karakol", sedan: 110, suv: 130, van: 240 }
   ],
   ru: [
-    { route: "Манас → Бишкек (центр)", sedan: 25, suv: 30, van: 45 },
-    { route: "Манас → Чолпон-Ата", sedan: 95, suv: 120, van: 150 },
-    { route: "Манас → Каракол", sedan: 140, suv: 170, van: 210 }
+    { route: "Бишкек → Каракол", sedan: 110, suv: 130, van: 240 }
   ],
   ko: [
-    { route: "마나스 → 비슈케크(센터)", sedan: 25, suv: 30, van: 45 },
-    { route: "마나스 → 촐폰아타", sedan: 95, suv: 120, van: 150 },
-    { route: "마나스 → 카라콜", sedan: 140, suv: 170, van: 210 }
+    { route: "비슈케크 → 카라콜", sedan: 110, suv: 130, van: 240 }
   ]
 };
 
@@ -509,6 +506,7 @@ Lang: EN`
           <li>{t.notes1}</li>
           <li>{t.notes2}</li>
           <li>{t.notes3}</li>
+          <li>{t.notes4}</li>
         </ul>
         <div className="mt-4 flex flex-wrap gap-3">
           <a
