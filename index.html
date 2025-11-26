@@ -36,13 +36,19 @@
     gtag('config', 'G-P5WKZN4V2H');
   </script>
 
-  <!-- Schema.org: TaxiService с отзывами -->
+  <!-- Schema.org: Unified TaxiService + LocalBusiness -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "TaxiService",
+    "@type": ["TaxiService", "LocalBusiness"],
     "name": "Nomad Transfers KG",
+    "description": "Private airport transfers and day trips in Kyrgyzstan. English-speaking support, fixed prices per car.",
     "url": "https://nomad-transfer.vercel.app/",
+    "logo": "https://nomad-transfer.vercel.app/og-cover.svg",
+    "image": "https://nomad-transfer.vercel.app/og-cover.svg",
+    "telephone": "+996701250222",
+    "email": "info@nomad-transfer.kg",
+    "priceRange": "$140-$375",
     "areaServed": [
       {"@type":"Place","name":"Bishkek"},
       {"@type":"Place","name":"Manas Airport (FRU)"},
@@ -50,37 +56,6 @@
       {"@type":"Place","name":"Cholpon-Ata"},
       {"@type":"Place","name":"Karakol"}
     ],
-    "telephone": "+996701250222",
-	"image": "https://nomad-transfer.vercel.app/og-cover.svg",
-    "priceRange": "$140-$375",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "127",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "makesOffer": {
-      "@type": "OfferCatalog",
-      "name": "Manas ↔ Karakol",
-      "itemListElement": [
-        { "@type": "Offer", "name": "One-way Manas → Karakol (Sedan/SUV/Van)", "priceCurrency": "USD", "price": "140-210" },
-        { "@type": "Offer", "name": "Round trip Manas ↔ Karakol (Sedan/SUV/Van)", "priceCurrency": "USD", "price": "250-375" }
-      ]
-    }
-  }
-  </script>
-
-  <!-- Schema.org: LocalBusiness для локального SEO -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Nomad Transfers KG",
-    "description": "Private airport transfers and day trips in Kyrgyzstan. English-speaking support, fixed prices per car.",
-    "url": "https://nomad-transfer.vercel.app/",
-    "telephone": "+996701250222",
-    "email": "info@nomad-transfer.kg",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Bishkek",
@@ -97,11 +72,32 @@
       "opens": "00:00",
       "closes": "23:59"
     },
-    "priceRange": "$$$",
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.8",
-      "reviewCount": "127"
+      "reviewCount": "127",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "makesOffer": {
+      "@type": "OfferCatalog",
+      "name": "Manas ↔ Karakol",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "One-way Manas → Karakol (Sedan/SUV/Van)",
+          "priceCurrency": "USD",
+          "price": "140-210",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Round trip Manas ↔ Karakol (Sedan/SUV/Van)",
+          "priceCurrency": "USD",
+          "price": "250-375",
+          "availability": "https://schema.org/InStock"
+        }
+      ]
     }
   }
   </script>
