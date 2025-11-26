@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Car, Plane, Mountain, Route, MessageCircle, CheckCircle2, ChevronDown, Send } from "lucide-react";
+import { Car, Plane, Mountain, Route, MessageCircle, CheckCircle2, ChevronDown, Send, Globe } from "lucide-react";
 
 // ===== A/B бренд =====
 const BRAND_VARIANTS = { nomad: "Nomad Transfers KG", tienshan: "TienShan Transfers" };
@@ -354,6 +354,15 @@ export default function Landing() {
   const [lang, setLang] = useState(pickLang() as "en" | "ru" | "ko");
   const [brand] = useState(pickBrand());
   const [showMorePrices, setShowMorePrices] = useState(false);
+  const [showLangDropdown, setShowLangDropdown] = useState(false);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    if (!showLangDropdown) return;
+    const handleClick = () => setShowLangDropdown(false);
+    document.addEventListener("click", handleClick);
+    return () => document.removeEventListener("click", handleClick);
+  }, [showLangDropdown]);
 
   const t = TXT[lang];
   const WA_TEXT = lang === "en"
@@ -380,9 +389,53 @@ Lang: EN`
             <span className="text-sm font-semibold md:text-base">{brand}</span>
           </div>
           <div className="flex items-center gap-2">
-            <button onClick={() => setLang(lang === "en" ? "ru" : lang === "ru" ? "ko" : "en")} className="rounded-xl border px-3 py-2 text-xs font-medium hover:bg-slate-50">
-              {t.langBtn}
-            </button>
+            {/* Language Switcher */}
+            <div className="relative">
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setShowLangDropdown(!showLangDropdown);
+                }}
+                className="rounded-xl border px-3 py-2 text-xs font-medium hover:bg-slate-50"
+                aria-label="Change language"
+              >
+                <Globe className="h-4 w-4" />
+              </button>
+              {showLangDropdown && (
+                <div className="absolute right-0 top-full mt-2 w-36 rounded-xl border bg-white shadow-lg z-50">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setLang("ko");
+                      setShowLangDropdown(false);
+                    }}
+                    className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-50 first:rounded-t-xl ${lang === "ko" ? "font-semibold bg-slate-50" : ""}`}
+                  >
+                    🇰🇷 Korean
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setLang("en");
+                      setShowLangDropdown(false);
+                    }}
+                    className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-50 ${lang === "en" ? "font-semibold bg-slate-50" : ""}`}
+                  >
+                    🇬🇧 English
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setLang("ru");
+                      setShowLangDropdown(false);
+                    }}
+                    className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-50 last:rounded-b-xl ${lang === "ru" ? "font-semibold bg-slate-50" : ""}`}
+                  >
+                    🇷🇺 Russian
+                  </button>
+                </div>
+              )}
+            </div>
             <a
               href={`https://open.kakao.com/me/nomadtransfers`}
               target="_blank"
