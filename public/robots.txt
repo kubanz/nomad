@@ -8,4 +8,4 @@ Disallow: /?*
 Disallow: /src/
 Disallow: /static/
 
-Sitemap: https://nomad-transfer.vercel.app/sitemap.xml
+Sitemap: https://nomad-transfer.com/sitemap.xml
