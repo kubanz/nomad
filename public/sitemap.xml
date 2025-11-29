@@ -47,4 +47,37 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/manas-karakol-transfer.html"/>
   </url>
 
+  <!-- Karakol Ski Resort Guide - EN -->
+  <url>
+    <loc>https://nomad-transfer.com/en/karakol-ski-resort-guide.html</loc>
+    <lastmod>2025-11-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/karakol-ski-resort-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/karakol-gornolyzhnaya-baza.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/karakol-ski-resort.html"/>
+  </url>
+
+  <!-- Karakol Ski Resort Guide - RU -->
+  <url>
+    <loc>https://nomad-transfer.com/ru/karakol-gornolyzhnaya-baza.html</loc>
+    <lastmod>2025-11-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/karakol-ski-resort-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/karakol-gornolyzhnaya-baza.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/karakol-ski-resort.html"/>
+  </url>
+
+  <!-- Karakol Ski Resort Guide - KO -->
+  <url>
+    <loc>https://nomad-transfer.com/ko/karakol-ski-resort.html</loc>
+    <lastmod>2025-11-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/karakol-ski-resort-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/karakol-gornolyzhnaya-baza.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/karakol-ski-resort.html"/>
+  </url>
+
 </urlset>
