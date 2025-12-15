@@ -2,13 +2,10 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Car, Plane, Mountain, Route, MessageCircle, CheckCircle2, ChevronDown, Send, Globe } from "lucide-react";
 
-// ===== A/B бренд =====
-const BRAND_VARIANTS = { nomad: "Nomad Transfers KG", tienshan: "TienShan Transfers" };
+// ===== Бренд =====
+const BRAND_NAME = "Nomad Transfers KG";
 function pickBrand() {
-  const p = new URLSearchParams(typeof window !== "undefined" ? window.location.search : "");
-  const q = p.get("brand");
-  if (q && BRAND_VARIANTS[q as keyof typeof BRAND_VARIANTS]) return BRAND_VARIANTS[q as keyof typeof BRAND_VARIANTS];
-  return Math.random() < 0.5 ? BRAND_VARIANTS.nomad : BRAND_VARIANTS.tienshan;
+  return BRAND_NAME;
 }
 
 // ===== Язык =====
