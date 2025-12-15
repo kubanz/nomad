@@ -2,82 +2,141 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- Главная -->
+  <!-- ГЛАВНАЯ СТРАНИЦА -->
   <url>
     <loc>https://nomad-transfer.com/</loc>
-    <lastmod>2025-11-24</lastmod>
+    <lastmod>2024-12-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.com/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/manas-to-karakol-transfer.html"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/manas-karakol-transfer.html"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/manas-karakol-transfer.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/" />
   </url>
 
-  <!-- EN -->
-  <url>
-    <loc>https://nomad-transfer.com/en/manas-to-karakol-transfer.html</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.com/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/manas-karakol-transfer.html"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/manas-karakol-transfer.html"/>
-  </url>
+  <!-- ========== АНГЛИЙСКИЙ (EN) ========== -->
 
-  <!-- RU -->
   <url>
-    <loc>https://nomad-transfer.com/ru/manas-karakol-transfer.html</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.com/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/manas-to-karakol-transfer.html"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/manas-karakol-transfer.html"/>
-  </url>
-
-  <!-- KO -->
-  <url>
-    <loc>https://nomad-transfer.com/ko/manas-karakol-transfer.html</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://nomad-transfer.com/en/bishkek-to-karakol.html</loc>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.com/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/manas-to-karakol-transfer.html"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/manas-karakol-transfer.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/bishkek-to-karakol.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/bishkek-karakol.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/bishkek-karakol.html" />
   </url>
 
-  <!-- Karakol Ski Resort Guide - EN -->
+  <url>
+    <loc>https://nomad-transfer.com/en/almaty-to-karakol.html</loc>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/almaty-to-karakol.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/almaty-karakol.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/almaty-karakol.html" />
+  </url>
+
+  <url>
+    <loc>https://nomad-transfer.com/en/manas-airport-to-karakol.html</loc>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/manas-airport-to-karakol.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/manas-karakol.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/manas-karakol.html" />
+  </url>
+
   <url>
     <loc>https://nomad-transfer.com/en/karakol-ski-resort-guide.html</loc>
-    <lastmod>2025-11-29</lastmod>
+    <lastmod>2024-12-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/karakol-ski-resort-guide.html"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/karakol-gornolyzhnaya-baza.html"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/karakol-ski-resort.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/karakol-ski-resort-guide.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/karakol-gornolyzhnaya-baza.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/karakol-ski-resort.html" />
   </url>
 
-  <!-- Karakol Ski Resort Guide - RU -->
-  <url>
-    <loc>https://nomad-transfer.com/ru/karakol-gornolyzhnaya-baza.html</loc>
-    <lastmod>2025-11-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/karakol-ski-resort-guide.html"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/karakol-gornolyzhnaya-baza.html"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/karakol-ski-resort.html"/>
-  </url>
+  <!-- ========== РУССКИЙ (RU) ========== -->
 
-  <!-- Karakol Ski Resort Guide - KO -->
   <url>
-    <loc>https://nomad-transfer.com/ko/karakol-ski-resort.html</loc>
-    <lastmod>2025-11-29</lastmod>
+    <loc>https://nomad-transfer.com/ru/bishkek-karakol.html</loc>
+    <lastmod>2024-12-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/karakol-ski-resort-guide.html"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/karakol-gornolyzhnaya-baza.html"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/karakol-ski-resort.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/bishkek-karakol.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/bishkek-to-karakol.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/bishkek-karakol.html" />
+  </url>
+
+  <url>
+    <loc>https://nomad-transfer.com/ru/almaty-karakol.html</loc>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/almaty-karakol.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/almaty-to-karakol.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/almaty-karakol.html" />
+  </url>
+
+  <url>
+    <loc>https://nomad-transfer.com/ru/manas-karakol.html</loc>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/manas-karakol.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/manas-airport-to-karakol.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/manas-karakol.html" />
+  </url>
+
+  <url>
+    <loc>https://nomad-transfer.com/ru/karakol-gornolyzhnaya-baza.html</loc>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/karakol-gornolyzhnaya-baza.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/karakol-ski-resort-guide.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/karakol-ski-resort.html" />
+  </url>
+
+  <!-- ========== КОРЕЙСКИЙ (KO) ========== -->
+
+  <url>
+    <loc>https://nomad-transfer.com/ko/bishkek-karakol.html</loc>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/bishkek-karakol.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/bishkek-to-karakol.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/bishkek-karakol.html" />
+  </url>
+
+  <url>
+    <loc>https://nomad-transfer.com/ko/almaty-karakol.html</loc>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/almaty-karakol.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/almaty-to-karakol.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/almaty-karakol.html" />
+  </url>
+
+  <url>
+    <loc>https://nomad-transfer.com/ko/manas-karakol.html</loc>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/manas-karakol.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/manas-airport-to-karakol.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/manas-karakol.html" />
+  </url>
+
+  <url>
+    <loc>https://nomad-transfer.com/ko/karakol-ski-resort.html</loc>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/karakol-ski-resort.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/karakol-ski-resort-guide.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/karakol-gornolyzhnaya-baza.html" />
   </url>
 
 </urlset>
