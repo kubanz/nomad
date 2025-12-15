@@ -573,8 +573,8 @@ Lang: EN`
         </div>
       </section>
 
-      {/* Routes */}
-      <section id="routes" className="mx-auto max-w-6xl px-4 py-10">
+      {/* Routes - HIDDEN per user request */}
+      {/* <section id="routes" className="mx-auto max-w-6xl px-4 py-10">
         <div className="mb-3">
           <SectionTitle>{t.routesTitle}</SectionTitle>
           <p className="text-sm text-slate-600">{t.swipe}</p>
@@ -584,7 +584,7 @@ Lang: EN`
           <RouteCard title={t.r2} subtitle={t.r2s} icon={Route} />
           <RouteCard title={t.r3} subtitle={t.r3s} icon={Mountain} />
         </div>
-      </section>
+      </section> */}
 
       {/* Routes with Prices */}
       <section id="route-prices" className="mx-auto max-w-6xl px-4 py-10">
