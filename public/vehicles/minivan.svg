@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" fill="none">
+  <defs>
+    <linearGradient id="minivanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fef3c7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fde68a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Car body -->
+  <path d="M 35 50 L 45 35 L 75 30 L 130 30 L 155 35 L 165 50 Z" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
+  <path d="M 25 50 L 35 50 L 35 70 C 35 73 33 75 30 75 L 20 75 C 17 75 15 73 15 70 L 15 55 C 15 52 17 50 20 50 Z" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
+  <path d="M 165 50 L 175 50 L 180 50 C 183 50 185 52 185 55 L 185 70 C 185 73 183 75 180 75 L 170 75 C 167 75 165 73 165 70 Z" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
+
+  <!-- Windows -->
+  <path d="M 50 35 L 60 32 L 75 32 L 82 35 L 82 48 L 50 48 Z" fill="#6366f1" opacity="0.3" stroke="#1e293b" stroke-width="1"/>
+  <path d="M 90 35 L 110 32 L 125 32 L 133 35 L 133 48 L 90 48 Z" fill="#6366f1" opacity="0.3" stroke="#1e293b" stroke-width="1"/>
+  <path d="M 140 35 L 150 32 L 160 35 L 160 48 L 140 48 Z" fill="#6366f1" opacity="0.3" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Wheels -->
+  <circle cx="55" cy="77" r="12" fill="#1e293b"/>
+  <circle cx="55" cy="77" r="7" fill="#64748b"/>
+  <circle cx="145" cy="77" r="12" fill="#1e293b"/>
+  <circle cx="145" cy="77" r="7" fill="#64748b"/>
+
+  <!-- Details -->
+  <line x1="85" y1="32" x2="85" y2="48" stroke="#1e293b" stroke-width="1"/>
+  <line x1="137" y1="32" x2="137" y2="48" stroke="#1e293b" stroke-width="1"/>
+</svg>

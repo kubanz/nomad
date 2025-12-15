@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" fill="none">
+  <defs>
+    <linearGradient id="sedanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e0e7ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c7d2fe;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Car body -->
+  <path d="M 40 60 L 50 45 L 80 40 L 120 40 L 150 45 L 160 60 Z" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
+  <path d="M 30 60 L 40 60 L 40 75 C 40 78 38 80 35 80 L 25 80 C 22 80 20 78 20 75 L 20 65 C 20 62 22 60 25 60 Z" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
+  <path d="M 160 60 L 170 60 L 175 60 C 178 60 180 62 180 65 L 180 75 C 180 78 178 80 175 80 L 165 80 C 162 80 160 78 160 75 Z" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
+
+  <!-- Windows -->
+  <path d="M 55 45 L 65 42 L 90 42 L 95 45 L 95 58 L 55 58 Z" fill="#6366f1" opacity="0.3" stroke="#1e293b" stroke-width="1"/>
+  <path d="M 105 45 L 135 42 L 145 45 L 145 58 L 105 58 Z" fill="#6366f1" opacity="0.3" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Wheels -->
+  <circle cx="60" cy="82" r="12" fill="#1e293b"/>
+  <circle cx="60" cy="82" r="7" fill="#64748b"/>
+  <circle cx="140" cy="82" r="12" fill="#1e293b"/>
+  <circle cx="140" cy="82" r="7" fill="#64748b"/>
+
+  <!-- Details -->
+  <rect x="45" y="48" width="3" height="8" fill="#1e293b"/>
+  <rect x="152" y="48" width="3" height="8" fill="#1e293b"/>
+</svg>
