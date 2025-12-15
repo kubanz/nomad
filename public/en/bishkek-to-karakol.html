@@ -149,6 +149,62 @@ a:hover {
   color: #059669;
 }
 
+.vehicle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.vehicle-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.vehicle-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.vehicle-image {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  margin-bottom: 16px;
+  border-radius: 8px;
+}
+
+.vehicle-type {
+  font-size: 20px;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 8px 0;
+}
+
+.vehicle-seats {
+  color: #475569;
+  font-size: 14px;
+  margin: 8px 0;
+}
+
+.vehicle-price {
+  color: #059669;
+  font-weight: 600;
+  font-size: 24px;
+  margin: 12px 0;
+}
+
+@media (max-width: 768px) {
+  .vehicle-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 600px) {
   body {
     padding: 16px;
@@ -197,26 +253,40 @@ a:hover {
 </div>
 
 <div class="box">
-  <h2>Prices (per car, one-way)</h2>
-  <div class="row">
-    <span class="icon">🚗</span>
-    <span>Bishkek → Karakol: <span class="price">Sedan $110 · Van $130 · Bus $240</span></span>
+  <h2>Choose Your Vehicle</h2>
+  <div class="vehicle-grid">
+    <div class="vehicle-card">
+      <div class="vehicle-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; font-size: 60px;">🚗</div>
+      <div class="vehicle-type">Sedan</div>
+      <div class="vehicle-seats">Up to 4 seats</div>
+      <div class="vehicle-price">$110</div>
+    </div>
+    <div class="vehicle-card">
+      <div class="vehicle-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; font-size: 60px;">🚙</div>
+      <div class="vehicle-type">Minivan</div>
+      <div class="vehicle-seats">Up to 6-7 seats</div>
+      <div class="vehicle-price">$130</div>
+    </div>
+    <div class="vehicle-card">
+      <div class="vehicle-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); display: flex; align-items: center; justify-content: center; font-size: 60px;">🚐</div>
+      <div class="vehicle-type">Minibus</div>
+      <div class="vehicle-seats">Up to 15 seats</div>
+      <div class="vehicle-price">$240</div>
+    </div>
   </div>
-  <div class="row">
-    <span class="icon">🚗</span>
-    <span>Karakol → Bishkek: <span class="price">Sedan $110 · Van $130 · Bus $240</span></span>
-  </div>
-  <div class="row">
-    <span class="icon">✈️</span>
-    <span>Manas Airport pickup/dropoff: <span class="price">+$10 surcharge</span></span>
-  </div>
-  <div class="row">
-    <span class="icon">🌙</span>
-    <span>Night 22:00–06:00: <span class="price">+15%</span></span>
-  </div>
-  <div class="row">
-    <span class="icon">👶</span>
-    <span>Child seat on request</span>
+  <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
+    <div class="row">
+      <span class="icon">✈️</span>
+      <span>Manas Airport pickup/dropoff: <span class="price">+$10 surcharge</span></span>
+    </div>
+    <div class="row">
+      <span class="icon">🌙</span>
+      <span>Night 22:00–06:00: <span class="price">+15%</span></span>
+    </div>
+    <div class="row">
+      <span class="icon">👶</span>
+      <span>Child seat on request</span>
+    </div>
   </div>
 </div>
 
