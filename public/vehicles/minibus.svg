@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" fill="none">
+  <defs>
+    <linearGradient id="minibusGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dbeafe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#bfdbfe;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Car body (taller) -->
+  <path d="M 30 45 L 40 25 L 70 20 L 140 20 L 165 25 L 170 45 Z" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
+  <path d="M 20 45 L 30 45 L 30 68 C 30 71 28 73 25 73 L 15 73 C 12 73 10 71 10 68 L 10 50 C 10 47 12 45 15 45 Z" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
+  <path d="M 170 45 L 180 45 L 185 45 C 188 45 190 47 190 50 L 190 68 C 190 71 188 73 185 73 L 175 73 C 172 73 170 71 170 68 Z" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
+
+  <!-- Windows (more windows for minibus) -->
+  <path d="M 45 27 L 55 23 L 68 23 L 73 27 L 73 43 L 45 43 Z" fill="#6366f1" opacity="0.3" stroke="#1e293b" stroke-width="1"/>
+  <path d="M 80 27 L 95 23 L 108 23 L 113 27 L 113 43 L 80 43 Z" fill="#6366f1" opacity="0.3" stroke="#1e293b" stroke-width="1"/>
+  <path d="M 120 27 L 135 23 L 148 23 L 153 27 L 153 43 L 120 43 Z" fill="#6366f1" opacity="0.3" stroke="#1e293b" stroke-width="1"/>
+  <path d="M 158 30 L 163 27 L 168 30 L 168 43 L 158 43 Z" fill="#6366f1" opacity="0.3" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Wheels -->
+  <circle cx="50" cy="75" r="13" fill="#1e293b"/>
+  <circle cx="50" cy="75" r="8" fill="#64748b"/>
+  <circle cx="150" cy="75" r="13" fill="#1e293b"/>
+  <circle cx="150" cy="75" r="8" fill="#64748b"/>
+
+  <!-- Details -->
+  <line x1="76" y1="23" x2="76" y2="43" stroke="#1e293b" stroke-width="1"/>
+  <line x1="116" y1="23" x2="116" y2="43" stroke="#1e293b" stroke-width="1"/>
+  <line x1="156" y1="27" x2="156" y2="43" stroke="#1e293b" stroke-width="1"/>
+</svg>
