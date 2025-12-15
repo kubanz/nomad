@@ -22,7 +22,7 @@ function pickLang() {
 }
 
 // ===== WhatsApp & Messengers =====
-const WHATSAPP_PHONE = "+996701250222";
+const WHATSAPP_PHONE = "+996552291808";
 const KAKAO_PHONE = "+996557081821";
 
 // ===== Тексты =====
@@ -91,6 +91,17 @@ const TXT = {
     faq5a: "All our prices are per car (private vehicle), not per person. This makes our service very economical for families and groups. A Sedan fits up to 3 passengers, SUV up to 4, and Van up to 6 passengers.",
     faq6q: "Do you provide child seats?",
     faq6a: "Yes, we provide child seats upon request at no extra charge. Please mention this when booking via WhatsApp so we can prepare the appropriate seat for your child's age and weight.",
+    routePricesTitle: "Routes with Prices",
+    route1Title: "Bishkek ↔ Karakol",
+    route1Distance: "Distance: 270 km | Duration: ~5h",
+    route1Price: "Sedan $110 · Van $130 · Bus $240",
+    route2Title: "Almaty ↔ Karakol (via Kegen)",
+    route2Distance: "Distance: 350 km | Duration: ~6h",
+    route2Price: "Sedan $200 · Van $250 · Bus $460",
+    route3Title: "Manas Airport ↔ Karakol",
+    route3Distance: "Distance: 270 km | Duration: ~5h",
+    route3Price: "Sedan $120 · Van $140 · Bus $250",
+    learnMore: "Learn More",
   },
   ru: {
     badge1: "Поддержка на англ. в WhatsApp",
@@ -156,6 +167,17 @@ const TXT = {
     faq5a: "Все наши цены указаны за автомобиль (частный транспорт), а не за человека. Это делает наш сервис очень выгодным для семей и групп. Седан вмещает до 3 пассажиров, SUV до 4, Минивэн до 6 пассажиров.",
     faq6q: "Вы предоставляете детские кресла?",
     faq6a: "Да, мы предоставляем детские кресла по запросу без дополнительной платы. Пожалуйста, упомяните об этом при бронировании через WhatsApp, чтобы мы могли подготовить подходящее кресло для возраста и веса вашего ребёнка.",
+    routePricesTitle: "Маршруты с ценами",
+    route1Title: "Бишкек ↔ Каракол",
+    route1Distance: "Расстояние: 270 км | Время: ~5ч",
+    route1Price: "Седан $110 · Минивэн $130 · Бусы $240",
+    route2Title: "Алматы ↔ Каракол (через Кеген)",
+    route2Distance: "Расстояние: 350 км | Время: ~6ч",
+    route2Price: "Седан $200 · Минивэн $250 · Бусы $460",
+    route3Title: "Аэропорт Манас ↔ Каракол",
+    route3Distance: "Расстояние: 270 км | Время: ~5ч",
+    route3Price: "Седан $120 · Минивэн $140 · Бусы $250",
+    learnMore: "Подробнее",
   },
   ko: {
     badge1: "영어 지원 (WhatsApp)",
@@ -221,18 +243,35 @@ const TXT = {
     faq5a: "모든 가격은 차량당(전용 차량) 가격이며, 인당 가격이 아닙니다. 가족 및 그룹에게 매우 경제적입니다. 세단은 최대 3명, SUV는 최대 4명, 밴은 최대 6명까지 탑승 가능합니다.",
     faq6q: "유아용 시트를 제공하나요?",
     faq6a: "네, 요청 시 추가 비용 없이 유아용 시트를 제공합니다. WhatsApp으로 예약 시 자녀의 나이와 체중에 맞는 시트를 준비할 수 있도록 알려주세요.",
+    routePricesTitle: "가격 포함 노선",
+    route1Title: "비슈케크 ↔ 카라콜",
+    route1Distance: "거리: 270 km | 시간: ~5시간",
+    route1Price: "세단 $110 · 밴 $130 · 버스 $240",
+    route2Title: "알마티 ↔ 카라콜(케겐 경유)",
+    route2Distance: "거리: 350 km | 시간: ~6시간",
+    route2Price: "세단 $200 · 밴 $250 · 버스 $460",
+    route3Title: "마나스 공항 ↔ 카라콜",
+    route3Distance: "거리: 270 km | 시간: ~5시간",
+    route3Price: "세단 $120 · 밴 $140 · 버스 $250",
+    learnMore: "더 알아보기",
   },
 } as const;
 
 const BASE_PRICES_BY_LANG: Record<"en"|"ru"|"ko", { route: string; sedan: number; suv: number; van: number }[]> = {
   en: [
-    { route: "Bishkek → Karakol", sedan: 110, suv: 130, van: 240 }
+    { route: "Bishkek → Karakol", sedan: 110, suv: 130, van: 240 },
+    { route: "Almaty → Karakol (via Kegen)", sedan: 200, suv: 250, van: 460 },
+    { route: "Manas Airport → Karakol", sedan: 120, suv: 140, van: 250 }
   ],
   ru: [
-    { route: "Бишкек → Каракол", sedan: 110, suv: 130, van: 240 }
+    { route: "Бишкек → Каракол", sedan: 110, suv: 130, van: 240 },
+    { route: "Алматы → Каракол (через Кеген)", sedan: 200, suv: 250, van: 460 },
+    { route: "Аэропорт Манас → Каракол", sedan: 120, suv: 140, van: 250 }
   ],
   ko: [
-    { route: "비슈케크 → 카라콜", sedan: 110, suv: 130, van: 240 }
+    { route: "비슈케크 → 카라콜", sedan: 110, suv: 130, van: 240 },
+    { route: "알마티 → 카라콜(케겐 경유)", sedan: 200, suv: 250, van: 460 },
+    { route: "마나스 공항 → 카라콜", sedan: 120, suv: 140, van: 250 }
   ]
 };
 
@@ -268,6 +307,25 @@ const Accordion = ({ title, children, defaultOpen = false }: { title: string; ch
     </div>
   );
 };
+
+const RoutePriceCard = ({ title, distance, price, link }: { title: string; distance: string; price: string; link: string }) => (
+  <a
+    href={link}
+    className="block rounded-xl border bg-white/80 p-5 shadow-sm backdrop-blur-sm transition-shadow hover:shadow-lg"
+  >
+    <div className="flex items-start gap-3">
+      <div className="text-2xl">🚗</div>
+      <div className="flex-1">
+        <h3 className="text-lg font-semibold">{title}</h3>
+        <p className="mt-1 text-sm text-slate-600">{distance}</p>
+        <p className="mt-2 text-sm font-medium text-emerald-600">{price}</p>
+        <button className="mt-3 inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700">
+          Learn More →
+        </button>
+      </div>
+    </div>
+  </a>
+);
 
 const RouteCard = ({ title, subtitle, icon: Icon }: { title: string; subtitle: string; icon: any }) => (
   <div className="snap-start min-w-[260px] shrink-0 rounded-2xl border bg-white p-4 shadow-sm">
@@ -531,6 +589,33 @@ Lang: EN`
         </div>
       </section>
 
+      {/* Routes with Prices */}
+      <section id="route-prices" className="mx-auto max-w-6xl px-4 py-10">
+        <div className="mb-4">
+          <SectionTitle>{t.routePricesTitle}</SectionTitle>
+        </div>
+        <div className="grid gap-4 md:grid-cols-3">
+          <RoutePriceCard
+            title={t.route1Title}
+            distance={t.route1Distance}
+            price={t.route1Price}
+            link={lang === "en" ? "/en/bishkek-to-karakol.html" : lang === "ru" ? "/ru/bishkek-karakol.html" : "/ko/bishkek-karakol.html"}
+          />
+          <RoutePriceCard
+            title={t.route2Title}
+            distance={t.route2Distance}
+            price={t.route2Price}
+            link={lang === "en" ? "/en/almaty-to-karakol.html" : lang === "ru" ? "/ru/almaty-karakol.html" : "/ko/almaty-karakol.html"}
+          />
+          <RoutePriceCard
+            title={t.route3Title}
+            distance={t.route3Distance}
+            price={t.route3Price}
+            link={lang === "en" ? "/en/manas-airport-to-karakol.html" : lang === "ru" ? "/ru/manas-karakol.html" : "/ko/manas-karakol.html"}
+          />
+        </div>
+      </section>
+
       {/* How it works */}
       <section id="how" className="mx-auto max-w-6xl space-y-3 px-4 py-10">
         <SectionTitle>{t.howTitle}</SectionTitle>
@@ -605,19 +690,31 @@ Lang: EN`
       <footer className="border-t bg-white/80">
 	  <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-6 md:flex-row">
 		<p className="text-xs opacity-80">© {new Date().getFullYear()} {brand}</p>
-		<nav className="text-xs opacity-80 flex gap-3">
-		  <a href="/en/manas-to-karakol-transfer.html">EN: Manas → Karakol</a>
-		  <a href="/ru/manas-karakol-transfer.html">RU: Манас → Каракол</a>
-		  <a href="/ko/manas-karakol-transfer.html">KO: 마나스 → 카라콜</a>
+		<nav className="text-xs opacity-80 flex flex-col gap-2 text-center md:text-left">
+		  <div className="flex gap-3">
+		    <a href="/en/bishkek-to-karakol.html" className="hover:text-emerald-600">EN: Bishkek → Karakol</a>
+		    <a href="/en/almaty-to-karakol.html" className="hover:text-emerald-600">EN: Almaty → Karakol</a>
+		    <a href="/en/manas-airport-to-karakol.html" className="hover:text-emerald-600">EN: Manas Airport → Karakol</a>
+		  </div>
+		  <div className="flex gap-3">
+		    <a href="/ru/bishkek-karakol.html" className="hover:text-emerald-600">RU: Бишкек → Каракол</a>
+		    <a href="/ru/almaty-karakol.html" className="hover:text-emerald-600">RU: Алматы → Каракол</a>
+		    <a href="/ru/manas-karakol.html" className="hover:text-emerald-600">RU: Манас → Каракол</a>
+		  </div>
+		  <div className="flex gap-3">
+		    <a href="/ko/bishkek-karakol.html" className="hover:text-emerald-600">KO: 비슈케크 → 카라콜</a>
+		    <a href="/ko/almaty-karakol.html" className="hover:text-emerald-600">KO: 알마티 → 카라콜</a>
+		    <a href="/ko/manas-karakol.html" className="hover:text-emerald-600">KO: 마나스 → 카라콜</a>
+		  </div>
 		</nav>
 		<div className="flex gap-2">
 		  <a href={`https://open.kakao.com/me/nomadtransfers`} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border border-yellow-400 px-4 py-2 text-sm text-yellow-600 hover:bg-yellow-50" title={`KakaoTalk: ${KAKAO_PHONE}`}>
 			<MessageCircle className="h-4 w-4" /> KakaoTalk
 		  </a>
-		  <a href={`https://t.me/996701250222`} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border border-sky-500 px-4 py-2 text-sm text-sky-600 hover:bg-sky-50">
+		  <a href={`https://t.me/${WHATSAPP_PHONE.replace(/[^0-9]/g, "")}`} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border border-sky-500 px-4 py-2 text-sm text-sky-600 hover:bg-sky-50">
 			<Send className="h-4 w-4" /> Telegram
 		  </a>
-		  <a href={`https://wa.me/996701250222?text=Hi!%20Manas%20%E2%86%94%20Karakol`} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border border-emerald-500 px-4 py-2 text-sm text-emerald-600 hover:bg-emerald-50">
+		  <a href={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=Hi!%20Karakol%20transfer`} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border border-emerald-500 px-4 py-2 text-sm text-emerald-600 hover:bg-emerald-50">
 			<MessageCircle className="h-4 w-4" /> WhatsApp
 		  </a>
 		</div>
