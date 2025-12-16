@@ -54,10 +54,11 @@ const TXT = {
     thVan: "Bus (15 seats)",
     showAll: "Show all prices",
     showLess: "Show less",
-    notes1: "• Pickup/drop-off at Manas Airport: +$10 surcharge.",
-    notes2: "• Free waiting: 60 min at airport, 30 min in city. Extra waiting $8/h.",
-    notes3: "• Night rides 22:00–06:00: +15% surcharge.",
-    notes4: "• Song-Kol trips: summer only; cold nights, no mobile signal; free cancel ≥48h.",
+    // Hidden per user request
+    // notes1: "• Pickup/drop-off at Manas Airport: +$10 surcharge.",
+    // notes2: "• Free waiting: 60 min at airport, 30 min in city. Extra waiting $8/h.",
+    // notes3: "• Night rides 22:00–06:00: +15% surcharge.",
+    // notes4: "• Song-Kol trips: summer only; cold nights, no mobile signal; free cancel ≥48h.",
     bookWA: "Book on WhatsApp",
     inclTitle: "What's included",
     inclHdr: "Included",
@@ -130,10 +131,11 @@ const TXT = {
     thVan: "Бусы (15 мест)",
     showAll: "Показать все цены",
     showLess: "Свернуть",
-    notes1: "• Трансфер из/в аэропорт Манас: доплата +$10.",
-    notes2: "• Бесплатное ожидание: 60 мин аэропорт, 30 мин город. Далее $8/ч.",
-    notes3: "• Ночной тариф 22:00–06:00: +15%.",
-    notes4: "• Сон-Кёль: только летом; холодные ночи; отмена ≥48ч бесплатно.",
+    // Hidden per user request
+    // notes1: "• Трансфер из/в аэропорт Манас: доплата +$10.",
+    // notes2: "• Бесплатное ожидание: 60 мин аэропорт, 30 мин город. Далее $8/ч.",
+    // notes3: "• Ночной тариф 22:00–06:00: +15%.",
+    // notes4: "• Сон-Кёль: только летом; холодные ночи; отмена ≥48ч бесплатно.",
     bookWA: "Забронировать в WhatsApp",
     inclTitle: "Что включено",
     inclHdr: "Включено",
@@ -206,10 +208,11 @@ const TXT = {
     thVan: "버스 (15명)",
     showAll: "모든 요금 보기",
     showLess: "접기",
-    notes1: "• 마나스 공항 픽업/드롭: +$10 추가 요금.",
-    notes2: "• 무료 대기: 공항 60분, 시내 30분. 이후 대기는 $8/시간.",
-    notes3: "• 야간(22:00–06:00): +15% 할증.",
-    notes4: "• 송쿨: 여름만 운영; 밤에는 춥고 통신 없음; 48시간 이전 무료취소.",
+    // Hidden per user request
+    // notes1: "• 마나스 공항 픽업/드롭: +$10 추가 요금.",
+    // notes2: "• 무료 대기: 공항 60분, 시내 30분. 이후 대기는 $8/시간.",
+    // notes3: "• 야간(22:00–06:00): +15% 할증.",
+    // notes4: "• 송쿨: 여름만 운영; 밤에는 춥고 통신 없음; 48시간 이전 무료취소.",
     bookWA: "WhatsApp로 예약",
     inclTitle: "포함 사항",
     inclHdr: "포함",
@@ -272,11 +275,12 @@ const BASE_PRICES_BY_LANG: Record<"en"|"ru"|"ko", { route: string; sedan: number
   ]
 };
 
-const MORE_PRICES_BY_LANG: Record<"en"|"ru"|"ko", { route: string; sedan: number; suv: number; van: number }[]> = {
-  en: [{ route: "Bishkek → Song-Kol (yurt area)", sedan: 180, suv: 220, van: 270 }],
-  ru: [{ route: "Бишкек → Сон-Кёль (юрты)", sedan: 180, suv: 220, van: 270 }],
-  ko: [{ route: "비슈케크 → 송쿨(유르트 지역)", sedan: 180, suv: 220, van: 270 }]
-};
+// Hidden per user request
+// const MORE_PRICES_BY_LANG: Record<"en"|"ru"|"ko", { route: string; sedan: number; suv: number; van: number }[]> = {
+//   en: [{ route: "Bishkek → Song-Kol (yurt area)", sedan: 180, suv: 220, van: 270 }],
+//   ru: [{ route: "Бишкек → Сон-Кёль (юрты)", sedan: 180, suv: 220, van: 270 }],
+//   ko: [{ route: "비슈케크 → 송쿨(유르트 지역)", sedan: 180, suv: 220, van: 270 }]
+// };
 
 const Badge = ({ children }: { children: React.ReactNode }) => (
   <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-white backdrop-blur">
@@ -372,7 +376,8 @@ function MobileCTA({ text, reply, lang }: { text: string; reply: string; lang: "
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 border-t bg-white/95 p-3 shadow-2xl md:hidden">
       <div className="flex items-center gap-2">
-        <a
+        {/* KakaoTalk hidden per user request */}
+        {/* <a
           href={`https://open.kakao.com/me/nomadtransfers`}
           target="_blank"
           className="flex items-center justify-center gap-2 rounded-xl bg-yellow-400 px-3 py-3 text-sm font-semibold text-slate-900 hover:bg-yellow-500"
@@ -380,7 +385,7 @@ function MobileCTA({ text, reply, lang }: { text: string; reply: string; lang: "
           title={`KakaoTalk: ${KAKAO_PHONE}`}
         >
           <MessageCircle className="h-4 w-4" />
-        </a>
+        </a> */}
         <a
           href={`https://t.me/` + WHATSAPP_PHONE.replace(/[^0-9]/g, "")}
           target="_blank"
@@ -408,7 +413,6 @@ function MobileCTA({ text, reply, lang }: { text: string; reply: string; lang: "
 export default function Landing() {
   const [lang, setLang] = useState(pickLang() as "en" | "ru" | "ko");
   const [brand] = useState(pickBrand());
-  const [showMorePrices, setShowMorePrices] = useState(false);
   const [showLangDropdown, setShowLangDropdown] = useState(false);
 
   // Close dropdown when clicking outside
@@ -421,16 +425,10 @@ export default function Landing() {
 
   const t = TXT[lang];
   const WA_TEXT = lang === "en"
-    ? `Hi! I need a private transfer/day trip in Kyrgyzstan. Please share price & availability.
-Brand: ${brand}
-Lang: EN`
+    ? `Hi! I need a private transfer/day trip in Kyrgyzstan. Please share price & availability.`
     : lang === "ru"
-    ? `Здравствуйте! Нужен частный трансфер/однодневка по Кыргызстану. Пришлите цену и доступность.
-Бренд: ${brand}
-Язык: RU`
-    : `안녕하세요! 키르기스스탄 전용 차량(공항 픽업/당일투어) 문의드립니다. 요금과 가능 여부 부탁드립니다.
-브랜드: ${brand}
-언어: KO`;
+    ? `Здравствуйте! Нужен частный трансфер/однодневка по Кыргызстану. Пришлите цену и доступность.`
+    : `안녕하세요! 키르기스스탄 전용 차량(공항 픽업/당일투어) 문의드립니다. 요금과 가능 여부 부탁드립니다.`;
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 pb-16 md:pb-0">
@@ -491,7 +489,8 @@ Lang: EN`
                 </div>
               )}
             </div>
-            <a
+            {/* KakaoTalk hidden per user request */}
+            {/* <a
               href={`https://open.kakao.com/me/nomadtransfers`}
               target="_blank"
               className="hidden items-center gap-2 rounded-xl bg-yellow-400 px-3 py-2 text-sm font-medium text-slate-900 hover:bg-yellow-500 md:inline-flex"
@@ -499,7 +498,7 @@ Lang: EN`
               title={`KakaoTalk: ${KAKAO_PHONE}`}
             >
               <MessageCircle className="h-4 w-4" />
-            </a>
+            </a> */}
             <a
               href={`https://t.me/` + WHATSAPP_PHONE.replace(/[^0-9]/g, "")}
               target="_blank"
@@ -547,7 +546,8 @@ Lang: EN`
               >
                 <Send className="h-4 w-4" /> Telegram
               </a>
-              <a
+              {/* KakaoTalk hidden per user request */}
+              {/* <a
                 href={`https://open.kakao.com/me/nomadtransfers`}
                 target="_blank"
                 className="inline-flex items-center gap-2 rounded-xl bg-yellow-400 px-4 py-3 text-sm font-medium text-slate-900 hover:bg-yellow-500"
@@ -555,7 +555,7 @@ Lang: EN`
                 title={`KakaoTalk: ${KAKAO_PHONE}`}
               >
                 <MessageCircle className="h-4 w-4" /> KakaoTalk
-              </a>
+              </a> */}
               <a href="#prices" className="inline-flex items-center gap-2 rounded-xl bg-black/20 px-4 py-3 text-sm font-medium text-white hover:bg-black/30">
                 {t.heroBtnPrices}
               </a>
@@ -625,24 +625,13 @@ Lang: EN`
       <section id="prices" className="mx-auto max-w-6xl px-4 py-10">
         <SectionTitle>{t.pricesTitle}</SectionTitle>
         <PriceTable items={BASE_PRICES_BY_LANG[lang]} headers={{ route: t.thRoute, sedan: t.thSedan, suv: t.thSUV, van: t.thVan }} />
-        {showMorePrices ? (
-          <div className="mt-3 space-y-3">
-            <PriceTable items={MORE_PRICES_BY_LANG[lang]} headers={{ route: t.thRoute, sedan: t.thSedan, suv: t.thSUV, van: t.thVan }} />
-            <button onClick={() => setShowMorePrices(false)} className="mt-2 w-full rounded-xl border px-4 py-3 text-sm font-medium hover:bg-slate-50">
-              {t.showLess}
-            </button>
-          </div>
-        ) : (
-          <button onClick={() => setShowMorePrices(true)} className="mt-3 w-full rounded-xl border px-4 py-3 text-sm font-medium hover:bg-slate-50">
-            {t.showAll}
-          </button>
-        )}
-        <ul className="mt-3 space-y-1 text-xs text-slate-600">
+        {/* Notes hidden per user request */}
+        {/* <ul className="mt-3 space-y-1 text-xs text-slate-600">
           <li>{t.notes1}</li>
           <li>{t.notes2}</li>
           <li>{t.notes3}</li>
           <li>{t.notes4}</li>
-        </ul>
+        </ul> */}
         <div className="mt-4 flex flex-wrap gap-3">
           <a
             href={`https://wa.me/` + WHATSAPP_PHONE.replace(/[^0-9+]/g, "") + `?text=${encodeURIComponent(WA_TEXT)}`}
@@ -705,9 +694,10 @@ Lang: EN`
 		  </div>
 		</nav>
 		<div className="flex gap-2">
-		  <a href={`https://open.kakao.com/me/nomadtransfers`} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border border-yellow-400 px-4 py-2 text-sm text-yellow-600 hover:bg-yellow-50" title={`KakaoTalk: ${KAKAO_PHONE}`}>
+		  {/* KakaoTalk hidden per user request */}
+		  {/* <a href={`https://open.kakao.com/me/nomadtransfers`} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border border-yellow-400 px-4 py-2 text-sm text-yellow-600 hover:bg-yellow-50" title={`KakaoTalk: ${KAKAO_PHONE}`}>
 			<MessageCircle className="h-4 w-4" /> KakaoTalk
-		  </a>
+		  </a> */}
 		  <a href={`https://t.me/${WHATSAPP_PHONE.replace(/[^0-9]/g, "")}`} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border border-sky-500 px-4 py-2 text-sm text-sky-600 hover:bg-sky-50">
 			<Send className="h-4 w-4" /> Telegram
 		  </a>
