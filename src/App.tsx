@@ -14,8 +14,9 @@ function pickLang() {
     const l = navigator.language?.toLowerCase() || "";
     if (l.startsWith("ko")) return "ko";
     if (l.startsWith("ru")) return "ru";
+    if (l.startsWith("en")) return "en";
   }
-  return "ko";
+  return "en";
 }
 
 // ===== WhatsApp & Messengers =====
@@ -459,22 +460,22 @@ export default function Landing() {
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      setLang("ko");
+                      setLang("en");
                       setShowLangDropdown(false);
                     }}
-                    className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-50 first:rounded-t-xl ${lang === "ko" ? "font-semibold bg-slate-50" : ""}`}
+                    className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-50 first:rounded-t-xl ${lang === "en" ? "font-semibold bg-slate-50" : ""}`}
                   >
-                    🇰🇷 Korean
+                    🇬🇧 English
                   </button>
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      setLang("en");
+                      setLang("ko");
                       setShowLangDropdown(false);
                     }}
-                    className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-50 ${lang === "en" ? "font-semibold bg-slate-50" : ""}`}
+                    className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-50 ${lang === "ko" ? "font-semibold bg-slate-50" : ""}`}
                   >
-                    🇬🇧 English
+                    🇰🇷 Korean
                   </button>
                   <button
                     onClick={(e) => {
