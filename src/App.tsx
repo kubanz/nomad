@@ -36,7 +36,7 @@ const TXT = {
     swipe: "Swipe → to see more",
     routesTitle: "Popular routes",
     r1: "Airport → Issyk-Kul (north shore)",
-    r1s: "From $95 per car • 60-min free waiting",
+    r1s: "From $110 per car • 60-min free waiting",
     r2: "Burana & Skazka (1-day)",
     r2s: "Flexible timing • Optional eagle show",
     r3: "Song-Kol overnight (summer)",
@@ -79,7 +79,7 @@ const TXT = {
     heroBullets: ["60 min free waiting (airport)", "Child seat on request", "Pay on the day"],
     faqTitle: "Frequently Asked Questions",
     faq1q: "How much is a transfer from Manas Airport to Karakol?",
-    faq1a: "Private transfer from Manas Airport to Karakol costs $140 for a Sedan, $170 for an SUV, and $210 for a Van (per car, not per person). The price includes 60-min free airport waiting, meet & greet with name board, and English-speaking support.",
+    faq1a: "Private transfer from Manas Airport to Karakol costs $155 for a Sedan, $185 for an SUV, and $225 for a Van (per car, not per person). The price includes 60-min free airport waiting, meet & greet with name board, and English-speaking support.",
     faq2q: "How long is the drive from Manas Airport to Karakol?",
     faq2a: "The drive from Manas Airport (FRU) to Karakol takes approximately 4-5 hours (400 km) depending on traffic and stops. We include short photo stops along the scenic route around Issyk-Kul lake.",
     faq3q: "Do you offer airport pickup with a name board?",
@@ -93,13 +93,13 @@ const TXT = {
     routePricesTitle: "Routes with Prices",
     route1Title: "Bishkek to Karakol",
     route1Distance: "Distance: 270 km | Duration: ~5h",
-    route1Price: "Sedan $110 · Van $130 · Bus $240",
+    route1Price: "Sedan $125 · Van $145 · Bus $255",
     route2Title: "Almaty to Karakol (via Kegen)",
     route2Distance: "Distance: 350 km | Duration: ~6h",
-    route2Price: "Sedan $200 · Van $250 · Bus $460",
+    route2Price: "Sedan $215 · Van $265 · Bus $475",
     route3Title: "Manas Airport to Karakol",
     route3Distance: "Distance: 270 km | Duration: ~5h",
-    route3Price: "Sedan $120 · Van $140 · Bus $250",
+    route3Price: "Sedan $135 · Van $155 · Bus $265",
     learnMore: "Learn More",
   },
   ru: {
@@ -113,7 +113,7 @@ const TXT = {
     swipe: "Свайпните →",
     routesTitle: "Популярные маршруты",
     r1: "Аэропорт → Иссык-Куль (север)",
-    r1s: "От $95 за авто • 60 мин ожидания бесплатно",
+    r1s: "От $110 за авто • 60 мин ожидания бесплатно",
     r2: "Бурана и Каньон Сказка (1 день)",
     r2s: "Гибкий график • Шоу беркута — по желанию",
     r3: "Ночёвка на Сон-Кёле (летом)",
@@ -156,7 +156,7 @@ const TXT = {
     heroBullets: ["60 мин ожидания (аэропорт)", "Детское кресло по запросу", "Оплата в день поездки"],
     faqTitle: "Частые вопросы",
     faq1q: "Сколько стоит трансфер из аэропорта Манас в Каракол?",
-    faq1a: "Частный трансфер из аэропорта Манас в Каракол стоит $140 за Седан, $170 за SUV и $210 за Минивэн (цена за авто, не за человека). В цену включено 60 мин бесплатного ожидания в аэропорту, встреча с табличкой и англоязычная поддержка.",
+    faq1a: "Частный трансфер из аэропорта Манас в Каракол стоит $155 за Седан, $185 за SUV и $225 за Минивэн (цена за авто, не за человека). В цену включено 60 мин бесплатного ожидания в аэропорту, встреча с табличкой и англоязычная поддержка.",
     faq2q: "Сколько времени занимает дорога из Манаса в Каракол?",
     faq2a: "Дорога из аэропорта Манас в Каракол занимает примерно 4-5 часов (400 км) в зависимости от трафика и остановок. Мы включаем короткие фото-стопы на живописном маршруте вдоль озера Иссык-Куль.",
     faq3q: "Вы встречаете в аэропорту с табличкой?",
@@ -170,13 +170,13 @@ const TXT = {
     routePricesTitle: "Маршруты с ценами",
     route1Title: "Бишкек — Каракол",
     route1Distance: "Расстояние: 270 км | Время: ~5ч",
-    route1Price: "Седан $110 · Минивэн $130 · Бусы $240",
+    route1Price: "Седан $125 · Минивэн $145 · Бусы $255",
     route2Title: "Алматы — Каракол (через Кеген)",
     route2Distance: "Расстояние: 350 км | Время: ~6ч",
-    route2Price: "Седан $200 · Минивэн $250 · Бусы $460",
+    route2Price: "Седан $215 · Минивэн $265 · Бусы $475",
     route3Title: "Аэропорт Манас — Каракол",
     route3Distance: "Расстояние: 270 км | Время: ~5ч",
-    route3Price: "Седан $120 · Минивэн $140 · Бусы $250",
+    route3Price: "Седан $135 · Минивэн $155 · Бусы $265",
     learnMore: "Подробнее",
   },
   ko: {
@@ -190,7 +190,7 @@ const TXT = {
     swipe: "더 보려면 → 스와이프",
     routesTitle: "인기 노선",
     r1: "공항 → 이식쿨(북안)",
-    r1s: "차량당 $95부터 • 공항 대기 60분 무료",
+    r1s: "차량당 $110부터 • 공항 대기 60분 무료",
     r2: "부라나 & 스카즈카(당일)",
     r2s: "유연한 일정 • 독수리쇼 선택",
     r3: "송쿨 1박(여름)",
@@ -233,7 +233,7 @@ const TXT = {
     heroBullets: ["공항 대기 60분 무료", "유아용 시트(요청 시)", "당일 결제"],
     faqTitle: "자주 묻는 질문",
     faq1q: "마나스 공항에서 카라콜까지 얼마인가요?",
-    faq1a: "마나스 공항에서 카라콜까지 전용 차량 요금은 세단 $140, SUV $170, 밴 $210입니다 (차량당 가격, 인당 아님). 60분 무료 공항 대기, 네임보드 미팅, 영어 지원 포함.",
+    faq1a: "마나스 공항에서 카라콜까지 전용 차량 요금은 세단 $155, SUV $185, 밴 $225입니다 (차량당 가격, 인당 아님). 60분 무료 공항 대기, 네임보드 미팅, 영어 지원 포함.",
     faq2q: "마나스에서 카라콜까지 얼마나 걸리나요?",
     faq2a: "마나스 공항에서 카라콜까지는 약 4-5시간(400km) 소요됩니다. 교통 상황과 휴게소에 따라 달라질 수 있습니다. 이식쿨 호수 주변의 경치 좋은 곳에서 짧은 포토 스톱을 포함합니다.",
     faq3q: "공항 픽업 시 네임보드를 들고 계시나요?",
@@ -247,32 +247,32 @@ const TXT = {
     routePricesTitle: "가격 포함 노선",
     route1Title: "비슈케크 — 카라콜",
     route1Distance: "거리: 270 km | 시간: ~5시간",
-    route1Price: "세단 $110 · 밴 $130 · 버스 $240",
+    route1Price: "세단 $125 · 밴 $145 · 버스 $255",
     route2Title: "알마티 — 카라콜(케겐 경유)",
     route2Distance: "거리: 350 km | 시간: ~6시간",
-    route2Price: "세단 $200 · 밴 $250 · 버스 $460",
+    route2Price: "세단 $215 · 밴 $265 · 버스 $475",
     route3Title: "마나스 공항 — 카라콜",
     route3Distance: "거리: 270 km | 시간: ~5시간",
-    route3Price: "세단 $120 · 밴 $140 · 버스 $250",
+    route3Price: "세단 $135 · 밴 $155 · 버스 $265",
     learnMore: "더 알아보기",
   },
 } as const;
 
 const BASE_PRICES_BY_LANG: Record<"en"|"ru"|"ko", { route: string; sedan: number; suv: number; van: number }[]> = {
   en: [
-    { route: "Bishkek → Karakol", sedan: 110, suv: 130, van: 240 },
-    { route: "Almaty → Karakol (via Kegen)", sedan: 200, suv: 250, van: 460 },
-    { route: "Manas Airport → Karakol", sedan: 120, suv: 140, van: 250 }
+    { route: "Bishkek → Karakol", sedan: 125, suv: 145, van: 255 },
+    { route: "Almaty → Karakol (via Kegen)", sedan: 215, suv: 265, van: 475 },
+    { route: "Manas Airport → Karakol", sedan: 135, suv: 155, van: 265 }
   ],
   ru: [
-    { route: "Бишкек → Каракол", sedan: 110, suv: 130, van: 240 },
-    { route: "Алматы → Каракол (через Кеген)", sedan: 200, suv: 250, van: 460 },
-    { route: "Аэропорт Манас → Каракол", sedan: 120, suv: 140, van: 250 }
+    { route: "Бишкек → Каракол", sedan: 125, suv: 145, van: 255 },
+    { route: "Алматы → Каракол (через Кеген)", sedan: 215, suv: 265, van: 475 },
+    { route: "Аэропорт Манас → Каракол", sedan: 135, suv: 155, van: 265 }
   ],
   ko: [
-    { route: "비슈케크 → 카라콜", sedan: 110, suv: 130, van: 240 },
-    { route: "알마티 → 카라콜(케겐 경유)", sedan: 200, suv: 250, van: 460 },
-    { route: "마나스 공항 → 카라콜", sedan: 120, suv: 140, van: 250 }
+    { route: "비슈케크 → 카라콜", sedan: 125, suv: 145, van: 255 },
+    { route: "알마티 → 카라콜(케겐 경유)", sedan: 215, suv: 265, van: 475 },
+    { route: "마나스 공항 → 카라콜", sedan: 135, suv: 155, van: 265 }
   ]
 };
 
