@@ -183,7 +183,89 @@ const LANGS: { code: "en" | "ru" | "ko"; label: string; flag: string }[] = [
 
 // ─── Tour Timeline ────────────────────────────────────────────────────────────
 
+function DayRow({
+  stops,
+  dayLabel,
+  dayColor,
+  lang,
+}: {
+  stops: TimelineStop[];
+  dayLabel: string;
+  dayColor: "emerald" | "indigo";
+  lang: "en" | "ru" | "ko";
+}) {
+  const accent = dayColor === "emerald" ? "bg-emerald-600 text-white" : "bg-indigo-600 text-white";
+  return (
+    <div className="-mx-4 overflow-x-auto px-4 pb-2 md:mx-0 md:overflow-visible md:px-0">
+      <div className="flex min-w-max flex-col">
+        {/* Day badge */}
+        <div className="mb-3">
+          <span className={`inline-flex rounded-full px-3 py-1 text-xs font-bold uppercase tracking-widest ${accent}`}>
+            {dayLabel}
+          </span>
+        </div>
+
+        {/* Dots + connectors row */}
+        <div className="flex items-center">
+          {stops.map((stop, i) => {
+            const isLast = i === stops.length - 1;
+            const isOvernight = stop.type === "overnight";
+            const isStart = stop.type === "start";
+            const isEnd = stop.type === "end";
+            return (
+              <div key={i} className="flex items-center">
+                <div className="flex flex-col items-center gap-1">
+                  <div
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 text-[11px] font-bold
+                      ${isStart ? "border-emerald-600 bg-emerald-600 text-white" :
+                        isEnd   ? "border-slate-900 bg-slate-900 text-white" :
+                        isOvernight ? "border-indigo-500 bg-indigo-500 text-white" :
+                        "border-slate-300 bg-white text-slate-500"}`}
+                  >
+                    {isStart ? "▶" : isEnd ? "✓" : isOvernight ? "🌙" : "·"}
+                  </div>
+                  <span className="text-[10px] font-semibold text-slate-400">{stop.time}</span>
+                </div>
+                {!isLast && (
+                  <div className="mx-1.5 h-px w-10 bg-slate-200 md:w-14" />
+                )}
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Place name labels — aligned under each dot */}
+        <div className="mt-1.5 flex items-start">
+          {stops.map((stop, i) => {
+            const isLast = i === stops.length - 1;
+            const isOvernight = stop.type === "overnight";
+            const isStart = stop.type === "start";
+            const isEnd = stop.type === "end";
+            return (
+              <div key={i} className="flex items-start">
+                <div className="w-8 text-center">
+                  <p className={`text-[11px] font-bold leading-tight
+                    ${isStart ? "text-emerald-600" : isEnd ? "text-slate-900" : isOvernight ? "text-indigo-600" : "text-slate-700"}`}>
+                    {stop.place[lang]}
+                  </p>
+                  <p className="mt-0.5 w-20 -translate-x-6 text-[10px] leading-tight text-slate-400">
+                    {stop.sub[lang]}
+                  </p>
+                </div>
+                {!isLast && <div className="mx-1.5 w-10 md:w-14 shrink-0" />}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function TourTimeline({ lang }: { lang: "en" | "ru" | "ko" }) {
+  const day1 = TIMELINE.filter((s) => s.day === "Day 1");
+  const day2 = TIMELINE.filter((s) => s.day === "Day 2");
+
   return (
     <section className="mb-14">
       <div className="mb-5">
@@ -195,77 +277,20 @@ function TourTimeline({ lang }: { lang: "en" | "ru" | "ko" }) {
         </h2>
       </div>
 
-      {/* Scrollable timeline row */}
-      <div className="-mx-4 overflow-x-auto px-4 pb-4 md:mx-0 md:px-0">
-        <div className="flex min-w-max items-start gap-0">
-          {TIMELINE.map((stop, i) => {
-            const isFirst = i === 0;
-            const isLast = i === TIMELINE.length - 1;
-            const isOvernight = stop.type === "overnight";
-            const isStart = stop.type === "start";
-            const isEnd = stop.type === "end";
-            const dayChange = i > 0 && stop.day !== TIMELINE[i - 1].day;
-
-            return (
-              <div key={i} className="flex items-start">
-                {/* Stop node + connector */}
-                <div className="flex flex-col items-center">
-                  {/* Day label above (show on day change or first) */}
-                  <div className="mb-2 h-5 flex items-center">
-                    {(isFirst || dayChange) && (
-                      <span className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide ${isFirst ? "bg-emerald-600 text-white" : "bg-indigo-600 text-white"}`}>
-                        {stop.day}
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Dot */}
-                  <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 text-xs font-bold z-10
-                    ${isStart ? "border-emerald-600 bg-emerald-600 text-white" :
-                      isEnd ? "border-slate-900 bg-slate-900 text-white" :
-                      isOvernight ? "border-indigo-500 bg-indigo-500 text-white" :
-                      "border-slate-300 bg-white text-slate-600"}`}
-                  >
-                    {isStart ? "▶" : isEnd ? "✓" : isOvernight ? "🌙" : i}
-                  </div>
-
-                  {/* Time below dot */}
-                  <div className="mt-1.5 text-[11px] font-semibold text-slate-400">{stop.time}</div>
-                </div>
-
-                {/* Connector line between dots */}
-                {!isLast && (
-                  <div className="mx-1 mt-[3.25rem] flex items-center">
-                    <div className={`h-px w-12 md:w-16 ${dayChange ? "border-t-2 border-dashed border-indigo-300" : "bg-slate-200"}`} />
-                  </div>
-                )}
-
-                {/* Label below (offset to align under dot) */}
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Place names row — separate pass so labels don't affect connector alignment */}
-        <div className="mt-1 flex min-w-max items-start gap-0">
-          {TIMELINE.map((stop, i) => {
-            const isLast = i === TIMELINE.length - 1;
-            const isOvernight = stop.type === "overnight";
-            const isStart = stop.type === "start";
-            const isEnd = stop.type === "end";
-            return (
-              <div key={i} className="flex items-start">
-                <div className="flex w-9 flex-col items-center text-center">
-                  <p className={`text-[11px] font-bold leading-tight ${isStart ? "text-emerald-600" : isEnd ? "text-slate-900" : isOvernight ? "text-indigo-600" : "text-slate-800"}`}>
-                    {stop.place[lang]}
-                  </p>
-                  <p className="mt-0.5 w-20 text-[10px] leading-tight text-slate-400">{stop.sub[lang]}</p>
-                </div>
-                {!isLast && <div className="mx-1 w-12 md:w-16" />}
-              </div>
-            );
-          })}
-        </div>
+      <div className="space-y-8 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+        <DayRow
+          stops={day1}
+          dayLabel={lang === "ru" ? "День 1" : lang === "ko" ? "1일차" : "Day 1"}
+          dayColor="emerald"
+          lang={lang}
+        />
+        <div className="border-t border-dashed border-slate-200" />
+        <DayRow
+          stops={day2}
+          dayLabel={lang === "ru" ? "День 2" : lang === "ko" ? "2일차" : "Day 2"}
+          dayColor="indigo"
+          lang={lang}
+        />
       </div>
     </section>
   );
@@ -434,32 +459,25 @@ export default function KarakolSonkulBishkek() {
 
         {/* Tour Overview */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold md:text-3xl">
-            {lang === "ru" ? "Обзор тура" : lang === "ko" ? "투어 개요" : "Tour Overview"}
-          </h2>
-          <div className="mt-4 space-y-4 text-slate-700 leading-relaxed">
-            {lang === "ru" ? (
-              <>
-                <p>Этот приватный 2-дневный трансфер-тур из Каракола в Бишкек создан для путешественников, которые хотят большего, чем просто поездка.</p>
-                <p>Вы проедете через одни из самых красивых природных и исторических мест Кыргызстана, комфортно двигаясь в сторону Бишкека.</p>
-                <p>Маршрут включает знаменитые красные скалы, водопады, горные озёра, каньоны, древние памятники Шёлкового пути и незабываемую ночёвку в юрточном лагере у озера Сон-Кёль.</p>
-                <p>Это идеальный вариант для пар, семей, фотографов и путешественников, которые хотят увидеть настоящий Кыргызстан.</p>
-              </>
-            ) : lang === "ko" ? (
-              <>
-                <p>이 프라이빗 2일 트랜스퍼 투어는 카라콜에서 비슈케크로 이동하면서 단순한 이동 그 이상을 원하는 여행자를 위해 설계되었습니다.</p>
-                <p>키르기스스탄의 가장 아름다운 자연과 역사적인 장소들을 지나며 비슈케크로 편안하게 이동합니다.</p>
-                <p>코스에는 유명한 붉은 암석, 폭포, 고산 호수, 협곡, 고대 실크로드 유적, 그리고 손쿨 호수 근처 유르트 캠프에서의 잊을 수 없는 하룻밤이 포함됩니다.</p>
-                <p>커플, 가족, 사진작가, 그리고 진짜 키르기스스탄을 경험하고 싶은 여행자에게 완벽한 옵션입니다.</p>
-              </>
-            ) : (
-              <>
-                <p>This private 2-day transfer-tour from Karakol to Bishkek is designed for travelers who want more than just transportation.</p>
-                <p>You will travel through some of the most beautiful natural and historical places in Kyrgyzstan while comfortably moving toward Bishkek.</p>
-                <p>The route includes famous red rock formations, waterfalls, alpine lakes, canyons, ancient Silk Road monuments, and one unforgettable overnight stay in a traditional yurt camp near Son-Kul Lake.</p>
-                <p>This is the perfect option for couples, families, photographers, and travelers who want to experience real Kyrgyzstan.</p>
-              </>
-            )}
+          <p className="text-sm text-slate-600 leading-relaxed max-w-2xl">
+            {lang === "ru"
+              ? "Приватный 2-дневный тур из Каракола в Бишкек — красные скалы, водопады, горные озёра, каньоны, ночёвка в юрте у Сон-Кёля и башня Бурана. Идеально для пар, семей и фотографов."
+              : lang === "ko"
+              ? "카라콜에서 비슈케크까지 2일 프라이빗 투어 — 붉은 절벽, 폭포, 고산 호수, 협곡, 손쿨 유르트 숙박, 부라나 타워. 커플, 가족, 사진작가에게 완벽합니다."
+              : "A private 2-day transfer from Karakol to Bishkek through red cliffs, waterfalls, alpine lakes, canyons, an overnight yurt stay at Son-Kul, and Burana Tower. Perfect for couples, families, and photographers."}
+          </p>
+          {/* Highlights */}
+          <div className="mt-4 flex flex-wrap gap-2">
+            {(lang === "ru"
+              ? ["🏔 Горные озёра", "🪨 Красные скалы", "💧 Водопады", "🌙 Ночь в юрте", "🏛 Шёлковый путь", "📸 Фото-стопы"]
+              : lang === "ko"
+              ? ["🏔 고산 호수", "🪨 붉은 절벽", "💧 폭포", "🌙 유르트 숙박", "🏛 실크로드", "📸 포토 스톱"]
+              : ["🏔 Alpine lakes", "🪨 Red cliffs", "💧 Waterfalls", "🌙 Yurt overnight", "🏛 Silk Road", "📸 Photo stops"]
+            ).map((tag) => (
+              <span key={tag} className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700">
+                {tag}
+              </span>
+            ))}
           </div>
         </section>
 
