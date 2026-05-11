@@ -1,7 +1,63 @@
 import React, { useState, useEffect } from "react";
 import { Car, MessageCircle, Send, Globe, ChevronLeft, MapPin } from "lucide-react";
 
-// ─── Itinerary data ───────────────────────────────────────────────────────────
+// ─── Timeline data ────────────────────────────────────────────────────────────
+
+interface TimelineStop {
+  day: string;
+  time: string;
+  place: { en: string; ru: string; ko: string };
+  sub: { en: string; ru: string; ko: string };
+  type?: "start" | "end" | "overnight";
+}
+
+const TIMELINE: TimelineStop[] = [
+  {
+    day: "Day 1", time: "08:00",
+    place: { en: "Karakol", ru: "Каракол", ko: "카라콜" },
+    sub: { en: "Start · Hotel pickup", ru: "Старт · Отель", ko: "출발 · 호텔 픽업" },
+    type: "start",
+  },
+  {
+    day: "Day 1", time: "10:00",
+    place: { en: "Djety-Oguz", ru: "Джеты-Огуз", ko: "제티-오구즈" },
+    sub: { en: "Red sandstone cliffs", ru: "Красные скалы", ko: "붉은 사암 절벽" },
+  },
+  {
+    day: "Day 1", time: "12:00",
+    place: { en: "Barskoon Valley", ru: "Барскоон", ko: "바르스쿤" },
+    sub: { en: "Waterfall & Gagarin monument", ru: "Водопад и монумент", ko: "폭포와 기념비" },
+  },
+  {
+    day: "Day 1", time: "14:00",
+    place: { en: "Skazka Canyon", ru: "Каньон Сказка", ko: "스카즈카 협곡" },
+    sub: { en: "Fairytale Canyon", ru: "Сказочный каньон", ko: "동화 협곡" },
+  },
+  {
+    day: "Day 1", time: "17:00",
+    place: { en: "Son-Kul Lake", ru: "Сон-Кёль", ko: "손쿨 호수" },
+    sub: { en: "Alpine lake · Overnight yurt", ru: "Горное озеро · Ночь в юрте", ko: "고산 호수 · 유르트 숙박" },
+    type: "overnight",
+  },
+  {
+    day: "Day 2", time: "10:00",
+    place: { en: "Orto-Tokoi", ru: "Орто-Токой", ko: "오르토-토코이" },
+    sub: { en: "Scenic mountain reservoir", ru: "Горное водохранилище", ko: "산악 저수지" },
+  },
+  {
+    day: "Day 2", time: "14:00",
+    place: { en: "Burana Tower", ru: "Башня Бурана", ko: "부라나 타워" },
+    sub: { en: "Silk Road minaret XI c.", ru: "Минарет XI века", ko: "실크로드 첨탑" },
+  },
+  {
+    day: "Day 2", time: "18:00",
+    place: { en: "Bishkek", ru: "Бишкек", ko: "비슈케크" },
+    sub: { en: "End · Hotel / Airport drop", ru: "Финиш · Отель / Аэропорт", ko: "종료 · 호텔/공항 하차" },
+    type: "end",
+  },
+];
+
+// ─── Itinerary data ────────────────────────────────────────────────────────────
 
 interface Stop {
   day: string;
@@ -107,6 +163,96 @@ const LANGS: { code: "en" | "ru" | "ko"; label: string; flag: string }[] = [
   { code: "ko", label: "Korean", flag: "🇰🇷" },
   { code: "ru", label: "Russian", flag: "🇷🇺" },
 ];
+
+// ─── Tour Timeline ────────────────────────────────────────────────────────────
+
+function TourTimeline({ lang }: { lang: "en" | "ru" | "ko" }) {
+  return (
+    <section className="mb-14">
+      <div className="mb-5">
+        <p className="text-xs font-bold uppercase tracking-widest text-emerald-600">
+          {lang === "ru" ? "Программа" : lang === "ko" ? "여정" : "Route Overview"}
+        </p>
+        <h2 className="mt-1 text-2xl font-bold md:text-3xl">
+          {lang === "ru" ? "Маршрут по часам" : lang === "ko" ? "시간별 일정" : "Your Journey at a Glance"}
+        </h2>
+      </div>
+
+      {/* Scrollable timeline row */}
+      <div className="-mx-4 overflow-x-auto px-4 pb-4 md:mx-0 md:px-0">
+        <div className="flex min-w-max items-start gap-0">
+          {TIMELINE.map((stop, i) => {
+            const isFirst = i === 0;
+            const isLast = i === TIMELINE.length - 1;
+            const isOvernight = stop.type === "overnight";
+            const isStart = stop.type === "start";
+            const isEnd = stop.type === "end";
+            const dayChange = i > 0 && stop.day !== TIMELINE[i - 1].day;
+
+            return (
+              <div key={i} className="flex items-start">
+                {/* Stop node + connector */}
+                <div className="flex flex-col items-center">
+                  {/* Day label above (show on day change or first) */}
+                  <div className="mb-2 h-5 flex items-center">
+                    {(isFirst || dayChange) && (
+                      <span className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide ${isFirst ? "bg-emerald-600 text-white" : "bg-indigo-600 text-white"}`}>
+                        {stop.day}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Dot */}
+                  <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 text-xs font-bold z-10
+                    ${isStart ? "border-emerald-600 bg-emerald-600 text-white" :
+                      isEnd ? "border-slate-900 bg-slate-900 text-white" :
+                      isOvernight ? "border-indigo-500 bg-indigo-500 text-white" :
+                      "border-slate-300 bg-white text-slate-600"}`}
+                  >
+                    {isStart ? "▶" : isEnd ? "✓" : isOvernight ? "🌙" : i}
+                  </div>
+
+                  {/* Time below dot */}
+                  <div className="mt-1.5 text-[11px] font-semibold text-slate-400">{stop.time}</div>
+                </div>
+
+                {/* Connector line between dots */}
+                {!isLast && (
+                  <div className="mx-1 mt-[3.25rem] flex items-center">
+                    <div className={`h-px w-12 md:w-16 ${dayChange ? "border-t-2 border-dashed border-indigo-300" : "bg-slate-200"}`} />
+                  </div>
+                )}
+
+                {/* Label below (offset to align under dot) */}
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Place names row — separate pass so labels don't affect connector alignment */}
+        <div className="mt-1 flex min-w-max items-start gap-0">
+          {TIMELINE.map((stop, i) => {
+            const isLast = i === TIMELINE.length - 1;
+            const isOvernight = stop.type === "overnight";
+            const isStart = stop.type === "start";
+            const isEnd = stop.type === "end";
+            return (
+              <div key={i} className="flex items-start">
+                <div className="flex w-9 flex-col items-center text-center">
+                  <p className={`text-[11px] font-bold leading-tight ${isStart ? "text-emerald-600" : isEnd ? "text-slate-900" : isOvernight ? "text-indigo-600" : "text-slate-800"}`}>
+                    {stop.place[lang]}
+                  </p>
+                  <p className="mt-0.5 w-20 text-[10px] leading-tight text-slate-400">{stop.sub[lang]}</p>
+                </div>
+                {!isLast && <div className="mx-1 w-12 md:w-16" />}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 // ─── Itinerary Card ───────────────────────────────────────────────────────────
 
@@ -299,6 +445,9 @@ export default function KarakolSonkulBishkek() {
             )}
           </div>
         </section>
+
+        {/* Timeline */}
+        <TourTimeline lang={lang} />
 
         {/* Itinerary */}
         <section>
