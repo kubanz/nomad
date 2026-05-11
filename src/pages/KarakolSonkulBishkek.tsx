@@ -416,10 +416,10 @@ export default function KarakolSonkulBishkek() {
           </p>
           <h1 className="mt-2 text-2xl font-bold leading-tight md:text-4xl">
             {lang === "ru"
-              ? "Каракол → Сон-Кёль → Бурана → Бишкек"
+              ? "Каракол — Бишкек: тур через Сон-Кёль и башню Бурана"
               : lang === "ko"
-              ? "카라콜 → 손쿨 → 부라나 → 비슈케크"
-              : "Karakol → Son-Kul → Burana → Bishkek"}
+              ? "카라콜 → 비슈케크: 손쿨 호수 & 부라나 타워 경유"
+              : "Karakol to Bishkek Private Tour via Son-Kul Lake & Burana Tower"}
           </h1>
           <p className="mt-2 text-sm text-white/80">
             {lang === "ru"
