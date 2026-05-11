@@ -759,7 +759,7 @@ export default function Landing() {
             duration={t.tour1Duration}
             price="From $180"
             badge={t.tour1Badge}
-            image=""
+            image="https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg"
             buttonText={t.viewTour}
             link={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour1Title}. Please share details.`)}`}
           />
@@ -769,7 +769,7 @@ export default function Landing() {
             duration={t.tour2Duration}
             price="From $120"
             badge={t.tour2Badge}
-            image=""
+            image="https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/jeti-oguz.jpg"
             buttonText={t.viewTour}
             link={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour2Title}. Please share details.`)}`}
           />
@@ -779,7 +779,7 @@ export default function Landing() {
             duration={t.tour3Duration}
             price="From $250"
             badge={t.tour3Badge}
-            image=""
+            image="https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/tash-rabat.jpg"
             buttonText={t.viewTour}
             link={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour3Title}. Please share details.`)}`}
           />
@@ -789,7 +789,7 @@ export default function Landing() {
             duration={t.tour4Duration}
             price="From $80"
             badge={t.tour4Badge}
-            image=""
+            image="https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/burana.jpg"
             buttonText={t.viewTour}
             link={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour4Title}. Please share details.`)}`}
           />
@@ -799,7 +799,7 @@ export default function Landing() {
             duration={t.tour5Duration}
             price="From $150"
             badge={t.tour5Badge}
-            image=""
+            image="https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/yurt-camp.jpg"
             buttonText={t.viewTour}
             link={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour5Title}. Please share details.`)}`}
           />
