@@ -56,7 +56,6 @@ export default function InteractiveRouteMap({ lang }: Props) {
     lang === "ru" ? "Готов к старту" : lang === "ko" ? "준비 완료" : "Ready to start"
   );
 
-  // labels
   const L_PLAY  = lang === "ru" ? "Старт" : lang === "ko" ? "재생" : "Play";
   const L_PAUSE = lang === "ru" ? "Пауза" : lang === "ko" ? "일시정지" : "Pause";
   const L_RESET = lang === "ru" ? "Сброс" : lang === "ko" ? "초기화" : "Reset";
@@ -111,7 +110,7 @@ export default function InteractiveRouteMap({ lang }: Props) {
       return;
     }
 
-    const idx   = Math.floor(carIdxRef.current);
+    const idx    = Math.floor(carIdxRef.current);
     const latlng = coords[idx];
     carMarkerRef.current.setLatLng(latlng);
 
@@ -119,6 +118,14 @@ export default function InteractiveRouteMap({ lang }: Props) {
       const next  = coords[idx + 1];
       const angle = Math.atan2(next[1] - latlng[1], next[0] - latlng[0]) * 180 / Math.PI;
       carMarkerRef.current.setIcon(makeCarIcon(angle + 90));
+    }
+
+    // Follow car: pan if it goes outside visible bounds
+    if (mapRef.current) {
+      const bounds = mapRef.current.getBounds();
+      if (!bounds.contains(latlng)) {
+        mapRef.current.panTo(latlng, { animate: true, duration: 0.8, easeLinearity: 0.5 });
+      }
     }
 
     // nearest stop
@@ -162,6 +169,12 @@ export default function InteractiveRouteMap({ lang }: Props) {
       carMarkerRef.current.setLatLng(routeRef.current[0]);
       carMarkerRef.current.setIcon(makeCarIcon());
     }
+    // Reset view to show full route
+    if (mapRef.current) {
+      const L = (window as any).L;
+      const waypoints = MAP_STOPS.map((s) => L.latLng(s.lat, s.lng));
+      mapRef.current.fitBounds(L.latLngBounds(waypoints), { padding: [40, 40], animate: true });
+    }
     setCurStop(MAP_STOPS[0].name);
     setNxtStop(MAP_STOPS[1].name);
     setStatusTitle(lang === "ru" ? "Готов к старту" : lang === "ko" ? "준비 완료" : "Ready to start");
@@ -188,8 +201,12 @@ export default function InteractiveRouteMap({ lang }: Props) {
         center: [42.2, 76.5],
         zoom: 8,
         scrollWheelZoom: false,
+        tap: false,
       });
       mapRef.current = map;
+
+      // Ensure correct size on mobile
+      setTimeout(() => map.invalidateSize(), 200);
 
       L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
         attribution: "© OpenStreetMap © CARTO",
@@ -199,7 +216,10 @@ export default function InteractiveRouteMap({ lang }: Props) {
       MAP_STOPS.forEach((s) => {
         L.marker([s.lat, s.lng], { icon: makeStopIcon(s) })
           .addTo(map)
-          .bindTooltip(`<b>${s.name}</b><br><span style="color:#64748b;font-size:12px">Day ${s.day} · ${s.time}</span>`, { direction: "top" });
+          .bindTooltip(
+            `<b style="font-size:12px">${s.name}</b><br><span style="color:#64748b;font-size:11px">Day ${s.day} · ${s.time}</span>`,
+            { permanent: true, direction: "top", offset: [0, -16], className: "stop-label-tt" }
+          );
       });
 
       const waypoints = MAP_STOPS.map((s) => L.latLng(s.lat, s.lng));
@@ -241,7 +261,7 @@ export default function InteractiveRouteMap({ lang }: Props) {
   }, []);
 
   return (
-    <section className="mb-14">
+    <section id="route-map" className="mb-14">
       <div className="mb-5">
         <p className="text-xs font-bold uppercase tracking-widest text-emerald-600">
           {lang === "ru" ? "Карта" : lang === "ko" ? "지도" : "Map"}
@@ -283,7 +303,7 @@ export default function InteractiveRouteMap({ lang }: Props) {
 
         {/* Map */}
         <div className="relative">
-          <div ref={containerRef} style={{ height: 480 }} />
+          <div ref={containerRef} style={{ height: 480, width: "100%" }} />
           {loading && (
             <div className="absolute inset-0 flex items-center justify-center bg-slate-50/80 z-[1000]">
               <span className="rounded-full bg-white px-5 py-2.5 text-sm text-slate-500 shadow-md">
@@ -303,8 +323,12 @@ export default function InteractiveRouteMap({ lang }: Props) {
         </div>
       </div>
 
-      {/* Leaflet routing container hidden */}
-      <style>{`.leaflet-routing-container,.leaflet-routing-alt{display:none!important}`}</style>
+      <style>{`
+        .leaflet-routing-container,.leaflet-routing-alt{display:none!important}
+        .stop-label-tt{background:white;border:1px solid #e2e8f0;border-radius:8px;padding:4px 8px;box-shadow:0 2px 8px rgba(0,0,0,.12);white-space:nowrap;}
+        .stop-label-tt::before{display:none;}
+        .leaflet-tooltip-top.stop-label-tt::before{display:none;}
+      `}</style>
     </section>
   );
 }

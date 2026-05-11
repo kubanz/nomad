@@ -85,7 +85,7 @@ const STOPS: Stop[] = [
       ko: "첫 번째 정류장은 '일곱 마리 황소'로 알려진 유명한 붉은 사암 절벽입니다. 카라콜 근처에서 가장 상징적인 자연 랜드마크 중 하나입니다.",
     },
     image: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/jeti-oguz.jpg",
-    mapUrl: "https://maps.google.com/?q=Djety-Oguz+Gorge+Kyrgyzstan",
+    mapUrl: "#route-map",
   },
   {
     day: "DAY 1",
@@ -97,7 +97,7 @@ const STOPS: Stop[] = [
       ko: "바르스쿤 계곡 — 소나무 숲, 산악 강, 아름다운 폭포들. 유리 가가린 기념비도 방문합니다.",
     },
     image: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/Barskoon.jpg",
-    mapUrl: "https://maps.google.com/?q=Barskoon+Waterfall+Kyrgyzstan",
+    mapUrl: "#route-map",
   },
   {
     day: "DAY 1",
@@ -109,7 +109,7 @@ const STOPS: Stop[] = [
       ko: "바람과 물이 만들어낸 다채로운 암석 지형 — 성, 용, 환상적인 풍경. 짧은 하이킹과 멋진 사진 촬영에 완벽합니다.",
     },
     image: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/Canyon%20Skazka.jpg",
-    mapUrl: "https://maps.google.com/?q=Skazka+Canyon+Issyk-Kul+Kyrgyzstan",
+    mapUrl: "#route-map",
   },
   {
     day: "DAY 1",
@@ -121,7 +121,7 @@ const STOPS: Stop[] = [
       ko: "해발 3,016m의 손쿨 고산 호수까지 산길을 달립니다. 전통 유르트 캠프에서 하룻밤을 보내며 키르기스 유목 생활을 경험합니다.",
     },
     image: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
-    mapUrl: "https://maps.google.com/?q=Son-Kul+Lake+Kyrgyzstan",
+    mapUrl: "#route-map",
   },
   {
     day: "DAY 2",
@@ -133,7 +133,7 @@ const STOPS: Stop[] = [
       ko: "탁 트인 풍경과 극적인 산악 전망으로 둘러싸인 아름다운 산악 저수지. 비슈케크로 가는 길에 멋진 경치 정류장입니다.",
     },
     image: "",
-    mapUrl: "https://maps.google.com/?q=Orto-Tokoi+Reservoir+Kyrgyzstan",
+    mapUrl: "#route-map",
   },
   {
     day: "DAY 2",
@@ -145,7 +145,7 @@ const STOPS: Stop[] = [
       ko: "비슈케크 전 마지막 방문지 — 11세기 부라나 타워. 탑에 올라 주변의 발발(고대 석조 조각)을 탐험하세요.",
     },
     image: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/burana.jpg",
-    mapUrl: "https://maps.google.com/?q=Burana+Tower+Kyrgyzstan",
+    mapUrl: "#route-map",
   },
 ];
 
@@ -327,8 +327,6 @@ function ItineraryCard({ stop, idx, lang }: { stop: Stop; idx: number; lang: "en
         <p className="mt-2 text-sm text-slate-600 leading-relaxed flex-1">{stop.desc[lang]}</p>
         <a
           href={stop.mapUrl}
-          target="_blank"
-          rel="noopener"
           className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 hover:text-emerald-700"
         >
           <MapPin className="h-3.5 w-3.5" />
