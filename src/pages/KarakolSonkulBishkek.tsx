@@ -436,25 +436,32 @@ export default function KarakolSonkulBishkek() {
 
         {/* Tour Overview */}
         <section className="mb-12">
-          <p className="text-sm text-slate-600 leading-relaxed max-w-2xl">
-            {lang === "ru"
-              ? "Приватный 2-дневный тур из Каракола в Бишкек — красные скалы, водопады, горные озёра, каньоны, ночёвка в юрте у Сон-Кёля и башня Бурана. Идеально для пар, семей и фотографов."
-              : lang === "ko"
-              ? "카라콜에서 비슈케크까지 2일 프라이빗 투어 — 붉은 절벽, 폭포, 고산 호수, 협곡, 손쿨 유르트 숙박, 부라나 타워. 커플, 가족, 사진작가에게 완벽합니다."
-              : "A private 2-day transfer from Karakol to Bishkek through red cliffs, waterfalls, alpine lakes, canyons, an overnight yurt stay at Son-Kul, and Burana Tower. Perfect for couples, families, and photographers."}
-          </p>
-          {/* Highlights */}
-          <div className="mt-4 flex flex-wrap gap-2">
-            {(lang === "ru"
-              ? ["🏔 Горные озёра", "🪨 Красные скалы", "💧 Водопады", "🌙 Ночь в юрте", "🏛 Шёлковый путь", "📸 Фото-стопы"]
-              : lang === "ko"
-              ? ["🏔 고산 호수", "🪨 붉은 절벽", "💧 폭포", "🌙 유르트 숙박", "🏛 실크로드", "📸 포토 스톱"]
-              : ["🏔 Alpine lakes", "🪨 Red cliffs", "💧 Waterfalls", "🌙 Yurt overnight", "🏛 Silk Road", "📸 Photo stops"]
-            ).map((tag) => (
-              <span key={tag} className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700">
-                {tag}
-              </span>
-            ))}
+          <h2 className="mb-3 text-xl font-bold md:text-2xl">
+            {lang === "ru" ? "Обзор тура" : lang === "ko" ? "투어 개요" : "Tour Overview"}
+          </h2>
+          <div className="space-y-1 text-sm text-slate-600 leading-relaxed max-w-2xl">
+            {lang === "ru" ? (
+              <>
+                <p>Этот приватный 2-дневный трансфер-тур из Каракола в Бишкек создан для путешественников, которые хотят большего, чем просто поездка.</p>
+                <p>Вы проедете через одни из самых красивых природных и исторических мест Кыргызстана, комфортно двигаясь в сторону Бишкека.</p>
+                <p>Маршрут включает знаменитые красные скалы, водопады, горные озёра, каньоны, древние памятники Шёлкового пути и незабываемую ночёвку в юрточном лагере у озера Сон-Кёль.</p>
+                <p>Это идеальный вариант для пар, семей, фотографов и путешественников, которые хотят увидеть настоящий Кыргызстан.</p>
+              </>
+            ) : lang === "ko" ? (
+              <>
+                <p>이 프라이빗 2일 트랜스퍼 투어는 카라콜에서 비슈케크로 이동하면서 단순한 이동 그 이상을 원하는 여행자를 위해 설계되었습니다.</p>
+                <p>키르기스스탄의 가장 아름다운 자연과 역사적인 장소들을 지나며 비슈케크로 편안하게 이동합니다.</p>
+                <p>코스에는 유명한 붉은 암석, 폭포, 고산 호수, 협곡, 고대 실크로드 유적, 그리고 손쿨 호수 근처 유르트 캠프에서의 잊을 수 없는 하룻밤이 포함됩니다.</p>
+                <p>커플, 가족, 사진작가, 그리고 진짜 키르기스스탄을 경험하고 싶은 여행자에게 완벽한 옵션입니다.</p>
+              </>
+            ) : (
+              <>
+                <p>This private 2-day transfer-tour from Karakol to Bishkek is designed for travelers who want more than just transportation.</p>
+                <p>You will travel through some of the most beautiful natural and historical places in Kyrgyzstan while comfortably moving toward Bishkek.</p>
+                <p>The route includes famous red rock formations, waterfalls, alpine lakes, canyons, ancient Silk Road monuments, and one unforgettable overnight stay in a traditional yurt camp near Son-Kul Lake.</p>
+                <p>This is the perfect option for couples, families, photographers, and travelers who want to experience real Kyrgyzstan.</p>
+              </>
+            )}
           </div>
         </section>
 
