@@ -343,9 +343,9 @@ function ItineraryCard({ stop, idx, lang }: { stop: Stop; idx: number; lang: "en
 
 function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
   const included = {
-    en: ["Comfortable 4×4 vehicle", "Professional local driver", "Fuel and all transportation costs", "Hotel pickup in Karakol", "Hotel / Airport drop-off in Bishkek", "Overnight yurt camp at Son-Kul"],
-    ru: ["Комфортный внедорожник 4×4", "Профессиональный местный водитель", "Топливо и все транспортные расходы", "Трансфер из отеля в Каракол", "Трансфер до отеля / аэропорта в Бишкеке", "Ночёвка в юрточном лагере на Сон-Кёле"],
-    ko: ["쾌적한 4×4 차량", "전문 현지 드라이버", "연료 및 모든 교통 비용", "카라콜 호텔 픽업", "비슈케크 호텔/공항 하차", "손쿨 유르트 캠프 숙박"],
+    en: ["Comfortable 4×4 vehicle", "Professional local driver", "Fuel and all transportation costs", "Hotel pickup in Karakol", "Hotel / Airport drop-off in Bishkek"],
+    ru: ["Комфортный внедорожник 4×4", "Профессиональный местный водитель", "Топливо и все транспортные расходы", "Трансфер из отеля в Каракол", "Трансфер до отеля / аэропорта в Бишкеке"],
+    ko: ["쾌적한 4×4 차량", "전문 현지 드라이버", "연료 및 모든 교통 비용", "카라콜 호텔 픽업", "비슈케크 호텔/공항 하차"],
   };
   const notIncluded = {
     en: ["Meals and drinks", "Entrance tickets (if required)", "Horse riding activities", "Personal travel insurance"],
@@ -513,7 +513,7 @@ export default function KarakolSonkulBishkek() {
           alt="Son-Kul Lake"
           className="absolute inset-0 h-full w-full object-cover opacity-40"
         />
-        <div className="relative mx-auto max-w-4xl px-4 py-10 text-white md:py-14">
+        <div className="relative mx-auto max-w-6xl px-4 py-10 text-white md:py-14">
           <p className="text-xs font-medium uppercase tracking-widest text-white/70">
             {lang === "ru" ? "Приватный тур · 2 дня" : lang === "ko" ? "프라이빗 투어 · 2일" : "Private Tour · 2 Days"}
           </p>
@@ -535,7 +535,7 @@ export default function KarakolSonkulBishkek() {
       </section>
 
       {/* Content */}
-      <main className="mx-auto max-w-4xl px-4 py-12">
+      <main className="mx-auto max-w-6xl px-4 py-12">
 
         {/* Tour Overview */}
         <section className="mb-12">
