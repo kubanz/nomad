@@ -211,64 +211,50 @@ function DayRow({
 }) {
   const accent = dayColor === "emerald" ? "bg-emerald-600 text-white" : "bg-indigo-600 text-white";
   return (
-    <div className="-mx-4 overflow-x-auto px-4 pb-2 md:mx-0 md:overflow-visible md:px-0">
-      <div className="flex min-w-max flex-col">
-        {/* Day badge */}
-        <div className="mb-3">
-          <span className={`inline-flex rounded-full px-3 py-1 text-xs font-bold uppercase tracking-widest ${accent}`}>
-            {dayLabel}
-          </span>
-        </div>
+    <div>
+      {/* Day badge */}
+      <div className="mb-4">
+        <span className={`inline-flex rounded-full px-3 py-1 text-xs font-bold uppercase tracking-widest ${accent}`}>
+          {dayLabel}
+        </span>
+      </div>
 
-        {/* Dots + connectors row */}
-        <div className="flex items-center">
+      {/* Single row: stop column + flex connector */}
+      <div className="-mx-4 overflow-x-auto px-4 md:mx-0 md:overflow-visible md:px-0">
+        <div className="flex min-w-max items-start md:min-w-0 md:w-full">
           {stops.map((stop, i) => {
             const isLast = i === stops.length - 1;
             const isOvernight = stop.type === "overnight";
             const isStart = stop.type === "start";
             const isEnd = stop.type === "end";
             return (
-              <div key={i} className="flex items-center">
-                <div className="flex flex-col items-center gap-1">
+              <React.Fragment key={i}>
+                {/* Stop column */}
+                <div className="flex w-16 shrink-0 flex-col items-center md:w-20">
                   <div
-                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 text-[11px] font-bold
-                      ${isStart ? "border-emerald-600 bg-emerald-600 text-white" :
-                        isEnd   ? "border-slate-900 bg-slate-900 text-white" :
+                    className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 text-[12px] font-bold shadow-sm
+                      ${isStart     ? "border-emerald-600 bg-emerald-600 text-white" :
+                        isEnd       ? "border-slate-900 bg-slate-900 text-white" :
                         isOvernight ? "border-indigo-500 bg-indigo-500 text-white" :
-                        "border-slate-300 bg-white text-slate-500"}`}
+                        "border-slate-300 bg-white text-slate-400"}`}
                   >
                     {isStart ? "▶" : isEnd ? "✓" : isOvernight ? "🌙" : "·"}
                   </div>
-                  <span className="text-[10px] font-semibold text-slate-400">{stop.time}</span>
-                </div>
-                {!isLast && (
-                  <div className="mx-1.5 h-px w-10 bg-slate-200 md:w-14" />
-                )}
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Place name labels — aligned under each dot */}
-        <div className="mt-1.5 flex items-start">
-          {stops.map((stop, i) => {
-            const isLast = i === stops.length - 1;
-            const isOvernight = stop.type === "overnight";
-            const isStart = stop.type === "start";
-            const isEnd = stop.type === "end";
-            return (
-              <div key={i} className="flex items-start">
-                <div className="w-8 text-center">
-                  <p className={`text-[11px] font-bold leading-tight
+                  <span className="mt-1.5 text-[11px] font-semibold text-slate-400">{stop.time}</span>
+                  <p className={`mt-1 text-center text-[12px] font-bold leading-tight
                     ${isStart ? "text-emerald-600" : isEnd ? "text-slate-900" : isOvernight ? "text-indigo-600" : "text-slate-700"}`}>
                     {stop.place[lang]}
                   </p>
-                  <p className="mt-0.5 w-20 -translate-x-6 text-[10px] leading-tight text-slate-400">
+                  <p className="mt-0.5 text-center text-[10px] leading-tight text-slate-400 px-1">
                     {stop.sub[lang]}
                   </p>
                 </div>
-                {!isLast && <div className="mx-1.5 w-10 md:w-14 shrink-0" />}
-              </div>
+
+                {/* Flexible connector */}
+                {!isLast && (
+                  <div className="mt-4 h-px w-8 shrink-0 bg-slate-200 md:flex-1" />
+                )}
+              </React.Fragment>
             );
           })}
         </div>
