@@ -101,6 +101,29 @@ const TXT = {
     route3Distance: "Distance: 270 km | Duration: ~5h",
     route3Price: "Sedan $135 · Van $155 · Bus $275",
     learnMore: "Learn More",
+    curatedToursTitle: "Curated Tours in Kyrgyzstan",
+    curatedToursSubtitle: "Private journeys to mountains, lakes and Silk Road destinations with your personal driver.",
+    viewTour: "View Tour",
+    tour1Title: "Son-Kul Lake Experience",
+    tour1Desc: "Alpine lake, yurt stay, mountain drive",
+    tour1Duration: "2–3 days",
+    tour1Badge: "POPULAR",
+    tour2Title: "Jeti-Oguz Red Rocks Tour",
+    tour2Desc: "Iconic red canyon & valley views",
+    tour2Duration: "1 day",
+    tour2Badge: "BEST SELLER",
+    tour3Title: "Tash-Rabat Silk Road Journey",
+    tour3Desc: "Ancient caravanserai, mountain pass",
+    tour3Duration: "2 days",
+    tour3Badge: "CULTURE",
+    tour4Title: "Burana Tower Half-Day Tour",
+    tour4Desc: "Historic minaret & stone balbal field",
+    tour4Duration: "4–5 hours",
+    tour4Badge: "EASY TRIP",
+    tour5Title: "Yurt Camp Experience",
+    tour5Desc: "Traditional nomadic stay by Issyk-Kul",
+    tour5Duration: "1–2 days",
+    tour5Badge: "UNIQUE STAY",
   },
   ru: {
     badge1: "Поддержка на англ. в WhatsApp",
@@ -178,6 +201,29 @@ const TXT = {
     route3Distance: "Расстояние: 270 км | Время: ~5ч",
     route3Price: "Седан $135 · Минивэн $155 · Бусы $275",
     learnMore: "Подробнее",
+    curatedToursTitle: "Авторские туры по Кыргызстану",
+    curatedToursSubtitle: "Частные путешествия к горам, озёрам и памятникам Шёлкового пути с личным водителем.",
+    viewTour: "Подробнее",
+    tour1Title: "Озеро Сон-Кёль",
+    tour1Desc: "Альпийское озеро, юрты, горная дорога",
+    tour1Duration: "2–3 дня",
+    tour1Badge: "ПОПУЛЯРНО",
+    tour2Title: "Каньон Джети-Огуз",
+    tour2Desc: "Знаменитые красные скалы и долина",
+    tour2Duration: "1 день",
+    tour2Badge: "БЕСТСЕЛЛЕР",
+    tour3Title: "Таш-Рабат: маршрут Шёлкового пути",
+    tour3Desc: "Древний караван-сарай, горный перевал",
+    tour3Duration: "2 дня",
+    tour3Badge: "КУЛЬТУРА",
+    tour4Title: "Башня Бурана (полдня)",
+    tour4Desc: "Исторический минарет и каменные балбалы",
+    tour4Duration: "4–5 часов",
+    tour4Badge: "ЛЁГКАЯ",
+    tour5Title: "Проживание в юрте",
+    tour5Desc: "Традиционная юрта у Иссык-Куля",
+    tour5Duration: "1–2 дня",
+    tour5Badge: "УНИКАЛЬНО",
   },
   ko: {
     badge1: "영어 지원 (WhatsApp)",
@@ -255,6 +301,29 @@ const TXT = {
     route3Distance: "거리: 270 km | 시간: ~5시간",
     route3Price: "세단 $135 · 밴 $155 · 버스 $275",
     learnMore: "더 알아보기",
+    curatedToursTitle: "키르기스스탄 큐레이팅 투어",
+    curatedToursSubtitle: "전용 드라이버와 함께하는 산, 호수, 실크로드 명소 여행.",
+    viewTour: "투어 보기",
+    tour1Title: "송쿨 호수 체험",
+    tour1Desc: "알파인 호수, 유르트 숙박, 산악 드라이브",
+    tour1Duration: "2–3일",
+    tour1Badge: "인기",
+    tour2Title: "제티오구즈 붉은 바위 투어",
+    tour2Desc: "상징적인 붉은 협곡과 계곡 전망",
+    tour2Duration: "1일",
+    tour2Badge: "베스트셀러",
+    tour3Title: "타쉬라바트 실크로드 여행",
+    tour3Desc: "고대 캐러밴서라이, 산악 고개",
+    tour3Duration: "2일",
+    tour3Badge: "문화",
+    tour4Title: "부라나 탑 반나절 투어",
+    tour4Desc: "역사적인 미나렛과 석상 발발 필드",
+    tour4Duration: "4–5시간",
+    tour4Badge: "가벼운 여행",
+    tour5Title: "유르트 캠프 체험",
+    tour5Desc: "이식쿨 호수 옆 전통 유목 숙박",
+    tour5Duration: "1–2일",
+    tour5Badge: "독특한 숙박",
   },
 } as const;
 
@@ -325,6 +394,69 @@ const RoutePriceCard = ({ title, distance, price, link }: { title: string; dista
           Learn More →
         </button>
       </div>
+    </div>
+  </a>
+);
+
+const TourCard = ({
+  title,
+  description,
+  duration,
+  price,
+  badge,
+  image,
+  link,
+  buttonText
+}: {
+  title: string;
+  description: string;
+  duration: string;
+  price: string;
+  badge: string;
+  image: string;
+  link: string;
+  buttonText: string;
+}) => (
+  <a
+    href={link}
+    className="group block overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:shadow-xl"
+  >
+    {/* Image Area - 60% */}
+    <div className="relative h-48 overflow-hidden bg-slate-100">
+      <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-teal-400 to-sky-400 opacity-80" />
+      <div className="absolute left-3 top-3">
+        <span className="inline-block rounded-lg bg-black/70 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white backdrop-blur">
+          {badge}
+        </span>
+      </div>
+      <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/30 to-transparent" />
+    </div>
+
+    {/* Content Area - 40% */}
+    <div className="p-4">
+      <h3 className="text-base font-bold text-slate-900 md:text-lg">{title}</h3>
+      <p className="mt-1 text-sm text-slate-600 line-clamp-1">{description}</p>
+
+      {/* Meta Row */}
+      <div className="mt-3 flex items-center gap-3 text-xs text-slate-500">
+        <span className="flex items-center gap-1">
+          ⏱ {duration}
+        </span>
+        <span className="flex items-center gap-1">
+          🚗 Private SUV
+        </span>
+        <span className="flex items-center gap-1">
+          🏔 Nature
+        </span>
+      </div>
+
+      {/* Price */}
+      <p className="mt-3 text-base font-bold text-slate-900">{price}</p>
+
+      {/* CTA Button */}
+      <button className="mt-3 w-full rounded-xl bg-slate-900 py-2.5 text-sm font-semibold text-white transition-all hover:bg-slate-800 group-hover:bg-emerald-600">
+        {buttonText}
+      </button>
     </div>
   </a>
 );
@@ -610,6 +742,66 @@ export default function Landing() {
             distance={t.route3Distance}
             price={t.route3Price}
             link={lang === "en" ? "/en/manas-airport-to-karakol.html" : lang === "ru" ? "/ru/manas-karakol.html" : "/ko/manas-karakol.html"}
+          />
+        </div>
+      </section>
+
+      {/* Curated Tours */}
+      <section id="curated-tours" className="mx-auto max-w-6xl px-4 py-20">
+        <div className="mb-4 text-center">
+          <h2 className="text-3xl font-bold text-slate-900 md:text-4xl">{t.curatedToursTitle}</h2>
+          <p className="mx-auto mt-3 max-w-2xl text-sm text-slate-600 md:text-base">{t.curatedToursSubtitle}</p>
+        </div>
+        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <TourCard
+            title={t.tour1Title}
+            description={t.tour1Desc}
+            duration={t.tour1Duration}
+            price="From $180"
+            badge={t.tour1Badge}
+            image=""
+            buttonText={t.viewTour}
+            link={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour1Title}. Please share details.`)}`}
+          />
+          <TourCard
+            title={t.tour2Title}
+            description={t.tour2Desc}
+            duration={t.tour2Duration}
+            price="From $120"
+            badge={t.tour2Badge}
+            image=""
+            buttonText={t.viewTour}
+            link={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour2Title}. Please share details.`)}`}
+          />
+          <TourCard
+            title={t.tour3Title}
+            description={t.tour3Desc}
+            duration={t.tour3Duration}
+            price="From $250"
+            badge={t.tour3Badge}
+            image=""
+            buttonText={t.viewTour}
+            link={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour3Title}. Please share details.`)}`}
+          />
+          <TourCard
+            title={t.tour4Title}
+            description={t.tour4Desc}
+            duration={t.tour4Duration}
+            price="From $80"
+            badge={t.tour4Badge}
+            image=""
+            buttonText={t.viewTour}
+            link={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour4Title}. Please share details.`)}`}
+          />
+          <TourCard
+            title={t.tour5Title}
+            description={t.tour5Desc}
+            duration={t.tour5Duration}
+            price="From $150"
+            badge={t.tour5Badge}
+            image=""
+            buttonText={t.viewTour}
+            link={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour5Title}. Please share details.`)}`}
           />
         </div>
       </section>
