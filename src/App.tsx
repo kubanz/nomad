@@ -108,7 +108,7 @@ const TXT = {
     viewTour: "View Tour",
     tour1Title: "Exclusive 2-Day Son-Kul Experience — From Karakol to Bishkek",
     tour1Desc: "Alpine lake, yurt stay, mountain drive",
-    tour1Duration: "2–3 days",
+    tour1Duration: "2 days",
     tour1Badge: "POPULAR",
     tour2Title: "Jeti-Oguz Red Rocks Tour",
     tour2Desc: "Iconic red canyon & valley views",
@@ -208,7 +208,7 @@ const TXT = {
     viewTour: "Подробнее",
     tour1Title: "2 дня: Каракол — Сон-Кёль — Бишкек",
     tour1Desc: "Альпийское озеро, юрты, горная дорога",
-    tour1Duration: "2–3 дня",
+    tour1Duration: "2 дня",
     tour1Badge: "ПОПУЛЯРНО",
     tour2Title: "Каньон Джети-Огуз",
     tour2Desc: "Знаменитые красные скалы и долина",
@@ -308,7 +308,7 @@ const TXT = {
     viewTour: "투어 보기",
     tour1Title: "2일 투어: 카라콜 → 손쿨 → 비슈케크",
     tour1Desc: "알파인 호수, 유르트 숙박, 산악 드라이브",
-    tour1Duration: "2–3일",
+    tour1Duration: "2일",
     tour1Badge: "인기",
     tour2Title: "제티오구즈 붉은 바위 투어",
     tour2Desc: "상징적인 붉은 협곡과 계곡 전망",
@@ -764,7 +764,7 @@ function Landing() {
             title={t.tour1Title}
             description={t.tour1Desc}
             duration={t.tour1Duration}
-            price="From $180"
+            price="From $550"
             badge={t.tour1Badge}
             image="https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg"
             buttonText={t.viewTour}
