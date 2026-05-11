@@ -100,6 +100,14 @@ const STOPS: Stop[] = [
     },
     image: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/Barskoon.jpg",
     mapUrl: "#route-map",
+    photos: [
+      "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/Barskoon.jpg",
+      "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/Barskoon%202.jpg",
+      "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/Barskoon%203.jpg",
+      "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/Barskoon%204.jpg",
+      "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/Barskoon%205.jpg",
+      "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/Barskoon%206.jpg",
+    ],
   },
   {
     day: "DAY 1",
@@ -112,6 +120,13 @@ const STOPS: Stop[] = [
     },
     image: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/Canyon%20Skazka.jpg",
     mapUrl: "#route-map",
+    photos: [
+      "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/Canyon%20Skazka.jpg",
+      "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/skazka%202.jpg",
+      "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/skazka%203.jpg",
+      "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/skazka%204.jpg",
+      "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/skazka%205.jpg",
+    ],
   },
   {
     day: "DAY 1",
