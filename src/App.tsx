@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { Routes, Route as RouterRoute } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Car, Plane, Mountain, Route, MessageCircle, CheckCircle2, ChevronDown, Send, Globe } from "lucide-react";
+import KarakolSonkulBishkek from "./pages/KarakolSonkulBishkek";
 
 // ===== Бренд =====
 const BRAND_NAME = "Nomad Transfers KG";
@@ -104,7 +106,7 @@ const TXT = {
     curatedToursTitle: "Curated Tours in Kyrgyzstan",
     curatedToursSubtitle: "Private journeys to mountains, lakes and Silk Road destinations with your personal driver.",
     viewTour: "View Tour",
-    tour1Title: "Son-Kul Lake Experience",
+    tour1Title: "Exclusive 2-Day Son-Kul Experience — From Karakol to Bishkek",
     tour1Desc: "Alpine lake, yurt stay, mountain drive",
     tour1Duration: "2–3 days",
     tour1Badge: "POPULAR",
@@ -204,7 +206,7 @@ const TXT = {
     curatedToursTitle: "Авторские туры по Кыргызстану",
     curatedToursSubtitle: "Частные путешествия к горам, озёрам и памятникам Шёлкового пути с личным водителем.",
     viewTour: "Подробнее",
-    tour1Title: "Озеро Сон-Кёль",
+    tour1Title: "2 дня: Каракол — Сон-Кёль — Бишкек",
     tour1Desc: "Альпийское озеро, юрты, горная дорога",
     tour1Duration: "2–3 дня",
     tour1Badge: "ПОПУЛЯРНО",
@@ -304,7 +306,7 @@ const TXT = {
     curatedToursTitle: "키르기스스탄 큐레이팅 투어",
     curatedToursSubtitle: "전용 드라이버와 함께하는 산, 호수, 실크로드 명소 여행.",
     viewTour: "투어 보기",
-    tour1Title: "송쿨 호수 체험",
+    tour1Title: "2일 투어: 카라콜 → 손쿨 → 비슈케크",
     tour1Desc: "알파인 호수, 유르트 숙박, 산악 드라이브",
     tour1Duration: "2–3일",
     tour1Badge: "인기",
@@ -405,8 +407,9 @@ const TourCard = ({
   price,
   badge,
   image,
-  link,
-  buttonText
+  tourLink,
+  waLink,
+  buttonText,
 }: {
   title: string;
   description: string;
@@ -414,55 +417,55 @@ const TourCard = ({
   price: string;
   badge: string;
   image: string;
-  link: string;
+  tourLink: string;
+  waLink: string;
   buttonText: string;
 }) => (
-  <a
-    href={link}
-    className="group block overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:shadow-xl"
-  >
-    {/* Image Area - 60% */}
-    <div className="relative h-48 overflow-hidden bg-slate-100">
+  <div className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:shadow-xl">
+    {/* Image */}
+    <a href={tourLink} className="relative block h-48 shrink-0 overflow-hidden bg-slate-100">
       {image ? (
         <img src={image} alt={title} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
       ) : (
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-teal-400 to-sky-400" />
       )}
-      <div className="absolute left-3 top-3">
-        <span className="inline-block rounded-lg bg-black/70 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white backdrop-blur">
-          {badge}
-        </span>
-      </div>
+      <span className="absolute left-3 top-3 inline-block rounded-lg bg-black/70 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white backdrop-blur">
+        {badge}
+      </span>
       <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/30 to-transparent" />
-    </div>
+    </a>
 
-    {/* Content Area - 40% */}
-    <div className="p-4">
+    {/* Content */}
+    <div className="flex flex-1 flex-col p-4">
       <h3 className="text-base font-bold text-slate-900 md:text-lg">{title}</h3>
       <p className="mt-1 text-sm text-slate-600 line-clamp-1">{description}</p>
-
-      {/* Meta Row */}
       <div className="mt-3 flex items-center gap-3 text-xs text-slate-500">
-        <span className="flex items-center gap-1">
-          ⏱ {duration}
-        </span>
-        <span className="flex items-center gap-1">
-          🚗 Private SUV
-        </span>
-        <span className="flex items-center gap-1">
-          🏔 Nature
-        </span>
+        <span>⏱ {duration}</span>
+        <span>🚗 Private SUV</span>
+        <span>🏔 Nature</span>
       </div>
-
-      {/* Price */}
       <p className="mt-3 text-base font-bold text-slate-900">{price}</p>
 
-      {/* CTA Button */}
-      <button className="mt-3 w-full rounded-xl bg-slate-900 py-2.5 text-sm font-semibold text-white transition-all hover:bg-slate-800 group-hover:bg-emerald-600">
-        {buttonText}
-      </button>
+      {/* Buttons */}
+      <div className="mt-3 flex gap-2">
+        <a
+          href={tourLink}
+          className="flex flex-1 items-center justify-center rounded-xl bg-slate-900 py-2.5 text-sm font-semibold text-white hover:bg-emerald-600"
+        >
+          {buttonText}
+        </a>
+        <a
+          href={waLink}
+          target="_blank"
+          rel="noopener"
+          className="flex items-center justify-center rounded-xl bg-emerald-600 px-3 py-2.5 text-white hover:bg-emerald-700"
+          aria-label="WhatsApp"
+        >
+          <MessageCircle className="h-4 w-4" />
+        </a>
+      </div>
     </div>
-  </a>
+  </div>
 );
 
 const RouteCard = ({ title, subtitle, icon: Icon }: { title: string; subtitle: string; icon: any }) => (
@@ -547,7 +550,7 @@ function MobileCTA({ text, reply, lang }: { text: string; reply: string; lang: "
   );
 }
 
-export default function Landing() {
+function Landing() {
   const [lang, setLang] = useState(pickLang() as "en" | "ru" | "ko");
   const [brand] = useState(pickBrand());
   const [showLangDropdown, setShowLangDropdown] = useState(false);
@@ -765,7 +768,8 @@ export default function Landing() {
             badge={t.tour1Badge}
             image="https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg"
             buttonText={t.viewTour}
-            link={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour1Title}. Please share details.`)}`}
+            tourLink="/tours/karakol-sonkul-bishkek"
+            waLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in the Karakol → Son-Kul → Bishkek 2-day tour. Please share details.`)}`}
           />
           <TourCard
             title={t.tour2Title}
@@ -775,7 +779,8 @@ export default function Landing() {
             badge={t.tour2Badge}
             image="https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/jeti-oguz.jpg"
             buttonText={t.viewTour}
-            link={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour2Title}. Please share details.`)}`}
+            tourLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour2Title}. Please share details.`)}`}
+            waLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour2Title}. Please share details.`)}`}
           />
           <TourCard
             title={t.tour3Title}
@@ -785,7 +790,8 @@ export default function Landing() {
             badge={t.tour3Badge}
             image="https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/tash-rabat.jpg"
             buttonText={t.viewTour}
-            link={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour3Title}. Please share details.`)}`}
+            tourLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour3Title}. Please share details.`)}`}
+            waLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour3Title}. Please share details.`)}`}
           />
           <TourCard
             title={t.tour4Title}
@@ -795,7 +801,8 @@ export default function Landing() {
             badge={t.tour4Badge}
             image="https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/burana.jpg"
             buttonText={t.viewTour}
-            link={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour4Title}. Please share details.`)}`}
+            tourLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour4Title}. Please share details.`)}`}
+            waLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour4Title}. Please share details.`)}`}
           />
           <TourCard
             title={t.tour5Title}
@@ -805,7 +812,8 @@ export default function Landing() {
             badge={t.tour5Badge}
             image="https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/yurt-camp.jpg"
             buttonText={t.viewTour}
-            link={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour5Title}. Please share details.`)}`}
+            tourLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour5Title}. Please share details.`)}`}
+            waLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour5Title}. Please share details.`)}`}
           />
         </div>
       </section>
@@ -906,5 +914,14 @@ export default function Landing() {
 	</footer>
 
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <RouterRoute path="/" element={<Landing />} />
+      <RouterRoute path="/tours/karakol-sonkul-bishkek" element={<KarakolSonkulBishkek />} />
+    </Routes>
   );
 }
