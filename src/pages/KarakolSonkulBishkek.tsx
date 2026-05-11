@@ -96,7 +96,7 @@ const STOPS: Stop[] = [
       ru: "Долина Барскоон — сосновые леса, горные реки и красивые водопады. По пути — мемориал Юрия Гагарина.",
       ko: "바르스쿤 계곡 — 소나무 숲, 산악 강, 아름다운 폭포들. 유리 가가린 기념비도 방문합니다.",
     },
-    image: "",
+    image: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/Barskoon.jpg",
     mapUrl: "https://maps.google.com/?q=Barskoon+Waterfall+Kyrgyzstan",
   },
   {
@@ -108,7 +108,7 @@ const STOPS: Stop[] = [
       ru: "Ветер и вода создали цветные скальные формы — замки, драконы, фантастические пейзажи. Отлично для прогулок и фото.",
       ko: "바람과 물이 만들어낸 다채로운 암석 지형 — 성, 용, 환상적인 풍경. 짧은 하이킹과 멋진 사진 촬영에 완벽합니다.",
     },
-    image: "",
+    image: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/Canyon%20Skazka.jpg",
     mapUrl: "https://maps.google.com/?q=Skazka+Canyon+Issyk-Kul+Kyrgyzstan",
   },
   {
