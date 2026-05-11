@@ -423,7 +423,11 @@ const TourCard = ({
   >
     {/* Image Area - 60% */}
     <div className="relative h-48 overflow-hidden bg-slate-100">
-      <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-teal-400 to-sky-400 opacity-80" />
+      {image ? (
+        <img src={image} alt={title} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+      ) : (
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-teal-400 to-sky-400" />
+      )}
       <div className="absolute left-3 top-3">
         <span className="inline-block rounded-lg bg-black/70 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white backdrop-blur">
           {badge}
