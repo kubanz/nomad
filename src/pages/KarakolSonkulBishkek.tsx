@@ -339,6 +339,108 @@ function ItineraryCard({ stop, idx, lang }: { stop: Stop; idx: number; lang: "en
   );
 }
 
+// ─── Pricing ──────────────────────────────────────────────────────────────────
+
+function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
+  const included = {
+    en: ["Comfortable 4×4 vehicle", "Professional local driver", "Fuel and all transportation costs", "Hotel pickup in Karakol", "Hotel / Airport drop-off in Bishkek", "Overnight yurt camp at Son-Kul"],
+    ru: ["Комфортный внедорожник 4×4", "Профессиональный местный водитель", "Топливо и все транспортные расходы", "Трансфер из отеля в Каракол", "Трансфер до отеля / аэропорта в Бишкеке", "Ночёвка в юрточном лагере на Сон-Кёле"],
+    ko: ["쾌적한 4×4 차량", "전문 현지 드라이버", "연료 및 모든 교통 비용", "카라콜 호텔 픽업", "비슈케크 호텔/공항 하차", "손쿨 유르트 캠프 숙박"],
+  };
+  const notIncluded = {
+    en: ["Meals and drinks", "Entrance tickets (if required)", "Horse riding activities", "Personal travel insurance"],
+    ru: ["Питание и напитки", "Входные билеты (при необходимости)", "Конные прогулки", "Личная туристическая страховка"],
+    ko: ["식사 및 음료", "입장권 (필요시)", "승마 활동", "개인 여행 보험"],
+  };
+  const whyChoose = {
+    en: ["Private transfer — not a group tour", "Flexible stops and custom timing", "Comfortable long-distance travel", "Trusted local drivers", "Direct WhatsApp communication", "No hidden fees"],
+    ru: ["Приватный трансфер — не групповой тур", "Гибкие остановки и индивидуальный график", "Комфортные длинные перегоны", "Надёжные местные водители", "Прямая связь через WhatsApp", "Никаких скрытых платежей"],
+    ko: ["프라이빗 이동 — 그룹 투어 아님", "유연한 정류장 및 맞춤 일정", "장거리 편안한 이동", "신뢰할 수 있는 현지 드라이버", "WhatsApp 직접 소통", "숨겨진 요금 없음"],
+  };
+
+  const T = {
+    title:    { en: "Private Tour Price", ru: "Стоимость тура", ko: "프라이빗 투어 가격" },
+    best:     { en: "BEST VALUE", ru: "ЛУЧШАЯ ЦЕНА", ko: "최고 가치" },
+    per:      { en: "per vehicle (up to 4 passengers)", ru: "за автомобиль (до 4 пассажиров)", ko: "차량당 (최대 4명)" },
+    included: { en: "What's Included", ru: "Что включено", ko: "포함 사항" },
+    notIncl:  { en: "Not Included", ru: "Не включено", ko: "미포함 사항" },
+    why:      { en: "Why Choose This Tour?", ru: "Почему этот тур?", ko: "이 투어를 선택하는 이유?" },
+    wa:       { en: "Book via WhatsApp", ru: "Забронировать в WhatsApp", ko: "WhatsApp으로 예약" },
+    tg:       { en: "Book via Telegram", ru: "Забронировать в Telegram", ko: "Telegram으로 예약" },
+  };
+
+  return (
+    <section className="mb-14">
+      <div className="mb-6 text-center">
+        <h2 className="text-2xl font-bold md:text-3xl">{T.title[lang]}</h2>
+      </div>
+
+      <div className="grid gap-6 md:grid-cols-2">
+        {/* Left: price card */}
+        <div className="relative rounded-2xl border-2 border-teal-400 bg-white p-6 shadow-sm">
+          <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+            <span className="rounded-full bg-teal-500 px-4 py-1 text-xs font-bold uppercase tracking-widest text-white">
+              {T.best[lang]}
+            </span>
+          </div>
+
+          <p className="mt-2 text-4xl font-extrabold text-slate-900">$390 <span className="text-2xl">USD</span></p>
+          <p className="mt-1 text-sm text-slate-500">{T.per[lang]}</p>
+
+          <div className="mt-5">
+            <p className="mb-3 text-sm font-bold text-slate-800">{T.included[lang]}</p>
+            <ul className="space-y-0">
+              {included[lang].map((item, i) => (
+                <li key={i} className="flex items-center gap-2 border-b border-slate-100 py-2 last:border-0">
+                  <span className="text-teal-500 font-bold text-sm">✓</span>
+                  <span className="text-sm text-slate-700">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="mt-6 flex flex-col gap-3">
+            <a href={WA_LINK} target="_blank" rel="noopener"
+              className="flex items-center justify-center gap-2 rounded-full bg-green-500 py-3 text-sm font-semibold text-white hover:bg-green-600">
+              📱 {T.wa[lang]}
+            </a>
+            <a href="https://t.me/nomadtransfer" target="_blank" rel="noopener"
+              className="flex items-center justify-center gap-2 rounded-full bg-indigo-700 py-3 text-sm font-semibold text-white hover:bg-indigo-800">
+              ✈️ {T.tg[lang]}
+            </a>
+          </div>
+        </div>
+
+        {/* Right: not included + why choose */}
+        <div className="flex flex-col gap-6">
+          <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+            <h3 className="mb-3 text-lg font-bold text-teal-600">{T.notIncl[lang]}</h3>
+            <ul className="space-y-0">
+              {notIncluded[lang].map((item, i) => (
+                <li key={i} className="flex items-center gap-2 border-b border-slate-100 py-2 last:border-0">
+                  <span className="text-rose-400 font-bold text-sm">✕</span>
+                  <span className="text-sm text-slate-600">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
+            <h3 className="mb-3 text-sm font-bold text-slate-800">{T.why[lang]}</h3>
+            <ul className="space-y-1">
+              {whyChoose[lang].map((item, i) => (
+                <li key={i} className="flex items-center gap-2 text-sm text-teal-700">
+                  <span className="font-bold">✓</span> {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function KarakolSonkulBishkek() {
@@ -495,6 +597,9 @@ export default function KarakolSonkulBishkek() {
 
         {/* Interactive Map */}
         <InteractiveRouteMap lang={lang} />
+
+        {/* Pricing */}
+        <PricingSection lang={lang} />
 
       </main>
 
