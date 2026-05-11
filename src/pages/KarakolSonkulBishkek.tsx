@@ -410,35 +410,24 @@ export default function KarakolSonkulBishkek() {
           alt="Son-Kul Lake"
           className="absolute inset-0 h-full w-full object-cover opacity-40"
         />
-        <div className="relative mx-auto max-w-4xl px-4 py-16 text-white md:py-24">
-          <p className="text-sm font-medium uppercase tracking-widest text-white/80">
-            {lang === "ru" ? "Приватный тур" : lang === "ko" ? "프라이빗 투어" : "Private Tour"}
+        <div className="relative mx-auto max-w-4xl px-4 py-10 text-white md:py-14">
+          <p className="text-xs font-medium uppercase tracking-widest text-white/70">
+            {lang === "ru" ? "Приватный тур · 2 дня" : lang === "ko" ? "프라이빗 투어 · 2일" : "Private Tour · 2 Days"}
           </p>
-          <h1 className="mt-3 text-3xl font-bold leading-tight md:text-5xl">
+          <h1 className="mt-2 text-2xl font-bold leading-tight md:text-4xl">
             {lang === "ru"
-              ? "Каракол → Бишкек через Сон-Кёль и башню Бурана"
+              ? "Каракол → Сон-Кёль → Бурана → Бишкек"
               : lang === "ko"
               ? "카라콜 → 손쿨 → 부라나 → 비슈케크"
-              : "Karakol to Bishkek via Son-Kul Lake & Burana Tower"}
+              : "Karakol → Son-Kul → Burana → Bishkek"}
           </h1>
-          <p className="mt-3 text-lg text-white/90">
+          <p className="mt-2 text-sm text-white/80">
             {lang === "ru"
-              ? "2-дневное путешествие через ущелья, водопады, каньоны и горные озёра"
+              ? "Ущелья, водопады, каньоны, горные озёра"
               : lang === "ko"
-              ? "협곡, 폭포, 협곡, 고산 호수를 지나는 2일 어드벤처"
-              : "2-day adventure through gorges, waterfalls, canyons, and alpine lakes"}
+              ? "협곡, 폭포, 협곡, 고산 호수"
+              : "Gorges, waterfalls, canyons, alpine lakes"}
           </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <a href={WA_LINK} target="_blank" rel="noopener"
-              className="inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-white/90">
-              <MessageCircle className="h-4 w-4" />
-              {lang === "ru" ? "Написать в WhatsApp" : lang === "ko" ? "WhatsApp 문의" : "Book on WhatsApp"}
-            </a>
-            <a href="https://t.me/nomadtransfer" target="_blank" rel="noopener"
-              className="inline-flex items-center gap-2 rounded-xl bg-sky-500 px-5 py-3 text-sm font-semibold text-white hover:bg-sky-600">
-              <Send className="h-4 w-4" /> Telegram
-            </a>
-          </div>
         </div>
       </section>
 
