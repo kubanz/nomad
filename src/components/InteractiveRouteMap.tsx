@@ -40,6 +40,7 @@ export default function InteractiveRouteMap({ lang }: Props) {
   const containerRef   = useRef<HTMLDivElement>(null);
   const mapRef         = useRef<any>(null);
   const carMarkerRef   = useRef<any>(null);
+  const markersRef     = useRef<any[]>([]);
   const routeRef       = useRef<[number, number][]>([]);
   const carIdxRef      = useRef(0);
   const rafRef         = useRef<number>(0);
@@ -135,6 +136,9 @@ export default function InteractiveRouteMap({ lang }: Props) {
       if (d < minDist) { minDist = d; closest = i; }
     });
     if (minDist < 1000 && closest !== stopIdxRef.current) {
+      // Close previous tooltip, open new one
+      markersRef.current[stopIdxRef.current]?.closeTooltip();
+      markersRef.current[closest]?.openTooltip();
       stopIdxRef.current = closest;
       const s = MAP_STOPS[closest];
       const nxt = MAP_STOPS[Math.min(closest + 1, MAP_STOPS.length - 1)];
@@ -175,6 +179,8 @@ export default function InteractiveRouteMap({ lang }: Props) {
       const waypoints = MAP_STOPS.map((s) => L.latLng(s.lat, s.lng));
       mapRef.current.fitBounds(L.latLngBounds(waypoints), { padding: [40, 40], animate: true });
     }
+    markersRef.current.forEach((m) => m?.closeTooltip());
+    markersRef.current[0]?.openTooltip();
     setCurStop(MAP_STOPS[0].name);
     setNxtStop(MAP_STOPS[1].name);
     setStatusTitle(lang === "ru" ? "Готов к старту" : lang === "ko" ? "준비 완료" : "Ready to start");
@@ -213,13 +219,15 @@ export default function InteractiveRouteMap({ lang }: Props) {
         maxZoom: 18,
       }).addTo(map);
 
+      markersRef.current = [];
       MAP_STOPS.forEach((s) => {
-        L.marker([s.lat, s.lng], { icon: makeStopIcon(s) })
+        const m = L.marker([s.lat, s.lng], { icon: makeStopIcon(s) })
           .addTo(map)
           .bindTooltip(
             `<b style="font-size:12px">${s.name}</b><br><span style="color:#64748b;font-size:11px">Day ${s.day} · ${s.time}</span>`,
-            { permanent: true, direction: "top", offset: [0, -16], className: "stop-label-tt" }
+            { direction: "top", offset: [0, -16], className: "stop-label-tt" }
           );
+        markersRef.current.push(m);
       });
 
       const waypoints = MAP_STOPS.map((s) => L.latLng(s.lat, s.lng));
@@ -242,6 +250,9 @@ export default function InteractiveRouteMap({ lang }: Props) {
             icon: makeCarIcon(),
             zIndexOffset: 1000,
           }).addTo(map);
+
+          // Show first stop tooltip on load
+          markersRef.current[0]?.openTooltip();
 
           setTimeout(() => {
             if (!destroyed) togglePlay();
