@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Car, MessageCircle, Send, Globe, ChevronLeft, MapPin } from "lucide-react";
 import InteractiveRouteMap from "../components/InteractiveRouteMap";
+import PhotoGalleryModal from "../components/PhotoGalleryModal";
 
 // ─── Timeline data ────────────────────────────────────────────────────────────
 
@@ -72,6 +73,7 @@ interface Stop {
   desc: { en: string; ru: string; ko: string };
   image: string;
   mapUrl: string;
+  photos?: string[];
 }
 
 const STOPS: Stop[] = [
@@ -122,6 +124,15 @@ const STOPS: Stop[] = [
     },
     image: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
     mapUrl: "#route-map",
+    photos: [
+      "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
+      "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul%202.jpg",
+      "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul%203.jpg",
+      "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul%204.jpg",
+      "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul%205.jpg",
+      "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul%206.jpg",
+      "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul%207.jpg",
+    ],
   },
   {
     day: "DAY 2",
@@ -298,10 +309,17 @@ const GRADIENT_BY_INDEX = [
 
 function ItineraryCard({ stop, idx, lang }: { stop: Stop; idx: number; lang: "en" | "ru" | "ko" }) {
   const isOvernight = stop.time === "Overnight";
+  const [galleryOpen, setGalleryOpen] = useState(false);
+  const hasPhotos = stop.photos && stop.photos.length > 0;
+
   return (
+    <>
     <div className="group flex snap-center flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:shadow-xl md:snap-align-none">
       {/* Image */}
-      <div className="relative h-56 shrink-0 overflow-hidden">
+      <div
+        className={`relative h-56 shrink-0 overflow-hidden ${hasPhotos ? "cursor-pointer" : ""}`}
+        onClick={() => hasPhotos && setGalleryOpen(true)}
+      >
         {stop.image ? (
           <img src={stop.image} alt={stop.title.en} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
         ) : (
@@ -315,6 +333,12 @@ function ItineraryCard({ stop, idx, lang }: { stop: Stop; idx: number; lang: "en
             {stop.day} · {stop.time}
           </span>
         </div>
+        {/* Photo count badge */}
+        {hasPhotos && (
+          <div className="absolute bottom-3 left-3 flex items-center gap-1 rounded-full bg-black/50 px-2.5 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+            📷 {stop.photos!.length}
+          </div>
+        )}
         {/* Stop number */}
         <div className="absolute bottom-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white/20 backdrop-blur text-xs font-bold text-white border border-white/30">
           {idx + 1}
@@ -334,6 +358,13 @@ function ItineraryCard({ stop, idx, lang }: { stop: Stop; idx: number; lang: "en
         </a>
       </div>
     </div>
+    {galleryOpen && hasPhotos && (
+      <PhotoGalleryModal
+        photos={stop.photos!}
+        onClose={() => setGalleryOpen(false)}
+      />
+    )}
+    </>
   );
 }
 
