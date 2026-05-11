@@ -40,6 +40,11 @@ const TIMELINE: TimelineStop[] = [
     type: "overnight",
   },
   {
+    day: "Day 2", time: "07:00",
+    place: { en: "Son-Kul Morning", ru: "Утро на Сон-Кёле", ko: "손쿨 아침" },
+    sub: { en: "Sunrise walk · Yurt breakfast", ru: "Восход · Завтрак в юрте", ko: "일출 산책 · 유르트 아침" },
+  },
+  {
     day: "Day 2", time: "10:00",
     place: { en: "Orto-Tokoi", ru: "Орто-Токой", ko: "오르토-토코이" },
     sub: { en: "Scenic mountain reservoir", ru: "Горное водохранилище", ko: "산악 저수지" },
@@ -119,7 +124,19 @@ const STOPS: Stop[] = [
   },
   {
     day: "DAY 2",
-    time: "Morning",
+    time: "07:00",
+    title: { en: "Morning at Son-Kul", ru: "Утро на Сон-Кёле", ko: "손쿨 아침" },
+    desc: {
+      en: "Wake up to a stunning sunrise over the alpine lake. Take a morning walk along the lakeshore, breathe the fresh mountain air, and enjoy a traditional Kyrgyz breakfast in your yurt before departure.",
+      ru: "Рассвет над горным озером. Утренняя прогулка по берегу, свежий горный воздух и традиционный кыргызский завтрак в юрте перед отъездом.",
+      ko: "고산 호수 위로 펼쳐지는 멋진 일출을 맞이하세요. 아침 산책, 상쾌한 산 공기, 그리고 출발 전 유르트에서 즐기는 전통 키르기스 아침 식사.",
+    },
+    image: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
+    mapUrl: "https://maps.google.com/?q=Son-Kul+Lake+Kyrgyzstan",
+  },
+  {
+    day: "DAY 2",
+    time: "10:00",
     title: { en: "Orto-Tokoi Reservoir", ru: "Водохранилище Орто-Токой", ko: "오르토-토코이 저수지" },
     desc: {
       en: "A beautiful mountain reservoir surrounded by open landscapes and dramatic mountain views. A great scenic stop on the road to Bishkek.",
