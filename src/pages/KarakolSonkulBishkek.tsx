@@ -626,7 +626,9 @@ export default function KarakolSonkulBishkek() {
         </section>
 
         {/* Interactive Map */}
-        <InteractiveRouteMap lang={lang} />
+        <div className="mt-14">
+          <InteractiveRouteMap lang={lang} />
+        </div>
 
         {/* Pricing */}
         <PricingSection lang={lang} />
