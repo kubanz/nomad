@@ -382,7 +382,7 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
             </span>
           </div>
 
-          <p className="mt-2 text-4xl font-extrabold text-slate-900">$390 <span className="text-2xl">USD</span></p>
+          <p className="mt-2 text-4xl font-extrabold text-slate-900">$550 <span className="text-2xl">USD</span></p>
           <p className="mt-1 text-sm text-slate-500">{T.per[lang]}</p>
 
           <div className="mt-5">
