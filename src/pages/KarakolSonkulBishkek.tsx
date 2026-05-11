@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Car, MessageCircle, Send, Globe, ChevronLeft, MapPin } from "lucide-react";
+import InteractiveRouteMap from "../components/InteractiveRouteMap";
 
 // ─── Timeline data ────────────────────────────────────────────────────────────
 
@@ -491,6 +492,9 @@ export default function KarakolSonkulBishkek() {
             ))}
           </div>
         </section>
+
+        {/* Interactive Map */}
+        <InteractiveRouteMap lang={lang} />
 
       </main>
 
