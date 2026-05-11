@@ -647,6 +647,40 @@ export default function KarakolSonkulBishkek() {
 
       </main>
 
+      {/* Footer */}
+      <footer className="border-t bg-white/80">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-6 md:flex-row">
+          <p className="text-xs opacity-80">© {new Date().getFullYear()} {BRAND}</p>
+          <nav className="flex flex-col gap-2 text-center text-xs opacity-80 md:text-left">
+            <div className="flex flex-wrap justify-center gap-3 md:justify-start">
+              <a href="/en/bishkek-to-karakol.html" className="hover:text-emerald-600">EN: Bishkek → Karakol</a>
+              <a href="/en/almaty-to-karakol.html" className="hover:text-emerald-600">EN: Almaty → Karakol</a>
+              <a href="/en/manas-airport-to-karakol.html" className="hover:text-emerald-600">EN: Manas Airport → Karakol</a>
+            </div>
+            <div className="flex flex-wrap justify-center gap-3 md:justify-start">
+              <a href="/ru/bishkek-karakol.html" className="hover:text-emerald-600">RU: Бишкек → Каракол</a>
+              <a href="/ru/almaty-karakol.html" className="hover:text-emerald-600">RU: Алматы → Каракол</a>
+              <a href="/ru/manas-karakol.html" className="hover:text-emerald-600">RU: Манас → Каракол</a>
+            </div>
+            <div className="flex flex-wrap justify-center gap-3 md:justify-start">
+              <a href="/ko/bishkek-karakol.html" className="hover:text-emerald-600">KO: 비슈케크 → 카라콜</a>
+              <a href="/ko/almaty-karakol.html" className="hover:text-emerald-600">KO: 알마티 → 카라콜</a>
+              <a href="/ko/manas-karakol.html" className="hover:text-emerald-600">KO: 마나스 → 카라콜</a>
+            </div>
+          </nav>
+          <div className="flex gap-2">
+            <a href="https://t.me/nomadtransfer" target="_blank" rel="noopener"
+              className="inline-flex items-center gap-2 rounded-xl border border-sky-500 px-4 py-2 text-sm text-sky-600 hover:bg-sky-50">
+              <Send className="h-4 w-4" /> Telegram
+            </a>
+            <a href={WA_LINK} target="_blank" rel="noopener"
+              className="inline-flex items-center gap-2 rounded-xl border border-emerald-500 px-4 py-2 text-sm text-emerald-600 hover:bg-emerald-50">
+              <MessageCircle className="h-4 w-4" /> WhatsApp
+            </a>
+          </div>
+        </div>
+      </footer>
+
       {/* Mobile CTA */}
       <div className="fixed inset-x-0 bottom-0 z-50 border-t bg-white/95 p-3 shadow-2xl md:hidden">
         <div className="flex gap-2">
