@@ -460,8 +460,8 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
         <h2 className="text-2xl font-bold md:text-3xl">{T.title[lang]}</h2>
       </div>
 
-      {/* Two vehicle options */}
-      <div className="grid gap-6 md:grid-cols-2 mb-6">
+      {/* Three columns: sedan | minivan | not-included + why-choose */}
+      <div className="grid gap-6 md:grid-cols-3">
         <PriceCard
           price="$415"
           badge={T.sedan[lang]}
@@ -476,30 +476,28 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
           vehicleLabel={T.vehicle2[lang]}
           accent="border-indigo-400"
         />
-      </div>
-
-      {/* Not included + why choose */}
-      <div className="grid gap-6 md:grid-cols-2">
-        <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
-          <h3 className="mb-3 text-lg font-bold text-teal-600">{T.notIncl[lang]}</h3>
-          <ul className="space-y-0">
-            {notIncluded[lang].map((item, i) => (
-              <li key={i} className="flex items-center gap-2 border-b border-slate-100 py-2 last:border-0">
-                <span className="text-rose-400 font-bold text-sm">✕</span>
-                <span className="text-sm text-slate-600">{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
-          <h3 className="mb-3 text-sm font-bold text-slate-800">{T.why[lang]}</h3>
-          <ul className="space-y-1">
-            {whyChoose[lang].map((item, i) => (
-              <li key={i} className="flex items-center gap-2 text-sm text-teal-700">
-                <span className="font-bold">✓</span> {item}
-              </li>
-            ))}
-          </ul>
+        <div className="flex flex-col gap-6">
+          <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+            <h3 className="mb-3 text-lg font-bold text-teal-600">{T.notIncl[lang]}</h3>
+            <ul className="space-y-0">
+              {notIncluded[lang].map((item, i) => (
+                <li key={i} className="flex items-center gap-2 border-b border-slate-100 py-2 last:border-0">
+                  <span className="text-rose-400 font-bold text-sm">✕</span>
+                  <span className="text-sm text-slate-600">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
+            <h3 className="mb-3 text-sm font-bold text-slate-800">{T.why[lang]}</h3>
+            <ul className="space-y-1">
+              {whyChoose[lang].map((item, i) => (
+                <li key={i} className="flex items-center gap-2 text-sm text-teal-700">
+                  <span className="font-bold">✓</span> {item}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -538,9 +536,6 @@ export default function KarakolSonkulBishkek() {
 
           {/* Center: nav */}
           <nav className="hidden items-center justify-center gap-1 md:flex">
-            <Link href="/" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
-              {lang === "ru" ? "Главная" : lang === "ko" ? "홈" : "Home"}
-            </Link>
             <Link href="/#curated-tours" className="rounded-lg px-3 py-1.5 text-sm font-medium text-emerald-600 hover:bg-slate-100">
               {lang === "ru" ? "Туры" : lang === "ko" ? "투어" : "Tours"}
             </Link>

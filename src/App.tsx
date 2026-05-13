@@ -787,7 +787,7 @@ export default function Landing() {
             title={t.tour1Title}
             description={t.tour1Desc}
             duration={t.tour1Duration}
-            price="From $550"
+            price="From $415"
             badge={t.tour1Badge}
             image="https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg"
             buttonText={t.viewTour}
