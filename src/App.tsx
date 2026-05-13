@@ -576,25 +576,28 @@ export default function Landing() {
 
       {/* Header */}
       <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2">
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <Car className="h-5 w-5" />
-              <span className="text-sm font-semibold md:text-base">{brand}</span>
-            </div>
-            <nav className="hidden items-center gap-1 md:flex">
-              <Link href="/" className="rounded-lg px-3 py-1.5 text-sm font-medium text-emerald-600 hover:bg-slate-100">
-                {lang === "ru" ? "Главная" : lang === "ko" ? "홈" : "Home"}
-              </Link>
-              <Link href="/#curated-tours" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
-                {lang === "ru" ? "Туры" : lang === "ko" ? "투어" : "Tours"}
-              </Link>
-              <Link href="/#route-prices" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
-                {lang === "ru" ? "Трансферы" : lang === "ko" ? "이동" : "Transfers"}
-              </Link>
-            </nav>
-          </div>
+        <div className="mx-auto grid max-w-6xl grid-cols-3 items-center px-4 py-2">
+          {/* Left: brand */}
           <div className="flex items-center gap-2">
+            <Car className="h-5 w-5" />
+            <span className="text-sm font-semibold md:text-base">{brand}</span>
+          </div>
+
+          {/* Center: nav */}
+          <nav className="hidden items-center justify-center gap-1 md:flex">
+            <Link href="/" className="rounded-lg px-3 py-1.5 text-sm font-medium text-emerald-600 hover:bg-slate-100">
+              {lang === "ru" ? "Главная" : lang === "ko" ? "홈" : "Home"}
+            </Link>
+            <Link href="/#curated-tours" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
+              {lang === "ru" ? "Туры" : lang === "ko" ? "투어" : "Tours"}
+            </Link>
+            <Link href="/#route-prices" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
+              {lang === "ru" ? "Трансферы" : lang === "ko" ? "이동" : "Transfers"}
+            </Link>
+          </nav>
+
+          {/* Right: lang + buttons */}
+          <div className="flex items-center justify-end gap-2">
             {/* Language Switcher */}
             <div className="relative">
               <button

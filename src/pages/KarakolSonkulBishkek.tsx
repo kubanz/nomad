@@ -495,26 +495,34 @@ export default function KarakolSonkulBishkek() {
     <div className="min-h-screen bg-slate-50 text-slate-900">
       {/* Header */}
       <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2">
-          <div className="flex items-center gap-3">
+        <div className="mx-auto grid max-w-6xl grid-cols-3 items-center px-4 py-2">
+          {/* Left: back + brand */}
+          <div className="flex items-center gap-2">
             <Link href="/" className="flex items-center gap-1.5 rounded-xl border px-3 py-2 text-xs font-medium hover:bg-slate-50">
               <ChevronLeft className="h-3.5 w-3.5" />
               {lang === "ru" ? "Главная" : lang === "ko" ? "홈" : "Home"}
             </Link>
-            <div className="flex items-center gap-2">
+            <div className="hidden items-center gap-2 md:flex">
               <Car className="h-5 w-5" />
-              <span className="hidden text-sm font-semibold md:block">{BRAND}</span>
+              <span className="text-sm font-semibold">{BRAND}</span>
             </div>
-            <nav className="hidden items-center gap-1 md:flex">
-              <Link href="/#curated-tours" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
-                {lang === "ru" ? "Туры" : lang === "ko" ? "투어" : "Tours"}
-              </Link>
-              <Link href="/#route-prices" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
-                {lang === "ru" ? "Трансферы" : lang === "ko" ? "이동" : "Transfers"}
-              </Link>
-            </nav>
           </div>
-          <div className="flex items-center gap-2">
+
+          {/* Center: nav */}
+          <nav className="hidden items-center justify-center gap-1 md:flex">
+            <Link href="/" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
+              {lang === "ru" ? "Главная" : lang === "ko" ? "홈" : "Home"}
+            </Link>
+            <Link href="/#curated-tours" className="rounded-lg px-3 py-1.5 text-sm font-medium text-emerald-600 hover:bg-slate-100">
+              {lang === "ru" ? "Туры" : lang === "ko" ? "투어" : "Tours"}
+            </Link>
+            <Link href="/#route-prices" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
+              {lang === "ru" ? "Трансферы" : lang === "ko" ? "이동" : "Transfers"}
+            </Link>
+          </nav>
+
+          {/* Right: lang + buttons */}
+          <div className="flex items-center justify-end gap-2">
             {/* Language switcher */}
             <div className="relative">
               <button
