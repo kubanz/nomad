@@ -189,12 +189,19 @@ const WA_LINK = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${
 const BRAND = "Nomad Transfers KG";
 
 function pickLang(): "en" | "ru" | "ko" {
+  if (typeof window !== "undefined") {
+    const saved = localStorage.getItem("lang");
+    if (saved === "en" || saved === "ru" || saved === "ko") return saved;
+  }
   if (typeof navigator !== "undefined") {
     const l = navigator.language?.toLowerCase() || "";
     if (l.startsWith("ko")) return "ko";
     if (l.startsWith("ru")) return "ru";
   }
   return "en";
+}
+function saveLang(code: "en" | "ru" | "ko") {
+  if (typeof window !== "undefined") localStorage.setItem("lang", code);
 }
 
 const LANGS: { code: "en" | "ru" | "ko"; label: string; flag: string }[] = [
@@ -537,7 +544,7 @@ export default function KarakolSonkulBishkek() {
                   {LANGS.map(({ code, label, flag }) => (
                     <button
                       key={code}
-                      onClick={(e) => { e.stopPropagation(); setLang(code); setShowLangDropdown(false); }}
+                      onClick={(e) => { e.stopPropagation(); setLang(code); saveLang(code); setShowLangDropdown(false); }}
                       className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-50 first:rounded-t-xl last:rounded-b-xl ${lang === code ? "font-semibold bg-slate-50" : ""}`}
                     >
                       {flag} {label}

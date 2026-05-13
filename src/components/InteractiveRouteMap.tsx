@@ -41,13 +41,14 @@ export default function InteractiveRouteMap({ lang }: Props) {
   const containerRef   = useRef<HTMLDivElement>(null);
   const mapRef         = useRef<any>(null);
   const carMarkerRef   = useRef<any>(null);
-  const markersRef     = useRef<any[]>([]);
-  const routeRef       = useRef<[number, number][]>([]);
-  const carIdxRef      = useRef(0);
-  const rafRef         = useRef<number>(0);
-  const playingRef     = useRef(false);
-  const stopIdxRef     = useRef(0);
-  const speedRef       = useRef(4);
+  const markersRef       = useRef<any[]>([]);
+  const routeRef         = useRef<[number, number][]>([]);
+  const waypointIdxRef   = useRef<number[]>([]);
+  const carIdxRef        = useRef(0);
+  const rafRef           = useRef<number>(0);
+  const playingRef       = useRef(false);
+  const stopIdxRef       = useRef(0);
+  const speedRef         = useRef(4);
 
   const [playing,     setPlaying]     = useState(false);
   const [speed,       setSpeed]       = useState(4);
@@ -130,21 +131,15 @@ export default function InteractiveRouteMap({ lang }: Props) {
       }
     }
 
-    // nearest stop
-    let minDist = Infinity, closest = 0;
-    MAP_STOPS.forEach((s, i) => {
-      const d = mapRef.current.distance(latlng, L.latLng(s.lat, s.lng));
-      if (d < minDist) { minDist = d; closest = i; }
-    });
-    if (minDist < 1000 && closest !== stopIdxRef.current) {
-      // Close previous tooltip, open new one
+    // Advance through waypoints based on route coordinate index
+    const nextWpIdx = stopIdxRef.current + 1;
+    if (nextWpIdx < MAP_STOPS.length && idx >= waypointIdxRef.current[nextWpIdx]) {
       markersRef.current[stopIdxRef.current]?.closeTooltip();
-      markersRef.current[closest]?.openTooltip();
-      stopIdxRef.current = closest;
-      const s = MAP_STOPS[closest];
-      const nxt = MAP_STOPS[Math.min(closest + 1, MAP_STOPS.length - 1)];
+      markersRef.current[nextWpIdx]?.openTooltip();
+      stopIdxRef.current = nextWpIdx;
+      const s = MAP_STOPS[nextWpIdx];
       setCurStop(s.name);
-      setNxtStop(closest === MAP_STOPS.length - 1 ? "—" : nxt.name);
+      setNxtStop(nextWpIdx === MAP_STOPS.length - 1 ? "—" : MAP_STOPS[nextWpIdx + 1].name);
       setStatusTitle(`📍 ${s.name}`);
     }
 
@@ -244,7 +239,19 @@ export default function InteractiveRouteMap({ lang }: Props) {
         .addTo(map)
         .on("routesfound", (e: any) => {
           if (destroyed) return;
-          routeRef.current = e.routes[0].coordinates.map((c: any) => [c.lat, c.lng]);
+          const coords: { lat: number; lng: number }[] = e.routes[0].coordinates;
+          routeRef.current = coords.map((c) => [c.lat, c.lng]);
+
+          // For each stop, find the closest coordinate index in the route
+          waypointIdxRef.current = MAP_STOPS.map((stop) => {
+            let best = 0, minD = Infinity;
+            coords.forEach((c, i) => {
+              const d = Math.abs(c.lat - stop.lat) + Math.abs(c.lng - stop.lng);
+              if (d < minD) { minD = d; best = i; }
+            });
+            return best;
+          });
+
           setLoading(false);
 
           carMarkerRef.current = L.marker(routeRef.current[0], {

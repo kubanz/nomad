@@ -12,6 +12,10 @@ function pickBrand() {
 
 // ===== Язык =====
 function pickLang() {
+  if (typeof window !== "undefined") {
+    const saved = localStorage.getItem("lang");
+    if (saved === "en" || saved === "ru" || saved === "ko") return saved;
+  }
   if (typeof navigator !== "undefined") {
     const l = navigator.language?.toLowerCase() || "";
     if (l.startsWith("ko")) return "ko";
@@ -19,6 +23,9 @@ function pickLang() {
     if (l.startsWith("en")) return "en";
   }
   return "en";
+}
+function saveLang(code: "en" | "ru" | "ko") {
+  if (typeof window !== "undefined") localStorage.setItem("lang", code);
 }
 
 // ===== WhatsApp & Messengers =====
@@ -615,7 +622,7 @@ export default function Landing() {
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      setLang("en");
+                      setLang("en"); saveLang("en");
                       setShowLangDropdown(false);
                     }}
                     className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-50 first:rounded-t-xl ${lang === "en" ? "font-semibold bg-slate-50" : ""}`}
@@ -625,7 +632,7 @@ export default function Landing() {
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      setLang("ko");
+                      setLang("ko"); saveLang("ko");
                       setShowLangDropdown(false);
                     }}
                     className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-50 ${lang === "ko" ? "font-semibold bg-slate-50" : ""}`}
@@ -635,7 +642,7 @@ export default function Landing() {
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      setLang("ru");
+                      setLang("ru"); saveLang("ru");
                       setShowLangDropdown(false);
                     }}
                     className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-50 last:rounded-b-xl ${lang === "ru" ? "font-semibold bg-slate-50" : ""}`}
