@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import KarakolSonkulBishkek from "../../../src/pages/KarakolSonkulBishkek";
+import KarakolSonkulBishkek from "../../../src/views/KarakolSonkulBishkek";
 
 export const metadata: Metadata = {
   title: "Karakol to Bishkek via Son-Kul Lake — 2-Day Private Tour | Nomad Transfers",
