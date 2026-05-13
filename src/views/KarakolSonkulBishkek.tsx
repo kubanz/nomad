@@ -691,14 +691,14 @@ export default function KarakolSonkulBishkek() {
               <a href="/en/manas-airport-to-karakol.html" className="hover:text-emerald-600">EN: Manas Airport → Karakol</a>
             </div>
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
-              <a href="/ru/bishkek-karakol.html" className="hover:text-emerald-600">RU: Бишкек → Каракол</a>
-              <a href="/ru/almaty-karakol.html" className="hover:text-emerald-600">RU: Алматы → Каракол</a>
-              <a href="/ru/manas-karakol.html" className="hover:text-emerald-600">RU: Манас → Каракол</a>
+              <a href="/ru/bishkek-to-karakol.html" className="hover:text-emerald-600">RU: Бишкек → Каракол</a>
+              <a href="/ru/almaty-to-karakol.html" className="hover:text-emerald-600">RU: Алматы → Каракол</a>
+              <a href="/ru/manas-airport-to-karakol.html" className="hover:text-emerald-600">RU: Манас → Каракол</a>
             </div>
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
-              <a href="/ko/bishkek-karakol.html" className="hover:text-emerald-600">KO: 비슈케크 → 카라콜</a>
-              <a href="/ko/almaty-karakol.html" className="hover:text-emerald-600">KO: 알마티 → 카라콜</a>
-              <a href="/ko/manas-karakol.html" className="hover:text-emerald-600">KO: 마나스 → 카라콜</a>
+              <a href="/ko/bishkek-to-karakol.html" className="hover:text-emerald-600">KO: 비슈케크 → 카라콜</a>
+              <a href="/ko/almaty-to-karakol.html" className="hover:text-emerald-600">KO: 알마티 → 카라콜</a>
+              <a href="/ko/manas-airport-to-karakol.html" className="hover:text-emerald-600">KO: 마나스 → 카라콜</a>
             </div>
           </nav>
           <div className="flex gap-2">

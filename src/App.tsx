@@ -759,19 +759,19 @@ export default function Landing() {
             title={t.route1Title}
             distance={t.route1Distance}
             price={t.route1Price}
-            link={lang === "en" ? "/en/bishkek-to-karakol.html" : lang === "ru" ? "/ru/bishkek-karakol.html" : "/ko/bishkek-karakol.html"}
+            link={lang === "en" ? "/en/bishkek-to-karakol.html" : lang === "ru" ? "/ru/bishkek-to-karakol.html" : "/ko/bishkek-to-karakol.html"}
           />
           <RoutePriceCard
             title={t.route2Title}
             distance={t.route2Distance}
             price={t.route2Price}
-            link={lang === "en" ? "/en/almaty-to-karakol.html" : lang === "ru" ? "/ru/almaty-karakol.html" : "/ko/almaty-karakol.html"}
+            link={lang === "en" ? "/en/almaty-to-karakol.html" : lang === "ru" ? "/ru/almaty-to-karakol.html" : "/ko/almaty-to-karakol.html"}
           />
           <RoutePriceCard
             title={t.route3Title}
             distance={t.route3Distance}
             price={t.route3Price}
-            link={lang === "en" ? "/en/manas-airport-to-karakol.html" : lang === "ru" ? "/ru/manas-karakol.html" : "/ko/manas-karakol.html"}
+            link={lang === "en" ? "/en/manas-airport-to-karakol.html" : lang === "ru" ? "/ru/manas-airport-to-karakol.html" : "/ko/manas-airport-to-karakol.html"}
           />
         </div>
       </section>
@@ -911,14 +911,14 @@ export default function Landing() {
 		    <a href="/en/manas-airport-to-karakol.html" className="hover:text-emerald-600">EN: Manas Airport → Karakol</a>
 		  </div>
 		  <div className="flex gap-3">
-		    <a href="/ru/bishkek-karakol.html" className="hover:text-emerald-600">RU: Бишкек → Каракол</a>
-		    <a href="/ru/almaty-karakol.html" className="hover:text-emerald-600">RU: Алматы → Каракол</a>
-		    <a href="/ru/manas-karakol.html" className="hover:text-emerald-600">RU: Манас → Каракол</a>
+		    <a href="/ru/bishkek-to-karakol.html" className="hover:text-emerald-600">RU: Бишкек → Каракол</a>
+		    <a href="/ru/almaty-to-karakol.html" className="hover:text-emerald-600">RU: Алматы → Каракол</a>
+		    <a href="/ru/manas-airport-to-karakol.html" className="hover:text-emerald-600">RU: Манас → Каракол</a>
 		  </div>
 		  <div className="flex gap-3">
-		    <a href="/ko/bishkek-karakol.html" className="hover:text-emerald-600">KO: 비슈케크 → 카라콜</a>
-		    <a href="/ko/almaty-karakol.html" className="hover:text-emerald-600">KO: 알마티 → 카라콜</a>
-		    <a href="/ko/manas-karakol.html" className="hover:text-emerald-600">KO: 마나스 → 카라콜</a>
+		    <a href="/ko/bishkek-to-karakol.html" className="hover:text-emerald-600">KO: 비슈케크 → 카라콜</a>
+		    <a href="/ko/almaty-to-karakol.html" className="hover:text-emerald-600">KO: 알마티 → 카라콜</a>
+		    <a href="/ko/manas-airport-to-karakol.html" className="hover:text-emerald-600">KO: 마나스 → 카라콜</a>
 		  </div>
 		</nav>
 		<div className="flex gap-2">
