@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { Car, MessageCircle, Send, Globe, ChevronLeft, MapPin } from "lucide-react";
+import { Car, MessageCircle, Send, Globe, MapPin } from "lucide-react";
 import PhotoGalleryModal from "../components/PhotoGalleryModal";
 
 const InteractiveRouteMap = dynamic(
@@ -524,16 +524,10 @@ export default function KarakolSonkulBishkek() {
       {/* Header */}
       <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur">
         <div className="mx-auto grid max-w-6xl grid-cols-3 items-center px-4 py-2">
-          {/* Left: back + brand */}
+          {/* Left: brand */}
           <div className="flex items-center gap-2">
-            <Link href="/" className="flex items-center gap-1.5 rounded-xl border px-3 py-2 text-xs font-medium hover:bg-slate-50">
-              <ChevronLeft className="h-3.5 w-3.5" />
-              {lang === "ru" ? "Главная" : lang === "ko" ? "홈" : "Home"}
-            </Link>
-            <div className="hidden items-center gap-2 md:flex">
-              <Car className="h-5 w-5" />
-              <span className="text-sm font-semibold">{BRAND}</span>
-            </div>
+            <Car className="h-5 w-5" />
+            <span className="text-sm font-semibold">{BRAND}</span>
           </div>
 
           {/* Center: nav */}
