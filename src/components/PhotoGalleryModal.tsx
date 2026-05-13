@@ -60,7 +60,7 @@ export default function PhotoGalleryModal({ photos, initialIndex = 0, onClose }:
       </div>
 
       {/* Main image */}
-      <div className="relative flex flex-1 items-center justify-center overflow-hidden px-12" onClick={(e) => e.stopPropagation()}
+      <div className="relative flex flex-1 items-center justify-center overflow-hidden px-12" onClick={(e) => e.stopPropagation()}>
         <img
           key={idx}
           src={photos[idx]}
