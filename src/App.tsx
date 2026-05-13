@@ -1,8 +1,8 @@
+"use client";
 import React, { useEffect, useState } from "react";
-import { Routes, Route as RouterRoute } from "react-router-dom";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Car, Plane, Mountain, Route, MessageCircle, CheckCircle2, ChevronDown, Send, Globe } from "lucide-react";
-import KarakolSonkulBishkek from "./pages/KarakolSonkulBishkek";
 
 // ===== Бренд =====
 const BRAND_NAME = "Nomad Transfers KG";
@@ -550,7 +550,7 @@ function MobileCTA({ text, reply, lang }: { text: string; reply: string; lang: "
   );
 }
 
-function Landing() {
+export default function Landing() {
   const [lang, setLang] = useState(pickLang() as "en" | "ru" | "ko");
   const [brand] = useState(pickBrand());
   const [showLangDropdown, setShowLangDropdown] = useState(false);
@@ -577,9 +577,22 @@ function Landing() {
       {/* Header */}
       <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2">
-          <div className="flex items-center gap-2">
-            <Car className="h-5 w-5" />
-            <span className="text-sm font-semibold md:text-base">{brand}</span>
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <Car className="h-5 w-5" />
+              <span className="text-sm font-semibold md:text-base">{brand}</span>
+            </div>
+            <nav className="hidden items-center gap-1 md:flex">
+              <Link href="/" className="rounded-lg px-3 py-1.5 text-sm font-medium text-emerald-600 hover:bg-slate-100">
+                {lang === "ru" ? "Главная" : lang === "ko" ? "홈" : "Home"}
+              </Link>
+              <Link href="/#curated-tours" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
+                {lang === "ru" ? "Туры" : lang === "ko" ? "투어" : "Tours"}
+              </Link>
+              <Link href="/#route-prices" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
+                {lang === "ru" ? "Трансферы" : lang === "ko" ? "이동" : "Transfers"}
+              </Link>
+            </nav>
           </div>
           <div className="flex items-center gap-2">
             {/* Language Switcher */}
@@ -917,11 +930,3 @@ function Landing() {
   );
 }
 
-export default function App() {
-  return (
-    <Routes>
-      <RouterRoute path="/" element={<Landing />} />
-      <RouterRoute path="/tours/karakol-sonkul-bishkek" element={<KarakolSonkulBishkek />} />
-    </Routes>
-  );
-}
