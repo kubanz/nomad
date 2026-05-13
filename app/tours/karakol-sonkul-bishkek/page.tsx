@@ -41,9 +41,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://nomad-transfer.com/tours/karakol-sonkul-bishkek",
     languages: {
-      "en": "https://nomad-transfer.com/tours/karakol-sonkul-bishkek",
-      "ru": "https://nomad-transfer.com/tours/karakol-sonkul-bishkek",
-      "ko": "https://nomad-transfer.com/tours/karakol-sonkul-bishkek",
+      "x-default": "https://nomad-transfer.com/tours/karakol-sonkul-bishkek",
+      en: "https://nomad-transfer.com/tours/karakol-sonkul-bishkek",
+      ru: "https://nomad-transfer.com/ru/tours/karakol-sonkul-bishkek",
+      ko: "https://nomad-transfer.com/ko/tours/karakol-sonkul-bishkek",
     },
   },
 };
