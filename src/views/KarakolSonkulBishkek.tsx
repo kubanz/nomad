@@ -386,10 +386,10 @@ function ItineraryCard({ stop, idx, lang }: { stop: Stop; idx: number; lang: "en
 // ─── Pricing ──────────────────────────────────────────────────────────────────
 
 function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
-  const included = {
-    en: ["Comfortable 4×4 vehicle", "Professional local driver", "Fuel and all transportation costs", "Hotel pickup in Karakol", "Hotel / Airport drop-off in Bishkek"],
-    ru: ["Комфортный внедорожник 4×4", "Профессиональный местный водитель", "Топливо и все транспортные расходы", "Трансфер из отеля в Каракол", "Трансфер до отеля / аэропорта в Бишкеке"],
-    ko: ["쾌적한 4×4 차량", "전문 현지 드라이버", "연료 및 모든 교통 비용", "카라콜 호텔 픽업", "비슈케크 호텔/공항 하차"],
+  const includedCommon = {
+    en: ["Professional local driver", "Fuel and all transportation costs", "Hotel pickup in Karakol", "Hotel / Airport drop-off in Bishkek"],
+    ru: ["Профессиональный местный водитель", "Топливо и все транспортные расходы", "Трансфер из отеля в Каракол", "Трансфер до отеля / аэропорта в Бишкеке"],
+    ko: ["전문 현지 드라이버", "연료 및 모든 교통 비용", "카라콜 호텔 픽업", "비슈케크 호텔/공항 하차"],
   };
   const notIncluded = {
     en: ["Meals and drinks", "Entrance tickets (if required)", "Horse riding activities", "Personal travel insurance"],
@@ -403,15 +403,56 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
   };
 
   const T = {
-    title:    { en: "Private Tour Price", ru: "Стоимость тура", ko: "프라이빗 투어 가격" },
-    best:     { en: "BEST VALUE", ru: "ЛУЧШАЯ ЦЕНА", ko: "최고 가치" },
-    per:      { en: "per vehicle (up to 4 passengers)", ru: "за автомобиль (до 4 пассажиров)", ko: "차량당 (최대 4명)" },
-    included: { en: "What's Included", ru: "Что включено", ko: "포함 사항" },
-    notIncl:  { en: "Not Included", ru: "Не включено", ko: "미포함 사항" },
-    why:      { en: "Why Choose This Tour?", ru: "Почему этот тур?", ko: "이 투어를 선택하는 이유?" },
-    wa:       { en: "Book via WhatsApp", ru: "Забронировать в WhatsApp", ko: "WhatsApp으로 예약" },
-    tg:       { en: "Book via Telegram", ru: "Забронировать в Telegram", ko: "Telegram으로 예약" },
+    title:   { en: "Private Tour Price", ru: "Стоимость тура", ko: "프라이빗 투어 가격" },
+    sedan:   { en: "SEDAN", ru: "СЕДАН", ko: "세단" },
+    minivan: { en: "MINIVAN", ru: "МИНИВЭН", ko: "미니밴" },
+    per4:    { en: "per vehicle (up to 4 passengers)", ru: "за автомобиль (до 4 пассажиров)", ko: "차량당 (최대 4명)" },
+    per7:    { en: "per vehicle (6–7 passengers)", ru: "за автомобиль (6–7 пассажиров)", ko: "차량당 (6–7명)" },
+    vehicle1:{ en: "Comfortable sedan", ru: "Комфортный седан", ko: "쾌적한 세단" },
+    vehicle2:{ en: "Spacious minivan", ru: "Просторный минивэн", ko: "넓은 미니밴" },
+    incl:    { en: "What's Included", ru: "Что включено", ko: "포함 사항" },
+    notIncl: { en: "Not Included", ru: "Не включено", ko: "미포함 사항" },
+    why:     { en: "Why Choose This Tour?", ru: "Почему этот тур?", ko: "이 투어를 선택하는 이유?" },
+    wa:      { en: "Book via WhatsApp", ru: "Забронировать в WhatsApp", ko: "WhatsApp으로 예약" },
+    tg:      { en: "Book via Telegram", ru: "Забронировать в Telegram", ko: "Telegram으로 예약" },
   };
+
+  function PriceCard({ price, badge, perText, vehicleLabel, accent }: {
+    price: string; badge: string; perText: string; vehicleLabel: string; accent: string;
+  }) {
+    return (
+      <div className={`relative rounded-2xl border-2 ${accent} bg-white p-6 shadow-sm`}>
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+          <span className={`rounded-full px-4 py-1 text-xs font-bold uppercase tracking-widest text-white ${accent.replace("border-", "bg-")}`}>
+            {badge}
+          </span>
+        </div>
+        <p className="mt-2 text-4xl font-extrabold text-slate-900">{price} <span className="text-2xl">USD</span></p>
+        <p className="mt-1 text-sm text-slate-500">{perText}</p>
+        <div className="mt-5">
+          <p className="mb-3 text-sm font-bold text-slate-800">{T.incl[lang]}</p>
+          <ul className="space-y-0">
+            {[vehicleLabel, ...includedCommon[lang]].map((item, i) => (
+              <li key={i} className="flex items-center gap-2 border-b border-slate-100 py-2 last:border-0">
+                <span className="text-teal-500 font-bold text-sm">✓</span>
+                <span className="text-sm text-slate-700">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="mt-6 flex flex-col gap-3">
+          <a href={WA_LINK} target="_blank" rel="noopener"
+            className="flex items-center justify-center gap-2 rounded-full bg-green-500 py-3 text-sm font-semibold text-white hover:bg-green-600">
+            📱 {T.wa[lang]}
+          </a>
+          <a href="https://t.me/nomadtransfer" target="_blank" rel="noopener"
+            className="flex items-center justify-center gap-2 rounded-full bg-indigo-700 py-3 text-sm font-semibold text-white hover:bg-indigo-800">
+            ✈️ {T.tg[lang]}
+          </a>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <section className="mb-14">
@@ -419,66 +460,46 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
         <h2 className="text-2xl font-bold md:text-3xl">{T.title[lang]}</h2>
       </div>
 
+      {/* Two vehicle options */}
+      <div className="grid gap-6 md:grid-cols-2 mb-6">
+        <PriceCard
+          price="$415"
+          badge={T.sedan[lang]}
+          perText={T.per4[lang]}
+          vehicleLabel={T.vehicle1[lang]}
+          accent="border-teal-400"
+        />
+        <PriceCard
+          price="$465"
+          badge={T.minivan[lang]}
+          perText={T.per7[lang]}
+          vehicleLabel={T.vehicle2[lang]}
+          accent="border-indigo-400"
+        />
+      </div>
+
+      {/* Not included + why choose */}
       <div className="grid gap-6 md:grid-cols-2">
-        {/* Left: price card */}
-        <div className="relative rounded-2xl border-2 border-teal-400 bg-white p-6 shadow-sm">
-          <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-            <span className="rounded-full bg-teal-500 px-4 py-1 text-xs font-bold uppercase tracking-widest text-white">
-              {T.best[lang]}
-            </span>
-          </div>
-
-          <p className="mt-2 text-4xl font-extrabold text-slate-900">$550 <span className="text-2xl">USD</span></p>
-          <p className="mt-1 text-sm text-slate-500">{T.per[lang]}</p>
-
-          <div className="mt-5">
-            <p className="mb-3 text-sm font-bold text-slate-800">{T.included[lang]}</p>
-            <ul className="space-y-0">
-              {included[lang].map((item, i) => (
-                <li key={i} className="flex items-center gap-2 border-b border-slate-100 py-2 last:border-0">
-                  <span className="text-teal-500 font-bold text-sm">✓</span>
-                  <span className="text-sm text-slate-700">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="mt-6 flex flex-col gap-3">
-            <a href={WA_LINK} target="_blank" rel="noopener"
-              className="flex items-center justify-center gap-2 rounded-full bg-green-500 py-3 text-sm font-semibold text-white hover:bg-green-600">
-              📱 {T.wa[lang]}
-            </a>
-            <a href="https://t.me/nomadtransfer" target="_blank" rel="noopener"
-              className="flex items-center justify-center gap-2 rounded-full bg-indigo-700 py-3 text-sm font-semibold text-white hover:bg-indigo-800">
-              ✈️ {T.tg[lang]}
-            </a>
-          </div>
+        <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+          <h3 className="mb-3 text-lg font-bold text-teal-600">{T.notIncl[lang]}</h3>
+          <ul className="space-y-0">
+            {notIncluded[lang].map((item, i) => (
+              <li key={i} className="flex items-center gap-2 border-b border-slate-100 py-2 last:border-0">
+                <span className="text-rose-400 font-bold text-sm">✕</span>
+                <span className="text-sm text-slate-600">{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
-
-        {/* Right: not included + why choose */}
-        <div className="flex flex-col gap-6">
-          <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
-            <h3 className="mb-3 text-lg font-bold text-teal-600">{T.notIncl[lang]}</h3>
-            <ul className="space-y-0">
-              {notIncluded[lang].map((item, i) => (
-                <li key={i} className="flex items-center gap-2 border-b border-slate-100 py-2 last:border-0">
-                  <span className="text-rose-400 font-bold text-sm">✕</span>
-                  <span className="text-sm text-slate-600">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
-            <h3 className="mb-3 text-sm font-bold text-slate-800">{T.why[lang]}</h3>
-            <ul className="space-y-1">
-              {whyChoose[lang].map((item, i) => (
-                <li key={i} className="flex items-center gap-2 text-sm text-teal-700">
-                  <span className="font-bold">✓</span> {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
+          <h3 className="mb-3 text-sm font-bold text-slate-800">{T.why[lang]}</h3>
+          <ul className="space-y-1">
+            {whyChoose[lang].map((item, i) => (
+              <li key={i} className="flex items-center gap-2 text-sm text-teal-700">
+                <span className="font-bold">✓</span> {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
