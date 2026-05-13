@@ -417,13 +417,13 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
     tg:      { en: "Book via Telegram", ru: "Забронировать в Telegram", ko: "Telegram으로 예약" },
   };
 
-  function PriceCard({ price, badge, perText, vehicleLabel, accent }: {
-    price: string; badge: string; perText: string; vehicleLabel: string; accent: string;
+  function PriceCard({ price, badge, perText, vehicleLabel, borderClass, badgeClass }: {
+    price: string; badge: string; perText: string; vehicleLabel: string; borderClass: string; badgeClass: string;
   }) {
     return (
-      <div className={`relative rounded-2xl border-2 ${accent} bg-white p-6 shadow-sm`}>
+      <div className={`relative rounded-2xl border-2 ${borderClass} bg-white p-6 shadow-sm`}>
         <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-          <span className={`rounded-full px-4 py-1 text-xs font-bold uppercase tracking-widest text-white ${accent.replace("border-", "bg-")}`}>
+          <span className={`rounded-full px-4 py-1 text-xs font-bold uppercase tracking-widest ${badgeClass}`}>
             {badge}
           </span>
         </div>
@@ -467,14 +467,16 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
           badge={T.sedan[lang]}
           perText={T.per4[lang]}
           vehicleLabel={T.vehicle1[lang]}
-          accent="border-teal-400"
+          borderClass="border-teal-400"
+          badgeClass="bg-teal-500 text-white"
         />
         <PriceCard
           price="$465"
           badge={T.minivan[lang]}
           perText={T.per7[lang]}
           vehicleLabel={T.vehicle2[lang]}
-          accent="border-indigo-400"
+          borderClass="border-amber-400"
+          badgeClass="bg-amber-400 text-slate-900"
         />
         <div className="flex flex-col gap-6">
           <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
@@ -536,6 +538,9 @@ export default function KarakolSonkulBishkek() {
 
           {/* Center: nav */}
           <nav className="hidden items-center justify-center gap-1 md:flex">
+            <Link href="/" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
+              {lang === "ru" ? "Главная" : lang === "ko" ? "홈" : "Home"}
+            </Link>
             <Link href="/#curated-tours" className="rounded-lg px-3 py-1.5 text-sm font-medium text-emerald-600 hover:bg-slate-100">
               {lang === "ru" ? "Туры" : lang === "ko" ? "투어" : "Tours"}
             </Link>

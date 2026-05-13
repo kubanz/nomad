@@ -44,9 +44,10 @@ export default function PhotoGalleryModal({ photos, initialIndex = 0, onClose }:
       className="fixed inset-0 z-[9999] flex flex-col bg-black/95"
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
+      onClick={onClose}
     >
       {/* Top bar */}
-      <div className="flex shrink-0 items-center justify-between px-4 py-3">
+      <div className="flex shrink-0 items-center justify-between px-4 py-3" onClick={(e) => e.stopPropagation()}>
         <span className="rounded-full bg-white/10 px-3 py-1 text-sm text-white">
           {idx + 1} / {photos.length}
         </span>
@@ -59,7 +60,7 @@ export default function PhotoGalleryModal({ photos, initialIndex = 0, onClose }:
       </div>
 
       {/* Main image */}
-      <div className="relative flex flex-1 items-center justify-center overflow-hidden px-12">
+      <div className="relative flex flex-1 items-center justify-center overflow-hidden px-12" onClick={(e) => e.stopPropagation()}
         <img
           key={idx}
           src={photos[idx]}
@@ -85,7 +86,7 @@ export default function PhotoGalleryModal({ photos, initialIndex = 0, onClose }:
       </div>
 
       {/* Thumbnails */}
-      <div className="shrink-0 overflow-x-auto px-4 py-3">
+      <div className="shrink-0 overflow-x-auto px-4 py-3" onClick={(e) => e.stopPropagation()}>
         <div className="flex gap-2">
           {photos.map((p, i) => (
             <button
