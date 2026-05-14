@@ -1,9 +1,16 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import { Car, MessageCircle, Send, Globe, MapPin } from "lucide-react";
 import type { MapStop } from "../components/InteractiveRouteMap";
+
+const LANG_ROUTES: Record<"en" | "ru" | "ko", string> = {
+  en: "/transfers/almaty-to-karakol",
+  ru: "/ru/transfers/almaty-to-karakol",
+  ko: "/ko/transfers/almaty-to-karakol",
+};
 
 const InteractiveRouteMap = dynamic(
   () => import("../components/InteractiveRouteMap"),
@@ -216,7 +223,7 @@ function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
               {T.sedan[lang]}
             </span>
           </div>
-          <p className="mt-3 text-3xl font-extrabold text-slate-900">$200 <span className="text-lg">USD</span></p>
+          <p className="mt-3 text-3xl font-extrabold text-slate-900">$235 <span className="text-lg">USD</span></p>
           <p className="mt-1 text-xs text-slate-500">{T.per4[lang]}</p>
         </div>
         <div className="relative rounded-2xl border-2 border-amber-400 bg-white p-5 text-center shadow-sm">
@@ -225,7 +232,7 @@ function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
               {T.minivan[lang]}
             </span>
           </div>
-          <p className="mt-3 text-3xl font-extrabold text-slate-900">$250 <span className="text-lg">USD</span></p>
+          <p className="mt-3 text-3xl font-extrabold text-slate-900">$275 <span className="text-lg">USD</span></p>
           <p className="mt-1 text-xs text-slate-500">{T.per7[lang]}</p>
         </div>
       </div>
@@ -553,6 +560,14 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
 export default function AlmatyToKarakol({ initialLang }: { initialLang?: "en" | "ru" | "ko" }) {
   const [lang, setLang] = useState<"en" | "ru" | "ko">(initialLang ?? pickLang());
   const [showLangDropdown, setShowLangDropdown] = useState(false);
+  const router = useRouter();
+
+  function handleLangChange(code: "en" | "ru" | "ko") {
+    setLang(code);
+    saveLang(code);
+    setShowLangDropdown(false);
+    router.push(LANG_ROUTES[code]);
+  }
 
   useEffect(() => {
     if (!showLangDropdown) return;
@@ -597,7 +612,7 @@ export default function AlmatyToKarakol({ initialLang }: { initialLang?: "en" | 
                   {LANGS.map(({ code, label, flag }) => (
                     <button
                       key={code}
-                      onClick={(e) => { e.stopPropagation(); setLang(code); saveLang(code); setShowLangDropdown(false); }}
+                      onClick={(e) => { e.stopPropagation(); handleLangChange(code); }}
                       className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-50 first:rounded-t-xl last:rounded-b-xl ${lang === code ? "bg-slate-50 font-semibold" : ""}`}
                     >
                       {flag} {label}
@@ -732,17 +747,17 @@ export default function AlmatyToKarakol({ initialLang }: { initialLang?: "en" | 
           <nav className="flex flex-col gap-2 text-center text-xs opacity-80 md:text-left">
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
               <a href="/en/bishkek-to-karakol.html" className="hover:text-emerald-600">EN: Bishkek → Karakol</a>
-              <a href="/en/almaty-to-karakol.html" className="hover:text-emerald-600">EN: Almaty → Karakol</a>
+              <a href="/transfers/almaty-to-karakol" className="hover:text-emerald-600">EN: Almaty → Karakol</a>
               <a href="/en/manas-airport-to-karakol.html" className="hover:text-emerald-600">EN: Manas Airport → Karakol</a>
             </div>
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
               <a href="/ru/bishkek-to-karakol.html" className="hover:text-emerald-600">RU: Бишкек → Каракол</a>
-              <a href="/ru/almaty-to-karakol.html" className="hover:text-emerald-600">RU: Алматы → Каракол</a>
+              <a href="/ru/transfers/almaty-to-karakol" className="hover:text-emerald-600">RU: Алматы → Каракол</a>
               <a href="/ru/manas-airport-to-karakol.html" className="hover:text-emerald-600">RU: Манас → Каракол</a>
             </div>
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
               <a href="/ko/bishkek-to-karakol.html" className="hover:text-emerald-600">KO: 비슈케크 → 카라콜</a>
-              <a href="/ko/almaty-to-karakol.html" className="hover:text-emerald-600">KO: 알마티 → 카라콜</a>
+              <a href="/ko/transfers/almaty-to-karakol" className="hover:text-emerald-600">KO: 알마티 → 카라콜</a>
               <a href="/ko/manas-airport-to-karakol.html" className="hover:text-emerald-600">KO: 마나스 → 카라콜</a>
             </div>
           </nav>
