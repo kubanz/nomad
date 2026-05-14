@@ -9,18 +9,33 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/en/almaty-to-karakol",
+        destination: "/transfers/almaty-to-karakol",
+        permanent: true,
+      },
+      {
         source: "/en/almaty-to-karakol.html",
-        destination: "/en/almaty-to-karakol",
+        destination: "/transfers/almaty-to-karakol",
+        permanent: true,
+      },
+      {
+        source: "/ru/almaty-to-karakol",
+        destination: "/ru/transfers/almaty-to-karakol",
         permanent: true,
       },
       {
         source: "/ru/almaty-to-karakol.html",
-        destination: "/ru/almaty-to-karakol",
+        destination: "/ru/transfers/almaty-to-karakol",
+        permanent: true,
+      },
+      {
+        source: "/ko/almaty-to-karakol",
+        destination: "/ko/transfers/almaty-to-karakol",
         permanent: true,
       },
       {
         source: "/ko/almaty-to-karakol.html",
-        destination: "/ko/almaty-to-karakol",
+        destination: "/ko/transfers/almaty-to-karakol",
         permanent: true,
       },
     ];

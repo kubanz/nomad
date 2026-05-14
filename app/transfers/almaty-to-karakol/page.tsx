@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import AlmatyToKarakol from "../../../src/views/AlmatyToKarakol";
 
 export const metadata: Metadata = {
-  title: "Almaty to Karakol Private Transfer | Charyn Canyon Stop | From $200 | Nomad Transfer",
+  title: "Almaty to Karakol Private Transfer | Charyn Canyon Stop | From $235 | Nomad Transfer",
   description:
     "Private transfer from Almaty to Karakol via scenic Kegen border route. Optional stops: Charyn Canyon (+$35), Kaindy Lake, Kolsai Lakes. Sedan $235, Van $275. WhatsApp reply in 1–2 min.",
   keywords: [
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Almaty to Karakol Private Transfer via Kegen",
     description:
-      "Scenic mountain route through Charyn Canyon, Kegen border, and Karkara Valley. Sedan $200, Minivan $250. Private transfer, not a group tour.",
+      "Scenic mountain route through Charyn Canyon, Kegen border, and Karkara Valley. Sedan $235, Minivan $275. Private transfer, not a group tour.",
     images: [
       {
         url: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
@@ -26,23 +26,23 @@ export const metadata: Metadata = {
       },
     ],
     type: "website",
-    url: "https://nomad-transfer.com/en/almaty-to-karakol",
+    url: "https://nomad-transfer.com/transfers/almaty-to-karakol",
   },
   twitter: {
     card: "summary_large_image",
     title: "Almaty → Karakol Transfer via Kegen",
-    description: "Private transfer. Sedan $200, Minivan $250. Optional Charyn Canyon stop.",
+    description: "Private transfer. Sedan $235, Minivan $275. Optional Charyn Canyon stop.",
     images: [
       "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
     ],
   },
   alternates: {
-    canonical: "https://nomad-transfer.com/en/almaty-to-karakol",
+    canonical: "https://nomad-transfer.com/transfers/almaty-to-karakol",
     languages: {
-      "x-default": "https://nomad-transfer.com/en/almaty-to-karakol",
-      en: "https://nomad-transfer.com/en/almaty-to-karakol",
-      ru: "https://nomad-transfer.com/ru/almaty-to-karakol",
-      ko: "https://nomad-transfer.com/ko/almaty-to-karakol",
+      "x-default": "https://nomad-transfer.com/transfers/almaty-to-karakol",
+      en: "https://nomad-transfer.com/transfers/almaty-to-karakol",
+      ru: "https://nomad-transfer.com/ru/transfers/almaty-to-karakol",
+      ko: "https://nomad-transfer.com/ko/transfers/almaty-to-karakol",
     },
   },
 };
@@ -55,7 +55,7 @@ const jsonLd = {
       "name": "Almaty to Karakol Private Transfer via Kegen",
       "description":
         "Private 1-day transfer from Almaty to Karakol via the scenic Kegen mountain pass. Optional stops include Charyn Canyon (+$35), Kaindy Lake and Kolsai Lakes.",
-      "url": "https://nomad-transfer.com/en/almaty-to-karakol",
+      "url": "https://nomad-transfer.com/transfers/almaty-to-karakol",
       "touristType": "Adventure, Transfer, Scenic",
       "itinerary": {
         "@type": "ItemList",
@@ -76,7 +76,7 @@ const jsonLd = {
           "price": "235",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "url": "https://nomad-transfer.com/en/almaty-to-karakol",
+          "url": "https://nomad-transfer.com/transfers/almaty-to-karakol",
         },
         {
           "@type": "Offer",
@@ -84,7 +84,7 @@ const jsonLd = {
           "price": "275",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "url": "https://nomad-transfer.com/en/almaty-to-karakol",
+          "url": "https://nomad-transfer.com/transfers/almaty-to-karakol",
         },
       ],
       "provider": {

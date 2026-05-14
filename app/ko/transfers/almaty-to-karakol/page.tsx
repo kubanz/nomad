@@ -26,7 +26,7 @@ export const metadata: Metadata = {
       },
     ],
     type: "website",
-    url: "https://nomad-transfer.com/ko/almaty-to-karakol",
+    url: "https://nomad-transfer.com/ko/transfers/almaty-to-karakol",
   },
   twitter: {
     card: "summary_large_image",
@@ -37,12 +37,12 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "https://nomad-transfer.com/ko/almaty-to-karakol",
+    canonical: "https://nomad-transfer.com/ko/transfers/almaty-to-karakol",
     languages: {
-      "x-default": "https://nomad-transfer.com/en/almaty-to-karakol",
-      en: "https://nomad-transfer.com/en/almaty-to-karakol",
-      ru: "https://nomad-transfer.com/ru/almaty-to-karakol",
-      ko: "https://nomad-transfer.com/ko/almaty-to-karakol",
+      "x-default": "https://nomad-transfer.com/transfers/almaty-to-karakol",
+      en: "https://nomad-transfer.com/transfers/almaty-to-karakol",
+      ru: "https://nomad-transfer.com/ru/transfers/almaty-to-karakol",
+      ko: "https://nomad-transfer.com/ko/transfers/almaty-to-karakol",
     },
   },
 };
@@ -55,7 +55,7 @@ const jsonLd = {
       "name": "알마티 카라콜 케겐 경유 프라이빗 이동",
       "description":
         "케겐 산악 고개 경유 알마티→카라콜 프라이빗 1일 이동. 선택 정류장: 차린 협곡(+$35), 카인디 호수, 콜사이 호수.",
-      "url": "https://nomad-transfer.com/ko/almaty-to-karakol",
+      "url": "https://nomad-transfer.com/ko/transfers/almaty-to-karakol",
       "duration": "P1D",
       "offers": [
         {

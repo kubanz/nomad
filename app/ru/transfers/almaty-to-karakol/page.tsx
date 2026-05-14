@@ -26,7 +26,7 @@ export const metadata: Metadata = {
       },
     ],
     type: "website",
-    url: "https://nomad-transfer.com/ru/almaty-to-karakol",
+    url: "https://nomad-transfer.com/ru/transfers/almaty-to-karakol",
   },
   twitter: {
     card: "summary_large_image",
@@ -37,12 +37,12 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "https://nomad-transfer.com/ru/almaty-to-karakol",
+    canonical: "https://nomad-transfer.com/ru/transfers/almaty-to-karakol",
     languages: {
-      "x-default": "https://nomad-transfer.com/en/almaty-to-karakol",
-      en: "https://nomad-transfer.com/en/almaty-to-karakol",
-      ru: "https://nomad-transfer.com/ru/almaty-to-karakol",
-      ko: "https://nomad-transfer.com/ko/almaty-to-karakol",
+      "x-default": "https://nomad-transfer.com/transfers/almaty-to-karakol",
+      en: "https://nomad-transfer.com/transfers/almaty-to-karakol",
+      ru: "https://nomad-transfer.com/ru/transfers/almaty-to-karakol",
+      ko: "https://nomad-transfer.com/ko/transfers/almaty-to-karakol",
     },
   },
 };
@@ -55,7 +55,7 @@ const jsonLd = {
       "name": "Частный трансфер Алматы — Каракол через Кеген",
       "description":
         "Приватный трансфер из Алматы в Каракол через горный перевал Кеген. Опциональные остановки: Чарынский каньон (+$35), озеро Каинды и Кольсай.",
-      "url": "https://nomad-transfer.com/ru/almaty-to-karakol",
+      "url": "https://nomad-transfer.com/ru/transfers/almaty-to-karakol",
       "duration": "P1D",
       "offers": [
         {
