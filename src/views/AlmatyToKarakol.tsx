@@ -132,6 +132,9 @@ const WHATSAPP_PHONE = "+996552291808";
 const WA_LINK = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(
   "Hi! I'm interested in the Almaty → Karakol private transfer. Please share availability and price."
 )}`;
+const WA_LINK_SIMPLE = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(
+  "Hi! I need a simple transfer from Almaty to Karakol. Please share availability and price."
+)}`;
 const BRAND = "Nomad Transfers KG";
 
 function pickLang(): "en" | "ru" | "ko" {
@@ -155,6 +158,130 @@ const LANGS: { code: "en" | "ru" | "ko"; label: string; flag: string }[] = [
   { code: "ko", label: "Korean", flag: "🇰🇷" },
   { code: "ru", label: "Russian", flag: "🇷🇺" },
 ];
+
+// ─── Simple Transfer Block ────────────────────────────────────────────────────
+
+function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
+  const T = {
+    title: {
+      en: "Almaty to Karakol — Private Transfer",
+      ru: "Алматы — Каракол: Приватный трансфер",
+      ko: "알마티 → 카라콜 프라이빗 이동",
+    },
+    desc: {
+      en: "Need to get from Almaty to Karakol quickly and comfortably? We pick you up from your hotel in Almaty and drop you off at your hotel in Karakol. Professional driver, comfortable car, no hidden fees.",
+      ru: "Нужно просто добраться из Алматы в Каракол? Забираем из отеля в Алматы, довезём до отеля в Каракол. Профессиональный водитель, комфортный автомобиль, никаких скрытых платежей.",
+      ko: "알마티에서 카라콜까지 빠르고 편안하게 이동하고 싶으신가요? 알마티 호텔에서 픽업하여 카라콜 호텔까지 편안하게 모셔드립니다.",
+    },
+    sedan:   { en: "SEDAN",   ru: "СЕДАН",   ko: "세단" },
+    minivan: { en: "MINIVAN", ru: "МИНИВЭН", ko: "미니밴" },
+    per4:    { en: "up to 4 passengers",  ru: "до 4 пассажиров",   ko: "최대 4명" },
+    per7:    { en: "6–7 passengers",      ru: "6–7 пассажиров",    ko: "6–7명" },
+    busNote: {
+      en: "For groups of 8+ passengers, bus option available from $460. Ask when booking.",
+      ru: "Для групп от 8 человек — автобус от $460. Уточняйте при бронировании.",
+      ko: "8인 이상 그룹은 버스 옵션 $460부터. 예약 시 문의하세요.",
+    },
+    wa: {
+      en: "Book Simple Transfer via WhatsApp",
+      ru: "Забронировать трансфер в WhatsApp",
+      ko: "WhatsApp으로 이동 예약",
+    },
+  };
+
+  const pills = [
+    { icon: "📍", text: "Almaty → Karakol" },
+    { icon: "🕐", text: "~6 hours" },
+    { icon: "📏", text: "~350 km" },
+    { icon: "👤", text: "Private" },
+  ];
+
+  return (
+    <section className="mb-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+      <h2 className="text-2xl font-bold md:text-3xl">{T.title[lang]}</h2>
+      <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-600">{T.desc[lang]}</p>
+
+      <div className="mt-5 flex flex-wrap gap-2">
+        {pills.map(({ icon, text }) => (
+          <span key={text} className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-700">
+            {icon} {text}
+          </span>
+        ))}
+      </div>
+
+      <div className="mt-6 grid grid-cols-2 gap-4">
+        <div className="relative rounded-2xl border-2 border-teal-400 bg-white p-5 text-center shadow-sm">
+          <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+            <span className="rounded-full bg-teal-500 px-4 py-1 text-xs font-bold uppercase tracking-widest text-white">
+              {T.sedan[lang]}
+            </span>
+          </div>
+          <p className="mt-3 text-3xl font-extrabold text-slate-900">$200 <span className="text-lg">USD</span></p>
+          <p className="mt-1 text-xs text-slate-500">{T.per4[lang]}</p>
+        </div>
+        <div className="relative rounded-2xl border-2 border-amber-400 bg-white p-5 text-center shadow-sm">
+          <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+            <span className="rounded-full bg-amber-400 px-4 py-1 text-xs font-bold uppercase tracking-widest text-slate-900">
+              {T.minivan[lang]}
+            </span>
+          </div>
+          <p className="mt-3 text-3xl font-extrabold text-slate-900">$250 <span className="text-lg">USD</span></p>
+          <p className="mt-1 text-xs text-slate-500">{T.per7[lang]}</p>
+        </div>
+      </div>
+
+      <p className="mt-4 text-xs text-slate-500">{T.busNote[lang]}</p>
+
+      <a
+        href={WA_LINK_SIMPLE}
+        target="_blank"
+        rel="noopener"
+        className="mt-5 inline-flex items-center gap-2 rounded-full bg-green-500 px-6 py-3 text-sm font-semibold text-white hover:bg-green-600"
+      >
+        <MessageCircle className="h-4 w-4" />
+        {T.wa[lang]}
+      </a>
+    </section>
+  );
+}
+
+// ─── Upsell Divider ───────────────────────────────────────────────────────────
+
+function UpsellDivider({ lang }: { lang: "en" | "ru" | "ko" }) {
+  const T = {
+    headline: {
+      en: "✨ Want more than just a transfer?",
+      ru: "✨ Хотите больше, чем просто поездку?",
+      ko: "✨ 단순한 이동 그 이상을 원하시나요?",
+    },
+    body: {
+      en: "Turn your Almaty → Karakol drive into an adventure. Stop at Charyn Canyon, cross the scenic Kegen mountain pass, visit Kaindy Lake. Same route — unforgettable experience.",
+      ru: "Превратите дорогу из Алматы в Каракол в приключение. Остановка в Чарынском каньоне, живописный перевал Кеген, озеро Каинды. Тот же маршрут — незабываемые впечатления.",
+      ko: "알마티에서 카라콜까지의 드라이브를 모험으로 만들어보세요. 차린 협곡, 케겐 산악 고개, 카인디 호수. 같은 노선 — 잊을 수 없는 경험.",
+    },
+    btn: {
+      en: "See the Tour Option ↓",
+      ru: "Смотреть тур ↓",
+      ko: "투어 옵션 보기 ↓",
+    },
+  };
+
+  return (
+    <div className="mb-10 overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-500 via-teal-500 to-sky-500 px-6 py-8 text-center text-white md:py-10">
+      <p className="text-lg font-bold md:text-xl">{T.headline[lang]}</p>
+      <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-white/90">{T.body[lang]}</p>
+      <button
+        onClick={() => {
+          const el = document.getElementById("tour-section");
+          if (el) el.scrollIntoView({ behavior: "smooth" });
+        }}
+        className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/20 px-6 py-2.5 text-sm font-semibold text-white backdrop-blur hover:bg-white/30"
+      >
+        {T.btn[lang]}
+      </button>
+    </div>
+  );
+}
 
 // ─── Notice Banner ────────────────────────────────────────────────────────────
 
@@ -319,7 +446,7 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
   };
 
   const T = {
-    title:   { en: "Transfer Price",  ru: "Стоимость трансфера", ko: "이동 가격" },
+    title:   { en: "Transfer + Scenic Tour Price",  ru: "Стоимость трансфера с туром", ko: "이동 + 관광 투어 가격" },
     sedan:   { en: "SEDAN",    ru: "СЕДАН",    ko: "세단" },
     minivan: { en: "MINIVAN",  ru: "МИНИВЭН",  ko: "미니밴" },
     per4:    { en: "per vehicle (up to 4 passengers)", ru: "за автомобиль (до 4 пассажиров)",  ko: "차량당 (최대 4명)" },
@@ -525,8 +652,16 @@ export default function AlmatyToKarakol({ initialLang }: { initialLang?: "en" | 
       {/* Content */}
       <main className="mx-auto max-w-6xl px-4 py-12">
 
+        {/* Simple Transfer */}
+        <SimpleTransferBlock lang={lang} />
+
+        {/* Upsell */}
+        <UpsellDivider lang={lang} />
+
         {/* Notice */}
-        <NoticeBanner lang={lang} />
+        <div id="tour-section">
+          <NoticeBanner lang={lang} />
+        </div>
 
         {/* Overview */}
         <section className="mb-12">
