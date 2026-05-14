@@ -105,7 +105,7 @@ const TXT = {
     route1Price: "Sedan $125 · Van $145 · Bus $265",
     route2Title: "Almaty to Karakol (via Kegen)",
     route2Distance: "Distance: 350 km | Duration: ~6h",
-    route2Price: "Sedan $215 · Van $265 · Bus $475",
+    route2Price: "Sedan $200 · Van $250 · Bus $460",
     route3Title: "Manas Airport to Karakol",
     route3Distance: "Distance: 270 km | Duration: ~5h",
     route3Price: "Sedan $135 · Van $155 · Bus $275",
@@ -205,7 +205,7 @@ const TXT = {
     route1Price: "Седан $125 · Минивэн $145 · Бусы $265",
     route2Title: "Алматы — Каракол (через Кеген)",
     route2Distance: "Расстояние: 350 км | Время: ~6ч",
-    route2Price: "Седан $215 · Минивэн $265 · Бусы $475",
+    route2Price: "Седан $200 · Минивэн $250 · Бусы $460",
     route3Title: "Аэропорт Манас — Каракол",
     route3Distance: "Расстояние: 270 км | Время: ~5ч",
     route3Price: "Седан $135 · Минивэн $155 · Бусы $275",
@@ -305,7 +305,7 @@ const TXT = {
     route1Price: "세단 $125 · 밴 $145 · 버스 $265",
     route2Title: "알마티 — 카라콜(케겐 경유)",
     route2Distance: "거리: 350 km | 시간: ~6시간",
-    route2Price: "세단 $215 · 밴 $265 · 버스 $475",
+    route2Price: "세단 $200 · 밴 $250 · 버스 $460",
     route3Title: "마나스 공항 — 카라콜",
     route3Distance: "거리: 270 km | 시간: ~5시간",
     route3Price: "세단 $135 · 밴 $155 · 버스 $275",
@@ -339,17 +339,17 @@ const TXT = {
 const BASE_PRICES_BY_LANG: Record<"en"|"ru"|"ko", { route: string; sedan: number; suv: number; van: number }[]> = {
   en: [
     { route: "Bishkek → Karakol", sedan: 125, suv: 145, van: 265 },
-    { route: "Almaty → Karakol (via Kegen)", sedan: 215, suv: 265, van: 475 },
+    { route: "Almaty → Karakol (via Kegen)", sedan: 200, suv: 250, van: 460 },
     { route: "Manas Airport → Karakol", sedan: 135, suv: 155, van: 275 }
   ],
   ru: [
     { route: "Бишкек → Каракол", sedan: 125, suv: 145, van: 265 },
-    { route: "Алматы → Каракол (через Кеген)", sedan: 215, suv: 265, van: 475 },
+    { route: "Алматы → Каракол (через Кеген)", sedan: 200, suv: 250, van: 460 },
     { route: "Аэропорт Манас → Каракол", sedan: 135, suv: 155, van: 275 }
   ],
   ko: [
     { route: "비슈케크 → 카라콜", sedan: 125, suv: 145, van: 265 },
-    { route: "알마티 → 카라콜(케겐 경유)", sedan: 215, suv: 265, van: 475 },
+    { route: "알마티 → 카라콜(케겐 경유)", sedan: 200, suv: 250, van: 460 },
     { route: "마나스 공항 → 카라콜", sedan: 135, suv: 155, van: 275 }
   ]
 };
