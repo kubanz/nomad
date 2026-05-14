@@ -13,6 +13,16 @@ const nextConfig: NextConfig = {
         destination: "/en/almaty-to-karakol",
         permanent: true,
       },
+      {
+        source: "/ru/almaty-to-karakol.html",
+        destination: "/ru/almaty-to-karakol",
+        permanent: true,
+      },
+      {
+        source: "/ko/almaty-to-karakol.html",
+        destination: "/ko/almaty-to-karakol",
+        permanent: true,
+      },
     ];
   },
 };

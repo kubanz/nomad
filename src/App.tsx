@@ -765,7 +765,7 @@ export default function Landing() {
             title={t.route2Title}
             distance={t.route2Distance}
             price={t.route2Price}
-            link="/en/almaty-to-karakol"
+            link={lang === "en" ? "/en/almaty-to-karakol" : lang === "ru" ? "/ru/almaty-to-karakol" : "/ko/almaty-to-karakol"}
           />
           <RoutePriceCard
             title={t.route3Title}
