@@ -765,7 +765,7 @@ export default function Landing() {
             title={t.route2Title}
             distance={t.route2Distance}
             price={t.route2Price}
-            link={lang === "en" ? "/en/almaty-to-karakol.html" : lang === "ru" ? "/ru/almaty-to-karakol.html" : "/ko/almaty-to-karakol.html"}
+            link={lang === "en" ? "/en/almaty-to-karakol" : lang === "ru" ? "/ru/almaty-to-karakol.html" : "/ko/almaty-to-karakol.html"}
           />
           <RoutePriceCard
             title={t.route3Title}
@@ -907,7 +907,7 @@ export default function Landing() {
 		<nav className="text-xs opacity-80 flex flex-col gap-2 text-center md:text-left">
 		  <div className="flex gap-3">
 		    <a href="/en/bishkek-to-karakol.html" className="hover:text-emerald-600">EN: Bishkek → Karakol</a>
-		    <a href="/en/almaty-to-karakol.html" className="hover:text-emerald-600">EN: Almaty → Karakol</a>
+		    <a href="/en/almaty-to-karakol" className="hover:text-emerald-600">EN: Almaty → Karakol</a>
 		    <a href="/en/manas-airport-to-karakol.html" className="hover:text-emerald-600">EN: Manas Airport → Karakol</a>
 		  </div>
 		  <div className="flex gap-3">

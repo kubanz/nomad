@@ -687,7 +687,7 @@ export default function KarakolSonkulBishkek() {
           <nav className="flex flex-col gap-2 text-center text-xs opacity-80 md:text-left">
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
               <a href="/en/bishkek-to-karakol.html" className="hover:text-emerald-600">EN: Bishkek → Karakol</a>
-              <a href="/en/almaty-to-karakol.html" className="hover:text-emerald-600">EN: Almaty → Karakol</a>
+              <a href="/en/almaty-to-karakol" className="hover:text-emerald-600">EN: Almaty → Karakol</a>
               <a href="/en/manas-airport-to-karakol.html" className="hover:text-emerald-600">EN: Manas Airport → Karakol</a>
             </div>
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
