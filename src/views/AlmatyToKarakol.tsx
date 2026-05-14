@@ -435,16 +435,44 @@ function ItineraryCard({ stop, idx, lang }: { stop: Stop; idx: number; lang: "en
 
 // ─── Pricing ──────────────────────────────────────────────────────────────────
 
+const ADDON_DEFS = [
+  {
+    key: "charyn" as const,
+    price: 35 as number | null,
+    label: { en: "Charyn Canyon stop", ru: "Остановка в Чарынском каньоне", ko: "차린 협곡 정류장" },
+    sub:   { en: "12 km off the main road · ~1.5 hrs", ru: "12 км от основной дороги · ~1.5 ч", ko: "메인 도로에서 12km · 약 1.5시간" },
+  },
+  {
+    key: "kaindy" as const,
+    price: null as number | null,
+    label: { en: "Kaindy Lake detour", ru: "Крюк к озеру Каинды", ko: "카인디 호수 우회" },
+    sub:   { en: "Submerged forest lake · price on request", ru: "Затопленный лес · цена по запросу", ko: "수몰 숲 호수 · 가격 문의" },
+  },
+  {
+    key: "kolsai" as const,
+    price: null as number | null,
+    label: { en: "Kolsai Lakes detour", ru: "Крюк к Кольсайским озёрам", ko: "콜사이 호수 우회" },
+    sub:   { en: "Mountain lakes · price on request", ru: "Горные озёра · цена по запросу", ko: "산악 호수 · 가격 문의" },
+  },
+];
+
+type AddonKey = typeof ADDON_DEFS[number]["key"];
+
 function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
-  const includedCommon = {
+  const [vehicle, setVehicle] = useState<"sedan" | "minivan">("sedan");
+  const [addons, setAddons] = useState<Record<AddonKey, boolean>>({ charyn: false, kaindy: false, kolsai: false });
+
+  const BASE = { sedan: 235, minivan: 275 };
+
+  const includedItems = {
     en: ["Professional local driver", "Fuel and all transportation costs", "Hotel pickup in Almaty", "Hotel drop-off in Karakol", "Border crossing guidance"],
     ru: ["Профессиональный местный водитель", "Топливо и все транспортные расходы", "Трансфер из отеля в Алматы", "Трансфер до отеля в Каракол", "Помощь при прохождении границы"],
     ko: ["전문 현지 드라이버", "연료 및 모든 교통 비용", "알마티 호텔 픽업", "카라콜 호텔 하차", "국경 통과 안내"],
   };
   const notIncluded = {
-    en: ["Meals and drinks", "Charyn Canyon stop (+$35 extra)", "Kaindy / Kolsai Lakes (price on request)", "Kazakhstan and Kyrgyzstan entry fees (if applicable)", "Personal travel insurance"],
-    ru: ["Питание и напитки", "Остановка в Чарынском каньоне (+$35)", "Озёра Каинды / Кольсай (цена по запросу)", "Въездные сборы КЗ и КГ (при наличии)", "Личная туристическая страховка"],
-    ko: ["식사 및 음료", "차린 협곡 정류장 (+$35 추가)", "카인디/콜사이 호수 (가격 문의)", "카자흐스탄 및 키르기스스탄 입국 수수료 (해당 시)", "개인 여행 보험"],
+    en: ["Meals and drinks", "Kazakhstan and Kyrgyzstan entry fees (if applicable)", "Personal travel insurance"],
+    ru: ["Питание и напитки", "Въездные сборы КЗ и КГ (при наличии)", "Личная туристическая страховка"],
+    ko: ["식사 및 음료", "카자흐스탄 및 키르기스스탄 입국 수수료 (해당 시)", "개인 여행 보험"],
   };
   const whyChoose = {
     en: ["Private transfer — not a group tour", "Flexible stops along the way", "Scenic Kegen route through mountains", "Trusted local drivers", "Direct WhatsApp communication", "No hidden fees"],
@@ -453,56 +481,42 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
   };
 
   const T = {
-    title:   { en: "Transfer + Scenic Tour Price",  ru: "Стоимость трансфера с туром", ko: "이동 + 관광 투어 가격" },
-    sedan:   { en: "SEDAN",    ru: "СЕДАН",    ko: "세단" },
-    minivan: { en: "MINIVAN",  ru: "МИНИВЭН",  ko: "미니밴" },
-    per4:    { en: "per vehicle (up to 4 passengers)", ru: "за автомобиль (до 4 пассажиров)",  ko: "차량당 (최대 4명)" },
-    per7:    { en: "per vehicle (6–7 passengers)",     ru: "за автомобиль (6–7 пассажиров)",   ko: "차량당 (6–7명)" },
-    vehicle1:{ en: "Comfortable sedan",  ru: "Комфортный седан",   ko: "쾌적한 세단" },
-    vehicle2:{ en: "Spacious minivan",   ru: "Просторный минивэн", ko: "넓은 미니밴" },
-    incl:    { en: "What's Included",    ru: "Что включено",       ko: "포함 사항" },
-    notIncl: { en: "Not Included",       ru: "Не включено",        ko: "미포함 사항" },
-    why:     { en: "Why Choose This Transfer?", ru: "Почему этот трансфер?", ko: "이 이동을 선택하는 이유?" },
-    wa:      { en: "Book via WhatsApp",  ru: "Забронировать в WhatsApp", ko: "WhatsApp으로 예약" },
-    tg:      { en: "Book via Telegram",  ru: "Забронировать в Telegram", ko: "Telegram으로 예약" },
+    title:         { en: "Transfer + Scenic Tour Price",    ru: "Стоимость трансфера с туром",      ko: "이동 + 관광 투어 가격" },
+    chooseVehicle: { en: "1. Choose your vehicle",          ru: "1. Выберите автомобиль",            ko: "1. 차량 선택" },
+    sedan:         { en: "SEDAN",                           ru: "СЕДАН",                             ko: "세단" },
+    minivan:       { en: "MINIVAN",                         ru: "МИНИВЭН",                           ko: "미니밴" },
+    per4:          { en: "up to 4 passengers",              ru: "до 4 пассажиров",                   ko: "최대 4명" },
+    per7:          { en: "6–7 passengers",                  ru: "6–7 пассажиров",                    ko: "6–7명" },
+    extras:        { en: "2. Add optional stops",           ru: "2. Добавьте остановки",             ko: "2. 선택 정류장 추가" },
+    extrasNote:    { en: "Tick the stops you want — the total updates instantly.", ru: "Отметьте нужные остановки — цена обновится.", ko: "원하는 정류장을 선택하면 가격이 즉시 업데이트됩니다." },
+    onRequest:     { en: "on request", ru: "по запросу", ko: "가격 문의" },
+    totalLabel:    { en: "3. Your total",                   ru: "3. Итого",                          ko: "3. 총 금액" },
+    plusOnRequest: { en: "+ on-request stops included",     ru: "+ позиции по запросу",              ko: "+ 요청 항목 포함" },
+    included:      { en: "What's included",                 ru: "Что включено",                      ko: "포함 사항" },
+    notIncl:       { en: "Not Included",                    ru: "Не включено",                       ko: "미포함 사항" },
+    why:           { en: "Why Choose This Transfer?",       ru: "Почему этот трансфер?",             ko: "이 이동을 선택하는 이유?" },
+    wa:            { en: "Book via WhatsApp",               ru: "Забронировать в WhatsApp",          ko: "WhatsApp으로 예약" },
+    tg:            { en: "Book via Telegram",               ru: "Забронировать в Telegram",          ko: "Telegram으로 예약" },
   };
 
-  function PriceCard({ price, badge, perText, vehicleLabel, borderClass, badgeClass }: {
-    price: string; badge: string; perText: string; vehicleLabel: string; borderClass: string; badgeClass: string;
-  }) {
-    return (
-      <div className={`relative rounded-2xl border-2 ${borderClass} bg-white p-6 shadow-sm`}>
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-          <span className={`rounded-full px-4 py-1 text-xs font-bold uppercase tracking-widest ${badgeClass}`}>
-            {badge}
-          </span>
-        </div>
-        <p className="mt-2 text-4xl font-extrabold text-slate-900">{price} <span className="text-2xl">USD</span></p>
-        <p className="mt-1 text-sm text-slate-500">{perText}</p>
-        <div className="mt-5">
-          <p className="mb-3 text-sm font-bold text-slate-800">{T.incl[lang]}</p>
-          <ul className="space-y-0">
-            {[vehicleLabel, ...includedCommon[lang]].map((item, i) => (
-              <li key={i} className="flex items-center gap-2 border-b border-slate-100 py-2 last:border-0">
-                <span className="text-sm font-bold text-teal-500">✓</span>
-                <span className="text-sm text-slate-700">{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="mt-6 flex flex-col gap-3">
-          <a href={WA_LINK} target="_blank" rel="noopener"
-            className="flex items-center justify-center gap-2 rounded-full bg-green-500 py-3 text-sm font-semibold text-white hover:bg-green-600">
-            📱 {T.wa[lang]}
-          </a>
-          <a href="https://t.me/nomadtransfer" target="_blank" rel="noopener"
-            className="flex items-center justify-center gap-2 rounded-full bg-indigo-700 py-3 text-sm font-semibold text-white hover:bg-indigo-800">
-            ✈️ {T.tg[lang]}
-          </a>
-        </div>
-      </div>
-    );
-  }
+  const basePrice = BASE[vehicle];
+  const fixedTotal = ADDON_DEFS
+    .filter(a => addons[a.key] && a.price !== null)
+    .reduce((sum, a) => sum + (a.price as number), 0);
+  const total = basePrice + fixedTotal;
+  const hasOnRequest = ADDON_DEFS.some(a => addons[a.key] && a.price === null);
+  const selectedAddons = ADDON_DEFS.filter(a => addons[a.key]);
+
+  const vehicleLabel = { sedan: { en: "Sedan", ru: "Седан", ko: "세단" }, minivan: { en: "Minivan", ru: "Минивэн", ko: "미니밴" } };
+  const extrasLine = selectedAddons.length > 0
+    ? selectedAddons.map(a => `${a.label.en}${a.price !== null ? ` (+$${a.price})` : " (price on request)"}`).join(", ")
+    : "";
+  const waText = lang === "ru"
+    ? `Здравствуйте! Хочу забронировать тур Алматы → Каракол.\nАвтомобиль: ${vehicleLabel[vehicle].ru} ($${basePrice})${extrasLine ? `\nОстановки: ${extrasLine}` : ""}\nИтого: $${total}${hasOnRequest ? "+" : ""}. Подтвердите наличие.`
+    : lang === "ko"
+    ? `안녕하세요! 알마티→카라콜 투어를 예약하고 싶습니다.\n차량: ${vehicleLabel[vehicle].ko} ($${basePrice})${extrasLine ? `\n정류장: ${extrasLine}` : ""}\n총액: $${total}${hasOnRequest ? "+" : ""}. 예약 가능 여부 확인 부탁드립니다.`
+    : `Hi! I'd like to book the Almaty → Karakol scenic tour transfer.\nVehicle: ${vehicleLabel[vehicle].en} ($${basePrice})${extrasLine ? `\nOptional stops: ${extrasLine}` : ""}\nTotal: $${total}${hasOnRequest ? "+" : ""}. Please confirm availability.`;
+  const waBookLink = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(waText)}`;
 
   return (
     <section className="mb-14">
@@ -511,25 +525,125 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
       </div>
 
       <div className="grid gap-6 md:grid-cols-3">
-        <PriceCard
-          price="$235"
-          badge={T.sedan[lang]}
-          perText={T.per4[lang]}
-          vehicleLabel={T.vehicle1[lang]}
-          borderClass="border-teal-400"
-          badgeClass="bg-teal-500 text-white"
-        />
-        <PriceCard
-          price="$275"
-          badge={T.minivan[lang]}
-          perText={T.per7[lang]}
-          vehicleLabel={T.vehicle2[lang]}
-          borderClass="border-amber-400"
-          badgeClass="bg-amber-400 text-slate-900"
-        />
+
+        {/* ── Calculator (2-col) ─────────────────────────────────────────── */}
+        <div className="space-y-4 md:col-span-2">
+
+          {/* Step 1: vehicle */}
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="mb-4 text-xs font-bold uppercase tracking-widest text-slate-500">{T.chooseVehicle[lang]}</p>
+            <div className="grid grid-cols-2 gap-3">
+              {(["sedan", "minivan"] as const).map((v) => (
+                <button
+                  key={v}
+                  onClick={() => setVehicle(v)}
+                  className={`relative rounded-xl border-2 p-4 text-left transition-all ${
+                    vehicle === v
+                      ? v === "sedan" ? "border-teal-400 bg-teal-50" : "border-amber-400 bg-amber-50"
+                      : "border-slate-200 bg-white hover:border-slate-300"
+                  }`}
+                >
+                  <span className={`text-xs font-bold uppercase tracking-widest ${vehicle === v ? (v === "sedan" ? "text-teal-600" : "text-amber-600") : "text-slate-400"}`}>
+                    {T[v][lang]}
+                  </span>
+                  <p className="mt-1 text-2xl font-extrabold text-slate-900">${BASE[v]} <span className="text-sm font-normal text-slate-400">USD</span></p>
+                  <p className="text-xs text-slate-500">{v === "sedan" ? T.per4[lang] : T.per7[lang]}</p>
+                  {vehicle === v && (
+                    <span className={`absolute right-3 top-3 flex h-5 w-5 items-center justify-center rounded-full text-[11px] font-bold text-white ${v === "sedan" ? "bg-teal-500" : "bg-amber-400"}`}>
+                      ✓
+                    </span>
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Step 2: optional stops */}
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="mb-1 text-xs font-bold uppercase tracking-widest text-slate-500">{T.extras[lang]}</p>
+            <p className="mb-4 text-xs text-slate-400">{T.extrasNote[lang]}</p>
+            <div className="space-y-2">
+              {ADDON_DEFS.map((addon) => (
+                <label
+                  key={addon.key}
+                  className={`flex cursor-pointer items-start gap-3 rounded-xl border p-4 transition-all ${
+                    addons[addon.key] ? "border-emerald-300 bg-emerald-50" : "border-slate-100 bg-slate-50 hover:border-slate-200"
+                  }`}
+                >
+                  <input
+                    type="checkbox"
+                    className="sr-only"
+                    checked={addons[addon.key]}
+                    onChange={(e) => setAddons(prev => ({ ...prev, [addon.key]: e.target.checked }))}
+                  />
+                  <div className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded border-2 transition-colors ${
+                    addons[addon.key] ? "border-emerald-500 bg-emerald-500" : "border-slate-300 bg-white"
+                  }`}>
+                    {addons[addon.key] && <span className="text-[11px] font-bold text-white">✓</span>}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="text-sm font-semibold text-slate-800">{addon.label[lang]}</span>
+                      <span className={`shrink-0 text-sm font-bold ${addon.price !== null ? "text-emerald-600" : "text-slate-400"}`}>
+                        {addon.price !== null ? `+$${addon.price}` : T.onRequest[lang]}
+                      </span>
+                    </div>
+                    <p className="mt-0.5 text-xs text-slate-500">{addon.sub[lang]}</p>
+                  </div>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          {/* Step 3: total + CTA */}
+          <div className="rounded-2xl border-2 border-emerald-400 bg-emerald-50 p-6">
+            <p className="mb-3 text-xs font-bold uppercase tracking-widest text-emerald-700">{T.totalLabel[lang]}</p>
+            <div className="flex items-end justify-between gap-4">
+              <div>
+                <p className="text-5xl font-extrabold text-slate-900">
+                  ${total} <span className="text-xl font-normal text-slate-400">USD</span>
+                </p>
+                {hasOnRequest && (
+                  <p className="mt-1 text-xs text-slate-500">{T.plusOnRequest[lang]}</p>
+                )}
+              </div>
+              {(selectedAddons.length > 0 || true) && (
+                <div className="text-right text-xs text-slate-500 space-y-0.5">
+                  <p className="font-medium">{vehicle === "sedan" ? T.sedan[lang] : T.minivan[lang]}: ${basePrice}</p>
+                  {selectedAddons.map(a => (
+                    <p key={a.key}>{a.label[lang]}: {a.price !== null ? `+$${a.price}` : T.onRequest[lang]}</p>
+                  ))}
+                </div>
+              )}
+            </div>
+            <div className="mt-5 flex flex-col gap-3">
+              <a href={waBookLink} target="_blank" rel="noopener"
+                className="flex items-center justify-center gap-2 rounded-full bg-green-500 py-3 text-sm font-semibold text-white hover:bg-green-600">
+                📱 {T.wa[lang]}
+              </a>
+              <a href="https://t.me/nomadtransfer" target="_blank" rel="noopener"
+                className="flex items-center justify-center gap-2 rounded-full bg-indigo-700 py-3 text-sm font-semibold text-white hover:bg-indigo-800">
+                ✈️ {T.tg[lang]}
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Right column ───────────────────────────────────────────────── */}
         <div className="flex flex-col gap-6">
           <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
-            <h3 className="mb-3 text-lg font-bold text-teal-600">{T.notIncl[lang]}</h3>
+            <h3 className="mb-3 text-sm font-bold text-slate-800">{T.included[lang]}</h3>
+            <ul className="space-y-0">
+              {includedItems[lang].map((item, i) => (
+                <li key={i} className="flex items-center gap-2 border-b border-slate-100 py-2 last:border-0">
+                  <span className="text-sm font-bold text-teal-500">✓</span>
+                  <span className="text-sm text-slate-700">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+            <h3 className="mb-3 text-sm font-bold text-rose-500">{T.notIncl[lang]}</h3>
             <ul className="space-y-0">
               {notIncluded[lang].map((item, i) => (
                 <li key={i} className="flex items-center gap-2 border-b border-slate-100 py-2 last:border-0">
@@ -550,6 +664,7 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
             </ul>
           </div>
         </div>
+
       </div>
     </section>
   );
