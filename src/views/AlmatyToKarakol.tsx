@@ -691,19 +691,8 @@ export default function AlmatyToKarakol({ initialLang }: { initialLang?: "en" | 
     return () => document.removeEventListener("click", close);
   }, [showLangDropdown]);
 
-  const noticeText = {
-    en: "⚠️ Border at Kegen: open daily 8:00 AM – 6:00 PM, May–October only. Passport required. Winter transfers go via Bishkek.",
-    ru: "⚠️ Граница Кеген: открыта ежедневно 8:00–18:00, только май–октябрь. Нужен паспорт. Зимой — через Бишкек.",
-    ko: "⚠️ 케겐 국경: 매일 오전 8시~오후 6시, 5월~10월만 운영. 여권 필수. 겨울에는 비슈케크 경유.",
-  };
-
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
-      {/* Notice bar */}
-      <div className="border-b border-amber-200 bg-amber-50 px-4 py-2 text-center text-xs text-amber-900">
-        {noticeText[lang]}
-      </div>
-
       {/* Header */}
       <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur">
         <div className="mx-auto grid max-w-6xl grid-cols-3 items-center px-4 py-2">
@@ -792,6 +781,9 @@ export default function AlmatyToKarakol({ initialLang }: { initialLang?: "en" | 
 
       {/* Content */}
       <main className="mx-auto max-w-6xl px-4 py-12">
+
+        {/* Notice */}
+        <NoticeBanner lang={lang} />
 
         {/* Simple Transfer */}
         <SimpleTransferBlock lang={lang} />
