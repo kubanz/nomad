@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import AlmatyToKarakol from "../../../src/views/AlmatyToKarakol";
+import AlmatyToKarakol from "../../../../src/views/AlmatyToKarakol";
 
 export const metadata: Metadata = {
   title: "Трансфер Алматы — Каракол | Остановка Чарын | От $235 | Nomad Transfer",

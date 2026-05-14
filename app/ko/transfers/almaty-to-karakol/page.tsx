@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import AlmatyToKarakol from "../../../src/views/AlmatyToKarakol";
+import AlmatyToKarakol from "../../../../src/views/AlmatyToKarakol";
 
 export const metadata: Metadata = {
   title: "알마티 카라콜 전용 이동 | 차린 협곡 정류장 | $235부터 | Nomad Transfer",
