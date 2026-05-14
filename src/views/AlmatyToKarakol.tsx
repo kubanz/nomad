@@ -493,7 +493,7 @@ export default function AlmatyToKarakol({ initialLang }: { initialLang?: "en" | 
 
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-500 via-orange-500 to-red-500" />
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 via-teal-500 to-sky-500" />
         <div className="relative mx-auto max-w-6xl px-4 py-10 text-white md:py-14">
           <p className="text-xs font-medium uppercase tracking-widest text-white/70">
             {lang === "ru" ? "Приватный трансфер · 1 день" : lang === "ko" ? "프라이빗 이동 · 1일" : "Private Transfer · 1 Day"}
