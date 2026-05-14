@@ -4,7 +4,7 @@ import AlmatyToKarakol from "../../../src/views/AlmatyToKarakol";
 export const metadata: Metadata = {
   title: "Almaty to Karakol Private Transfer | Charyn Canyon Stop | From $200 | Nomad Transfer",
   description:
-    "Private transfer from Almaty to Karakol via scenic Kegen border route. Optional stops: Charyn Canyon (+$35), Kaindy Lake, Kolsai Lakes. Sedan $200, Van $250. WhatsApp reply in 1–2 min.",
+    "Private transfer from Almaty to Karakol via scenic Kegen border route. Optional stops: Charyn Canyon (+$35), Kaindy Lake, Kolsai Lakes. Sedan $235, Van $275. WhatsApp reply in 1–2 min.",
   keywords: [
     "Almaty to Karakol transfer",
     "Almaty Karakol private car",
@@ -73,7 +73,7 @@ const jsonLd = {
         {
           "@type": "Offer",
           "name": "Sedan (up to 4 passengers)",
-          "price": "200",
+          "price": "235",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
           "url": "https://nomad-transfer.com/en/almaty-to-karakol",
@@ -81,7 +81,7 @@ const jsonLd = {
         {
           "@type": "Offer",
           "name": "Minivan (6-7 passengers)",
-          "price": "250",
+          "price": "275",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
           "url": "https://nomad-transfer.com/en/almaty-to-karakol",
@@ -103,7 +103,7 @@ const jsonLd = {
           "name": "How much is a private transfer from Almaty to Karakol?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A sedan (up to 4 passengers) costs $200 and a minivan (6-7 passengers) costs $250. The price is per vehicle, not per person, and includes fuel, hotel pickup in Almaty, and hotel drop-off in Karakol.",
+            "text": "A sedan (up to 4 passengers) costs $235 and a minivan (6-7 passengers) costs $275. The price is per vehicle, not per person, and includes fuel, hotel pickup in Almaty, and hotel drop-off in Karakol.",
           },
         },
         {

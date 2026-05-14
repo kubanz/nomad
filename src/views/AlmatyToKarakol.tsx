@@ -378,7 +378,7 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
 
       <div className="grid gap-6 md:grid-cols-3">
         <PriceCard
-          price="$200"
+          price="$235"
           badge={T.sedan[lang]}
           perText={T.per4[lang]}
           vehicleLabel={T.vehicle1[lang]}
@@ -386,7 +386,7 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
           badgeClass="bg-teal-500 text-white"
         />
         <PriceCard
-          price="$250"
+          price="$275"
           badge={T.minivan[lang]}
           perText={T.per7[lang]}
           vehicleLabel={T.vehicle2[lang]}
