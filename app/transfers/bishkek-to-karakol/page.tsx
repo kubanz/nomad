@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import BishkekToKarakol from "../../../src/views/BishkekToKarakol";
 
 export const metadata: Metadata = {
-  title: "Bishkek to Karakol Private Transfer | Burana & Boom Gorge | From $136 | Nomad Transfer",
+  title: "Bishkek to Karakol Private Transfer | Burana Tower | From $136 | Nomad Transfer",
   description:
-    "Private transfer Bishkek → Karakol via Issyk-Kul north shore. Optional stops: Burana Tower (+$15), Boom Gorge (+$10), Cholpon-Ata (+$20). Sedan $136, Minivan $167. WhatsApp reply in 1–2 min.",
+    "Private transfer Bishkek → Karakol via Issyk-Kul north shore. Optional stops: Burana Tower (+$15), Cholpon-Ata (+$20). Free photo stops at Boom Gorge. Sedan $136, Minivan $167. WhatsApp reply in 1–2 min.",
   keywords: [
     "bishkek to karakol transfer",
     "bishkek karakol private car",
@@ -54,8 +54,9 @@ const jsonLd = {
       "@type": "TouristTrip",
       "name": "Bishkek to Karakol Private Transfer via Issyk-Kul",
       "description":
-        "Private 1-day transfer from Bishkek to Karakol along the Issyk-Kul north shore. Optional stops: Burana Tower (+$15), Boom Gorge (+$10), Cholpon-Ata (+$20).",
+        "Private 1-day transfer from Bishkek to Karakol along the Issyk-Kul north shore. Optional stops: Burana Tower (+$15), Cholpon-Ata (+$20). Free photo stops at Boom Gorge along the way.",
       "url": "https://nomad-transfer.com/transfers/bishkek-to-karakol",
+      "touristType": "Transfer, Scenic, Cultural",
       "duration": "P1D",
       "offers": [
         {
@@ -82,7 +83,7 @@ const jsonLd = {
       ],
       "provider": {
         "@type": "LocalBusiness",
-        "name": "Nomad Transfers KG",
+        "name": "Nomad Transfer",
         "telephone": "+996552291808",
         "url": "https://nomad-transfer.com",
         "areaServed": ["Kyrgyzstan"],
@@ -125,10 +126,10 @@ const jsonLd = {
         },
         {
           "@type": "Question",
-          "name": "What is Boom Gorge and is it worth stopping?",
+          "name": "What is Boom Gorge and can we stop there?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Boom Gorge is a dramatic canyon where the Chu River cuts through rocky cliffs, located about 80 km east of Bishkek. It's a 20-30 minute stop and very photogenic. Add it for +$10 (sedan) or +$15 (minivan).",
+            "text": "Boom Gorge is a dramatic canyon where the Chu River cuts through rocky cliffs, located about 80 km east of Bishkek. Drivers stop 2–3 times along the way for free 10–15 minute photo breaks at scenic spots like Boom Gorge — no extra charge.",
           },
         },
       ],

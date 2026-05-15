@@ -23,7 +23,7 @@ export const metadata: Metadata = {
       },
     ],
     type: "website",
-    url: "https://nomad-transfer.com",
+    url: "https://nomad-transfer.com/",
     siteName: "Nomad Transfer",
   },
   twitter: {

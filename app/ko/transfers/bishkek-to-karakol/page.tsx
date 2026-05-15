@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import BishkekToKarakol from "../../../../src/views/BishkekToKarakol";
 
 export const metadata: Metadata = {
-  title: "비슈케크 카라콜 전용 이동 | 부라나 탑 & 붐 협곡 | $136부터 | Nomad Transfer",
+  title: "비슈케크 카라콜 전용 이동 | 부라나 탑 | $136부터 | Nomad Transfer",
   description:
-    "이식쿨 북쪽 해안 경유 비슈케크→카라콜 프라이빗 이동. 선택 정류장: 부라나 탑(+$15), 붐 협곡(+$10), 촐폰아타(+$20). 세단 $136, 밴 $167. WhatsApp 1~2분 내 답변.",
+    "이식쿨 북쪽 해안 경유 비슈케크→카라콜 프라이빗 이동. 선택 정류장: 부라나 탑(+$15), 촐폰아타(+$20). 붐 협곡에서 무료 사진 정류장. 세단 $136, 밴 $167. WhatsApp 1~2분 내 답변.",
   keywords: [
     "비슈케크 카라콜 이동",
     "비슈케크 카라콜 전용 차량",
@@ -54,7 +54,7 @@ const jsonLd = {
       "@type": "TouristTrip",
       "name": "비슈케크 카라콜 이식쿨 경유 프라이빗 이동",
       "description":
-        "이식쿨 북쪽 해안 경유 비슈케크→카라콜 프라이빗 1일 이동. 선택 정류장: 부라나 탑(+$15), 붐 협곡(+$10), 촐폰아타(+$20).",
+        "이식쿨 북쪽 해안 경유 비슈케크→카라콜 프라이빗 1일 이동. 선택 정류장: 부라나 탑(+$15), 촐폰아타(+$20). 붐 협곡에서 무료 사진 정류장.",
       "url": "https://nomad-transfer.com/ko/transfers/bishkek-to-karakol",
       "duration": "P1D",
       "offers": [
@@ -82,7 +82,7 @@ const jsonLd = {
       ],
       "provider": {
         "@type": "LocalBusiness",
-        "name": "Nomad Transfers KG",
+        "name": "Nomad Transfer",
         "telephone": "+996552291808",
         "url": "https://nomad-transfer.com",
         "areaServed": ["키르기스스탄"],
@@ -128,7 +128,7 @@ const jsonLd = {
           "name": "붐 협곡은 무엇이며 들를 가치가 있나요?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "붐 협곡은 추 강이 암벽을 뚫고 흐르는 극적인 협곡으로, 비슈케크에서 약 80km 동쪽에 있습니다. 20-30분 정류장이며 사진 촬영에 매우 좋습니다. +$10(세단) 또는 +$15(밴)으로 추가하세요.",
+            "text": "붐 협곡은 추 강이 암벽을 뚫고 흐르는 극적인 협곡으로, 비슈케크에서 약 80km 동쪽에 있습니다. 이동 중 기사가 붐 협곡 등 경치 좋은 곳에서 10-15분씩 2~3회 무료 사진 정류장을 합니다. 추가 요금 없습니다.",
           },
         },
       ],

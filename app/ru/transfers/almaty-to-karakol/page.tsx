@@ -75,7 +75,7 @@ const jsonLd = {
       ],
       "provider": {
         "@type": "LocalBusiness",
-        "name": "Nomad Transfers KG",
+        "name": "Nomad Transfer",
         "telephone": "+996552291808",
         "url": "https://nomad-transfer.com",
         "areaServed": ["Кыргызстан", "Казахстан"],
