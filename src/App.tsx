@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Car, Plane, Mountain, Route, MessageCircle, CheckCircle2, ChevronDown, Send, Globe } from "lucide-react";
+import { Car, Plane, Mountain, Route, MessageCircle, CheckCircle2, ChevronDown, Send, Globe, MapPin, Clock } from "lucide-react";
 
 // ===== Бренд =====
 const BRAND_NAME = "Nomad Transfers KG";
@@ -110,6 +110,9 @@ const TXT = {
     route3Distance: "Distance: 270 km | Duration: ~5h",
     route3Price: "Sedan $135 · Van $155 · Bus $275",
     learnMore: "Learn More",
+    viewTransfer: "View Transfer",
+    bookNow: "Booking",
+    bestseller: "⭐ Bestseller",
     curatedToursTitle: "Curated Tours in Kyrgyzstan",
     curatedToursSubtitle: "Private journeys to mountains, lakes and Silk Road destinations with your personal driver.",
     viewTour: "View Tour",
@@ -210,6 +213,9 @@ const TXT = {
     route3Distance: "Расстояние: 270 км | Время: ~5ч",
     route3Price: "Седан $135 · Минивэн $155 · Бусы $275",
     learnMore: "Подробнее",
+    viewTransfer: "Подробнее",
+    bookNow: "Забронировать",
+    bestseller: "⭐ Хит продаж",
     curatedToursTitle: "Авторские туры по Кыргызстану",
     curatedToursSubtitle: "Частные путешествия к горам, озёрам и памятникам Шёлкового пути с личным водителем.",
     viewTour: "Подробнее",
@@ -310,6 +316,9 @@ const TXT = {
     route3Distance: "거리: 270 km | 시간: ~5시간",
     route3Price: "세단 $135 · 밴 $155 · 버스 $275",
     learnMore: "더 알아보기",
+    viewTransfer: "자세히 보기",
+    bookNow: "예약하기",
+    bestseller: "⭐ 베스트셀러",
     curatedToursTitle: "키르기스스탄 큐레이팅 투어",
     curatedToursSubtitle: "전용 드라이버와 함께하는 산, 호수, 실크로드 명소 여행.",
     viewTour: "투어 보기",
@@ -388,23 +397,69 @@ const Accordion = ({ title, children, defaultOpen = false }: { title: string; ch
   );
 };
 
-const RoutePriceCard = ({ title, distance, price, link }: { title: string; distance: string; price: string; link: string }) => (
-  <a
-    href={link}
-    className="block rounded-xl border bg-white/80 p-5 shadow-sm backdrop-blur-sm transition-shadow hover:shadow-lg"
-  >
-    <div className="flex items-start gap-3">
-      <div className="text-2xl">🚗</div>
-      <div className="flex-1">
-        <h3 className="text-lg font-semibold">{title}</h3>
-        <p className="mt-1 text-sm text-slate-600">{distance}</p>
-        <p className="mt-2 text-sm font-medium text-emerald-600">{price}</p>
-        <button className="mt-3 inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700">
-          Learn More →
-        </button>
+const RouteCard = ({
+  title, distanceMeta, durationMeta,
+  sedan, van, bus,
+  link, waText,
+  featured, badgeText,
+  headerClass, icon,
+  btnView, btnBook,
+}: {
+  title: string; distanceMeta: string; durationMeta: string;
+  sedan: number; van: number; bus: number;
+  link: string; waText: string;
+  featured?: boolean; badgeText?: string;
+  headerClass: string; icon: React.ReactNode;
+  btnView: string; btnBook: string;
+}) => (
+  <div className={`relative rounded-2xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${featured ? "border-2 border-teal-400 md:scale-[1.03]" : "border border-slate-100"}`}>
+    {featured && badgeText && (
+      <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-to-r from-teal-500 to-cyan-500 px-5 py-1.5 text-xs font-bold uppercase tracking-wide text-white shadow-md">
+        {badgeText}
+      </div>
+    )}
+    <div className={`mb-5 flex items-center justify-center rounded-xl p-5 ${headerClass}`}>
+      {icon}
+    </div>
+    <h3 className="mb-4 text-center text-xl font-bold leading-tight text-slate-900">{title}</h3>
+    <div className="mb-5 flex justify-center gap-6 border-b border-slate-100 pb-5">
+      <div className="flex items-center gap-1.5 text-sm text-slate-500">
+        <MapPin className="h-4 w-4 text-slate-400" />
+        <span>{distanceMeta}</span>
+      </div>
+      <div className="flex items-center gap-1.5 text-sm text-slate-500">
+        <Clock className="h-4 w-4 text-slate-400" />
+        <span>{durationMeta}</span>
       </div>
     </div>
-  </a>
+    <div className="mb-6 flex flex-wrap justify-center gap-2">
+      <div className="min-w-[68px] rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-600 px-4 py-3 text-center shadow-md shadow-emerald-100">
+        <p className="mb-1 text-xs font-medium text-white/90">Sedan</p>
+        <p className="text-lg font-bold leading-none text-white">${sedan}</p>
+      </div>
+      <div className="min-w-[68px] rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-600 px-4 py-3 text-center shadow-md shadow-emerald-100">
+        <p className="mb-1 text-xs font-medium text-white/90">Van</p>
+        <p className="text-lg font-bold leading-none text-white">${van}</p>
+      </div>
+      <div className="min-w-[68px] rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-600 px-4 py-3 text-center shadow-md shadow-emerald-100">
+        <p className="mb-1 text-xs font-medium text-white/90">Bus</p>
+        <p className="text-lg font-bold leading-none text-white">${bus}</p>
+      </div>
+    </div>
+    <div className="grid grid-cols-2 gap-3">
+      <a href={link}
+        className="flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-teal-500 to-cyan-500 px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-teal-100 transition-all hover:-translate-y-0.5 hover:shadow-lg">
+        <Route className="h-4 w-4" />
+        {btnView}
+      </a>
+      <a href={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(waText)}`}
+        target="_blank" rel="noopener"
+        className="flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-green-100 transition-all hover:-translate-y-0.5 hover:bg-[#128C7E] hover:shadow-lg">
+        <MessageCircle className="h-4 w-4" />
+        {btnBook}
+      </a>
+    </div>
+  </div>
 );
 
 const TourCard = ({
@@ -751,27 +806,40 @@ export default function Landing() {
 
       {/* Routes with Prices */}
       <section id="route-prices" className="mx-auto max-w-6xl px-4 py-10">
-        <div className="mb-4">
+        <div className="mb-8">
           <SectionTitle>{t.routePricesTitle}</SectionTitle>
         </div>
-        <div className="grid gap-4 md:grid-cols-3">
-          <RoutePriceCard
+        <div className="grid items-start gap-6 md:grid-cols-3">
+          <RouteCard
             title={t.route1Title}
-            distance={t.route1Distance}
-            price={t.route1Price}
+            distanceMeta="270 km" durationMeta="~5h"
+            sedan={136} van={167} bus={265}
             link={lang === "en" ? "/transfers/bishkek-to-karakol" : lang === "ru" ? "/ru/transfers/bishkek-to-karakol" : "/ko/transfers/bishkek-to-karakol"}
+            waText={lang === "ru" ? "Привет! Меня интересует трансфер Бишкек → Каракол." : lang === "ko" ? "안녕하세요! 비슈케크 → 카라콜 이동에 관심이 있습니다." : "Hi! I'm interested in the Bishkek → Karakol private transfer."}
+            headerClass="bg-gradient-to-br from-cyan-500 to-teal-500"
+            icon={<Car className="h-12 w-12 text-white" strokeWidth={1.5} />}
+            btnView={t.viewTransfer} btnBook={t.bookNow}
           />
-          <RoutePriceCard
+          <RouteCard
             title={t.route2Title}
-            distance={t.route2Distance}
-            price={t.route2Price}
+            distanceMeta="350 km" durationMeta="~6h"
+            sedan={235} van={275} bus={485}
             link={lang === "en" ? "/transfers/almaty-to-karakol" : lang === "ru" ? "/ru/transfers/almaty-to-karakol" : "/ko/transfers/almaty-to-karakol"}
+            waText={lang === "ru" ? "Привет! Меня интересует трансфер Алматы → Каракол через Кеген." : lang === "ko" ? "안녕하세요! 알마티 → 카라콜(케겐 경유) 이동에 관심이 있습니다." : "Hi! I'm interested in the Almaty → Karakol transfer via Kegen."}
+            featured badgeText={t.bestseller}
+            headerClass="bg-gradient-to-br from-teal-500 to-cyan-500"
+            icon={<Globe className="h-12 w-12 text-white" strokeWidth={1.5} />}
+            btnView={t.viewTransfer} btnBook={t.bookNow}
           />
-          <RoutePriceCard
+          <RouteCard
             title={t.route3Title}
-            distance={t.route3Distance}
-            price={t.route3Price}
+            distanceMeta="270 km" durationMeta="~5h"
+            sedan={135} van={155} bus={275}
             link={lang === "en" ? "/en/manas-airport-to-karakol.html" : lang === "ru" ? "/ru/manas-airport-to-karakol.html" : "/ko/manas-airport-to-karakol.html"}
+            waText={lang === "ru" ? "Привет! Меня интересует трансфер из аэропорта Манас в Каракол." : lang === "ko" ? "안녕하세요! 마나스 공항 → 카라콜 이동에 관심이 있습니다." : "Hi! I'm interested in the Manas Airport → Karakol private transfer."}
+            headerClass="bg-gradient-to-br from-teal-400 to-cyan-600"
+            icon={<Plane className="h-12 w-12 text-white" strokeWidth={1.5} />}
+            btnView={t.viewTransfer} btnBook={t.bookNow}
           />
         </div>
       </section>
