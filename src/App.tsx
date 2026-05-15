@@ -402,7 +402,7 @@ const TransferCard = ({
   sedan, van, bus,
   link, waText,
   featured, badgeText,
-  accentClass,
+  accentClass, headerClass,
   btnView, btnBook,
 }: {
   title: string; distanceMeta: string; durationMeta: string;
