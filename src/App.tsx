@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Car, Plane, Mountain, Route, MessageCircle, CheckCircle2, ChevronDown, Send, Globe, MapPin, Clock } from "lucide-react";
 
@@ -491,7 +492,13 @@ const TourCard = ({
     {/* Image */}
     <a href={tourLink} className="relative block h-48 shrink-0 overflow-hidden bg-slate-100">
       {image ? (
-        <img src={image} alt={title} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+        <Image
+          src={image}
+          alt={title}
+          fill
+          sizes="(max-width: 768px) 100vw, 400px"
+          className="object-cover"
+        />
       ) : (
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-teal-400 to-sky-400" />
       )}
@@ -616,8 +623,12 @@ function MobileCTA({ text, reply, lang }: { text: string; reply: string; lang: "
   );
 }
 
-export default function Landing() {
-  const [lang, setLang] = useState(pickLang() as "en" | "ru" | "ko");
+export default function Landing({
+  initialLang,
+}: {
+  initialLang?: "en" | "ru" | "ko";
+}) {
+  const [lang, setLang] = useState<"en" | "ru" | "ko">(initialLang ?? "en");
   const [brand] = useState(pickBrand());
   const [showLangDropdown, setShowLangDropdown] = useState(false);
 
