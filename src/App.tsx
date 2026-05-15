@@ -397,7 +397,7 @@ const Accordion = ({ title, children, defaultOpen = false }: { title: string; ch
   );
 };
 
-const RouteCard = ({
+const TransferCard = ({
   title, distanceMeta, durationMeta,
   sedan, van, bus,
   link, waText,
@@ -810,7 +810,7 @@ export default function Landing() {
           <SectionTitle>{t.routePricesTitle}</SectionTitle>
         </div>
         <div className="grid items-start gap-6 md:grid-cols-3">
-          <RouteCard
+          <TransferCard
             title={t.route1Title}
             distanceMeta="270 km" durationMeta="~5h"
             sedan={136} van={167} bus={265}
@@ -820,7 +820,7 @@ export default function Landing() {
             icon={<Car className="h-12 w-12 text-white" strokeWidth={1.5} />}
             btnView={t.viewTransfer} btnBook={t.bookNow}
           />
-          <RouteCard
+          <TransferCard
             title={t.route2Title}
             distanceMeta="350 km" durationMeta="~6h"
             sedan={235} van={275} bus={485}
@@ -831,7 +831,7 @@ export default function Landing() {
             icon={<Globe className="h-12 w-12 text-white" strokeWidth={1.5} />}
             btnView={t.viewTransfer} btnBook={t.bookNow}
           />
-          <RouteCard
+          <TransferCard
             title={t.route3Title}
             distanceMeta="270 km" durationMeta="~5h"
             sedan={135} van={155} bus={275}
