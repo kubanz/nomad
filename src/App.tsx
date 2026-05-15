@@ -410,15 +410,19 @@ const TransferCard = ({
   link: string; waText: string;
   featured?: boolean; badgeText?: string;
   accentClass: string;
+  headerClass: string;
   btnView: string; btnBook: string;
 }) => (
-  <div className={`relative rounded-2xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border-2 ${accentClass} ${featured ? "md:scale-[1.03]" : ""}`}>
+  <div className={`relative rounded-2xl bg-white shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border-2 ${accentClass} ${featured ? "md:scale-[1.03]" : ""} overflow-hidden`}>
     {featured && badgeText && (
-      <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-amber-400 px-5 py-1.5 text-xs font-bold uppercase tracking-wide text-slate-900 shadow-md">
+      <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-amber-400 px-5 py-1.5 text-xs font-bold uppercase tracking-wide text-slate-900 shadow-md z-10">
         {badgeText}
       </div>
     )}
-    <h3 className="mb-4 pt-1 text-center text-xl font-bold leading-tight text-slate-900">{title}</h3>
+    <div className={`flex items-center justify-center rounded-t-xl px-6 py-5 ${headerClass}`}>
+      <h3 className="text-center text-xl font-bold leading-tight text-white drop-shadow">{title}</h3>
+    </div>
+    <div className="p-6">
     <div className="mb-5 flex justify-center gap-6 border-b border-slate-100 pb-5">
       <div className="flex items-center gap-1.5 text-sm text-slate-500">
         <MapPin className="h-4 w-4 text-slate-400" />
@@ -455,6 +459,7 @@ const TransferCard = ({
         <MessageCircle className="h-4 w-4" />
         {btnBook}
       </a>
+    </div>
     </div>
   </div>
 );
@@ -814,6 +819,7 @@ export default function Landing() {
             link={lang === "en" ? "/transfers/bishkek-to-karakol" : lang === "ru" ? "/ru/transfers/bishkek-to-karakol" : "/ko/transfers/bishkek-to-karakol"}
             waText={lang === "ru" ? "Привет! Меня интересует трансфер Бишкек → Каракол." : lang === "ko" ? "안녕하세요! 비슈케크 → 카라콜 이동에 관심이 있습니다." : "Hi! I'm interested in the Bishkek → Karakol private transfer."}
             accentClass="border-cyan-200"
+            headerClass="bg-gradient-to-br from-cyan-500 to-teal-500"
             btnView={t.viewTransfer} btnBook={t.bookNow}
           />
           <TransferCard
@@ -824,6 +830,7 @@ export default function Landing() {
             waText={lang === "ru" ? "Привет! Меня интересует трансфер Алматы → Каракол через Кеген." : lang === "ko" ? "안녕하세요! 알마티 → 카라콜(케겐 경유) 이동에 관심이 있습니다." : "Hi! I'm interested in the Almaty → Karakol transfer via Kegen."}
             featured badgeText={t.bestseller}
             accentClass="border-amber-300"
+            headerClass="bg-gradient-to-br from-teal-500 to-cyan-500"
             btnView={t.viewTransfer} btnBook={t.bookNow}
           />
           <TransferCard
@@ -833,6 +840,7 @@ export default function Landing() {
             link={lang === "en" ? "/en/manas-airport-to-karakol.html" : lang === "ru" ? "/ru/manas-airport-to-karakol.html" : "/ko/manas-airport-to-karakol.html"}
             waText={lang === "ru" ? "Привет! Меня интересует трансфер из аэропорта Манас в Каракол." : lang === "ko" ? "안녕하세요! 마나스 공항 → 카라콜 이동에 관심이 있습니다." : "Hi! I'm interested in the Manas Airport → Karakol private transfer."}
             accentClass="border-teal-200"
+            headerClass="bg-gradient-to-br from-teal-400 to-cyan-600"
             btnView={t.viewTransfer} btnBook={t.bookNow}
           />
         </div>
