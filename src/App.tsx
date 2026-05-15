@@ -759,7 +759,7 @@ export default function Landing() {
             title={t.route1Title}
             distance={t.route1Distance}
             price={t.route1Price}
-            link={lang === "en" ? "/en/bishkek-to-karakol.html" : lang === "ru" ? "/ru/bishkek-to-karakol.html" : "/ko/bishkek-to-karakol.html"}
+            link={lang === "en" ? "/transfers/bishkek-to-karakol" : lang === "ru" ? "/ru/transfers/bishkek-to-karakol" : "/ko/transfers/bishkek-to-karakol"}
           />
           <RoutePriceCard
             title={t.route2Title}
@@ -906,17 +906,17 @@ export default function Landing() {
 		<p className="text-xs opacity-80">© {new Date().getFullYear()} {brand}</p>
 		<nav className="text-xs opacity-80 flex flex-col gap-2 text-center md:text-left">
 		  <div className="flex gap-3">
-		    <a href="/en/bishkek-to-karakol.html" className="hover:text-emerald-600">EN: Bishkek → Karakol</a>
+		    <a href="/transfers/bishkek-to-karakol" className="hover:text-emerald-600">EN: Bishkek → Karakol</a>
 		    <a href="/transfers/almaty-to-karakol" className="hover:text-emerald-600">EN: Almaty → Karakol</a>
 		    <a href="/en/manas-airport-to-karakol.html" className="hover:text-emerald-600">EN: Manas Airport → Karakol</a>
 		  </div>
 		  <div className="flex gap-3">
-		    <a href="/ru/bishkek-to-karakol.html" className="hover:text-emerald-600">RU: Бишкек → Каракол</a>
+		    <a href="/ru/transfers/bishkek-to-karakol" className="hover:text-emerald-600">RU: Бишкек → Каракол</a>
 		    <a href="/ru/transfers/almaty-to-karakol" className="hover:text-emerald-600">RU: Алматы → Каракол</a>
 		    <a href="/ru/manas-airport-to-karakol.html" className="hover:text-emerald-600">RU: Манас → Каракол</a>
 		  </div>
 		  <div className="flex gap-3">
-		    <a href="/ko/bishkek-to-karakol.html" className="hover:text-emerald-600">KO: 비슈케크 → 카라콜</a>
+		    <a href="/ko/transfers/bishkek-to-karakol" className="hover:text-emerald-600">KO: 비슈케크 → 카라콜</a>
 		    <a href="/ko/transfers/almaty-to-karakol" className="hover:text-emerald-600">KO: 알마티 → 카라콜</a>
 		    <a href="/ko/manas-airport-to-karakol.html" className="hover:text-emerald-600">KO: 마나스 → 카라콜</a>
 		  </div>
