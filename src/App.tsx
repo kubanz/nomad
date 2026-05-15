@@ -413,13 +413,14 @@ const TransferCard = ({
   headerClass: string;
   btnView: string; btnBook: string;
 }) => (
-  <div className={`relative rounded-2xl bg-white shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border-2 ${accentClass} ${featured ? "md:scale-[1.03]" : ""} overflow-hidden`}>
+  <div className={`relative ${featured ? "pt-4 md:scale-[1.03]" : ""}`}>
     {featured && badgeText && (
-      <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-amber-400 px-5 py-1.5 text-xs font-bold uppercase tracking-wide text-slate-900 shadow-md z-10">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-amber-400 px-5 py-1.5 text-xs font-bold uppercase tracking-wide text-slate-900 shadow-md z-10">
         {badgeText}
       </div>
     )}
-    <div className={`flex items-center justify-center rounded-t-xl px-6 py-5 ${headerClass}`}>
+    <div className={`overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border-2 ${accentClass}`}>
+    <div className={`flex items-center justify-center px-6 py-5 ${headerClass}`}>
       <h3 className="text-center text-xl font-bold leading-tight text-white drop-shadow">{title}</h3>
     </div>
     <div className="p-6">
@@ -459,6 +460,7 @@ const TransferCard = ({
         <MessageCircle className="h-4 w-4" />
         {btnBook}
       </a>
+    </div>
     </div>
     </div>
   </div>
