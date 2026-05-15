@@ -1,11 +1,4 @@
 User-agent: *
-Allow: /en/
-Allow: /ko/  
-Allow: /ru/
-
-# Блокируем React версию от индексации
-Disallow: /?*
-Disallow: /src/
-Disallow: /static/
+Allow: /
 
 Sitemap: https://nomad-transfer.com/sitemap.xml

@@ -1,23 +1,35 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
-  title: "Nomad Transfers KG — Private Airport Transfer & Tours in Kyrgyzstan",
+  title: "Nomad Transfer — Private Transfers & Tours in Kyrgyzstan",
   description:
-    "Private airport transfers and day tours in Kyrgyzstan. Manas Airport, Bishkek, Karakol, Issyk-Kul. Fixed price per car. English-speaking drivers.",
+    "Private transfers and day tours in Kyrgyzstan. Manas Airport, Bishkek, Karakol, Issyk-Kul. Fixed price per car. English-speaking drivers.",
   openGraph: {
-    title: "Nomad Transfers KG — Private Transfer & Tours",
+    title: "Nomad Transfer — Private Transfers & Tours in Kyrgyzstan",
     description:
-      "Private airport transfers and day tours in Kyrgyzstan. Fixed price per car.",
+      "Private transfers and day tours in Kyrgyzstan. Fixed price per car.",
     images: [
-      "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
+      {
+        url: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Nomad Transfer — Private Transfers in Kyrgyzstan",
+      },
     ],
     type: "website",
     url: "https://nomad-transfer.com",
+    siteName: "Nomad Transfer",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nomad Transfers KG",
+    title: "Nomad Transfer — Private Transfers in Kyrgyzstan",
+    description: "Private transfers and day tours in Kyrgyzstan. Fixed price per car.",
     images: [
       "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
     ],
