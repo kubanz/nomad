@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import BishkekToKarakol from "../../../src/views/BishkekToKarakol";
 
 export const metadata: Metadata = {
-  title: "Bishkek to Karakol Private Transfer | Burana & Boom Gorge | From $125 | Nomad Transfer",
+  title: "Bishkek to Karakol Private Transfer | Burana & Boom Gorge | From $136 | Nomad Transfer",
   description:
-    "Private transfer Bishkek → Karakol via Issyk-Kul north shore. Optional stops: Burana Tower (+$15), Boom Gorge (+$10), Cholpon-Ata (+$20). Sedan $125, Minivan $145. WhatsApp reply in 1–2 min.",
+    "Private transfer Bishkek → Karakol via Issyk-Kul north shore. Optional stops: Burana Tower (+$15), Boom Gorge (+$10), Cholpon-Ata (+$20). Sedan $136, Minivan $167. WhatsApp reply in 1–2 min.",
   keywords: [
     "bishkek to karakol transfer",
     "bishkek karakol private car",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Bishkek → Karakol Private Transfer | Issyk-Kul North Shore",
     description:
-      "Scenic north shore route via Burana Tower, Boom Gorge, and Issyk-Kul. Sedan $125, Minivan $145. Private transfer, not a group tour.",
+      "Scenic north shore route via Burana Tower, Boom Gorge, and Issyk-Kul. Sedan $136, Minivan $167. Private transfer, not a group tour.",
     images: [
       {
         url: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Bishkek → Karakol Private Transfer",
-    description: "Private transfer via Issyk-Kul north shore. Sedan $125, Minivan $145.",
+    description: "Private transfer via Issyk-Kul north shore. Sedan $136, Minivan $167.",
     images: [
       "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
     ],
@@ -61,14 +61,14 @@ const jsonLd = {
         {
           "@type": "Offer",
           "name": "Sedan (up to 4 passengers)",
-          "price": "125",
+          "price": "136",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
         },
         {
           "@type": "Offer",
           "name": "Minivan (6-7 passengers)",
-          "price": "145",
+          "price": "167",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
         },
@@ -96,7 +96,7 @@ const jsonLd = {
           "name": "How much does a private transfer from Bishkek to Karakol cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sedan (up to 4 passengers) $125, Minivan (6-7 passengers) $145, Bus (up to 30 passengers) $265. Price is per vehicle, not per person. Includes fuel and hotel pickup/drop-off.",
+            "text": "Sedan (up to 4 passengers) $136, Minivan (6-7 passengers) $167, Bus (up to 30 passengers) $265. Price is per vehicle, not per person. Includes fuel and hotel pickup/drop-off.",
           },
         },
         {

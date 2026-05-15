@@ -159,14 +159,14 @@ function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
           <div className="absolute -top-3 left-1/2 -translate-x-1/2">
             <span className="rounded-full bg-teal-500 px-4 py-1 text-xs font-bold uppercase tracking-widest text-white">{T.sedan[lang]}</span>
           </div>
-          <p className="mt-3 text-3xl font-extrabold text-slate-900">$125 <span className="text-lg">USD</span></p>
+          <p className="mt-3 text-3xl font-extrabold text-slate-900">$136 <span className="text-lg">USD</span></p>
           <p className="mt-1 text-xs text-slate-500">{T.per4[lang]}</p>
         </div>
         <div className="relative rounded-2xl border-2 border-amber-400 bg-white p-5 text-center shadow-sm">
           <div className="absolute -top-3 left-1/2 -translate-x-1/2">
             <span className="rounded-full bg-amber-400 px-4 py-1 text-xs font-bold uppercase tracking-widest text-slate-900">{T.minivan[lang]}</span>
           </div>
-          <p className="mt-3 text-3xl font-extrabold text-slate-900">$145 <span className="text-lg">USD</span></p>
+          <p className="mt-3 text-3xl font-extrabold text-slate-900">$167 <span className="text-lg">USD</span></p>
           <p className="mt-1 text-xs text-slate-500">{T.per7[lang]}</p>
         </div>
       </div>
@@ -298,7 +298,7 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
   const [vehicle, setVehicle] = useState<"sedan" | "minivan">("sedan");
   const [addons, setAddons] = useState<Record<AddonKey, boolean>>({ burana: false, cholpon: false });
 
-  const BASE = { sedan: 125, minivan: 145 };
+  const BASE = { sedan: 136, minivan: 167 };
 
   const includedItems = {
     en: ["Professional local driver", "Fuel and all transportation costs", "Hotel pickup in Bishkek", "Hotel drop-off in Karakol", "Scenic Issyk-Kul north shore drive"],

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import BishkekToKarakol from "../../../../src/views/BishkekToKarakol";
 
 export const metadata: Metadata = {
-  title: "비슈케크 카라콜 전용 이동 | 부라나 탑 & 붐 협곡 | $125부터 | Nomad Transfer",
+  title: "비슈케크 카라콜 전용 이동 | 부라나 탑 & 붐 협곡 | $136부터 | Nomad Transfer",
   description:
-    "이식쿨 북쪽 해안 경유 비슈케크→카라콜 프라이빗 이동. 선택 정류장: 부라나 탑(+$15), 붐 협곡(+$10), 촐폰아타(+$20). 세단 $125, 밴 $145. WhatsApp 1~2분 내 답변.",
+    "이식쿨 북쪽 해안 경유 비슈케크→카라콜 프라이빗 이동. 선택 정류장: 부라나 탑(+$15), 붐 협곡(+$10), 촐폰아타(+$20). 세단 $136, 밴 $167. WhatsApp 1~2분 내 답변.",
   keywords: [
     "비슈케크 카라콜 이동",
     "비슈케크 카라콜 전용 차량",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "비슈케크 → 카라콜 이동 | 이식쿨 북쪽 해안",
     description:
-      "부라나 탑, 붐 협곡, 이식쿨을 지나는 경치 좋은 북쪽 해안 노선. 세단 $125, 밴 $145. 프라이빗 이동, 그룹 투어 아님.",
+      "부라나 탑, 붐 협곡, 이식쿨을 지나는 경치 좋은 북쪽 해안 노선. 세단 $136, 밴 $167. 프라이빗 이동, 그룹 투어 아님.",
     images: [
       {
         url: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "비슈케크 → 카라콜 프라이빗 이동",
-    description: "프라이빗 이동. 세단 $125, 밴 $145.",
+    description: "프라이빗 이동. 세단 $136, 밴 $167.",
     images: [
       "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
     ],
@@ -61,14 +61,14 @@ const jsonLd = {
         {
           "@type": "Offer",
           "name": "세단 (최대 4명)",
-          "price": "125",
+          "price": "136",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
         },
         {
           "@type": "Offer",
           "name": "미니밴 (6-7명)",
-          "price": "145",
+          "price": "167",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
         },
@@ -96,7 +96,7 @@ const jsonLd = {
           "name": "비슈케크에서 카라콜까지 전용 이동 요금은 얼마인가요?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "세단(최대 4명) $125, 미니밴(6-7명) $145, 버스(최대 30명) $265입니다. 인당이 아닌 차량당 가격이며, 연료 및 호텔 픽업/하차가 포함됩니다.",
+            "text": "세단(최대 4명) $136, 미니밴(6-7명) $167, 버스(최대 30명) $265입니다. 인당이 아닌 차량당 가격이며, 연료 및 호텔 픽업/하차가 포함됩니다.",
           },
         },
         {
