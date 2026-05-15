@@ -789,26 +789,29 @@ export default function AlmatyToKarakol({ initialLang }: { initialLang?: "en" | 
         {/* Overview */}
         <section className="mb-12">
           <h2 className="mb-3 text-xl font-bold md:text-2xl">
-            {lang === "ru" ? "Обзор маршрута" : lang === "ko" ? "노선 개요" : "Transfer Overview"}
+            {lang === "ru" ? "Обзор тура" : lang === "ko" ? "투어 개요" : "Tour Overview"}
           </h2>
-          <div className="max-w-2xl space-y-2 text-sm leading-relaxed text-slate-600">
+          <div className="max-w-2xl space-y-3 text-sm leading-relaxed text-slate-600">
             {lang === "ru" ? (
               <>
-                <p>Этот приватный трансфер из Алматы в Каракол — один из самых живописных маршрутов в Центральной Азии. Вместо скучной дороги через север вы едете через горы: каньоны, степи и перевал Кеген.</p>
-                <p>Маршрут работает с мая по октябрь. Остановки гибкие — можно добавить Чарынский каньон (+$35) или озёра Каинды и Кольсай по запросу.</p>
-                <p>Для групп от 8 человек доступен автобус (от $460). Уточняйте при бронировании.</p>
+                <p>Этот приватный трансфер из Алматы в Каракол — один из самых живописных и комфортных маршрутов в Центральной Азии. Вместо стандартного северного шоссе вы путешествуете через захватывающие горные пейзажи — драматические каньоны, широкие степи, альпийские долины и знаменитый перевал Кеген.</p>
+                <p>Маршрут работает с мая по октябрь и предлагает гибкие остановки для осмотра достопримечательностей. Популярные варианты: Чарынский каньон, а также озёра Каинды и Кольсай по запросу.</p>
+                <p>Для семей, небольших групп и путешественников, ценящих комфорт, — это самый быстрый и удобный способ добраться до Каракола.</p>
+                <p>Для групп от 8 человек — приватный микроавтобус (от $460). Свяжитесь с нами для индивидуального расчёта и планирования маршрута.</p>
               </>
             ) : lang === "ko" ? (
               <>
-                <p>알마티에서 카라콜까지의 이 프라이빗 이동은 중앙아시아에서 가장 경치 좋은 노선 중 하나입니다. 지루한 북쪽 도로 대신 협곡, 초원, 케겐 고개를 통과하는 산악 루트를 이용합니다.</p>
-                <p>이 노선은 5월부터 10월까지 운행됩니다. 정류장은 유연하게 조정 가능 — 차린 협곡 (+$35) 또는 카인디, 콜사이 호수를 요청 시 추가할 수 있습니다.</p>
-                <p>8인 이상 그룹에는 버스 옵션($460부터)이 있습니다. 예약 시 문의하세요.</p>
+                <p>알마티에서 카라콜까지의 이 프라이빗 이동은 중앙아시아에서 가장 경치 좋고 편안한 여행 노선 중 하나입니다. 일반적인 북쪽 고속도로 대신, 극적인 협곡, 탁 트인 초원, 고산 계곡, 유명한 케겐 고개를 지나는 숨막히는 산악 경관을 즐길 수 있습니다.</p>
+                <p>이 노선은 5월부터 10월까지 운행되며 이동 중 유연한 관광 정류장을 제공합니다. 인기 있는 선택지로는 차린 협곡이 있으며, 카인디 호수와 콜사이 호수도 요청 시 방문 가능합니다.</p>
+                <p>가족, 소규모 그룹, 편안함을 원하는 여행자에게 카라콜로 가는 가장 빠르고 편리한 방법입니다.</p>
+                <p>8인 이상 그룹의 경우 프라이빗 미니버스($460부터) 옵션이 있습니다. 맞춤 그룹 가격 및 노선 계획은 문의해 주세요.</p>
               </>
             ) : (
               <>
-                <p>This private transfer from Almaty to Karakol is one of the most scenic routes in Central Asia. Instead of the flat northern highway, you travel through mountains: canyons, open steppe, and the Kegen mountain pass.</p>
-                <p>The route operates May–October. Stops are flexible — add Charyn Canyon (+$35) or Kaindy and Kolsai Lakes on request.</p>
-                <p>For groups of 8+ passengers, a bus option is available (from $460). Ask when booking.</p>
+                <p>This private transfer from Almaty to Karakol is one of the most scenic and comfortable travel routes in Central Asia. Instead of the standard northern highway, you journey through breathtaking mountain landscapes — dramatic canyons, wide-open steppe, alpine valleys, and the famous Kegen mountain pass.</p>
+                <p>The route is available from May to October and offers flexible sightseeing stops along the way. Popular optional destinations include Charyn Canyon, as well as Kaindy Lake and Kolsai Lakes upon request.</p>
+                <p>For families, small groups, and travelers seeking comfort, this is the fastest and most convenient way to reach Karakol.</p>
+                <p>For groups of 8+ passengers, private minibus available from $460. Please contact us for custom group pricing and route planning.</p>
               </>
             )}
           </div>
