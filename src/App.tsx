@@ -413,7 +413,7 @@ const TransferCard = ({
   headerClass: string;
   btnView: string; btnBook: string;
 }) => (
-  <div className={`relative ${featured ? "pt-4 md:scale-[1.03]" : ""}`}>
+  <div className={`relative pt-4 ${featured ? "md:scale-[1.03]" : ""}`}>
     {featured && badgeText && (
       <div className="absolute top-0 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-amber-400 px-5 py-1.5 text-xs font-bold uppercase tracking-wide text-slate-900 shadow-md z-10">
         {badgeText}
