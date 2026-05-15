@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import KarakolSonkulBishkekClient from "../../../src/views/KarakolSonkulBishkekClient";
 
 export const metadata: Metadata = {
-  title: "Karakol to Bishkek via Son-Kul Lake — 2-Day Private Tour | Nomad Transfers",
+  title: "Karakol → Son-Kul → Bishkek 2-Day Private Tour | Nomad Transfer",
   description:
     "Private 2-day tour from Karakol to Bishkek via Son-Kul alpine lake (3,016 m), Djety-Oguz gorge, Skazka Canyon, and Burana Tower. Sedan $415 (up to 4 pax), Minivan $465 (6-7 pax). English support 24/7.",
   keywords: [
@@ -43,8 +43,6 @@ export const metadata: Metadata = {
     languages: {
       "x-default": "https://nomad-transfer.com/tours/karakol-sonkul-bishkek",
       en: "https://nomad-transfer.com/tours/karakol-sonkul-bishkek",
-      ru: "https://nomad-transfer.com/ru/tours/karakol-sonkul-bishkek",
-      ko: "https://nomad-transfer.com/ko/tours/karakol-sonkul-bishkek",
     },
   },
 };
@@ -52,6 +50,14 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nomad-transfer.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Tours", "item": "https://nomad-transfer.com/#tours" },
+        { "@type": "ListItem", "position": 3, "name": "Karakol → Son-Kul → Bishkek", "item": "https://nomad-transfer.com/tours/karakol-sonkul-bishkek" },
+      ],
+    },
     {
       "@type": "TouristTrip",
       "name": "Karakol to Bishkek Private Tour via Son-Kul Lake",
@@ -95,7 +101,7 @@ const jsonLd = {
       ],
       "provider": {
         "@type": "LocalBusiness",
-        "name": "Nomad Transfers KG",
+        "name": "Nomad Transfer",
         "telephone": "+996552291808",
         "url": "https://nomad-transfer.com",
         "areaServed": "Kyrgyzstan",

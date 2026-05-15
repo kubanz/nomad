@@ -2,149 +2,228 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- ГЛАВНАЯ СТРАНИЦА -->
+  <!-- HOMEPAGE -->
   <url>
     <loc>https://nomad-transfer.com/</loc>
-    <lastmod>2024-12-15</lastmod>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/" />
   </url>
 
-  <!-- СТРАНИЦА ТУРА: Каракол → Сон-Кёль → Бишкек -->
+  <!-- TOUR: Karakol → Son-Kul → Bishkek -->
   <url>
     <loc>https://nomad-transfer.com/tours/karakol-sonkul-bishkek</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/tours/karakol-sonkul-bishkek" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.com/tours/karakol-sonkul-bishkek" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/tours/karakol-sonkul-bishkek" />
   </url>
 
-  <!-- ========== АНГЛИЙСКИЙ (EN) ========== -->
-
+  <!-- TRANSFER: Bishkek → Karakol (EN) -->
   <url>
-    <loc>https://nomad-transfer.com/en/bishkek-to-karakol.html</loc>
-    <lastmod>2024-12-15</lastmod>
+    <loc>https://nomad-transfer.com/transfers/bishkek-to-karakol</loc>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/bishkek-to-karakol.html" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/bishkek-to-karakol.html" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/bishkek-to-karakol.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.com/transfers/bishkek-to-karakol" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/transfers/bishkek-to-karakol" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/transfers/bishkek-to-karakol" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/transfers/bishkek-to-karakol" />
   </url>
 
+  <!-- TRANSFER: Bishkek → Karakol (RU) -->
   <url>
-    <loc>https://nomad-transfer.com/en/almaty-to-karakol.html</loc>
-    <lastmod>2024-12-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/almaty-to-karakol.html" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/almaty-to-karakol.html" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/almaty-to-karakol.html" />
-  </url>
-
-  <url>
-    <loc>https://nomad-transfer.com/en/manas-airport-to-karakol.html</loc>
-    <lastmod>2024-12-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/manas-airport-to-karakol.html" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/manas-airport-to-karakol.html" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/manas-airport-to-karakol.html" />
-  </url>
-
-  <url>
-    <loc>https://nomad-transfer.com/en/karakol-ski-resort-guide.html</loc>
-    <lastmod>2024-12-15</lastmod>
+    <loc>https://nomad-transfer.com/ru/transfers/bishkek-to-karakol</loc>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/karakol-ski-resort-guide.html" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/karakol-gornolyzhnaya-baza.html" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/karakol-ski-resort.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.com/transfers/bishkek-to-karakol" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/transfers/bishkek-to-karakol" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/transfers/bishkek-to-karakol" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/transfers/bishkek-to-karakol" />
   </url>
 
-  <!-- ========== РУССКИЙ (RU) ========== -->
-
+  <!-- TRANSFER: Bishkek → Karakol (KO) -->
   <url>
-    <loc>https://nomad-transfer.com/ru/bishkek-to-karakol.html</loc>
-    <lastmod>2024-12-15</lastmod>
+    <loc>https://nomad-transfer.com/ko/transfers/bishkek-to-karakol</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.com/transfers/bishkek-to-karakol" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/transfers/bishkek-to-karakol" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/transfers/bishkek-to-karakol" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/transfers/bishkek-to-karakol" />
+  </url>
+
+  <!-- TRANSFER: Almaty → Karakol (EN) -->
+  <url>
+    <loc>https://nomad-transfer.com/transfers/almaty-to-karakol</loc>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/bishkek-to-karakol.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/bishkek-to-karakol.html" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/bishkek-to-karakol.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.com/transfers/almaty-to-karakol" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/transfers/almaty-to-karakol" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/transfers/almaty-to-karakol" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/transfers/almaty-to-karakol" />
   </url>
 
+  <!-- TRANSFER: Almaty → Karakol (RU) -->
   <url>
-    <loc>https://nomad-transfer.com/ru/almaty-to-karakol.html</loc>
-    <lastmod>2024-12-15</lastmod>
+    <loc>https://nomad-transfer.com/ru/transfers/almaty-to-karakol</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.com/transfers/almaty-to-karakol" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/transfers/almaty-to-karakol" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/transfers/almaty-to-karakol" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/transfers/almaty-to-karakol" />
+  </url>
+
+  <!-- TRANSFER: Almaty → Karakol (KO) -->
+  <url>
+    <loc>https://nomad-transfer.com/ko/transfers/almaty-to-karakol</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.com/transfers/almaty-to-karakol" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/transfers/almaty-to-karakol" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/transfers/almaty-to-karakol" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/transfers/almaty-to-karakol" />
+  </url>
+
+  <!-- TRANSFER: Manas Airport → Karakol (EN) -->
+  <url>
+    <loc>https://nomad-transfer.com/transfers/manas-airport-to-karakol</loc>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/almaty-to-karakol.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/almaty-to-karakol.html" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/almaty-to-karakol.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.com/transfers/manas-airport-to-karakol" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/transfers/manas-airport-to-karakol" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/transfers/manas-airport-to-karakol" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/transfers/manas-airport-to-karakol" />
   </url>
 
+  <!-- TRANSFER: Manas Airport → Karakol (RU) -->
   <url>
-    <loc>https://nomad-transfer.com/ru/manas-airport-to-karakol.html</loc>
-    <lastmod>2024-12-15</lastmod>
+    <loc>https://nomad-transfer.com/ru/transfers/manas-airport-to-karakol</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.com/transfers/manas-airport-to-karakol" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/transfers/manas-airport-to-karakol" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/transfers/manas-airport-to-karakol" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/transfers/manas-airport-to-karakol" />
+  </url>
+
+  <!-- TRANSFER: Manas Airport → Karakol (KO) -->
+  <url>
+    <loc>https://nomad-transfer.com/ko/transfers/manas-airport-to-karakol</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.com/transfers/manas-airport-to-karakol" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/transfers/manas-airport-to-karakol" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/transfers/manas-airport-to-karakol" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/transfers/manas-airport-to-karakol" />
+  </url>
+
+  <!-- TRANSFER: Almaty → Bishkek (EN/RU/KO) -->
+  <url>
+    <loc>https://nomad-transfer.com/transfers/almaty-to-bishkek</loc>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/manas-airport-to-karakol.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/manas-airport-to-karakol.html" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/manas-airport-to-karakol.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.com/transfers/almaty-to-bishkek" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/transfers/almaty-to-bishkek" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/transfers/almaty-to-bishkek" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/transfers/almaty-to-bishkek" />
   </url>
-
   <url>
-    <loc>https://nomad-transfer.com/ru/karakol-gornolyzhnaya-baza.html</loc>
-    <lastmod>2024-12-15</lastmod>
+    <loc>https://nomad-transfer.com/ru/transfers/almaty-to-bishkek</loc>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/karakol-gornolyzhnaya-baza.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/karakol-ski-resort-guide.html" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/karakol-ski-resort.html" />
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.com/transfers/almaty-to-bishkek" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/transfers/almaty-to-bishkek" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/transfers/almaty-to-bishkek" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/transfers/almaty-to-bishkek" />
   </url>
-
-  <!-- ========== КОРЕЙСКИЙ (KO) ========== -->
-
   <url>
-    <loc>https://nomad-transfer.com/ko/bishkek-to-karakol.html</loc>
-    <lastmod>2024-12-15</lastmod>
+    <loc>https://nomad-transfer.com/ko/transfers/almaty-to-bishkek</loc>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/bishkek-to-karakol.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/bishkek-to-karakol.html" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/bishkek-to-karakol.html" />
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.com/transfers/almaty-to-bishkek" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/transfers/almaty-to-bishkek" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/transfers/almaty-to-bishkek" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/transfers/almaty-to-bishkek" />
   </url>
 
+  <!-- TRANSFER: Bishkek → Cholpon-Ata (EN/RU/KO) -->
   <url>
-    <loc>https://nomad-transfer.com/ko/almaty-to-karakol.html</loc>
-    <lastmod>2024-12-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/almaty-to-karakol.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/almaty-to-karakol.html" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/almaty-to-karakol.html" />
-  </url>
-
-  <url>
-    <loc>https://nomad-transfer.com/ko/manas-airport-to-karakol.html</loc>
-    <lastmod>2024-12-15</lastmod>
+    <loc>https://nomad-transfer.com/transfers/bishkek-to-cholpon-ata</loc>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/manas-airport-to-karakol.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/manas-airport-to-karakol.html" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/manas-airport-to-karakol.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.com/transfers/bishkek-to-cholpon-ata" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/transfers/bishkek-to-cholpon-ata" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/transfers/bishkek-to-cholpon-ata" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/transfers/bishkek-to-cholpon-ata" />
+  </url>
+  <url>
+    <loc>https://nomad-transfer.com/ru/transfers/bishkek-to-cholpon-ata</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.com/transfers/bishkek-to-cholpon-ata" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/transfers/bishkek-to-cholpon-ata" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/transfers/bishkek-to-cholpon-ata" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/transfers/bishkek-to-cholpon-ata" />
+  </url>
+  <url>
+    <loc>https://nomad-transfer.com/ko/transfers/bishkek-to-cholpon-ata</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.com/transfers/bishkek-to-cholpon-ata" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/transfers/bishkek-to-cholpon-ata" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/transfers/bishkek-to-cholpon-ata" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/transfers/bishkek-to-cholpon-ata" />
   </url>
 
+  <!-- TRANSFER: Bishkek → Osh (EN/RU/KO) -->
   <url>
-    <loc>https://nomad-transfer.com/ko/karakol-ski-resort.html</loc>
-    <lastmod>2024-12-15</lastmod>
+    <loc>https://nomad-transfer.com/transfers/bishkek-to-osh</loc>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/karakol-ski-resort.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/en/karakol-ski-resort-guide.html" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/karakol-gornolyzhnaya-baza.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.com/transfers/bishkek-to-osh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/transfers/bishkek-to-osh" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/transfers/bishkek-to-osh" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/transfers/bishkek-to-osh" />
+  </url>
+  <url>
+    <loc>https://nomad-transfer.com/ru/transfers/bishkek-to-osh</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.com/transfers/bishkek-to-osh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/transfers/bishkek-to-osh" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/transfers/bishkek-to-osh" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/transfers/bishkek-to-osh" />
+  </url>
+  <url>
+    <loc>https://nomad-transfer.com/ko/transfers/bishkek-to-osh</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nomad-transfer.com/transfers/bishkek-to-osh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://nomad-transfer.com/transfers/bishkek-to-osh" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://nomad-transfer.com/ru/transfers/bishkek-to-osh" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://nomad-transfer.com/ko/transfers/bishkek-to-osh" />
   </url>
 
 </urlset>
