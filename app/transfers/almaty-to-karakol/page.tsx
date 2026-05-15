@@ -51,6 +51,14 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nomad-transfer.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Transfers", "item": "https://nomad-transfer.com/#transfers" },
+        { "@type": "ListItem", "position": 3, "name": "Almaty to Karakol", "item": "https://nomad-transfer.com/transfers/almaty-to-karakol" },
+      ],
+    },
+    {
       "@type": "TouristTrip",
       "name": "Almaty to Karakol Private Transfer via Kegen",
       "description":

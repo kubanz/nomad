@@ -51,6 +51,14 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://nomad-transfer.com/" },
+        { "@type": "ListItem", "position": 2, "name": "전용 이동", "item": "https://nomad-transfer.com/#transfers" },
+        { "@type": "ListItem", "position": 3, "name": "알마티 → 카라콜", "item": "https://nomad-transfer.com/ko/transfers/almaty-to-karakol" },
+      ],
+    },
+    {
       "@type": "TouristTrip",
       "name": "알마티 카라콜 케겐 경유 프라이빗 이동",
       "description":

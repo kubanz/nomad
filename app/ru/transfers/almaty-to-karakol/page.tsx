@@ -51,6 +51,14 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://nomad-transfer.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Трансферы", "item": "https://nomad-transfer.com/#transfers" },
+        { "@type": "ListItem", "position": 3, "name": "Алматы — Каракол", "item": "https://nomad-transfer.com/ru/transfers/almaty-to-karakol" },
+      ],
+    },
+    {
       "@type": "TouristTrip",
       "name": "Частный трансфер Алматы — Каракол через Кеген",
       "description":

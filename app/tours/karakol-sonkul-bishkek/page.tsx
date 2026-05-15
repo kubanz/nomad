@@ -51,6 +51,14 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nomad-transfer.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Tours", "item": "https://nomad-transfer.com/#tours" },
+        { "@type": "ListItem", "position": 3, "name": "Karakol → Son-Kul → Bishkek", "item": "https://nomad-transfer.com/tours/karakol-sonkul-bishkek" },
+      ],
+    },
+    {
       "@type": "TouristTrip",
       "name": "Karakol to Bishkek Private Tour via Son-Kul Lake",
       "description":
