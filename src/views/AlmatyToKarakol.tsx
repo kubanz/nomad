@@ -438,21 +438,21 @@ function ItineraryCard({ stop, idx, lang }: { stop: Stop; idx: number; lang: "en
 const ADDON_DEFS = [
   {
     key: "charyn" as const,
-    price: 35 as number | null,
+    price: { sedan: 25, minivan: 35 },
     label: { en: "Charyn Canyon stop", ru: "Остановка в Чарынском каньоне", ko: "차린 협곡 정류장" },
     sub:   { en: "12 km off the main road · ~1.5 hrs", ru: "12 км от основной дороги · ~1.5 ч", ko: "메인 도로에서 12km · 약 1.5시간" },
   },
   {
     key: "kaindy" as const,
-    price: null as number | null,
+    price: { sedan: 45, minivan: 57 },
     label: { en: "Kaindy Lake detour", ru: "Крюк к озеру Каинды", ko: "카인디 호수 우회" },
-    sub:   { en: "Submerged forest lake · price on request", ru: "Затопленный лес · цена по запросу", ko: "수몰 숲 호수 · 가격 문의" },
+    sub:   { en: "Submerged forest lake", ru: "Затопленный лес", ko: "수몰 숲 호수" },
   },
   {
     key: "kolsai" as const,
-    price: null as number | null,
+    price: { sedan: 53, minivan: 68 },
     label: { en: "Kolsai Lakes detour", ru: "Крюк к Кольсайским озёрам", ko: "콜사이 호수 우회" },
-    sub:   { en: "Mountain lakes · price on request", ru: "Горные озёра · цена по запросу", ko: "산악 호수 · 가격 문의" },
+    sub:   { en: "Mountain lakes", ru: "Горные озёра", ko: "산악 호수" },
   },
 ];
 
@@ -489,9 +489,7 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
     per7:          { en: "6–7 passengers",                  ru: "6–7 пассажиров",                    ko: "6–7명" },
     extras:        { en: "2. Add optional stops",           ru: "2. Добавьте остановки",             ko: "2. 선택 정류장 추가" },
     extrasNote:    { en: "Tick the stops you want — the total updates instantly.", ru: "Отметьте нужные остановки — цена обновится.", ko: "원하는 정류장을 선택하면 가격이 즉시 업데이트됩니다." },
-    onRequest:     { en: "on request", ru: "по запросу", ko: "가격 문의" },
     totalLabel:    { en: "3. Your total",                   ru: "3. Итого",                          ko: "3. 총 금액" },
-    plusOnRequest: { en: "+ on-request stops included",     ru: "+ позиции по запросу",              ko: "+ 요청 항목 포함" },
     included:      { en: "What's included",                 ru: "Что включено",                      ko: "포함 사항" },
     notIncl:       { en: "Not Included",                    ru: "Не включено",                       ko: "미포함 사항" },
     why:           { en: "Why Choose This Transfer?",       ru: "Почему этот трансфер?",             ko: "이 이동을 선택하는 이유?" },
@@ -500,22 +498,21 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
   };
 
   const basePrice = BASE[vehicle];
-  const fixedTotal = ADDON_DEFS
-    .filter(a => addons[a.key] && a.price !== null)
-    .reduce((sum, a) => sum + (a.price as number), 0);
-  const total = basePrice + fixedTotal;
-  const hasOnRequest = ADDON_DEFS.some(a => addons[a.key] && a.price === null);
+  const addonsTotal = ADDON_DEFS
+    .filter(a => addons[a.key])
+    .reduce((sum, a) => sum + a.price[vehicle], 0);
+  const total = basePrice + addonsTotal;
   const selectedAddons = ADDON_DEFS.filter(a => addons[a.key]);
 
   const vehicleLabel = { sedan: { en: "Sedan", ru: "Седан", ko: "세단" }, minivan: { en: "Minivan", ru: "Минивэн", ko: "미니밴" } };
   const extrasLine = selectedAddons.length > 0
-    ? selectedAddons.map(a => `${a.label.en}${a.price !== null ? ` (+$${a.price})` : " (price on request)"}`).join(", ")
+    ? selectedAddons.map(a => `${a.label.en} (+$${a.price[vehicle]})`).join(", ")
     : "";
   const waText = lang === "ru"
-    ? `Здравствуйте! Хочу забронировать тур Алматы → Каракол.\nАвтомобиль: ${vehicleLabel[vehicle].ru} ($${basePrice})${extrasLine ? `\nОстановки: ${extrasLine}` : ""}\nИтого: $${total}${hasOnRequest ? "+" : ""}. Подтвердите наличие.`
+    ? `Здравствуйте! Хочу забронировать тур Алматы → Каракол.\nАвтомобиль: ${vehicleLabel[vehicle].ru} ($${basePrice})${extrasLine ? `\nОстановки: ${extrasLine}` : ""}\nИтого: $${total}. Подтвердите наличие.`
     : lang === "ko"
-    ? `안녕하세요! 알마티→카라콜 투어를 예약하고 싶습니다.\n차량: ${vehicleLabel[vehicle].ko} ($${basePrice})${extrasLine ? `\n정류장: ${extrasLine}` : ""}\n총액: $${total}${hasOnRequest ? "+" : ""}. 예약 가능 여부 확인 부탁드립니다.`
-    : `Hi! I'd like to book the Almaty → Karakol scenic tour transfer.\nVehicle: ${vehicleLabel[vehicle].en} ($${basePrice})${extrasLine ? `\nOptional stops: ${extrasLine}` : ""}\nTotal: $${total}${hasOnRequest ? "+" : ""}. Please confirm availability.`;
+    ? `안녕하세요! 알마티→카라콜 투어를 예약하고 싶습니다.\n차량: ${vehicleLabel[vehicle].ko} ($${basePrice})${extrasLine ? `\n정류장: ${extrasLine}` : ""}\n총액: $${total}. 예약 가능 여부 확인 부탁드립니다.`
+    : `Hi! I'd like to book the Almaty → Karakol scenic tour transfer.\nVehicle: ${vehicleLabel[vehicle].en} ($${basePrice})${extrasLine ? `\nOptional stops: ${extrasLine}` : ""}\nTotal: $${total}. Please confirm availability.`;
   const waBookLink = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(waText)}`;
 
   return (
@@ -584,8 +581,8 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2">
                       <span className="text-sm font-semibold text-slate-800">{addon.label[lang]}</span>
-                      <span className={`shrink-0 text-sm font-bold ${addon.price !== null ? "text-emerald-600" : "text-slate-400"}`}>
-                        {addon.price !== null ? `+$${addon.price}` : T.onRequest[lang]}
+                      <span className="shrink-0 text-sm font-bold text-emerald-600">
+                        +${addon.price[vehicle]}
                       </span>
                     </div>
                     <p className="mt-0.5 text-xs text-slate-500">{addon.sub[lang]}</p>
@@ -603,18 +600,13 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
                 <p className="text-5xl font-extrabold text-slate-900">
                   ${total} <span className="text-xl font-normal text-slate-400">USD</span>
                 </p>
-                {hasOnRequest && (
-                  <p className="mt-1 text-xs text-slate-500">{T.plusOnRequest[lang]}</p>
-                )}
               </div>
-              {(selectedAddons.length > 0 || true) && (
-                <div className="text-right text-xs text-slate-500 space-y-0.5">
-                  <p className="font-medium">{vehicle === "sedan" ? T.sedan[lang] : T.minivan[lang]}: ${basePrice}</p>
-                  {selectedAddons.map(a => (
-                    <p key={a.key}>{a.label[lang]}: {a.price !== null ? `+$${a.price}` : T.onRequest[lang]}</p>
-                  ))}
-                </div>
-              )}
+              <div className="text-right text-xs text-slate-500 space-y-0.5">
+                <p className="font-medium">{vehicle === "sedan" ? T.sedan[lang] : T.minivan[lang]}: ${basePrice}</p>
+                {selectedAddons.map(a => (
+                  <p key={a.key}>{a.label[lang]}: +${a.price[vehicle]}</p>
+                ))}
+              </div>
             </div>
             <div className="mt-5 flex flex-col gap-3">
               <a href={waBookLink} target="_blank" rel="noopener"
