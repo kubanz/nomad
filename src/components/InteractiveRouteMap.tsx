@@ -1,6 +1,18 @@
+"use client";
 import React, { useEffect, useRef, useState } from "react";
 
-const MAP_STOPS = [
+export interface MapStop {
+  id: number;
+  lat: number;
+  lng: number;
+  name: string;
+  desc: string;
+  day: number;
+  time: string;
+  type?: "start" | "end" | "overnight";
+}
+
+const DEFAULT_MAP_STOPS: MapStop[] = [
   { id: 0, lat: 42.48813, lng: 78.40475, name: "Karakol",           desc: "Start · Hotel pickup",           day: 1, time: "08:00", type: "start"     },
   { id: 1, lat: 42.31662, lng: 78.23987, name: "Djety-Oguz",        desc: "Red sandstone cliffs",            day: 1, time: "10:00"                      },
   { id: 2, lat: 42.00627, lng: 77.61576, name: "Barskoon Valley",   desc: "Waterfall & Gagarin monument",    day: 1, time: "12:00"                      },
@@ -34,25 +46,30 @@ function loadLink(href: string, id: string) {
 
 interface Props {
   lang: "en" | "ru" | "ko";
+  stops?: MapStop[];
 }
 
-export default function InteractiveRouteMap({ lang }: Props) {
+export default function InteractiveRouteMap({ lang, stops: propStops }: Props) {
+  const stops = propStops ?? DEFAULT_MAP_STOPS;
+
   const containerRef   = useRef<HTMLDivElement>(null);
   const mapRef         = useRef<any>(null);
   const carMarkerRef   = useRef<any>(null);
-  const markersRef     = useRef<any[]>([]);
-  const routeRef       = useRef<[number, number][]>([]);
-  const carIdxRef      = useRef(0);
-  const rafRef         = useRef<number>(0);
-  const playingRef     = useRef(false);
-  const stopIdxRef     = useRef(0);
-  const speedRef       = useRef(4);
+  const markersRef       = useRef<any[]>([]);
+  const routeRef         = useRef<[number, number][]>([]);
+  const waypointIdxRef   = useRef<number[]>([]);
+  const carIdxRef        = useRef(0);
+  const rafRef           = useRef<number>(0);
+  const playingRef       = useRef(false);
+  const stopIdxRef       = useRef(0);
+  const speedRef         = useRef(4);
+  const stopsRef         = useRef(stops);
 
   const [playing,     setPlaying]     = useState(false);
   const [speed,       setSpeed]       = useState(4);
   const [loading,     setLoading]     = useState(true);
-  const [curStop,     setCurStop]     = useState(MAP_STOPS[0].name);
-  const [nxtStop,     setNxtStop]     = useState(MAP_STOPS[1].name);
+  const [curStop,     setCurStop]     = useState(stops[0].name);
+  const [nxtStop,     setNxtStop]     = useState(stops[1].name);
   const [statusTitle, setStatusTitle] = useState(
     lang === "ru" ? "Готов к старту" : lang === "ko" ? "준비 완료" : "Ready to start"
   );
@@ -65,14 +82,14 @@ export default function InteractiveRouteMap({ lang }: Props) {
   const L_NEXT  = lang === "ru" ? "Далее" : lang === "ko" ? "다음" : "Next";
   const L_TITLE = lang === "ru" ? "Интерактивная карта маршрута" : lang === "ko" ? "인터랙티브 루트 맵" : "Interactive Route Map";
 
-  function dotColor(stop: typeof MAP_STOPS[0]) {
+  function dotColor(stop: MapStop) {
     if (stop.type === "start")     return "#16a34a";
     if (stop.type === "end")       return "#1e293b";
     if (stop.type === "overnight") return "#4f46e5";
     return stop.day === 1 ? "#0d9488" : "#0284c7";
   }
 
-  function makeStopIcon(stop: typeof MAP_STOPS[0]) {
+  function makeStopIcon(stop: MapStop) {
     const L = (window as any).L;
     const bg = dotColor(stop);
     const label = stop.type === "start" ? "▶" : stop.type === "end" ? "✓" : stop.type === "overnight" ? "🌙" : String(stop.id + 1);
@@ -97,6 +114,7 @@ export default function InteractiveRouteMap({ lang }: Props) {
   function animateCar() {
     if (!playingRef.current || routeRef.current.length === 0) return;
     const L = (window as any).L;
+    const s = stopsRef.current;
 
     carIdxRef.current += speedRef.current;
     const coords = routeRef.current;
@@ -106,7 +124,7 @@ export default function InteractiveRouteMap({ lang }: Props) {
       playingRef.current = false;
       setPlaying(false);
       setStatusTitle(lang === "ru" ? "🏁 Тур завершён!" : lang === "ko" ? "🏁 투어 완료!" : "🏁 Tour completed!");
-      setCurStop("Bishkek");
+      setCurStop(s[s.length - 1].name);
       setNxtStop("—");
       return;
     }
@@ -121,7 +139,6 @@ export default function InteractiveRouteMap({ lang }: Props) {
       carMarkerRef.current.setIcon(makeCarIcon(angle + 90));
     }
 
-    // Follow car: pan if it goes outside visible bounds
     if (mapRef.current) {
       const bounds = mapRef.current.getBounds();
       if (!bounds.contains(latlng)) {
@@ -129,22 +146,15 @@ export default function InteractiveRouteMap({ lang }: Props) {
       }
     }
 
-    // nearest stop
-    let minDist = Infinity, closest = 0;
-    MAP_STOPS.forEach((s, i) => {
-      const d = mapRef.current.distance(latlng, L.latLng(s.lat, s.lng));
-      if (d < minDist) { minDist = d; closest = i; }
-    });
-    if (minDist < 1000 && closest !== stopIdxRef.current) {
-      // Close previous tooltip, open new one
+    const nextWpIdx = stopIdxRef.current + 1;
+    if (nextWpIdx < s.length && idx >= waypointIdxRef.current[nextWpIdx]) {
       markersRef.current[stopIdxRef.current]?.closeTooltip();
-      markersRef.current[closest]?.openTooltip();
-      stopIdxRef.current = closest;
-      const s = MAP_STOPS[closest];
-      const nxt = MAP_STOPS[Math.min(closest + 1, MAP_STOPS.length - 1)];
-      setCurStop(s.name);
-      setNxtStop(closest === MAP_STOPS.length - 1 ? "—" : nxt.name);
-      setStatusTitle(`📍 ${s.name}`);
+      markersRef.current[nextWpIdx]?.openTooltip();
+      stopIdxRef.current = nextWpIdx;
+      const stop = s[nextWpIdx];
+      setCurStop(stop.name);
+      setNxtStop(nextWpIdx === s.length - 1 ? "—" : s[nextWpIdx + 1].name);
+      setStatusTitle(`📍 ${stop.name}`);
     }
 
     rafRef.current = requestAnimationFrame(animateCar);
@@ -164,6 +174,7 @@ export default function InteractiveRouteMap({ lang }: Props) {
   }
 
   function reset() {
+    const s = stopsRef.current;
     cancelAnimationFrame(rafRef.current);
     playingRef.current = false;
     setPlaying(false);
@@ -173,16 +184,15 @@ export default function InteractiveRouteMap({ lang }: Props) {
       carMarkerRef.current.setLatLng(routeRef.current[0]);
       carMarkerRef.current.setIcon(makeCarIcon());
     }
-    // Reset view to show full route
     if (mapRef.current) {
       const L = (window as any).L;
-      const waypoints = MAP_STOPS.map((s) => L.latLng(s.lat, s.lng));
+      const waypoints = s.map((stop) => L.latLng(stop.lat, stop.lng));
       mapRef.current.fitBounds(L.latLngBounds(waypoints), { padding: [40, 40], animate: true });
     }
     markersRef.current.forEach((m) => m?.closeTooltip());
     markersRef.current[0]?.openTooltip();
-    setCurStop(MAP_STOPS[0].name);
-    setNxtStop(MAP_STOPS[1].name);
+    setCurStop(s[0].name);
+    setNxtStop(s[1].name);
     setStatusTitle(lang === "ru" ? "Готов к старту" : lang === "ko" ? "준비 완료" : "Ready to start");
   }
 
@@ -192,7 +202,12 @@ export default function InteractiveRouteMap({ lang }: Props) {
   }
 
   useEffect(() => {
+    stopsRef.current = stops;
+  });
+
+  useEffect(() => {
     let destroyed = false;
+    const s = stopsRef.current;
 
     async function init() {
       loadLink("https://unpkg.com/leaflet@1.9.4/dist/leaflet.css", "leaflet-css");
@@ -204,14 +219,13 @@ export default function InteractiveRouteMap({ lang }: Props) {
       const L = (window as any).L;
 
       const map = L.map(containerRef.current, {
-        center: [42.2, 76.5],
+        center: [s[0].lat, s[0].lng],
         zoom: 8,
         scrollWheelZoom: false,
         tap: false,
       });
       mapRef.current = map;
 
-      // Ensure correct size on mobile
       setTimeout(() => map.invalidateSize(), 200);
 
       L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
@@ -220,17 +234,17 @@ export default function InteractiveRouteMap({ lang }: Props) {
       }).addTo(map);
 
       markersRef.current = [];
-      MAP_STOPS.forEach((s) => {
-        const m = L.marker([s.lat, s.lng], { icon: makeStopIcon(s) })
+      s.forEach((stop) => {
+        const m = L.marker([stop.lat, stop.lng], { icon: makeStopIcon(stop) })
           .addTo(map)
           .bindTooltip(
-            `<b style="font-size:12px">${s.name}</b><br><span style="color:#64748b;font-size:11px">Day ${s.day} · ${s.time}</span>`,
+            `<b style="font-size:12px">${stop.name}</b><br><span style="color:#64748b;font-size:11px">Day ${stop.day} · ${stop.time}</span>`,
             { direction: "top", offset: [0, -16], className: "stop-label-tt" }
           );
         markersRef.current.push(m);
       });
 
-      const waypoints = MAP_STOPS.map((s) => L.latLng(s.lat, s.lng));
+      const waypoints = s.map((stop) => L.latLng(stop.lat, stop.lng));
 
       L.Routing.control({
         waypoints,
@@ -243,7 +257,18 @@ export default function InteractiveRouteMap({ lang }: Props) {
         .addTo(map)
         .on("routesfound", (e: any) => {
           if (destroyed) return;
-          routeRef.current = e.routes[0].coordinates.map((c: any) => [c.lat, c.lng]);
+          const coords: { lat: number; lng: number }[] = e.routes[0].coordinates;
+          routeRef.current = coords.map((c) => [c.lat, c.lng]);
+
+          waypointIdxRef.current = s.map((stop) => {
+            let best = 0, minD = Infinity;
+            coords.forEach((c, i) => {
+              const d = Math.abs(c.lat - stop.lat) + Math.abs(c.lng - stop.lng);
+              if (d < minD) { minD = d; best = i; }
+            });
+            return best;
+          });
+
           setLoading(false);
 
           carMarkerRef.current = L.marker(routeRef.current[0], {
@@ -251,7 +276,6 @@ export default function InteractiveRouteMap({ lang }: Props) {
             zIndexOffset: 1000,
           }).addTo(map);
 
-          // Show first stop tooltip on load
           markersRef.current[0]?.openTooltip();
 
           setTimeout(() => {
@@ -283,7 +307,7 @@ export default function InteractiveRouteMap({ lang }: Props) {
       <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
         {/* Controls */}
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 px-4 py-3">
-          <span className="text-sm font-semibold text-slate-800">🗺️ {MAP_STOPS[0].name} → {MAP_STOPS[MAP_STOPS.length - 1].name}</span>
+          <span className="text-sm font-semibold text-slate-800">🗺️ {stops[0].name} → {stops[stops.length - 1].name}</span>
           <div className="flex items-center gap-2">
             <button
               onClick={togglePlay}

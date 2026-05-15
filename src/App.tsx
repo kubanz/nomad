@@ -1,8 +1,8 @@
+"use client";
 import React, { useEffect, useState } from "react";
-import { Routes, Route as RouterRoute } from "react-router-dom";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Car, Plane, Mountain, Route, MessageCircle, CheckCircle2, ChevronDown, Send, Globe } from "lucide-react";
-import KarakolSonkulBishkek from "./pages/KarakolSonkulBishkek";
 
 // ===== Бренд =====
 const BRAND_NAME = "Nomad Transfers KG";
@@ -12,6 +12,10 @@ function pickBrand() {
 
 // ===== Язык =====
 function pickLang() {
+  if (typeof window !== "undefined") {
+    const saved = localStorage.getItem("lang");
+    if (saved === "en" || saved === "ru" || saved === "ko") return saved;
+  }
   if (typeof navigator !== "undefined") {
     const l = navigator.language?.toLowerCase() || "";
     if (l.startsWith("ko")) return "ko";
@@ -19,6 +23,9 @@ function pickLang() {
     if (l.startsWith("en")) return "en";
   }
   return "en";
+}
+function saveLang(code: "en" | "ru" | "ko") {
+  if (typeof window !== "undefined") localStorage.setItem("lang", code);
 }
 
 // ===== WhatsApp & Messengers =====
@@ -98,7 +105,7 @@ const TXT = {
     route1Price: "Sedan $125 · Van $145 · Bus $265",
     route2Title: "Almaty to Karakol (via Kegen)",
     route2Distance: "Distance: 350 km | Duration: ~6h",
-    route2Price: "Sedan $215 · Van $265 · Bus $475",
+    route2Price: "Sedan $235 · Van $275 · Bus $485",
     route3Title: "Manas Airport to Karakol",
     route3Distance: "Distance: 270 km | Duration: ~5h",
     route3Price: "Sedan $135 · Van $155 · Bus $275",
@@ -198,7 +205,7 @@ const TXT = {
     route1Price: "Седан $125 · Минивэн $145 · Бусы $265",
     route2Title: "Алматы — Каракол (через Кеген)",
     route2Distance: "Расстояние: 350 км | Время: ~6ч",
-    route2Price: "Седан $215 · Минивэн $265 · Бусы $475",
+    route2Price: "Седан $235 · Минивэн $275 · Бусы $485",
     route3Title: "Аэропорт Манас — Каракол",
     route3Distance: "Расстояние: 270 км | Время: ~5ч",
     route3Price: "Седан $135 · Минивэн $155 · Бусы $275",
@@ -298,7 +305,7 @@ const TXT = {
     route1Price: "세단 $125 · 밴 $145 · 버스 $265",
     route2Title: "알마티 — 카라콜(케겐 경유)",
     route2Distance: "거리: 350 km | 시간: ~6시간",
-    route2Price: "세단 $215 · 밴 $265 · 버스 $475",
+    route2Price: "세단 $235 · 밴 $275 · 버스 $485",
     route3Title: "마나스 공항 — 카라콜",
     route3Distance: "거리: 270 km | 시간: ~5시간",
     route3Price: "세단 $135 · 밴 $155 · 버스 $275",
@@ -332,17 +339,17 @@ const TXT = {
 const BASE_PRICES_BY_LANG: Record<"en"|"ru"|"ko", { route: string; sedan: number; suv: number; van: number }[]> = {
   en: [
     { route: "Bishkek → Karakol", sedan: 125, suv: 145, van: 265 },
-    { route: "Almaty → Karakol (via Kegen)", sedan: 215, suv: 265, van: 475 },
+    { route: "Almaty → Karakol (via Kegen)", sedan: 235, suv: 275, van: 485 },
     { route: "Manas Airport → Karakol", sedan: 135, suv: 155, van: 275 }
   ],
   ru: [
     { route: "Бишкек → Каракол", sedan: 125, suv: 145, van: 265 },
-    { route: "Алматы → Каракол (через Кеген)", sedan: 215, suv: 265, van: 475 },
+    { route: "Алматы → Каракол (через Кеген)", sedan: 235, suv: 275, van: 485 },
     { route: "Аэропорт Манас → Каракол", sedan: 135, suv: 155, van: 275 }
   ],
   ko: [
     { route: "비슈케크 → 카라콜", sedan: 125, suv: 145, van: 265 },
-    { route: "알마티 → 카라콜(케겐 경유)", sedan: 215, suv: 265, van: 475 },
+    { route: "알마티 → 카라콜(케겐 경유)", sedan: 235, suv: 275, van: 485 },
     { route: "마나스 공항 → 카라콜", sedan: 135, suv: 155, van: 275 }
   ]
 };
@@ -550,7 +557,7 @@ function MobileCTA({ text, reply, lang }: { text: string; reply: string; lang: "
   );
 }
 
-function Landing() {
+export default function Landing() {
   const [lang, setLang] = useState(pickLang() as "en" | "ru" | "ko");
   const [brand] = useState(pickBrand());
   const [showLangDropdown, setShowLangDropdown] = useState(false);
@@ -576,12 +583,28 @@ function Landing() {
 
       {/* Header */}
       <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2">
+        <div className="mx-auto grid max-w-6xl grid-cols-3 items-center px-4 py-2">
+          {/* Left: brand */}
           <div className="flex items-center gap-2">
             <Car className="h-5 w-5" />
             <span className="text-sm font-semibold md:text-base">{brand}</span>
           </div>
-          <div className="flex items-center gap-2">
+
+          {/* Center: nav */}
+          <nav className="hidden items-center justify-center gap-1 md:flex">
+            <Link href="/" className="rounded-lg px-3 py-1.5 text-sm font-medium text-emerald-600 hover:bg-slate-100">
+              {lang === "ru" ? "Главная" : lang === "ko" ? "홈" : "Home"}
+            </Link>
+            <Link href="/#curated-tours" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
+              {lang === "ru" ? "Туры" : lang === "ko" ? "투어" : "Tours"}
+            </Link>
+            <Link href="/#route-prices" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
+              {lang === "ru" ? "Трансферы" : lang === "ko" ? "이동" : "Transfers"}
+            </Link>
+          </nav>
+
+          {/* Right: lang + buttons */}
+          <div className="flex items-center justify-end gap-2">
             {/* Language Switcher */}
             <div className="relative">
               <button
@@ -599,7 +622,7 @@ function Landing() {
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      setLang("en");
+                      setLang("en"); saveLang("en");
                       setShowLangDropdown(false);
                     }}
                     className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-50 first:rounded-t-xl ${lang === "en" ? "font-semibold bg-slate-50" : ""}`}
@@ -609,7 +632,7 @@ function Landing() {
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      setLang("ko");
+                      setLang("ko"); saveLang("ko");
                       setShowLangDropdown(false);
                     }}
                     className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-50 ${lang === "ko" ? "font-semibold bg-slate-50" : ""}`}
@@ -619,7 +642,7 @@ function Landing() {
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      setLang("ru");
+                      setLang("ru"); saveLang("ru");
                       setShowLangDropdown(false);
                     }}
                     className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-50 last:rounded-b-xl ${lang === "ru" ? "font-semibold bg-slate-50" : ""}`}
@@ -736,19 +759,19 @@ function Landing() {
             title={t.route1Title}
             distance={t.route1Distance}
             price={t.route1Price}
-            link={lang === "en" ? "/en/bishkek-to-karakol.html" : lang === "ru" ? "/ru/bishkek-karakol.html" : "/ko/bishkek-karakol.html"}
+            link={lang === "en" ? "/en/bishkek-to-karakol.html" : lang === "ru" ? "/ru/bishkek-to-karakol.html" : "/ko/bishkek-to-karakol.html"}
           />
           <RoutePriceCard
             title={t.route2Title}
             distance={t.route2Distance}
             price={t.route2Price}
-            link={lang === "en" ? "/en/almaty-to-karakol.html" : lang === "ru" ? "/ru/almaty-karakol.html" : "/ko/almaty-karakol.html"}
+            link={lang === "en" ? "/transfers/almaty-to-karakol" : lang === "ru" ? "/ru/transfers/almaty-to-karakol" : "/ko/transfers/almaty-to-karakol"}
           />
           <RoutePriceCard
             title={t.route3Title}
             distance={t.route3Distance}
             price={t.route3Price}
-            link={lang === "en" ? "/en/manas-airport-to-karakol.html" : lang === "ru" ? "/ru/manas-karakol.html" : "/ko/manas-karakol.html"}
+            link={lang === "en" ? "/en/manas-airport-to-karakol.html" : lang === "ru" ? "/ru/manas-airport-to-karakol.html" : "/ko/manas-airport-to-karakol.html"}
           />
         </div>
       </section>
@@ -764,7 +787,7 @@ function Landing() {
             title={t.tour1Title}
             description={t.tour1Desc}
             duration={t.tour1Duration}
-            price="From $550"
+            price="From $415"
             badge={t.tour1Badge}
             image="https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg"
             buttonText={t.viewTour}
@@ -884,18 +907,18 @@ function Landing() {
 		<nav className="text-xs opacity-80 flex flex-col gap-2 text-center md:text-left">
 		  <div className="flex gap-3">
 		    <a href="/en/bishkek-to-karakol.html" className="hover:text-emerald-600">EN: Bishkek → Karakol</a>
-		    <a href="/en/almaty-to-karakol.html" className="hover:text-emerald-600">EN: Almaty → Karakol</a>
+		    <a href="/transfers/almaty-to-karakol" className="hover:text-emerald-600">EN: Almaty → Karakol</a>
 		    <a href="/en/manas-airport-to-karakol.html" className="hover:text-emerald-600">EN: Manas Airport → Karakol</a>
 		  </div>
 		  <div className="flex gap-3">
-		    <a href="/ru/bishkek-karakol.html" className="hover:text-emerald-600">RU: Бишкек → Каракол</a>
-		    <a href="/ru/almaty-karakol.html" className="hover:text-emerald-600">RU: Алматы → Каракол</a>
-		    <a href="/ru/manas-karakol.html" className="hover:text-emerald-600">RU: Манас → Каракол</a>
+		    <a href="/ru/bishkek-to-karakol.html" className="hover:text-emerald-600">RU: Бишкек → Каракол</a>
+		    <a href="/ru/transfers/almaty-to-karakol" className="hover:text-emerald-600">RU: Алматы → Каракол</a>
+		    <a href="/ru/manas-airport-to-karakol.html" className="hover:text-emerald-600">RU: Манас → Каракол</a>
 		  </div>
 		  <div className="flex gap-3">
-		    <a href="/ko/bishkek-karakol.html" className="hover:text-emerald-600">KO: 비슈케크 → 카라콜</a>
-		    <a href="/ko/almaty-karakol.html" className="hover:text-emerald-600">KO: 알마티 → 카라콜</a>
-		    <a href="/ko/manas-karakol.html" className="hover:text-emerald-600">KO: 마나스 → 카라콜</a>
+		    <a href="/ko/bishkek-to-karakol.html" className="hover:text-emerald-600">KO: 비슈케크 → 카라콜</a>
+		    <a href="/ko/transfers/almaty-to-karakol" className="hover:text-emerald-600">KO: 알마티 → 카라콜</a>
+		    <a href="/ko/manas-airport-to-karakol.html" className="hover:text-emerald-600">KO: 마나스 → 카라콜</a>
 		  </div>
 		</nav>
 		<div className="flex gap-2">
@@ -917,11 +940,3 @@ function Landing() {
   );
 }
 
-export default function App() {
-  return (
-    <Routes>
-      <RouterRoute path="/" element={<Landing />} />
-      <RouterRoute path="/tours/karakol-sonkul-bishkek" element={<KarakolSonkulBishkek />} />
-    </Routes>
-  );
-}
