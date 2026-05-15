@@ -402,26 +402,23 @@ const TransferCard = ({
   sedan, van, bus,
   link, waText,
   featured, badgeText,
-  headerClass, icon,
+  accentClass,
   btnView, btnBook,
 }: {
   title: string; distanceMeta: string; durationMeta: string;
   sedan: number; van: number; bus: number;
   link: string; waText: string;
   featured?: boolean; badgeText?: string;
-  headerClass: string; icon: React.ReactNode;
+  accentClass: string;
   btnView: string; btnBook: string;
 }) => (
-  <div className={`relative rounded-2xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${featured ? "border-2 border-teal-400 md:scale-[1.03]" : "border border-slate-100"}`}>
+  <div className={`relative rounded-2xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border-2 ${accentClass} ${featured ? "md:scale-[1.03]" : ""}`}>
     {featured && badgeText && (
-      <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-to-r from-teal-500 to-cyan-500 px-5 py-1.5 text-xs font-bold uppercase tracking-wide text-white shadow-md">
+      <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-amber-400 px-5 py-1.5 text-xs font-bold uppercase tracking-wide text-slate-900 shadow-md">
         {badgeText}
       </div>
     )}
-    <div className={`mb-5 flex items-center justify-center rounded-xl p-5 ${headerClass}`}>
-      {icon}
-    </div>
-    <h3 className="mb-4 text-center text-xl font-bold leading-tight text-slate-900">{title}</h3>
+    <h3 className="mb-4 pt-1 text-center text-xl font-bold leading-tight text-slate-900">{title}</h3>
     <div className="mb-5 flex justify-center gap-6 border-b border-slate-100 pb-5">
       <div className="flex items-center gap-1.5 text-sm text-slate-500">
         <MapPin className="h-4 w-4 text-slate-400" />
@@ -816,8 +813,7 @@ export default function Landing() {
             sedan={136} van={167} bus={265}
             link={lang === "en" ? "/transfers/bishkek-to-karakol" : lang === "ru" ? "/ru/transfers/bishkek-to-karakol" : "/ko/transfers/bishkek-to-karakol"}
             waText={lang === "ru" ? "Привет! Меня интересует трансфер Бишкек → Каракол." : lang === "ko" ? "안녕하세요! 비슈케크 → 카라콜 이동에 관심이 있습니다." : "Hi! I'm interested in the Bishkek → Karakol private transfer."}
-            headerClass="bg-gradient-to-br from-cyan-500 to-teal-500"
-            icon={<Car className="h-12 w-12 text-white" strokeWidth={1.5} />}
+            accentClass="border-cyan-200"
             btnView={t.viewTransfer} btnBook={t.bookNow}
           />
           <TransferCard
@@ -827,8 +823,7 @@ export default function Landing() {
             link={lang === "en" ? "/transfers/almaty-to-karakol" : lang === "ru" ? "/ru/transfers/almaty-to-karakol" : "/ko/transfers/almaty-to-karakol"}
             waText={lang === "ru" ? "Привет! Меня интересует трансфер Алматы → Каракол через Кеген." : lang === "ko" ? "안녕하세요! 알마티 → 카라콜(케겐 경유) 이동에 관심이 있습니다." : "Hi! I'm interested in the Almaty → Karakol transfer via Kegen."}
             featured badgeText={t.bestseller}
-            headerClass="bg-gradient-to-br from-teal-500 to-cyan-500"
-            icon={<Globe className="h-12 w-12 text-white" strokeWidth={1.5} />}
+            accentClass="border-amber-300"
             btnView={t.viewTransfer} btnBook={t.bookNow}
           />
           <TransferCard
@@ -837,8 +832,7 @@ export default function Landing() {
             sedan={135} van={155} bus={275}
             link={lang === "en" ? "/en/manas-airport-to-karakol.html" : lang === "ru" ? "/ru/manas-airport-to-karakol.html" : "/ko/manas-airport-to-karakol.html"}
             waText={lang === "ru" ? "Привет! Меня интересует трансфер из аэропорта Манас в Каракол." : lang === "ko" ? "안녕하세요! 마나스 공항 → 카라콜 이동에 관심이 있습니다." : "Hi! I'm interested in the Manas Airport → Karakol private transfer."}
-            headerClass="bg-gradient-to-br from-teal-400 to-cyan-600"
-            icon={<Plane className="h-12 w-12 text-white" strokeWidth={1.5} />}
+            accentClass="border-teal-200"
             btnView={t.viewTransfer} btnBook={t.bookNow}
           />
         </div>
