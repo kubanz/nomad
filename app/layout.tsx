@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { headers } from "next/headers";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -37,13 +38,20 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://nomad-transfer.com"),
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = (await headers()).get("x-pathname") || "";
+  const lang = pathname.startsWith("/ru")
+    ? "ru"
+    : pathname.startsWith("/ko")
+      ? "ko"
+      : "en";
+
   return (
-    <html lang="en">
+    <html lang={lang}>
       <body>{children}</body>
     </html>
   );
