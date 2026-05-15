@@ -185,9 +185,9 @@ function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
     per4:    { en: "up to 4 passengers",  ru: "до 4 пассажиров",   ko: "최대 4명" },
     per7:    { en: "6–7 passengers",      ru: "6–7 пассажиров",    ko: "6–7명" },
     busNote: {
-      en: "For groups of 8+ passengers, bus option available from $460. Ask when booking.",
-      ru: "Для групп от 8 человек — автобус от $460. Уточняйте при бронировании.",
-      ko: "8인 이상 그룹은 버스 옵션 $460부터. 예약 시 문의하세요.",
+      en: "For groups of 8+ passengers, bus option available from $485. Ask when booking.",
+      ru: "Для групп от 8 человек — автобус от $485. Уточняйте при бронировании.",
+      ko: "8인 이상 그룹은 버스 옵션 $485부터. 예약 시 문의하세요.",
     },
     wa: {
       en: "Book Simple Transfer via WhatsApp",
@@ -797,21 +797,21 @@ export default function AlmatyToKarakol({ initialLang }: { initialLang?: "en" | 
                 <p>Этот приватный трансфер из Алматы в Каракол — один из самых живописных и комфортных маршрутов в Центральной Азии. Вместо стандартного северного шоссе вы путешествуете через захватывающие горные пейзажи — драматические каньоны, широкие степи, альпийские долины и знаменитый перевал Кеген.</p>
                 <p>Маршрут работает с мая по октябрь и предлагает гибкие остановки для осмотра достопримечательностей. Популярные варианты: Чарынский каньон, а также озёра Каинды и Кольсай по запросу.</p>
                 <p>Для семей, небольших групп и путешественников, ценящих комфорт, — это самый быстрый и удобный способ добраться до Каракола.</p>
-                <p>Для групп от 8 человек — приватный микроавтобус (от $460). Свяжитесь с нами для индивидуального расчёта и планирования маршрута.</p>
+                <p>Для групп от 8 человек — приватный микроавтобус (от $485). Свяжитесь с нами для индивидуального расчёта и планирования маршрута.</p>
               </>
             ) : lang === "ko" ? (
               <>
                 <p>알마티에서 카라콜까지의 이 프라이빗 이동은 중앙아시아에서 가장 경치 좋고 편안한 여행 노선 중 하나입니다. 일반적인 북쪽 고속도로 대신, 극적인 협곡, 탁 트인 초원, 고산 계곡, 유명한 케겐 고개를 지나는 숨막히는 산악 경관을 즐길 수 있습니다.</p>
                 <p>이 노선은 5월부터 10월까지 운행되며 이동 중 유연한 관광 정류장을 제공합니다. 인기 있는 선택지로는 차린 협곡이 있으며, 카인디 호수와 콜사이 호수도 요청 시 방문 가능합니다.</p>
                 <p>가족, 소규모 그룹, 편안함을 원하는 여행자에게 카라콜로 가는 가장 빠르고 편리한 방법입니다.</p>
-                <p>8인 이상 그룹의 경우 프라이빗 미니버스($460부터) 옵션이 있습니다. 맞춤 그룹 가격 및 노선 계획은 문의해 주세요.</p>
+                <p>8인 이상 그룹의 경우 프라이빗 미니버스($485부터) 옵션이 있습니다. 맞춤 그룹 가격 및 노선 계획은 문의해 주세요.</p>
               </>
             ) : (
               <>
                 <p>This private transfer from Almaty to Karakol is one of the most scenic and comfortable travel routes in Central Asia. Instead of the standard northern highway, you journey through breathtaking mountain landscapes — dramatic canyons, wide-open steppe, alpine valleys, and the famous Kegen mountain pass.</p>
                 <p>The route is available from May to October and offers flexible sightseeing stops along the way. Popular optional destinations include Charyn Canyon, as well as Kaindy Lake and Kolsai Lakes upon request.</p>
                 <p>For families, small groups, and travelers seeking comfort, this is the fastest and most convenient way to reach Karakol.</p>
-                <p>For groups of 8+ passengers, private minibus available from $460. Please contact us for custom group pricing and route planning.</p>
+                <p>For groups of 8+ passengers, private minibus available from $485. Please contact us for custom group pricing and route planning.</p>
               </>
             )}
           </div>
