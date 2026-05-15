@@ -121,30 +121,12 @@ const LANGS = [
   { code: "ru" as const, label: "Russian", flag: "🇷🇺" },
 ];
 
-// ─── Notice Banner ────────────────────────────────────────────────────────────
-
-function NoticeBanner({ lang }: { lang: "en" | "ru" | "ko" }) {
-  const text = {
-    en: "Optional stops (Burana Tower, Boom Gorge, etc.) may affect travel time and total price. Year-round service — no border crossing required.",
-    ru: "Дополнительные остановки (Башня Бурана, Боомское ущелье и др.) могут повлиять на время в пути и итоговую цену. Круглогодичный сервис — пересечение границы не требуется.",
-    ko: "선택 정류장(부라나 탑, 붐 협곡 등)은 이동 시간과 최종 가격에 영향을 줄 수 있습니다. 연중 운행 — 국경 통과 불필요.",
-  };
-  return (
-    <div className="mb-10 rounded-2xl border border-amber-200 bg-amber-50 p-5">
-      <div className="flex items-start gap-3">
-        <span className="shrink-0 text-2xl">⚠️</span>
-        <p className="text-sm leading-relaxed text-amber-900">{text[lang]}</p>
-      </div>
-    </div>
-  );
-}
-
 // ─── Simple Transfer Block ────────────────────────────────────────────────────
 
 function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
   const T = {
     title:   { en: "Bishkek to Karakol — Private Transfer", ru: "Бишкек — Каракол: Приватный трансфер", ko: "비슈케크 → 카라콜 프라이빗 이동" },
-    desc:    { en: "Need to get from Bishkek to Karakol quickly and comfortably? We pick you up from your hotel in Bishkek and drop you off at your hotel in Karakol. Professional driver, comfortable car, no hidden fees.", ru: "Нужно быстро добраться из Бишкека в Каракол? Забираем из отеля в Бишкеке, довезём до отеля в Каракол. Профессиональный водитель, комфортный автомобиль, никаких скрытых платежей.", ko: "비슈케크에서 카라콜까지 빠르고 편안하게 이동하고 싶으신가요? 비슈케크 호텔에서 픽업하여 카라콜 호텔까지 모셔드립니다." },
+    desc:    { en: "Need to get from Bishkek to Karakol quickly and comfortably? We pick you up from your hotel in Bishkek and drop you off at your hotel in Karakol. Along the way you can stop 2–3 times for 10–15 min to take photos.", ru: "Нужно быстро добраться из Бишкека в Каракол? Забираем из отеля в Бишкеке, довезём до отеля в Каракол. По дороге можно остановиться 2–3 раза на 10–15 мин для фотографий.", ko: "비슈케크에서 카라콜까지 빠르고 편안하게 이동하고 싶으신가요? 비슈케크 호텔에서 픽업하여 카라콜 호텔까지 모셔드립니다. 도중에 2~3번 10~15분 포토 정차 가능합니다." },
     sedan:   { en: "SEDAN",   ru: "СЕДАН",   ko: "세단" },
     minivan: { en: "MINIVAN", ru: "МИНИВЭН", ko: "미니밴" },
     per4:    { en: "up to 4 passengers", ru: "до 4 пассажиров", ko: "최대 4명" },
@@ -308,14 +290,13 @@ function ItineraryCard({ stop, idx, lang }: { stop: Stop; idx: number; lang: "en
 
 const ADDON_DEFS = [
   { key: "burana" as const,  price: { sedan: 15, minivan: 20 }, label: { en: "Burana Tower stop", ru: "Остановка у Башни Бурана", ko: "부라나 탑 정류장" }, sub: { en: "11th-century minaret · ~40 min visit", ru: "Минарет XI века · ~40 мин", ko: "11세기 미나렛 · 약 40분" } },
-  { key: "boom" as const,    price: { sedan: 10, minivan: 15 }, label: { en: "Boom Gorge photo stop", ru: "Фотостоп в Боомском ущелье", ko: "붐 협곡 포토 스톱" }, sub: { en: "Scenic canyon · 15–20 min stop", ru: "Живописное ущелье · 15–20 мин", ko: "경치 협곡 · 15~20분 정차" } },
   { key: "cholpon" as const, price: { sedan: 20, minivan: 25 }, label: { en: "Cholpon-Ata sightseeing", ru: "Осмотр Чолпон-Аты", ko: "촐폰-아타 관광" }, sub: { en: "Petroglyphs or Rukh Ordo Cultural Center", ru: "Петроглифы или «Рух Ордо»", ko: "암각화 또는 루흐 오르도 문화센터" } },
 ];
 type AddonKey = typeof ADDON_DEFS[number]["key"];
 
 function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
   const [vehicle, setVehicle] = useState<"sedan" | "minivan">("sedan");
-  const [addons, setAddons] = useState<Record<AddonKey, boolean>>({ burana: false, boom: false, cholpon: false });
+  const [addons, setAddons] = useState<Record<AddonKey, boolean>>({ burana: false, cholpon: false });
 
   const BASE = { sedan: 125, minivan: 145 };
 
@@ -588,7 +569,6 @@ export default function BishkekToKarakol({ initialLang }: { initialLang?: "en" |
 
       <main className="mx-auto max-w-6xl px-4 py-12">
         <div id="tour-section" />
-        <NoticeBanner lang={lang} />
         <SimpleTransferBlock lang={lang} />
         <UpsellDivider lang={lang} />
 
