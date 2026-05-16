@@ -9,6 +9,36 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/en/bishkek-karakol",
+        destination: "/transfers/bishkek-to-karakol",
+        permanent: true,
+      },
+      {
+        source: "/en/bishkek-karakol.html",
+        destination: "/transfers/bishkek-to-karakol",
+        permanent: true,
+      },
+      {
+        source: "/ru/bishkek-karakol",
+        destination: "/ru/transfers/bishkek-to-karakol",
+        permanent: true,
+      },
+      {
+        source: "/ru/bishkek-karakol.html",
+        destination: "/ru/transfers/bishkek-to-karakol",
+        permanent: true,
+      },
+      {
+        source: "/ko/bishkek-karakol",
+        destination: "/ko/transfers/bishkek-to-karakol",
+        permanent: true,
+      },
+      {
+        source: "/ko/bishkek-karakol.html",
+        destination: "/ko/transfers/bishkek-to-karakol",
+        permanent: true,
+      },
+      {
         source: "/en/karakol-ski-resort-guide",
         destination: "/guides/karakol-ski-resort",
         permanent: true,
