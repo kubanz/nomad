@@ -9,6 +9,46 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/ko/almaty-karakol",
+        destination: "/ko/transfers/almaty-to-karakol",
+        permanent: true,
+      },
+      {
+        source: "/ko/almaty-karakol.html",
+        destination: "/ko/transfers/almaty-to-karakol",
+        permanent: true,
+      },
+      {
+        source: "/ru/almaty-karakol",
+        destination: "/ru/transfers/almaty-to-karakol",
+        permanent: true,
+      },
+      {
+        source: "/ru/almaty-karakol.html",
+        destination: "/ru/transfers/almaty-to-karakol",
+        permanent: true,
+      },
+      {
+        source: "/ko/manas-karakol",
+        destination: "/ko/transfers/manas-airport-to-karakol",
+        permanent: true,
+      },
+      {
+        source: "/ko/manas-karakol.html",
+        destination: "/ko/transfers/manas-airport-to-karakol",
+        permanent: true,
+      },
+      {
+        source: "/ru/manas-karakol",
+        destination: "/ru/transfers/manas-airport-to-karakol",
+        permanent: true,
+      },
+      {
+        source: "/ru/manas-karakol.html",
+        destination: "/ru/transfers/manas-airport-to-karakol",
+        permanent: true,
+      },
+      {
         source: "/en/bishkek-karakol",
         destination: "/transfers/bishkek-to-karakol",
         permanent: true,
