@@ -4,7 +4,7 @@ import BishkekToOsh from "../../../src/views/BishkekToOsh";
 export const metadata: Metadata = {
   title: "Bishkek to Osh Private Transfer | Too-Ashuu Pass | From $290",
   description:
-    "Private transfer Bishkek → Osh via Too-Ashuu Pass (3,200 m), Suusamyr Valley, and Toktogul Reservoir. Sedan $290, Van $340, Bus $590. ~10–12 hours, ~620 km. Scenic alternative to domestic flight.",
+    "Private transfer Bishkek  to  Osh via Too-Ashuu Pass (3,200 m), Suusamyr Valley, and Toktogul Reservoir. Sedan $290, Van $340, Bus $590. ~10–12 hours, ~620 km. Scenic alternative to domestic flight.",
   keywords: ["Bishkek to Osh transfer", "Bishkek Osh taxi", "Too-Ashuu Pass", "Toktogul Reservoir transfer", "south Kyrgyzstan transfer", "Osh private car", "nomad transfer"],
   alternates: {
     canonical: "https://nomad-transfer.com/transfers/bishkek-to-osh",
@@ -16,13 +16,13 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Bishkek → Osh Private Transfer | Mountain Route",
+    title: "Bishkek  to  Osh Private Transfer | Mountain Route",
     description: "Bishkek to Osh via Too-Ashuu Pass, Suusamyr Valley, Toktogul Reservoir. Sedan $290, Van $340.",
     images: [{ url: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg", width: 1200, height: 630, alt: "Bishkek to Osh private transfer" }],
     type: "website",
     url: "https://nomad-transfer.com/transfers/bishkek-to-osh",
   },
-  twitter: { card: "summary_large_image", title: "Bishkek → Osh Transfer", description: "Sedan $290, Van $340. ~10–12 hours via Too-Ashuu Pass.", images: ["https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg"] },
+  twitter: { card: "summary_large_image", title: "Bishkek  to  Osh Transfer", description: "Sedan $290, Van $340. ~10–12 hours via Too-Ashuu Pass.", images: ["https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg"] },
 };
 
 const jsonLd = {

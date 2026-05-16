@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     "nomad transfer kyrgyzstan",
   ],
   openGraph: {
-    title: "Bishkek → Karakol Private Transfer | Issyk-Kul North Shore",
+    title: "Bishkek to Karakol Private Transfer | Issyk-Kul North Shore",
     description:
       "Scenic north shore route via Burana Tower, Boom Gorge, and Issyk-Kul. Sedan $136, Minivan $167. Private transfer, not a group tour.",
     images: [
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bishkek → Karakol Private Transfer",
+    title: "Bishkek to Karakol Private Transfer",
     description: "Private transfer via Issyk-Kul north shore. Sedan $136, Minivan $167.",
     images: [
       "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",

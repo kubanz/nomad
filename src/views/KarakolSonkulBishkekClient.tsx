@@ -184,7 +184,7 @@ const STOPS: Stop[] = [
 
 const WHATSAPP_PHONE = "+996552291808";
 const WA_LINK = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(
-  "Hi! I'm interested in the Karakol → Son-Kul → Bishkek 2-day tour. Please share availability and price."
+  "Hi! I'm interested in the Karakol  to  Son-Kul  to  Bishkek 2-day tour. Please share availability and price."
 )}`;
 const BRAND = "Nomad Transfers KG";
 
@@ -596,7 +596,7 @@ export default function KarakolSonkulBishkek() {
             {lang === "ru"
               ? "Каракол — Бишкек: тур через Сон-Кёль и башню Бурана"
               : lang === "ko"
-              ? "카라콜 → 비슈케크: 손쿨 호수 & 부라나 타워 경유"
+              ? "카라콜  to  비슈케크: 손쿨 호수 & 부라나 타워 경유"
               : "Karakol to Bishkek Private Tour via Son-Kul Lake & Burana Tower"}
           </h1>
           <p className="mt-2 text-sm text-white/80">
@@ -686,19 +686,19 @@ export default function KarakolSonkulBishkek() {
           <p className="text-xs opacity-80">© {new Date().getFullYear()} {BRAND}</p>
           <nav className="flex flex-col gap-2 text-center text-xs opacity-80 md:text-left">
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
-              <a href="/transfers/bishkek-to-karakol" className="hover:text-emerald-600">EN: Bishkek → Karakol</a>
-              <a href="/transfers/almaty-to-karakol" className="hover:text-emerald-600">EN: Almaty → Karakol</a>
-              <a href="/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">EN: Manas Airport → Karakol</a>
+              <a href="/transfers/bishkek-to-karakol" className="hover:text-emerald-600">EN: Bishkek  to  Karakol</a>
+              <a href="/transfers/almaty-to-karakol" className="hover:text-emerald-600">EN: Almaty  to  Karakol</a>
+              <a href="/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">EN: Manas Airport  to  Karakol</a>
             </div>
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
-              <a href="/ru/transfers/bishkek-to-karakol" className="hover:text-emerald-600">RU: Бишкек → Каракол</a>
-              <a href="/ru/transfers/almaty-to-karakol" className="hover:text-emerald-600">RU: Алматы → Каракол</a>
-              <a href="/ru/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">RU: Манас → Каракол</a>
+              <a href="/ru/transfers/bishkek-to-karakol" className="hover:text-emerald-600">RU: Бишкек  to  Каракол</a>
+              <a href="/ru/transfers/almaty-to-karakol" className="hover:text-emerald-600">RU: Алматы  to  Каракол</a>
+              <a href="/ru/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">RU: Манас  to  Каракол</a>
             </div>
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
-              <a href="/ko/transfers/bishkek-to-karakol" className="hover:text-emerald-600">KO: 비슈케크 → 카라콜</a>
-              <a href="/ko/transfers/almaty-to-karakol" className="hover:text-emerald-600">KO: 알마티 → 카라콜</a>
-              <a href="/ko/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">KO: 마나스 → 카라콜</a>
+              <a href="/ko/transfers/bishkek-to-karakol" className="hover:text-emerald-600">KO: 비슈케크  to  카라콜</a>
+              <a href="/ko/transfers/almaty-to-karakol" className="hover:text-emerald-600">KO: 알마티  to  카라콜</a>
+              <a href="/ko/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">KO: 마나스  to  카라콜</a>
             </div>
           </nav>
           <div className="flex gap-2">

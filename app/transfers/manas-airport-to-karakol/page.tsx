@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Manas Airport (FRU) → Karakol Private Transfer | 24/7 Meet & Greet",
+    title: "Manas Airport (FRU)  to  Karakol Private Transfer | 24/7 Meet & Greet",
     description:
       "Meet & Greet with name board at Manas arrivals, 60-min free waiting, flight tracking. Sedan $135, Van $155. Door-to-door to your hotel in Karakol.",
     images: [
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Manas Airport (FRU) → Karakol Transfer",
+    title: "Manas Airport (FRU)  to  Karakol Transfer",
     description: "Meet & Greet at arrivals. Sedan $135, Van $155. 24/7 airport pickups.",
     images: [
       "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
