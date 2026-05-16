@@ -671,6 +671,15 @@ export default function Landing({
             <Link href="/#route-prices" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
               {lang === "ru" ? "Трансферы" : lang === "ko" ? "이동" : "Transfers"}
             </Link>
+            <Link href="/pricing" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
+              {lang === "ru" ? "Цены" : lang === "ko" ? "가격" : "Pricing"}
+            </Link>
+            <Link href="/#travel-guides" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
+              {lang === "ru" ? "Гиды" : lang === "ko" ? "가이드" : "Guides"}
+            </Link>
+            <Link href="/about" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
+              {lang === "ru" ? "О нас" : lang === "ko" ? "회사 소개" : "About"}
+            </Link>
           </nav>
 
           {/* Right: lang + buttons */}
@@ -924,6 +933,44 @@ export default function Landing({
         </div>
       </section>
 
+      {/* Travel Guides */}
+      <section id="travel-guides" className="mx-auto max-w-6xl px-4 py-20 bg-gradient-to-br from-slate-50 to-white">
+        <div className="mb-8">
+          <h2 className="text-3xl font-bold text-slate-900 md:text-4xl mb-3">Travel Guides & Tips</h2>
+          <p className="text-slate-600">Expert guides to help you plan your Kyrgyzstan journey</p>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <a href="/guides/bishkek-to-karakol-winter" className="group rounded-xl border bg-white p-5 hover:shadow-lg transition-all hover:-translate-y-1">
+            <h3 className="font-bold text-slate-900 mb-2 group-hover:text-emerald-600">Bishkek to Karakol in Winter</h3>
+            <p className="text-sm text-slate-600">Complete guide for winter transfers, road conditions, and tips</p>
+          </a>
+          <a href="/guides/best-time-visit-karakol" className="group rounded-xl border bg-white p-5 hover:shadow-lg transition-all hover:-translate-y-1">
+            <h3 className="font-bold text-slate-900 mb-2 group-hover:text-emerald-600">Best Time to Visit Karakol</h3>
+            <p className="text-sm text-slate-600">Seasonal guide: weather, events, and what to expect</p>
+          </a>
+          <a href="/guides/almaty-to-bishkek-travel-guide" className="group rounded-xl border bg-white p-5 hover:shadow-lg transition-all hover:-translate-y-1">
+            <h3 className="font-bold text-slate-900 mb-2 group-hover:text-emerald-600">Almaty to Bishkek Travel Guide</h3>
+            <p className="text-sm text-slate-600">Border crossing tips, route options, and travel advice</p>
+          </a>
+          <a href="/guides/transfer-prices-kyrgyzstan" className="group rounded-xl border bg-white p-5 hover:shadow-lg transition-all hover:-translate-y-1">
+            <h3 className="font-bold text-slate-900 mb-2 group-hover:text-emerald-600">Transfer Prices in Kyrgyzstan</h3>
+            <p className="text-sm text-slate-600">Compare prices, understand costs, and get the best value</p>
+          </a>
+          <a href="/guides/kyrgyzstan-kazakhstan-border-crossing" className="group rounded-xl border bg-white p-5 hover:shadow-lg transition-all hover:-translate-y-1">
+            <h3 className="font-bold text-slate-900 mb-2 group-hover:text-emerald-600">Border Crossing Guide</h3>
+            <p className="text-sm text-slate-600">Korday & Karkara border crossing procedures and tips</p>
+          </a>
+          <a href="/guides/issyk-kul-travel-guide" className="group rounded-xl border bg-white p-5 hover:shadow-lg transition-all hover:-translate-y-1">
+            <h3 className="font-bold text-slate-900 mb-2 group-hover:text-emerald-600">Issyk-Kul Travel Guide</h3>
+            <p className="text-sm text-slate-600">Explore the world's second-largest alpine lake</p>
+          </a>
+          <a href="/guides/manas-airport-to-bishkek-city" className="group rounded-xl border bg-white p-5 hover:shadow-lg transition-all hover:-translate-y-1">
+            <h3 className="font-bold text-slate-900 mb-2 group-hover:text-emerald-600">Manas Airport to Bishkek City</h3>
+            <p className="text-sm text-slate-600">Transfer options, costs, and what to expect</p>
+          </a>
+        </div>
+      </section>
+
       {/* How it works */}
       <section id="how" className="mx-auto max-w-6xl space-y-3 px-4 py-10">
         <SectionTitle>{t.howTitle}</SectionTitle>
@@ -985,37 +1032,69 @@ export default function Landing({
 
       {/* Footer */}
       <footer className="border-t bg-white/80">
-	  <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-6 md:flex-row">
-		<p className="text-xs opacity-80">© {new Date().getFullYear()} {brand}</p>
-		<nav className="text-xs opacity-80 flex flex-col gap-2 text-center md:text-left">
-		  <div className="flex gap-3">
-		    <a href="/transfers/bishkek-to-karakol" className="hover:text-emerald-600">EN: Bishkek → Karakol</a>
-		    <a href="/transfers/almaty-to-karakol" className="hover:text-emerald-600">EN: Almaty → Karakol</a>
-		    <a href="/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">EN: Manas Airport → Karakol</a>
-		  </div>
-		  <div className="flex gap-3">
-		    <a href="/ru/transfers/bishkek-to-karakol" className="hover:text-emerald-600">RU: Бишкек → Каракол</a>
-		    <a href="/ru/transfers/almaty-to-karakol" className="hover:text-emerald-600">RU: Алматы → Каракол</a>
-		    <a href="/ru/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">RU: Манас → Каракол</a>
-		  </div>
-		  <div className="flex gap-3">
-		    <a href="/ko/transfers/bishkek-to-karakol" className="hover:text-emerald-600">KO: 비슈케크 → 카라콜</a>
-		    <a href="/ko/transfers/almaty-to-karakol" className="hover:text-emerald-600">KO: 알마티 → 카라콜</a>
-		    <a href="/ko/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">KO: 마나스 → 카라콜</a>
-		  </div>
-		</nav>
-		<div className="flex gap-2">
-		  {/* KakaoTalk hidden per user request */}
-		  {/* <a href={`https://open.kakao.com/me/nomadtransfers`} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border border-yellow-400 px-4 py-2 text-sm text-yellow-600 hover:bg-yellow-50" title={`KakaoTalk: ${KAKAO_PHONE}`}>
-			<MessageCircle className="h-4 w-4" /> KakaoTalk
-		  </a> */}
-		  <a href="https://t.me/nomadtransfer" target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border border-sky-500 px-4 py-2 text-sm text-sky-600 hover:bg-sky-50">
-			<Send className="h-4 w-4" /> Telegram
-		  </a>
-		  <a href={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=Hi!%20Karakol%20transfer`} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border border-emerald-500 px-4 py-2 text-sm text-emerald-600 hover:bg-emerald-50">
-			<MessageCircle className="h-4 w-4" /> WhatsApp
-		  </a>
-		</div>
+	  <div className="mx-auto max-w-6xl px-4 py-8">
+	    {/* Company Info */}
+	    <div className="grid gap-8 md:grid-cols-4 mb-6">
+	      <div>
+	        <h3 className="font-bold text-slate-900 mb-3">Company</h3>
+	        <div className="flex flex-col gap-2 text-sm text-slate-600">
+	          <a href="/about" className="hover:text-emerald-600">About Us</a>
+	          <a href="/drivers" className="hover:text-emerald-600">Our Drivers</a>
+	          <a href="/fleet" className="hover:text-emerald-600">Our Fleet</a>
+	          <a href="/why-choose-us" className="hover:text-emerald-600">Why Choose Us</a>
+	          <a href="/pricing" className="hover:text-emerald-600">Pricing</a>
+	        </div>
+	      </div>
+
+	      <div>
+	        <h3 className="font-bold text-slate-900 mb-3">Popular Routes</h3>
+	        <div className="flex flex-col gap-2 text-sm text-slate-600">
+	          <a href="/transfers/bishkek-to-karakol" className="hover:text-emerald-600">Bishkek → Karakol</a>
+	          <a href="/transfers/almaty-to-karakol" className="hover:text-emerald-600">Almaty → Karakol</a>
+	          <a href="/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">Airport → Karakol</a>
+	          <a href="/transfers/bishkek-to-cholpon-ata" className="hover:text-emerald-600">Bishkek → Cholpon-Ata</a>
+	          <a href="/transfers/bishkek-to-osh" className="hover:text-emerald-600">Bishkek → Osh</a>
+	          <a href="/transfers/almaty-to-bishkek" className="hover:text-emerald-600">Almaty → Bishkek</a>
+	        </div>
+	      </div>
+
+	      <div>
+	        <h3 className="font-bold text-slate-900 mb-3">Return Routes</h3>
+	        <div className="flex flex-col gap-2 text-sm text-slate-600">
+	          <a href="/transfers/karakol-to-bishkek" className="hover:text-emerald-600">Karakol → Bishkek</a>
+	          <a href="/transfers/karakol-to-almaty" className="hover:text-emerald-600">Karakol → Almaty</a>
+	          <a href="/transfers/karakol-to-manas-airport" className="hover:text-emerald-600">Karakol → Airport</a>
+	          <a href="/transfers/cholpon-ata-to-bishkek" className="hover:text-emerald-600">Cholpon-Ata → Bishkek</a>
+	          <a href="/transfers/osh-to-bishkek" className="hover:text-emerald-600">Osh → Bishkek</a>
+	          <a href="/transfers/bishkek-to-almaty" className="hover:text-emerald-600">Bishkek → Almaty</a>
+	        </div>
+	      </div>
+
+	      <div>
+	        <h3 className="font-bold text-slate-900 mb-3">Travel Guides</h3>
+	        <div className="flex flex-col gap-2 text-sm text-slate-600">
+	          <a href="/guides/bishkek-to-karakol-winter" className="hover:text-emerald-600">Winter Travel Guide</a>
+	          <a href="/guides/best-time-visit-karakol" className="hover:text-emerald-600">Best Time to Visit</a>
+	          <a href="/guides/almaty-to-bishkek-travel-guide" className="hover:text-emerald-600">Almaty-Bishkek Guide</a>
+	          <a href="/guides/transfer-prices-kyrgyzstan" className="hover:text-emerald-600">Transfer Prices</a>
+	          <a href="/guides/kyrgyzstan-kazakhstan-border-crossing" className="hover:text-emerald-600">Border Crossing</a>
+	          <a href="/guides/issyk-kul-travel-guide" className="hover:text-emerald-600">Issyk-Kul Guide</a>
+	        </div>
+	      </div>
+	    </div>
+
+	    {/* Bottom bar */}
+	    <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-6 border-t">
+	      <p className="text-xs text-slate-600">© {new Date().getFullYear()} {brand}</p>
+	      <div className="flex gap-2">
+	        <a href="https://t.me/nomadtransfer" target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border border-sky-500 px-4 py-2 text-sm text-sky-600 hover:bg-sky-50">
+	          <Send className="h-4 w-4" /> Telegram
+	        </a>
+	        <a href={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=Hi!%20Karakol%20transfer`} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border border-emerald-500 px-4 py-2 text-sm text-emerald-600 hover:bg-emerald-50">
+	          <MessageCircle className="h-4 w-4" /> WhatsApp
+	        </a>
+	      </div>
+	    </div>
 	  </div>
 	</footer>
 
