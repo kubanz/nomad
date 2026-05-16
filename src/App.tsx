@@ -754,31 +754,43 @@ export default function Landing({
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 via-teal-500 to-sky-500" />
-        <div className="relative mx-auto grid max-w-6xl gap-6 px-4 py-6 md:grid-cols-[1fr,340px] md:py-8 md:items-center">
-          {/* Left: CTA */}
+        <div className="relative mx-auto grid max-w-6xl gap-6 px-4 py-12 md:grid-cols-2 md:py-20">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="text-white">
             <div className="flex flex-wrap gap-2">
               <Badge>{t.badge1}</Badge>
               <Badge>{t.badge2}</Badge>
               <Badge>{t.badge3}</Badge>
             </div>
-            <h1 className="mt-3 text-3xl font-bold leading-tight md:text-4xl">{t.heroTitle}</h1>
-            <p className="mt-2 text-sm text-white/90 md:max-w-lg">{t.heroSubtitle}</p>
+            <h1 className="mt-4 text-3xl font-bold leading-tight md:text-5xl">{t.heroTitle}</h1>
+            <p className="mt-2 text-white/90 md:max-w-xl">{t.heroSubtitle}</p>
             <div className="mt-4 flex flex-wrap items-center gap-3">
               <a
                 href={`https://wa.me/` + WHATSAPP_PHONE.replace(/[^0-9+]/g, "") + `?text=${encodeURIComponent(WA_TEXT)}`}
                 target="_blank"
-                className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-medium text-slate-900 hover:bg-white/90"
+                className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-3 text-sm font-medium text-slate-900 hover:bg-white/90"
               >
                 <MessageCircle className="h-4 w-4" /> WhatsApp
               </a>
               <a
                 href="https://t.me/nomadtransfer"
                 target="_blank"
-                className="inline-flex items-center gap-2 rounded-xl bg-sky-500 px-4 py-2.5 text-sm font-medium text-white hover:bg-sky-600"
+                className="inline-flex items-center gap-2 rounded-xl bg-sky-500 px-4 py-3 text-sm font-medium text-white hover:bg-sky-600"
                 aria-label="Contact via Telegram"
               >
                 <Send className="h-4 w-4" /> Telegram
+              </a>
+              {/* KakaoTalk hidden per user request */}
+              {/* <a
+                href={`https://open.kakao.com/me/nomadtransfers`}
+                target="_blank"
+                className="inline-flex items-center gap-2 rounded-xl bg-yellow-400 px-4 py-3 text-sm font-medium text-slate-900 hover:bg-yellow-500"
+                aria-label="Contact via KakaoTalk"
+                title={`KakaoTalk: ${KAKAO_PHONE}`}
+              >
+                <MessageCircle className="h-4 w-4" /> KakaoTalk
+              </a> */}
+              <a href="#prices" className="inline-flex items-center gap-2 rounded-xl bg-black/20 px-4 py-3 text-sm font-medium text-white hover:bg-black/30">
+                {t.heroBtnPrices}
               </a>
             </div>
             <div className="mt-3 flex flex-wrap gap-2 text-xs text-white/80">
@@ -790,60 +802,7 @@ export default function Landing({
               ))}
             </div>
           </motion.div>
-
-          {/* Right: Quick price panel */}
-          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.15 }} className="hidden md:block">
-            <div className="rounded-2xl bg-white shadow-xl overflow-hidden">
-              <div className="bg-slate-50 px-4 py-2.5 border-b">
-                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                  {lang === "ru" ? "Фикс-цена за авто" : lang === "ko" ? "차량당 고정 요금" : "Fixed price per car"}
-                </p>
-              </div>
-              <div className="divide-y divide-slate-100">
-                {[
-                  {
-                    route: lang === "ru" ? "Бишкек → Каракол" : lang === "ko" ? "비슈케크 → 카라콜" : "Bishkek → Karakol",
-                    meta: lang === "ru" ? "270 км · ~5ч" : lang === "ko" ? "270km · ~5시간" : "270 km · ~5h",
-                    sedan: 136, van: 167,
-                    link: lang === "ru" ? "/ru/transfers/bishkek-to-karakol" : lang === "ko" ? "/ko/transfers/bishkek-to-karakol" : "/transfers/bishkek-to-karakol",
-                  },
-                  {
-                    route: lang === "ru" ? "Алматы → Каракол" : lang === "ko" ? "알마티 → 카라콜" : "Almaty → Karakol",
-                    meta: lang === "ru" ? "350 км · ~6ч" : lang === "ko" ? "350km · ~6시간" : "350 km · ~6h",
-                    sedan: 235, van: 275,
-                    link: lang === "ru" ? "/ru/transfers/almaty-to-karakol" : lang === "ko" ? "/ko/transfers/almaty-to-karakol" : "/transfers/almaty-to-karakol",
-                  },
-                  {
-                    route: lang === "ru" ? "Аэропорт Манас → Каракол" : lang === "ko" ? "마나스 공항 → 카라콜" : "Manas Airport → Karakol",
-                    meta: lang === "ru" ? "400 км · ~5ч" : lang === "ko" ? "400km · ~5시간" : "400 km · ~5h",
-                    sedan: 146, van: 177,
-                    link: lang === "ru" ? "/ru/transfers/manas-airport-to-karakol" : lang === "ko" ? "/ko/transfers/manas-airport-to-karakol" : "/transfers/manas-airport-to-karakol",
-                  },
-                ].map((r) => (
-                  <Link key={r.route} href={r.link} className="flex items-center justify-between px-4 py-3 hover:bg-slate-50 transition-colors group">
-                    <div>
-                      <p className="text-sm font-semibold text-slate-900 group-hover:text-emerald-700">{r.route}</p>
-                      <p className="text-xs text-slate-400 mt-0.5">{r.meta}</p>
-                    </div>
-                    <div className="text-right ml-3 shrink-0">
-                      <p className="text-sm font-bold text-emerald-600">${r.sedan}</p>
-                      <p className="text-xs text-slate-400">{lang === "ru" ? "минивэн" : lang === "ko" ? "밴" : "van"} ${r.van}</p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-              <div className="px-4 py-3 bg-slate-50 border-t">
-                <a
-                  href={`https://wa.me/` + WHATSAPP_PHONE.replace(/[^0-9+]/g, "") + `?text=${encodeURIComponent(WA_TEXT)}`}
-                  target="_blank"
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 py-2.5 text-sm font-semibold text-white hover:bg-emerald-700"
-                >
-                  <MessageCircle className="h-4 w-4" />
-                  {lang === "ru" ? "Забронировать в WhatsApp" : lang === "ko" ? "WhatsApp으로 예약" : "Book via WhatsApp"}
-                </a>
-              </div>
-            </div>
-          </motion.div>
+          <div className="hidden md:block" />
         </div>
       </section>
 
