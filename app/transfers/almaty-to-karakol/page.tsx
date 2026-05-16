@@ -2,27 +2,31 @@ import type { Metadata } from "next";
 import AlmatyToKarakol from "../../../src/views/AlmatyToKarakol";
 
 export const metadata: Metadata = {
-  title: "Almaty to Karakol Private Transfer | Charyn Canyon Stop | From $235 | Nomad Transfer",
+  title: "Transfer from Almaty to Karakol | Private Car with Charyn Canyon Stop | From $235",
   description:
-    "Private transfer from Almaty to Karakol via scenic Kegen border route. Optional stops: Charyn Canyon (+$35), Kaindy Lake, Kolsai Lakes. Sedan $235, Van $275. WhatsApp reply in 1–2 min.",
+    "Book private transfer from Almaty to Karakol, Kazakhstan to Kyrgyzstan. Scenic route via Charyn Canyon & Kegen border. Sedan $235, Van $275. English-speaking driver. Fixed price per car. WhatsApp reply in 1-2 min. Daily departures.",
   keywords: [
-    "Almaty to Karakol transfer",
-    "Almaty Karakol private car",
-    "Charyn Canyon stop",
-    "Kegen border crossing",
-    "Kyrgyzstan transfer from Kazakhstan",
+    "from almaty to karakol",
+    "transfer from almaty to karakol",
+    "almaty to karakol private transfer",
+    "almaty to karakol car",
+    "almaty karakol taxi",
+    "charyn canyon stop",
+    "kegen border crossing",
+    "kazakhstan to kyrgyzstan transfer",
+    "almaty karakol price",
     "nomad transfer",
   ],
   openGraph: {
-    title: "Almaty to Karakol Private Transfer via Kegen",
+    title: "Private Transfer from Almaty to Karakol | Charyn Canyon Stop | $235",
     description:
-      "Scenic mountain route through Charyn Canyon, Kegen border, and Karkara Valley. Sedan $235, Minivan $275. Private transfer, not a group tour.",
+      "Daily transfers from Almaty to Karakol via scenic Kegen border. Charyn Canyon, Karkara Valley stops. Sedan $235, Van $275. English-speaking driver.",
     images: [
       {
         url: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
         width: 1200,
         height: 630,
-        alt: "Almaty to Karakol transfer via Kegen mountain route",
+        alt: "Private transfer from Almaty Kazakhstan to Karakol Kyrgyzstan via Charyn Canyon",
       },
     ],
     type: "website",
@@ -60,11 +64,11 @@ const jsonLd = {
     },
     {
       "@type": "TouristTrip",
-      "name": "Almaty to Karakol Private Transfer via Kegen",
+      "name": "Private Transfer from Almaty to Karakol via Charyn Canyon & Kegen Border",
       "description":
-        "Private 1-day transfer from Almaty to Karakol via the scenic Kegen mountain pass. Optional stops include Charyn Canyon (+$35), Kaindy Lake and Kolsai Lakes.",
+        "Private 1-day transfer from Almaty, Kazakhstan to Karakol, Kyrgyzstan via the scenic Kegen mountain pass and Charyn Canyon. English-speaking driver, daily departures. Fixed price per car: Sedan $235, Van $275. Optional stops: Charyn Canyon (+$35), Kaindy Lake, Kolsai Lakes.",
       "url": "https://nomad-transfer.com/transfers/almaty-to-karakol",
-      "touristType": "Adventure, Transfer, Scenic",
+      "touristType": "Adventure, Transfer, Scenic, Cross-Border",
       "itinerary": {
         "@type": "ItemList",
         "itemListElement": [
