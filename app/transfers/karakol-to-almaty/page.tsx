@@ -1,0 +1,157 @@
+import type { Metadata } from "next";
+import KarakolToAlmaty from "../../../src/views/KarakolToAlmaty";
+
+export const metadata: Metadata = {
+  title: "Karakol to Almaty Private Transfer | Taxi & Shuttle from $232 | Border Crossing | Nomad Transfer",
+  description:
+    "Book private transfer Karakol to Almaty with English-speaking support. Sedan $232, Minivan $277. Via Karkara border crossing. Includes border assistance. Fixed price, no hidden fees. Free cancellation 24h. WhatsApp booking in 1-2 min.",
+  keywords: [
+    "karakol to almaty transfer",
+    "karakol almaty taxi",
+    "karakol almaty private car",
+    "karakol to almaty shuttle",
+    "karakol almaty driver",
+    "karkara border crossing",
+    "kyrgyzstan to kazakhstan",
+    "issyk-kul to almaty",
+    "karakol almaty day trip",
+    "private driver kyrgyzstan",
+    "english speaking driver kyrgyzstan",
+    "nomad transfer kyrgyzstan",
+  ],
+  openGraph: {
+    title: "Karakol to Almaty Private Transfer | Karkara Border Crossing",
+    description:
+      "Border crossing transfer via Karkara. Sedan $232, Minivan $277. Private transfer with border assistance.",
+    images: [
+      {
+        url: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Karakol to Almaty transfer via Karkara border",
+      },
+    ],
+    type: "website",
+    url: "https://nomad-transfer.com/transfers/karakol-to-almaty",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Karakol to Almaty Private Transfer",
+    description: "Private transfer via Karkara border. Sedan $232, Minivan $277.",
+    images: [
+      "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
+    ],
+  },
+  alternates: {
+    canonical: "https://nomad-transfer.com/transfers/karakol-to-almaty",
+    languages: {
+      "x-default": "https://nomad-transfer.com/transfers/karakol-to-almaty",
+      en: "https://nomad-transfer.com/transfers/karakol-to-almaty",
+      ru: "https://nomad-transfer.com/ru/transfers/karakol-to-almaty",
+      ko: "https://nomad-transfer.com/ko/transfers/karakol-to-almaty",
+    },
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nomad-transfer.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Transfers", "item": "https://nomad-transfer.com/#transfers" },
+        { "@type": "ListItem", "position": 3, "name": "Karakol to Almaty", "item": "https://nomad-transfer.com/transfers/karakol-to-almaty" },
+      ],
+    },
+    {
+      "@type": "TouristTrip",
+      "name": "Karakol to Almaty Private Transfer via Karkara Border",
+      "description":
+        "Private transfer from Karakol to Almaty via Karkara border crossing. Includes border assistance and all fees. English-speaking support available.",
+      "url": "https://nomad-transfer.com/transfers/karakol-to-almaty",
+      "touristType": "Transfer, Border Crossing",
+      "duration": "P1D",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Sedan (up to 4 passengers)",
+          "price": "232",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+        },
+        {
+          "@type": "Offer",
+          "name": "Minivan (6-7 passengers)",
+          "price": "277",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+        },
+      ],
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Nomad Transfer",
+        "telephone": "+996552291808",
+        "url": "https://nomad-transfer.com",
+        "areaServed": ["Kyrgyzstan", "Kazakhstan"],
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does a private transfer from Karakol to Almaty cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sedan (up to 4 passengers) $232, Minivan (6-7 passengers) $277. Price is per vehicle, not per person. Includes fuel, hotel pickup/drop-off, and border crossing assistance.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "How long does the drive from Karakol to Almaty take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Approximately 7-8 hours including border crossing at Karkara (~430 km). Border processing usually takes 30-60 minutes depending on queue.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Which border crossing is used for Karakol to Almaty transfer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We use the Karkara border crossing, which is the closest and most direct route from Karakol to Almaty. This border operates year-round.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a visa for the Karkara border crossing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Visa requirements depend on your nationality. Citizens of most countries can enter Kazakhstan visa-free for up to 30 days. Please check Kazakhstan visa requirements for your specific country before booking.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Is English-speaking support available for the transfer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Our WhatsApp support team speaks English and can communicate in real-time during your transfer. Drivers have basic English for essential communication, and you can reach our English-speaking team anytime via WhatsApp.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+export default function Page() {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <KarakolToAlmaty initialLang="en" />
+    </>
+  );
+}

@@ -670,14 +670,620 @@ export const almatyToBishkekFAQ: Record<"en" | "ru" | "ko", FAQItem[]> = {
 export const almatyToBishkekRelatedRoutes: Record<"en" | "ru" | "ko", RelatedRoute[]> = {
   en: [
     {
-      title: "Almaty → Karakol",
+      title: "Almaty to Karakol",
       href: "/transfers/almaty-to-karakol",
       price: "From $215",
       duration: "~7-8 hours",
       distance: "~450 km",
     },
     {
-      title: "Bishkek → Karakol",
+      title: "Bishkek to Karakol",
+      href: "/transfers/bishkek-to-karakol",
+      price: "From $136",
+      duration: "~6-7 hours",
+      distance: "~360 km",
+    },
+  ],
+  ru: [],
+  ko: [],
+};
+
+// ========================================
+// KARAKOL to BISHKEK (REVERSE)
+// ========================================
+
+export const karakolToBishkekFAQ: Record<"en" | "ru" | "ko", FAQItem[]> = {
+  en: [
+    {
+      question: "How much does a private transfer from Karakol to Bishkek cost?",
+      answer: "Sedan (up to 4 passengers) $136, Minivan (6-7 passengers) $167, Bus (up to 30 passengers) $265. Price is per vehicle, not per person. Includes fuel and hotel pickup/drop-off.",
+    },
+    {
+      question: "How long does the drive from Karakol to Bishkek take?",
+      answer: "Approximately 6-7 hours without stops (~360 km). With optional stops at Cholpon-Ata and Boom Gorge, allow 7-8 hours. No border crossing required.",
+    },
+    {
+      question: "Can I stop at Cholpon-Ata on the way from Karakol to Bishkek?",
+      answer: "Yes. Cholpon-Ata is a popular resort town on the Issyk-Kul north shore. You can add this stop for +$20 (sedan/minivan). Mention it when booking via WhatsApp.",
+    },
+    {
+      question: "Is the Karakol to Bishkek transfer available year-round?",
+      answer: "Yes. The Karakol–Bishkek route runs year-round along the Issyk-Kul north shore highway. There is no border crossing, so it operates in all seasons.",
+    },
+    {
+      question: "What is Boom Gorge and can we stop there?",
+      answer: "Boom Gorge is a dramatic canyon where the Chu River cuts through rocky cliffs, located about 80 km east of Bishkek. Drivers stop 2–3 times along the way for free 10–15 minute photo breaks at scenic spots like Boom Gorge — no extra charge.",
+    },
+    {
+      question: "Is English-speaking support available for the transfer?",
+      answer: "Yes. Our WhatsApp support team speaks English and can communicate in real-time during your transfer. Drivers have basic English for essential communication, and you can reach our English-speaking team anytime via WhatsApp.",
+    },
+    {
+      question: "Can I cancel my Karakol to Bishkek transfer booking?",
+      answer: "Yes. Free cancellation is available up to 24 hours before your scheduled pickup time. For cancellations within 24 hours, a 50% fee applies. Contact us via WhatsApp to cancel or modify your booking.",
+    },
+    {
+      question: "What payment methods do you accept for the Karakol to Bishkek transfer?",
+      answer: "Cash payment (USD or KGS) is preferred and paid directly to the driver at the end of your journey. Bank transfer and card payments can be arranged in advance via WhatsApp. No upfront payment required for most bookings.",
+    },
+  ],
+  ru: [],
+  ko: [],
+};
+
+export const karakolToBishkekReviews: Record<"en" | "ru" | "ko", Review[]> = {
+  en: [
+    {
+      name: "Michael R.",
+      country: "Germany",
+      rating: 5,
+      date: "March 2026",
+      text: "Perfect transfer from Karakol back to Bishkek after skiing. Driver arrived on time, vehicle was warm and comfortable. Beautiful views along Issyk-Kul. Highly recommend!",
+      route: "Karakol to Bishkek",
+    },
+    {
+      name: "Sophie T.",
+      country: "France",
+      rating: 5,
+      date: "February 2026",
+      text: "Excellent service returning from Karakol. Stopped at Cholpon-Ata for lunch as requested. English WhatsApp support made booking very easy. Will use again!",
+      route: "Karakol to Bishkek",
+    },
+    {
+      name: "Tom W.",
+      country: "Netherlands",
+      rating: 5,
+      date: "January 2026",
+      text: "Reliable and professional. Driver was experienced with winter mountain roads. Fixed price with no surprises. Great value for a private transfer.",
+      route: "Karakol to Bishkek",
+    },
+  ],
+  ru: [],
+  ko: [],
+};
+
+export const karakolToBishkekTravelTips: Record<"en" | "ru" | "ko", TravelTip[]> = {
+  en: [
+    {
+      icon: "calendar",
+      title: "Best departure time",
+      content: "Depart Karakol between 9:00-10:00 AM to enjoy scenic daylight views along Issyk-Kul north shore and arrive in Bishkek by late afternoon. Early departures (6-7 AM) are available for flight connections.",
+    },
+    {
+      icon: "package",
+      title: "Luggage and equipment",
+      content: "If traveling with ski equipment from Karakol ski resort, inform us when booking. Minivans can accommodate 4-6 large bags plus ski gear. Sedan fits 2-3 bags plus skis/snowboards.",
+    },
+    {
+      icon: "info",
+      title: "Optional stops on the way",
+      content: "Consider adding Cholpon-Ata (+$20) for lunch stop with lake views, or Burana Tower (+$15) for historical sightseeing. Boom Gorge photo stops are included free.",
+    },
+    {
+      icon: "clock",
+      title: "Airport connections",
+      content: "Allow 7-8 hours total travel time from Karakol to Manas Airport. For international flights, book departures after 5:00 PM to have buffer time for any delays.",
+    },
+  ],
+  ru: [],
+  ko: [],
+};
+
+export const karakolToBishkekRelatedRoutes: Record<"en" | "ru" | "ko", RelatedRoute[]> = {
+  en: [
+    {
+      title: "Karakol to Almaty",
+      href: "/transfers/karakol-to-almaty",
+      price: "From $232",
+      duration: "~7-8 hours",
+      distance: "~430 km",
+    },
+    {
+      title: "Karakol to Manas Airport",
+      href: "/transfers/karakol-to-manas-airport",
+      price: "From $147",
+      duration: "~6.5-7.5 hours",
+      distance: "~390 km",
+    },
+    {
+      title: "Bishkek to Karakol",
+      href: "/transfers/bishkek-to-karakol",
+      price: "From $136",
+      duration: "~6-7 hours",
+      distance: "~360 km",
+    },
+  ],
+  ru: [],
+  ko: [],
+};
+
+// ========================================
+// KARAKOL to ALMATY (REVERSE)
+// ========================================
+
+export const karakolToAlmatyFAQ: Record<"en" | "ru" | "ko", FAQItem[]> = {
+  en: [
+    {
+      question: "How much does a private transfer from Karakol to Almaty cost?",
+      answer: "Sedan (up to 4 passengers) $232, Minivan (6-7 passengers) $277. Price is per vehicle, not per person. Includes fuel, hotel pickup/drop-off, and border crossing assistance.",
+    },
+    {
+      question: "How long does the drive from Karakol to Almaty take?",
+      answer: "Approximately 7-8 hours including border crossing at Karkara (~430 km). Border processing usually takes 30-60 minutes depending on queue.",
+    },
+    {
+      question: "Which border crossing is used for Karakol to Almaty transfer?",
+      answer: "We use the Karkara border crossing, which is the closest and most direct route from Karakol to Almaty. This border operates year-round.",
+    },
+    {
+      question: "Do I need a visa for the Karkara border crossing?",
+      answer: "Visa requirements depend on your nationality. Citizens of most countries can enter Kazakhstan visa-free for up to 30 days. Please check Kazakhstan visa requirements for your specific country before booking.",
+    },
+    {
+      question: "Is English-speaking support available for the transfer?",
+      answer: "Yes. Our WhatsApp support team speaks English and can communicate in real-time during your transfer. Drivers have basic English for essential communication, and you can reach our English-speaking team anytime via WhatsApp.",
+    },
+  ],
+  ru: [],
+  ko: [],
+};
+
+export const karakolToAlmatyReviews: Record<"en" | "ru" | "ko", Review[]> = {
+  en: [
+    {
+      name: "Anna K.",
+      country: "Kazakhstan",
+      rating: 5,
+      date: "March 2026",
+      text: "Smooth border crossing from Kyrgyzstan to Kazakhstan. Driver handled all formalities professionally. Comfortable ride all the way to Almaty. Excellent service!",
+      route: "Karakol to Almaty",
+    },
+    {
+      name: "Robert S.",
+      country: "USA",
+      rating: 5,
+      date: "February 2026",
+      text: "Great transfer service from Karakol to Almaty. Border crossing was efficient with driver's assistance. Clean vehicle, friendly driver. Highly recommended!",
+      route: "Karakol to Almaty",
+    },
+  ],
+  ru: [],
+  ko: [],
+};
+
+export const karakolToAlmatyTravelTips: Record<"en" | "ru" | "ko", TravelTip[]> = {
+  en: [
+    {
+      icon: "info",
+      title: "Border crossing requirements",
+      content: "Ensure your passport is valid for 6+ months. Most nationalities can enter Kazakhstan visa-free. Have your passport ready at Karkara border. Driver will assist with formalities.",
+    },
+    {
+      icon: "calendar",
+      title: "Best travel time",
+      content: "Depart Karakol by 9:00 AM to cross the border during daytime and arrive in Almaty by late afternoon. Avoid Friday afternoons and holidays when border queues are longer.",
+    },
+    {
+      icon: "clock",
+      title: "Travel duration",
+      content: "Total journey is 7-8 hours including 30-60 minutes at Karkara border. Plan arrival time accordingly if you have connecting flights from Almaty airport.",
+    },
+  ],
+  ru: [],
+  ko: [],
+};
+
+export const karakolToAlmatyRelatedRoutes: Record<"en" | "ru" | "ko", RelatedRoute[]> = {
+  en: [
+    {
+      title: "Karakol to Bishkek",
+      href: "/transfers/karakol-to-bishkek",
+      price: "From $136",
+      duration: "~6-7 hours",
+      distance: "~360 km",
+    },
+    {
+      title: "Almaty to Karakol",
+      href: "/transfers/almaty-to-karakol",
+      price: "From $232",
+      duration: "~7-8 hours",
+      distance: "~430 km",
+    },
+  ],
+  ru: [],
+  ko: [],
+};
+
+// ========================================
+// KARAKOL to MANAS AIRPORT (REVERSE)
+// ========================================
+
+export const karakolToManasAirportFAQ: Record<"en" | "ru" | "ko", FAQItem[]> = {
+  en: [
+    {
+      question: "How much does a private transfer from Karakol to Manas Airport cost?",
+      answer: "Sedan (up to 4 passengers) $147, Minivan (6-7 passengers) $178. Price is per vehicle, not per person. Includes fuel and hotel pickup.",
+    },
+    {
+      question: "How long does the drive from Karakol to Manas Airport take?",
+      answer: "Approximately 6.5-7.5 hours (~390 km) via Issyk-Kul north shore and Boom Gorge. We recommend booking departure flights after 2:00 PM to allow sufficient travel time.",
+    },
+    {
+      question: "Do you track flights for airport pickups?",
+      answer: "Yes. For airport pickups, we track your flight in real-time. If your flight is delayed, your driver will adjust pickup time accordingly at no extra charge.",
+    },
+    {
+      question: "Is the transfer available 24/7?",
+      answer: "Yes. We provide 24/7 airport transfer service for early morning and late night flights. Book via WhatsApp anytime.",
+    },
+    {
+      question: "Can I cancel my airport transfer booking?",
+      answer: "Yes. Free cancellation is available up to 24 hours before your scheduled pickup time. For cancellations within 24 hours, a 50% fee applies. Contact us via WhatsApp to cancel or modify your booking.",
+    },
+  ],
+  ru: [],
+  ko: [],
+};
+
+export const karakolToManasAirportReviews: Record<"en" | "ru" | "ko", Review[]> = {
+  en: [
+    {
+      name: "Lisa M.",
+      country: "UK",
+      rating: 5,
+      date: "March 2026",
+      text: "Perfect airport transfer from Karakol. Driver picked us up at 5:00 AM for our afternoon flight. Arrived at Manas with plenty of time. Reliable and professional!",
+      route: "Karakol to Manas Airport",
+    },
+    {
+      name: "Peter D.",
+      country: "Australia",
+      rating: 5,
+      date: "February 2026",
+      text: "Excellent early morning pickup from Karakol to catch our flight. Driver was punctual, vehicle was warm. Smooth ride to the airport. Highly recommend!",
+      route: "Karakol to Manas Airport",
+    },
+  ],
+  ru: [],
+  ko: [],
+};
+
+export const karakolToManasAirportTravelTips: Record<"en" | "ru" | "ko", TravelTip[]> = {
+  en: [
+    {
+      icon: "clock",
+      title: "Flight timing recommendations",
+      content: "Book departure flights after 2:00 PM from Manas Airport. This allows 7-8 hours travel time plus 2 hours airport buffer. For morning flights, depart Karakol very early (3-4 AM) or stay overnight in Bishkek.",
+    },
+    {
+      icon: "package",
+      title: "Luggage and ski equipment",
+      content: "Inform us if traveling with ski gear from Karakol. Sedans fit 2-3 bags plus skis. Minivans accommodate 4-6 bags plus ski equipment. Airport check-in time is typically 2 hours before international flights.",
+    },
+    {
+      icon: "info",
+      title: "Early morning departures",
+      content: "For early morning flights (before 12:00 PM), we recommend departing Karakol by 3-4 AM. Driver will be ready at your requested time. 24/7 service available.",
+    },
+  ],
+  ru: [],
+  ko: [],
+};
+
+export const karakolToManasAirportRelatedRoutes: Record<"en" | "ru" | "ko", RelatedRoute[]> = {
+  en: [
+    {
+      title: "Manas Airport to Karakol",
+      href: "/transfers/manas-airport-to-karakol",
+      price: "From $147",
+      duration: "~6.5-7.5 hours",
+      distance: "~390 km",
+    },
+    {
+      title: "Karakol to Bishkek",
+      href: "/transfers/karakol-to-bishkek",
+      price: "From $136",
+      duration: "~6-7 hours",
+      distance: "~360 km",
+    },
+  ],
+  ru: [],
+  ko: [],
+};
+
+// ========================================
+// CHOLPON-ATA to BISHKEK (REVERSE)
+// ========================================
+
+export const cholponAtaToBishkekFAQ: Record<"en" | "ru" | "ko", FAQItem[]> = {
+  en: [
+    {
+      question: "How much does a private transfer from Cholpon-Ata to Bishkek cost?",
+      answer: "Sedan (up to 4 passengers) $97, Minivan (6-7 passengers) $128. Price is per vehicle, not per person. Includes fuel and hotel pickup/drop-off.",
+    },
+    {
+      question: "How long does the drive from Cholpon-Ata to Bishkek take?",
+      answer: "Approximately 4-5 hours without stops (~250 km). With optional stops at Boom Gorge and Burana Tower, allow 5-6 hours. No border crossing required.",
+    },
+    {
+      question: "Can I stop at Burana Tower on the way to Bishkek?",
+      answer: "Yes. Burana Tower is a 10th-century minaret located just off the main route. You can add this stop for +$15 (sedan) or +$20 (minivan). Mention it when booking via WhatsApp.",
+    },
+    {
+      question: "Is English-speaking support available for the transfer?",
+      answer: "Yes. Our WhatsApp support team speaks English and can communicate in real-time during your transfer. Drivers have basic English for essential communication, and you can reach our English-speaking team anytime via WhatsApp.",
+    },
+  ],
+  ru: [],
+  ko: [],
+};
+
+export const cholponAtaToBishkekReviews: Record<"en" | "ru" | "ko", Review[]> = {
+  en: [
+    {
+      name: "Jennifer L.",
+      country: "Canada",
+      rating: 5,
+      date: "March 2026",
+      text: "Great transfer from Cholpon-Ata to Bishkek. Driver was friendly and professional. Beautiful drive along Issyk-Kul. Good value for money!",
+      route: "Cholpon-Ata to Bishkek",
+    },
+    {
+      name: "Mark B.",
+      country: "USA",
+      rating: 5,
+      date: "February 2026",
+      text: "Excellent service returning from beach vacation at Issyk-Kul. Clean vehicle, punctual pickup. WhatsApp booking was very easy. Recommended!",
+      route: "Cholpon-Ata to Bishkek",
+    },
+  ],
+  ru: [],
+  ko: [],
+};
+
+export const cholponAtaToBishkekTravelTips: Record<"en" | "ru" | "ko", TravelTip[]> = {
+  en: [
+    {
+      icon: "calendar",
+      title: "Best departure time",
+      content: "Depart Cholpon-Ata between 9:00-11:00 AM to enjoy scenic views along Issyk-Kul and arrive in Bishkek by early afternoon. Perfect timing for same-day flight connections from Manas Airport.",
+    },
+    {
+      icon: "info",
+      title: "Optional cultural stops",
+      content: "Add Burana Tower (+$15-20) to see 11th-century minaret and ancient stone sculptures. Boom Gorge photo stops are included free. Request stops when booking via WhatsApp.",
+    },
+    {
+      icon: "clock",
+      title: "Airport connections",
+      content: "If connecting to Manas Airport from Cholpon-Ata, allow 5-6 hours total (250 km to Bishkek + 30 km to airport). Book flights after 3:00 PM for comfortable timing.",
+    },
+  ],
+  ru: [],
+  ko: [],
+};
+
+export const cholponAtaToBishkekRelatedRoutes: Record<"en" | "ru" | "ko", RelatedRoute[]> = {
+  en: [
+    {
+      title: "Bishkek to Cholpon-Ata",
+      href: "/transfers/bishkek-to-cholpon-ata",
+      price: "From $97",
+      duration: "~4-5 hours",
+      distance: "~250 km",
+    },
+    {
+      title: "Cholpon-Ata to Karakol",
+      href: "/transfers/bishkek-to-karakol",
+      price: "From $136",
+      duration: "~2-3 hours",
+      distance: "~150 km",
+    },
+  ],
+  ru: [],
+  ko: [],
+};
+
+// ========================================
+// OSH to BISHKEK (REVERSE)
+// ========================================
+
+export const oshToBishkekFAQ: Record<"en" | "ru" | "ko", FAQItem[]> = {
+  en: [
+    {
+      question: "How much does a private transfer from Osh to Bishkek cost?",
+      answer: "Sedan (up to 4 passengers) $298, Minivan (6-7 passengers) $345. Price is per vehicle, not per person. Includes fuel and hotel pickup/drop-off.",
+    },
+    {
+      question: "How long does the drive from Osh to Bishkek take?",
+      answer: "Approximately 10-12 hours depending on road conditions and mountain passes (~650 km). This is a long-distance transfer through scenic mountain terrain. No border crossing required.",
+    },
+    {
+      question: "Is the Osh to Bishkek route available year-round?",
+      answer: "The route is available year-round, but winter conditions (November-March) may require additional travel time due to snow and mountain passes. We monitor road conditions and will inform you of any delays.",
+    },
+    {
+      question: "Is English-speaking support available for the transfer?",
+      answer: "Yes. Our WhatsApp support team speaks English and can communicate in real-time during your transfer. Drivers have basic English for essential communication, and you can reach our English-speaking team anytime via WhatsApp.",
+    },
+  ],
+  ru: [],
+  ko: [],
+};
+
+export const oshToBishkekReviews: Record<"en" | "ru" | "ko", Review[]> = {
+  en: [
+    {
+      name: "Daniel F.",
+      country: "Switzerland",
+      rating: 5,
+      date: "March 2026",
+      text: "Long but scenic journey from Osh to Bishkek. Driver was experienced with mountain roads. Stopped several times for photos and rest. Professional service!",
+      route: "Osh to Bishkek",
+    },
+    {
+      name: "Maria G.",
+      country: "Spain",
+      rating: 5,
+      date: "February 2026",
+      text: "Excellent long-distance transfer. Driver was patient and professional during the 11-hour journey. Beautiful mountain scenery throughout. Worth the price!",
+      route: "Osh to Bishkek",
+    },
+  ],
+  ru: [],
+  ko: [],
+};
+
+export const oshToBishkekTravelTips: Record<"en" | "ru" | "ko", TravelTip[]> = {
+  en: [
+    {
+      icon: "clock",
+      title: "Plan for full day travel",
+      content: "Osh to Bishkek is a 10-12 hour journey. Depart early (7-8 AM) to arrive by evening. Multiple rest stops and meal breaks are included. Not recommended if you have same-day flight connections.",
+    },
+    {
+      icon: "calendar",
+      title: "Season considerations",
+      content: "Summer (June-September) offers best road conditions. Winter (November-March) may have snow on mountain passes, adding 1-2 hours. We monitor weather and road conditions daily.",
+    },
+    {
+      icon: "info",
+      title: "Comfort and breaks",
+      content: "Driver will stop every 2-3 hours at roadside cafes and scenic viewpoints. Bring snacks and water. Vehicle has air conditioning/heating. Consider overnight stop in Suusamyr for multi-day journey.",
+    },
+  ],
+  ru: [],
+  ko: [],
+};
+
+export const oshToBishkekRelatedRoutes: Record<"en" | "ru" | "ko", RelatedRoute[]> = {
+  en: [
+    {
+      title: "Bishkek to Osh",
+      href: "/transfers/bishkek-to-osh",
+      price: "From $298",
+      duration: "~10-12 hours",
+      distance: "~650 km",
+    },
+    {
+      title: "Osh to Karakol",
+      href: "/transfers/bishkek-to-karakol",
+      price: "From $136",
+      duration: "~8-10 hours",
+      distance: "~500 km",
+    },
+  ],
+  ru: [],
+  ko: [],
+};
+
+// ========================================
+// BISHKEK to ALMATY (REVERSE)
+// ========================================
+
+export const bishkekToAlmatyFAQ: Record<"en" | "ru" | "ko", FAQItem[]> = {
+  en: [
+    {
+      question: "How much does a private transfer from Bishkek to Almaty cost?",
+      answer: "Sedan (up to 4 passengers) $127, Minivan (6-7 passengers) $158. Price is per vehicle, not per person. Includes fuel, hotel pickup/drop-off, and border crossing assistance.",
+    },
+    {
+      question: "How long does the drive from Bishkek to Almaty take?",
+      answer: "Approximately 4-5 hours including border crossing at Korday (~230 km). Border processing usually takes 30-60 minutes depending on queue.",
+    },
+    {
+      question: "Which border crossing is used for Bishkek to Almaty transfer?",
+      answer: "We use the Korday border crossing, which is the closest and most direct route from Bishkek to Almaty. This border operates year-round.",
+    },
+    {
+      question: "Do I need a visa for the Korday border crossing?",
+      answer: "Visa requirements depend on your nationality. Citizens of most countries can enter Kazakhstan visa-free for up to 30 days. Please check Kazakhstan visa requirements for your specific country before booking.",
+    },
+    {
+      question: "Is English-speaking support available for the transfer?",
+      answer: "Yes. Our WhatsApp support team speaks English and can communicate in real-time during your transfer. Drivers have basic English for essential communication, and you can reach our English-speaking team anytime via WhatsApp.",
+    },
+  ],
+  ru: [],
+  ko: [],
+};
+
+export const bishkekToAlmatyReviews: Record<"en" | "ru" | "ko", Review[]> = {
+  en: [
+    {
+      name: "Alex P.",
+      country: "Russia",
+      rating: 5,
+      date: "March 2026",
+      text: "Smooth transfer from Bishkek to Almaty. Border crossing was quick with driver's help. Clean vehicle, professional service. Highly recommended!",
+      route: "Bishkek to Almaty",
+    },
+    {
+      name: "Julia N.",
+      country: "Poland",
+      rating: 5,
+      date: "February 2026",
+      text: "Excellent cross-border transfer. Driver handled all formalities at Korday border. Comfortable ride all the way to Almaty city center. Great value!",
+      route: "Bishkek to Almaty",
+    },
+  ],
+  ru: [],
+  ko: [],
+};
+
+export const bishkekToAlmatyTravelTips: Record<"en" | "ru" | "ko", TravelTip[]> = {
+  en: [
+    {
+      icon: "info",
+      title: "Border crossing requirements",
+      content: "Ensure your passport is valid for 6+ months. Most nationalities can enter Kazakhstan visa-free. Have your passport ready at Korday border. Driver will assist with formalities.",
+    },
+    {
+      icon: "calendar",
+      title: "Best travel time",
+      content: "Depart Bishkek by 9:00-10:00 AM to cross the border during daytime and arrive in Almaty by early afternoon. Avoid Friday afternoons and holidays when border queues are longer.",
+    },
+    {
+      icon: "clock",
+      title: "Travel duration",
+      content: "Total journey is 4-5 hours including 30-60 minutes at Korday border. Plan arrival time accordingly if you have connecting flights from Almaty airport.",
+    },
+  ],
+  ru: [],
+  ko: [],
+};
+
+export const bishkekToAlmatyRelatedRoutes: Record<"en" | "ru" | "ko", RelatedRoute[]> = {
+  en: [
+    {
+      title: "Almaty to Bishkek",
+      href: "/transfers/almaty-to-bishkek",
+      price: "From $127",
+      duration: "~4-5 hours",
+      distance: "~230 km",
+    },
+    {
+      title: "Bishkek to Karakol",
       href: "/transfers/bishkek-to-karakol",
       price: "From $136",
       duration: "~6-7 hours",
