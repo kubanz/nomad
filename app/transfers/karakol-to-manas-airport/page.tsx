@@ -43,12 +43,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://nomad-transfer.com/transfers/karakol-to-manas-airport",
-    languages: {
-      "x-default": "https://nomad-transfer.com/transfers/karakol-to-manas-airport",
-      en: "https://nomad-transfer.com/transfers/karakol-to-manas-airport",
-      ru: "https://nomad-transfer.com/ru/transfers/karakol-to-manas-airport",
-      ko: "https://nomad-transfer.com/ko/transfers/karakol-to-manas-airport",
-    },
   },
 };
 

@@ -22,12 +22,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://nomad-transfer.com/pricing",
-    languages: {
-      "x-default": "https://nomad-transfer.com/pricing",
-      en: "https://nomad-transfer.com/pricing",
-      ru: "https://nomad-transfer.com/ru/pricing",
-      ko: "https://nomad-transfer.com/ko/pricing",
-    },
   },
 };
 

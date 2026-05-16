@@ -2,15 +2,18 @@ import type { MetadataRoute } from "next";
 
 const BASE = "https://nomad-transfer.com";
 
-const TRANSFERS = [
-  // Original routes
+// Original routes — have en/ru/ko versions
+const TRANSFERS_MULTILANG = [
   "bishkek-to-karakol",
   "almaty-to-karakol",
   "manas-airport-to-karakol",
   "almaty-to-bishkek",
   "bishkek-to-cholpon-ata",
   "bishkek-to-osh",
-  // Reverse routes
+];
+
+// Reverse routes — English only
+const TRANSFERS_EN = [
   "karakol-to-bishkek",
   "karakol-to-almaty",
   "karakol-to-manas-airport",
@@ -89,8 +92,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  // Transfer routes (en / ru / ko)
-  for (const slug of TRANSFERS) {
+  // Transfer routes — multilang (en / ru / ko)
+  for (const slug of TRANSFERS_MULTILANG) {
     const langs = {
       "x-default": `${BASE}/transfers/${slug}`,
       en: `${BASE}/transfers/${slug}`,
@@ -109,6 +112,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
+  // Transfer routes — reverse routes (English only)
+  for (const slug of TRANSFERS_EN) {
+    entries.push({
+      url: `${BASE}/transfers/${slug}`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    });
+  }
+
   // Guide pages (English only for now)
   for (const slug of GUIDES) {
     entries.push({
@@ -119,24 +132,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  // E-E-A-T pages (en / ru / ko)
+  // E-E-A-T pages (English only)
   for (const slug of EEAT_PAGES) {
-    const langs = {
-      "x-default": `${BASE}/${slug}`,
-      en: `${BASE}/${slug}`,
-      ru: `${BASE}/ru/${slug}`,
-      ko: `${BASE}/ko/${slug}`,
-    };
-    for (const [lang, url] of Object.entries(langs)) {
-      if (lang === "x-default") continue;
-      entries.push({
-        url,
-        lastModified: now,
-        changeFrequency: "monthly",
-        priority: lang === "en" ? 0.7 : 0.6,
-        alternates: { languages: langs },
-      });
-    }
+    entries.push({
+      url: `${BASE}/${slug}`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    });
   }
 
   return entries;

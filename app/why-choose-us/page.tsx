@@ -34,12 +34,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://nomad-transfer.com/why-choose-us",
-    languages: {
-      "x-default": "https://nomad-transfer.com/why-choose-us",
-      en: "https://nomad-transfer.com/why-choose-us",
-      ru: "https://nomad-transfer.com/ru/why-choose-us",
-      ko: "https://nomad-transfer.com/ko/why-choose-us",
-    },
   },
 };
 

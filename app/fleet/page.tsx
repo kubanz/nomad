@@ -23,12 +23,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://nomad-transfer.com/fleet",
-    languages: {
-      "x-default": "https://nomad-transfer.com/fleet",
-      en: "https://nomad-transfer.com/fleet",
-      ru: "https://nomad-transfer.com/ru/fleet",
-      ko: "https://nomad-transfer.com/ko/fleet",
-    },
   },
 };
 

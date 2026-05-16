@@ -23,12 +23,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://nomad-transfer.com/drivers",
-    languages: {
-      "x-default": "https://nomad-transfer.com/drivers",
-      en: "https://nomad-transfer.com/drivers",
-      ru: "https://nomad-transfer.com/ru/drivers",
-      ko: "https://nomad-transfer.com/ko/drivers",
-    },
   },
 };
 

@@ -44,12 +44,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://nomad-transfer.com/transfers/karakol-to-almaty",
-    languages: {
-      "x-default": "https://nomad-transfer.com/transfers/karakol-to-almaty",
-      en: "https://nomad-transfer.com/transfers/karakol-to-almaty",
-      ru: "https://nomad-transfer.com/ru/transfers/karakol-to-almaty",
-      ko: "https://nomad-transfer.com/ko/transfers/karakol-to-almaty",
-    },
   },
 };
 

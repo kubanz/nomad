@@ -43,12 +43,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://nomad-transfer.com/transfers/osh-to-bishkek",
-    languages: {
-      "x-default": "https://nomad-transfer.com/transfers/osh-to-bishkek",
-      en: "https://nomad-transfer.com/transfers/osh-to-bishkek",
-      ru: "https://nomad-transfer.com/ru/transfers/osh-to-bishkek",
-      ko: "https://nomad-transfer.com/ko/transfers/osh-to-bishkek",
-    },
   },
 };
 

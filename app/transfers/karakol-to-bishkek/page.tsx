@@ -46,12 +46,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://nomad-transfer.com/transfers/karakol-to-bishkek",
-    languages: {
-      "x-default": "https://nomad-transfer.com/transfers/karakol-to-bishkek",
-      en: "https://nomad-transfer.com/transfers/karakol-to-bishkek",
-      ru: "https://nomad-transfer.com/ru/transfers/karakol-to-bishkek",
-      ko: "https://nomad-transfer.com/ko/transfers/karakol-to-bishkek",
-    },
   },
 };
 

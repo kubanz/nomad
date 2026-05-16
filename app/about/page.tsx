@@ -24,12 +24,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://nomad-transfer.com/about",
-    languages: {
-      "x-default": "https://nomad-transfer.com/about",
-      en: "https://nomad-transfer.com/about",
-      ru: "https://nomad-transfer.com/ru/about",
-      ko: "https://nomad-transfer.com/ko/about",
-    },
   },
 };
 

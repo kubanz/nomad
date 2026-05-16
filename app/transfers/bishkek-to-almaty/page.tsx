@@ -43,12 +43,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://nomad-transfer.com/transfers/bishkek-to-almaty",
-    languages: {
-      "x-default": "https://nomad-transfer.com/transfers/bishkek-to-almaty",
-      en: "https://nomad-transfer.com/transfers/bishkek-to-almaty",
-      ru: "https://nomad-transfer.com/ru/transfers/bishkek-to-almaty",
-      ko: "https://nomad-transfer.com/ko/transfers/bishkek-to-almaty",
-    },
   },
 };
 
