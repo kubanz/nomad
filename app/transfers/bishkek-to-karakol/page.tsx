@@ -2,15 +2,23 @@ import type { Metadata } from "next";
 import BishkekToKarakol from "../../../src/views/BishkekToKarakol";
 
 export const metadata: Metadata = {
-  title: "Bishkek to Karakol Private Transfer | Burana Tower | From $136 | Nomad Transfer",
+  title: "Bishkek to Karakol Private Transfer | Taxi & Shuttle from $136 | English Driver | Nomad Transfer",
   description:
-    "Private transfer Bishkek → Karakol via Issyk-Kul north shore. Optional stops: Burana Tower (+$15), Cholpon-Ata (+$20). Free photo stops at Boom Gorge. Sedan $136, Minivan $167. WhatsApp reply in 1–2 min.",
+    "Book private transfer Bishkek to Karakol with English-speaking support. Sedan $136, Minivan $167. Scenic route via Issyk-Kul lake. Optional stops: Burana Tower, Boom Gorge. Fixed price, no hidden fees. Free cancellation 24h. WhatsApp booking in 1-2 min.",
   keywords: [
     "bishkek to karakol transfer",
+    "bishkek karakol taxi",
     "bishkek karakol private car",
+    "bishkek to karakol shuttle",
+    "bishkek karakol driver",
     "burana tower stop",
-    "boom gorge issyk-kul",
+    "boom gorge photo stop",
+    "issyk-kul north shore",
     "bishkek karakol day trip",
+    "karakol ski resort transfer",
+    "bishkek to issyk-kul transfer",
+    "private driver kyrgyzstan",
+    "english speaking driver kyrgyzstan",
     "nomad transfer kyrgyzstan",
   ],
   openGraph: {
@@ -138,6 +146,62 @@ const jsonLd = {
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Boom Gorge is a dramatic canyon where the Chu River cuts through rocky cliffs, located about 80 km east of Bishkek. Drivers stop 2–3 times along the way for free 10–15 minute photo breaks at scenic spots like Boom Gorge — no extra charge.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Do you provide child seats for the Bishkek to Karakol transfer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, child seats are available on request at no extra charge. Please mention your child's age and weight when booking via WhatsApp so we can prepare the appropriate seat.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Can I book a one-way transfer from Bishkek to Karakol?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, all our transfers are available as one-way or round-trip. The prices shown ($136 sedan, $167 minivan) are for one-way travel. For round-trip, simply double the price or ask for a custom quote.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "What is the best time of year to travel from Bishkek to Karakol?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The route is scenic year-round. Summer (June-September) offers warm weather and green landscapes. Winter (December-March) is ideal for ski resort access. Spring (April-May) features blooming flowers, and autumn (October-November) showcases golden foliage.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Is English-speaking support available for the transfer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Our WhatsApp support team speaks English and can communicate in real-time during your transfer. Drivers have basic English for essential communication, and you can reach our English-speaking team anytime via WhatsApp.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Can I cancel my Bishkek to Karakol transfer booking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Free cancellation is available up to 24 hours before your scheduled pickup time. For cancellations within 24 hours, a 50% fee applies. Contact us via WhatsApp to cancel or modify your booking.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Are there luggage restrictions for the transfer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sedan can accommodate 2-3 large suitcases plus carry-ons. Minivan can fit 4-6 large suitcases plus backpacks. If you're traveling with ski equipment or extra luggage, mention this when booking so we can arrange appropriate vehicle space.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "What payment methods do you accept for the Bishkek to Karakol transfer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cash payment (USD or KGS) is preferred and paid directly to the driver at the end of your journey. Bank transfer and card payments can be arranged in advance via WhatsApp. No upfront payment required for most bookings.",
           },
         },
       ],
