@@ -508,8 +508,8 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
-export default function KarakolSonkulBishkek() {
-  const [lang, setLang] = useState<"en" | "ru" | "ko">(pickLang());
+export default function KarakolSonkulBishkek({ initialLang }: { initialLang?: "en" | "ru" | "ko" }) {
+  const [lang, setLang] = useState<"en" | "ru" | "ko">(initialLang ?? pickLang());
   const [showLangDropdown, setShowLangDropdown] = useState(false);
 
   useEffect(() => {

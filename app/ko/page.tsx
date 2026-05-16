@@ -4,7 +4,7 @@ import App from "../../src/App";
 export const metadata: Metadata = {
   title: "키르기스스탄 전용 차량 이동 및 투어 | Nomad Transfer",
   description:
-    "마나스 공항, 비슈케크, 알마티에서 카라콜까지 프라이빗 이동. 차량당 고정 요금 — 세단 $135부터, 밴 $155부터. WhatsApp 1~2분 내 답변.",
+    "마나스 공항, 비슈케크, 알마티에서 카라콜까지 프라이빗 이동. 차량당 고정 요금 — 세단 $136부터, 밴 $167부터. WhatsApp 1~2분 내 답변.",
   keywords: [
     "키르기스스탄 전용 차량",
     "마나스 공항 이동",

@@ -224,9 +224,9 @@ export const bishkekToKarakolRelatedRoutes: Record<"en" | "ru" | "ko", RelatedRo
       distance: "~450 km",
     },
     {
-      title: "Manas Airport → Karakol",
+      title: "Manas Airport to Karakol",
       href: "/transfers/manas-airport-to-karakol",
-      price: "From $145",
+      price: "From $146",
       duration: "~6-7 hours",
       distance: "~380 km",
     },
@@ -377,9 +377,9 @@ export const almatyToKarakolRelatedRoutes: Record<"en" | "ru" | "ko", RelatedRou
       distance: "~360 km",
     },
     {
-      title: "Manas Airport → Karakol",
+      title: "Manas Airport to Karakol",
       href: "/transfers/manas-airport-to-karakol",
-      price: "From $145",
+      price: "From $146",
       duration: "~6-7 hours",
       distance: "~380 km",
     },
@@ -403,7 +403,7 @@ export const manasToKarakolFAQ: Record<"en" | "ru" | "ko", FAQItem[]> = {
   en: [
     {
       question: "How much is a transfer from Manas Airport to Karakol?",
-      answer: "Sedan $145, Minivan $155, Bus $275. Price is per vehicle, not per person. Includes 60-min free airport waiting, meet & greet with name board, fuel, and hotel drop-off in Karakol.",
+      answer: "Sedan $146, Minivan $177, Bus $275. Price is per vehicle, not per person. Includes 60-min free airport waiting, meet & greet with name board, fuel, and hotel drop-off in Karakol.",
     },
     {
       question: "Do you provide meet & greet at Manas Airport?",
@@ -629,9 +629,9 @@ export const bishkekToCholponAtaRelatedRoutes: Record<"en" | "ru" | "ko", Relate
       distance: "~360 km",
     },
     {
-      title: "Manas Airport → Karakol",
+      title: "Manas Airport to Karakol",
       href: "/transfers/manas-airport-to-karakol",
-      price: "From $145",
+      price: "From $146",
       duration: "~6-7 hours",
       distance: "~380 km",
     },
@@ -801,7 +801,7 @@ export const karakolToBishkekRelatedRoutes: Record<"en" | "ru" | "ko", RelatedRo
     {
       title: "Karakol to Manas Airport",
       href: "/transfers/karakol-to-manas-airport",
-      price: "From $147",
+      price: "From $146",
       duration: "~6.5-7.5 hours",
       distance: "~390 km",
     },
@@ -922,7 +922,7 @@ export const karakolToManasAirportFAQ: Record<"en" | "ru" | "ko", FAQItem[]> = {
   en: [
     {
       question: "How much does a private transfer from Karakol to Manas Airport cost?",
-      answer: "Sedan (up to 4 passengers) $147, Minivan (6-7 passengers) $178. Price is per vehicle, not per person. Includes fuel and hotel pickup.",
+      answer: "Sedan (up to 4 passengers) $146, Minivan (6-7 passengers) $177. Price is per vehicle, not per person. Includes fuel and hotel pickup.",
     },
     {
       question: "How long does the drive from Karakol to Manas Airport take?",
@@ -995,7 +995,7 @@ export const karakolToManasAirportRelatedRoutes: Record<"en" | "ru" | "ko", Rela
     {
       title: "Manas Airport to Karakol",
       href: "/transfers/manas-airport-to-karakol",
-      price: "From $147",
+      price: "From $146",
       duration: "~6.5-7.5 hours",
       distance: "~390 km",
     },

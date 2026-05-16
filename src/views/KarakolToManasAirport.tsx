@@ -169,14 +169,14 @@ function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
           <div className="absolute -top-3 left-1/2 -translate-x-1/2">
             <span className="rounded-full bg-teal-500 px-4 py-1 text-xs font-bold uppercase tracking-widest text-white">{T.sedan[lang]}</span>
           </div>
-          <p className="mt-3 text-3xl font-extrabold text-slate-900">$135 <span className="text-lg">USD</span></p>
+          <p className="mt-3 text-3xl font-extrabold text-slate-900">$146 <span className="text-lg">USD</span></p>
           <p className="mt-1 text-xs text-slate-500">{T.per4[lang]}</p>
         </div>
         <div className="relative rounded-2xl border-2 border-amber-400 bg-white p-5 text-center shadow-sm">
           <div className="absolute -top-3 left-1/2 -translate-x-1/2">
             <span className="rounded-full bg-amber-400 px-4 py-1 text-xs font-bold uppercase tracking-widest text-slate-900">{T.minivan[lang]}</span>
           </div>
-          <p className="mt-3 text-3xl font-extrabold text-slate-900">$155 <span className="text-lg">USD</span></p>
+          <p className="mt-3 text-3xl font-extrabold text-slate-900">$177 <span className="text-lg">USD</span></p>
           <p className="mt-1 text-xs text-slate-500">{T.per7[lang]}</p>
         </div>
       </div>

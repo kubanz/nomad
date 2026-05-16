@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import KarakolToManasAirport from "../../../src/views/KarakolToManasAirport";
 
 export const metadata: Metadata = {
-  title: "Karakol to Manas Airport Transfer | Private Taxi from $147 | 24/7 Service | Nomad Transfer",
+  title: "Karakol to Manas Airport Transfer | Private Taxi from $146 | 24/7 Service | Nomad Transfer",
   description:
-    "Book private transfer Karakol to Manas Airport with English-speaking support. Sedan $147, Minivan $178. 24/7 service, flight tracking. Via scenic Issyk-Kul. Fixed price, no hidden fees. Free cancellation 24h. WhatsApp booking in 1-2 min.",
+    "Book private transfer Karakol to Manas Airport with English-speaking support. Sedan $146, Minivan $177. 24/7 service, flight tracking. Via scenic Issyk-Kul. Fixed price, no hidden fees. Free cancellation 24h. WhatsApp booking in 1-2 min.",
   keywords: [
     "karakol to manas airport transfer",
     "karakol airport taxi",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Karakol to Manas Airport Transfer | 24/7 Service",
     description:
-      "Reliable airport transfer via Issyk-Kul. Sedan $147, Minivan $178. Flight tracking included.",
+      "Reliable airport transfer via Issyk-Kul. Sedan $146, Minivan $177. Flight tracking included.",
     images: [
       {
         url: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Karakol to Manas Airport Transfer",
-    description: "24/7 airport transfer. Sedan $147, Minivan $178.",
+    description: "24/7 airport transfer. Sedan $146, Minivan $177.",
     images: [
       "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
     ],
@@ -75,14 +75,14 @@ const jsonLd = {
         {
           "@type": "Offer",
           "name": "Sedan (up to 4 passengers)",
-          "price": "147",
+          "price": "146",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
         },
         {
           "@type": "Offer",
           "name": "Minivan (6-7 passengers)",
-          "price": "178",
+          "price": "177",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
         },
@@ -103,7 +103,7 @@ const jsonLd = {
           "name": "How much does a private transfer from Karakol to Manas Airport cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sedan (up to 4 passengers) $147, Minivan (6-7 passengers) $178. Price is per vehicle, not per person. Includes fuel and hotel pickup.",
+            "text": "Sedan (up to 4 passengers) $146, Minivan (6-7 passengers) $177. Price is per vehicle, not per person. Includes fuel and hotel pickup.",
           },
         },
         {

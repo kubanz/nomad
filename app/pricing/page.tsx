@@ -37,10 +37,10 @@ const routes = [
   { from: "Bishkek", to: "Karakol", distance: "360 km", sedan: 136, minivan: 167, bus: 265, duration: "6-7h", href: "/transfers/bishkek-to-karakol" },
   { from: "Bishkek", to: "Osh", distance: "650 km", sedan: 298, minivan: 345, bus: 485, duration: "10-12h", href: "/transfers/bishkek-to-osh" },
   { from: "Manas Airport", to: "Bishkek City", distance: "30 km", sedan: 25, minivan: 30, bus: null, duration: "30-40min", href: "/guides/manas-airport-to-bishkek-city" },
-  { from: "Manas Airport", to: "Karakol", distance: "390 km", sedan: 147, minivan: 178, bus: 285, duration: "6.5-7.5h", href: "/transfers/manas-airport-to-karakol" },
+  { from: "Manas Airport", to: "Karakol", distance: "390 km", sedan: 146, minivan: 177, bus: 275, duration: "6.5-7.5h", href: "/transfers/manas-airport-to-karakol" },
   { from: "Cholpon-Ata", to: "Bishkek", distance: "250 km", sedan: 97, minivan: 128, bus: 210, duration: "4-5h", href: "/transfers/cholpon-ata-to-bishkek" },
   { from: "Karakol", to: "Bishkek", distance: "360 km", sedan: 136, minivan: 167, bus: 265, duration: "6-7h", href: "/transfers/karakol-to-bishkek" },
-  { from: "Karakol", to: "Manas Airport", distance: "390 km", sedan: 147, minivan: 178, bus: 285, duration: "6.5-7.5h", href: "/transfers/karakol-to-manas-airport" },
+  { from: "Karakol", to: "Manas Airport", distance: "390 km", sedan: 146, minivan: 177, bus: 275, duration: "6.5-7.5h", href: "/transfers/karakol-to-manas-airport" },
   { from: "Osh", to: "Bishkek", distance: "650 km", sedan: 298, minivan: 345, bus: 485, duration: "10-12h", href: "/transfers/osh-to-bishkek" },
 
   // Cross-border (Kazakhstan)

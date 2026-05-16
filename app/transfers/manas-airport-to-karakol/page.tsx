@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import ManasToKarakol from "../../../src/views/ManasToKarakol";
 
 export const metadata: Metadata = {
-  title: "Manas Airport (FRU) to Karakol Transfer | Meet & Greet 24/7 | From $135",
+  title: "Manas Airport (FRU) to Karakol Transfer | Meet & Greet 24/7 | From $146",
   description:
-    "Private airport transfer from Manas (FRU) to Karakol. Meet & Greet with name board at arrivals, 60-min free waiting, flight tracking. Sedan $135, Van $155, Bus $275. WhatsApp 24/7.",
+    "Private airport transfer from Manas (FRU) to Karakol. Meet & Greet with name board at arrivals, 60-min free waiting, flight tracking. Sedan $146, Van $177, Bus $275. WhatsApp 24/7.",
   keywords: [
     "Manas airport transfer",
     "FRU to Karakol",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Manas Airport (FRU)  to  Karakol Private Transfer | 24/7 Meet & Greet",
     description:
-      "Meet & Greet with name board at Manas arrivals, 60-min free waiting, flight tracking. Sedan $135, Van $155. Door-to-door to your hotel in Karakol.",
+      "Meet & Greet with name board at Manas arrivals, 60-min free waiting, flight tracking. Sedan $146, Van $177. Door-to-door to your hotel in Karakol.",
     images: [
       {
         url: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
@@ -40,8 +40,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Manas Airport (FRU)  to  Karakol Transfer",
-    description: "Meet & Greet at arrivals. Sedan $135, Van $155. 24/7 airport pickups.",
+    title: "Manas Airport (FRU) to Karakol Transfer",
+    description: "Meet & Greet at arrivals. Sedan $146, Van $177. 24/7 airport pickups.",
     images: [
       "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
     ],
@@ -71,14 +71,14 @@ const jsonLd = {
         {
           "@type": "Offer",
           "name": "Sedan (up to 4 passengers)",
-          "price": "135",
+          "price": "146",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
         },
         {
           "@type": "Offer",
           "name": "Minivan (6-7 passengers)",
-          "price": "155",
+          "price": "177",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
         },
@@ -106,7 +106,7 @@ const jsonLd = {
           "name": "How much is a transfer from Manas Airport to Karakol?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sedan (up to 4 passengers) $135, Minivan (6-7 passengers) $155, Bus (up to 30 passengers) $275. Price is per vehicle, not per person. Night surcharge 22:00–06:00 is +15%. Includes fuel, Meet & Greet at arrivals, and 60 minutes free waiting.",
+            "text": "Sedan (up to 4 passengers) $146, Minivan (6-7 passengers) $177, Bus (up to 30 passengers) $275. Price is per vehicle, not per person. Night surcharge 22:00–06:00 is +15%. Includes fuel, Meet & Greet at arrivals, and 60 minutes free waiting.",
           },
         },
         {

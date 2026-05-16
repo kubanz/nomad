@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import ManasToKarakol from "../../../../src/views/ManasToKarakol";
 
 export const metadata: Metadata = {
-  title: "Трансфер Аэропорт Манас (FRU) — Каракол | Встреча 24/7 | От $135",
+  title: "Трансфер Аэропорт Манас (FRU) — Каракол | Встреча 24/7 | От $146",
   description:
-    "Приватный аэропортовый трансфер Манас (FRU) → Каракол. Встреча с табличкой в зоне прилёта, 60 мин бесплатного ожидания, отслеживание рейса. Седан $135, Минивэн $155, Автобус $275. WhatsApp 24/7.",
+    "Приватный аэропортовый трансфер Манас (FRU) → Каракол. Встреча с табличкой в зоне прилёта, 60 мин бесплатного ожидания, отслеживание рейса. Седан $146, Минивэн $177, Автобус $275. WhatsApp 24/7.",
   keywords: [
     "трансфер из аэропорта Манас",
     "Манас Каракол трансфер",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Трансфер Аэропорт Манас (FRU) → Каракол | Встреча 24/7",
     description:
-      "Встреча с табличкой в Манасе, 60 мин ожидания, отслеживание рейса. Седан $135, Минивэн $155. До отеля в Каракол.",
+      "Встреча с табличкой в Манасе, 60 мин ожидания, отслеживание рейса. Седан $146, Минивэн $177. До отеля в Каракол.",
     images: [
       {
         url: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Трансфер Аэропорт Манас → Каракол",
-    description: "Встреча с табличкой. Седан $135, Минивэн $155. 24/7.",
+    description: "Встреча с табличкой. Седан $146, Минивэн $177. 24/7.",
     images: [
       "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
     ],
@@ -68,8 +68,8 @@ const jsonLd = {
       "touristType": "Аэропортовый трансфер, Приватный",
       "duration": "PT5H",
       "offers": [
-        { "@type": "Offer", "name": "Седан (до 4 пассажиров)", "price": "135", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
-        { "@type": "Offer", "name": "Минивэн (6-7 пассажиров)", "price": "155", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+        { "@type": "Offer", "name": "Седан (до 4 пассажиров)", "price": "146", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+        { "@type": "Offer", "name": "Минивэн (6-7 пассажиров)", "price": "177", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
         { "@type": "Offer", "name": "Автобус (до 30 пассажиров)", "price": "275", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
       ],
       "provider": {
@@ -86,7 +86,7 @@ const jsonLd = {
         {
           "@type": "Question",
           "name": "Сколько стоит трансфер из аэропорта Манас в Каракол?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Седан (до 4 пассажиров) — $135, минивэн (6-7) — $155, автобус (до 30) — $275. Цена за автомобиль. Ночная доплата 22:00–06:00 +15%. Включает топливо, встречу с табличкой и 60 мин бесплатного ожидания." },
+          "acceptedAnswer": { "@type": "Answer", "text": "Седан (до 4 пассажиров) — $146, минивэн (6-7) — $177, автобус (до 30) — $275. Цена за автомобиль. Ночная доплата 22:00–06:00 +15%. Включает топливо, встречу с табличкой и 60 мин бесплатного ожидания." },
         },
         {
           "@type": "Question",
