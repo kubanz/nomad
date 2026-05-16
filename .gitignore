@@ -5,6 +5,13 @@ dist/
 .cache/
 .tmp/
 
+# Next.js
+.next/
+next-env.d.ts
+
+# Claude worktrees
+.claude/
+
 # Vite / лог файлы
 .vite/
 pnpm-debug.log*

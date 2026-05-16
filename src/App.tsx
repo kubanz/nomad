@@ -1,6 +1,9 @@
+"use client";
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { Car, Plane, Mountain, Route, MessageCircle, CheckCircle2, ChevronDown, Send, Globe } from "lucide-react";
+import { Car, Plane, Mountain, Route, MessageCircle, CheckCircle2, ChevronDown, Send, Globe, MapPin, Clock } from "lucide-react";
 
 // ===== Бренд =====
 const BRAND_NAME = "Nomad Transfers KG";
@@ -10,6 +13,10 @@ function pickBrand() {
 
 // ===== Язык =====
 function pickLang() {
+  if (typeof window !== "undefined") {
+    const saved = localStorage.getItem("lang");
+    if (saved === "en" || saved === "ru" || saved === "ko") return saved;
+  }
   if (typeof navigator !== "undefined") {
     const l = navigator.language?.toLowerCase() || "";
     if (l.startsWith("ko")) return "ko";
@@ -17,6 +24,9 @@ function pickLang() {
     if (l.startsWith("en")) return "en";
   }
   return "en";
+}
+function saveLang(code: "en" | "ru" | "ko") {
+  if (typeof window !== "undefined") localStorage.setItem("lang", code);
 }
 
 // ===== WhatsApp & Messengers =====
@@ -79,7 +89,7 @@ const TXT = {
     heroBullets: ["60 min free waiting (airport)", "Child seat on request", "Pay on the day"],
     faqTitle: "Frequently Asked Questions",
     faq1q: "How much is a transfer from Manas Airport to Karakol?",
-    faq1a: "Private transfer from Manas Airport to Karakol costs $125 for a Sedan, $145 for a Van, and $265 for a Bus (per car, not per person). The price includes 60-min free airport waiting, meet & greet with name board, and English-speaking support.",
+    faq1a: "Private transfer from Manas Airport to Karakol costs $135 for a Sedan, $155 for a Van, and $275 for a Bus (per car, not per person). The price includes 60-min free airport waiting, meet & greet with name board, and English-speaking support.",
     faq2q: "How long is the drive from Manas Airport to Karakol?",
     faq2a: "The drive from Manas Airport (FRU) to Karakol takes approximately 4-5 hours (400 km) depending on traffic and stops. We include short photo stops along the scenic route around Issyk-Kul lake.",
     faq3q: "Do you offer airport pickup with a name board?",
@@ -93,20 +103,23 @@ const TXT = {
     routePricesTitle: "Routes with Prices",
     route1Title: "Bishkek to Karakol",
     route1Distance: "Distance: 270 km | Duration: ~5h",
-    route1Price: "Sedan $125 · Van $145 · Bus $265",
+    route1Price: "Sedan $136 · Van $167 · Bus $265",
     route2Title: "Almaty to Karakol (via Kegen)",
     route2Distance: "Distance: 350 km | Duration: ~6h",
-    route2Price: "Sedan $215 · Van $265 · Bus $475",
+    route2Price: "Sedan $235 · Van $275 · Bus $485",
     route3Title: "Manas Airport to Karakol",
     route3Distance: "Distance: 270 km | Duration: ~5h",
     route3Price: "Sedan $135 · Van $155 · Bus $275",
     learnMore: "Learn More",
+    viewTransfer: "View Transfer",
+    bookNow: "Booking",
+    bestseller: "⭐ Bestseller",
     curatedToursTitle: "Curated Tours in Kyrgyzstan",
     curatedToursSubtitle: "Private journeys to mountains, lakes and Silk Road destinations with your personal driver.",
     viewTour: "View Tour",
-    tour1Title: "Son-Kul Lake Experience",
+    tour1Title: "Exclusive 2-Day Son-Kul Experience — From Karakol to Bishkek",
     tour1Desc: "Alpine lake, yurt stay, mountain drive",
-    tour1Duration: "2–3 days",
+    tour1Duration: "2 days",
     tour1Badge: "POPULAR",
     tour2Title: "Jeti-Oguz Red Rocks Tour",
     tour2Desc: "Iconic red canyon & valley views",
@@ -179,7 +192,7 @@ const TXT = {
     heroBullets: ["60 мин ожидания (аэропорт)", "Детское кресло по запросу", "Оплата в день поездки"],
     faqTitle: "Частые вопросы",
     faq1q: "Сколько стоит трансфер из аэропорта Манас в Каракол?",
-    faq1a: "Частный трансфер из аэропорта Манас в Каракол стоит $125 за Седан, $145 за Минивэн и $265 за Бусы (цена за авто, не за человека). В цену включено 60 мин бесплатного ожидания в аэропорту, встреча с табличкой и англоязычная поддержка.",
+    faq1a: "Частный трансфер из аэропорта Манас в Каракол стоит $135 за Седан, $155 за Минивэн и $275 за Бусы (цена за авто, не за человека). В цену включено 60 мин бесплатного ожидания в аэропорту, встреча с табличкой и англоязычная поддержка.",
     faq2q: "Сколько времени занимает дорога из Манаса в Каракол?",
     faq2a: "Дорога из аэропорта Манас в Каракол занимает примерно 4-5 часов (400 км) в зависимости от трафика и остановок. Мы включаем короткие фото-стопы на живописном маршруте вдоль озера Иссык-Куль.",
     faq3q: "Вы встречаете в аэропорту с табличкой?",
@@ -193,20 +206,23 @@ const TXT = {
     routePricesTitle: "Маршруты с ценами",
     route1Title: "Бишкек — Каракол",
     route1Distance: "Расстояние: 270 км | Время: ~5ч",
-    route1Price: "Седан $125 · Минивэн $145 · Бусы $265",
+    route1Price: "Седан $136 · Минивэн $167 · Бусы $265",
     route2Title: "Алматы — Каракол (через Кеген)",
     route2Distance: "Расстояние: 350 км | Время: ~6ч",
-    route2Price: "Седан $215 · Минивэн $265 · Бусы $475",
+    route2Price: "Седан $235 · Минивэн $275 · Бусы $485",
     route3Title: "Аэропорт Манас — Каракол",
     route3Distance: "Расстояние: 270 км | Время: ~5ч",
     route3Price: "Седан $135 · Минивэн $155 · Бусы $275",
     learnMore: "Подробнее",
+    viewTransfer: "Подробнее",
+    bookNow: "Забронировать",
+    bestseller: "⭐ Хит продаж",
     curatedToursTitle: "Авторские туры по Кыргызстану",
     curatedToursSubtitle: "Частные путешествия к горам, озёрам и памятникам Шёлкового пути с личным водителем.",
     viewTour: "Подробнее",
-    tour1Title: "Озеро Сон-Кёль",
+    tour1Title: "2 дня: Каракол — Сон-Кёль — Бишкек",
     tour1Desc: "Альпийское озеро, юрты, горная дорога",
-    tour1Duration: "2–3 дня",
+    tour1Duration: "2 дня",
     tour1Badge: "ПОПУЛЯРНО",
     tour2Title: "Каньон Джети-Огуз",
     tour2Desc: "Знаменитые красные скалы и долина",
@@ -279,7 +295,7 @@ const TXT = {
     heroBullets: ["공항 대기 60분 무료", "유아용 시트(요청 시)", "당일 결제"],
     faqTitle: "자주 묻는 질문",
     faq1q: "마나스 공항에서 카라콜까지 얼마인가요?",
-    faq1a: "마나스 공항에서 카라콜까지 전용 차량 요금은 세단 $125, 밴 $145, 버스 $265입니다 (차량당 가격, 인당 아님). 60분 무료 공항 대기, 네임보드 미팅, 영어 지원 포함.",
+    faq1a: "마나스 공항에서 카라콜까지 전용 차량 요금은 세단 $135, 밴 $155, 버스 $275입니다 (차량당 가격, 인당 아님). 60분 무료 공항 대기, 네임보드 미팅, 영어 지원 포함.",
     faq2q: "마나스에서 카라콜까지 얼마나 걸리나요?",
     faq2a: "마나스 공항에서 카라콜까지는 약 4-5시간(400km) 소요됩니다. 교통 상황과 휴게소에 따라 달라질 수 있습니다. 이식쿨 호수 주변의 경치 좋은 곳에서 짧은 포토 스톱을 포함합니다.",
     faq3q: "공항 픽업 시 네임보드를 들고 계시나요?",
@@ -293,20 +309,23 @@ const TXT = {
     routePricesTitle: "가격 포함 노선",
     route1Title: "비슈케크 — 카라콜",
     route1Distance: "거리: 270 km | 시간: ~5시간",
-    route1Price: "세단 $125 · 밴 $145 · 버스 $265",
+    route1Price: "세단 $136 · 밴 $167 · 버스 $265",
     route2Title: "알마티 — 카라콜(케겐 경유)",
     route2Distance: "거리: 350 km | 시간: ~6시간",
-    route2Price: "세단 $215 · 밴 $265 · 버스 $475",
+    route2Price: "세단 $235 · 밴 $275 · 버스 $485",
     route3Title: "마나스 공항 — 카라콜",
     route3Distance: "거리: 270 km | 시간: ~5시간",
     route3Price: "세단 $135 · 밴 $155 · 버스 $275",
     learnMore: "더 알아보기",
+    viewTransfer: "자세히 보기",
+    bookNow: "예약하기",
+    bestseller: "⭐ 베스트셀러",
     curatedToursTitle: "키르기스스탄 큐레이팅 투어",
     curatedToursSubtitle: "전용 드라이버와 함께하는 산, 호수, 실크로드 명소 여행.",
     viewTour: "투어 보기",
-    tour1Title: "송쿨 호수 체험",
+    tour1Title: "2일 투어: 카라콜 → 손쿨 → 비슈케크",
     tour1Desc: "알파인 호수, 유르트 숙박, 산악 드라이브",
-    tour1Duration: "2–3일",
+    tour1Duration: "2일",
     tour1Badge: "인기",
     tour2Title: "제티오구즈 붉은 바위 투어",
     tour2Desc: "상징적인 붉은 협곡과 계곡 전망",
@@ -329,18 +348,18 @@ const TXT = {
 
 const BASE_PRICES_BY_LANG: Record<"en"|"ru"|"ko", { route: string; sedan: number; suv: number; van: number }[]> = {
   en: [
-    { route: "Bishkek → Karakol", sedan: 125, suv: 145, van: 265 },
-    { route: "Almaty → Karakol (via Kegen)", sedan: 215, suv: 265, van: 475 },
+    { route: "Bishkek → Karakol", sedan: 136, suv: 167, van: 265 },
+    { route: "Almaty → Karakol (via Kegen)", sedan: 235, suv: 275, van: 485 },
     { route: "Manas Airport → Karakol", sedan: 135, suv: 155, van: 275 }
   ],
   ru: [
-    { route: "Бишкек → Каракол", sedan: 125, suv: 145, van: 265 },
-    { route: "Алматы → Каракол (через Кеген)", sedan: 215, suv: 265, van: 475 },
+    { route: "Бишкек → Каракол", sedan: 136, suv: 167, van: 265 },
+    { route: "Алматы → Каракол (через Кеген)", sedan: 235, suv: 275, van: 485 },
     { route: "Аэропорт Манас → Каракол", sedan: 135, suv: 155, van: 275 }
   ],
   ko: [
-    { route: "비슈케크 → 카라콜", sedan: 125, suv: 145, van: 265 },
-    { route: "알마티 → 카라콜(케겐 경유)", sedan: 215, suv: 265, van: 475 },
+    { route: "비슈케크 → 카라콜", sedan: 136, suv: 167, van: 265 },
+    { route: "알마티 → 카라콜(케겐 경유)", sedan: 235, suv: 275, van: 485 },
     { route: "마나스 공항 → 카라콜", sedan: 135, suv: 155, van: 275 }
   ]
 };
@@ -379,23 +398,73 @@ const Accordion = ({ title, children, defaultOpen = false }: { title: string; ch
   );
 };
 
-const RoutePriceCard = ({ title, distance, price, link }: { title: string; distance: string; price: string; link: string }) => (
-  <a
-    href={link}
-    className="block rounded-xl border bg-white/80 p-5 shadow-sm backdrop-blur-sm transition-shadow hover:shadow-lg"
-  >
-    <div className="flex items-start gap-3">
-      <div className="text-2xl">🚗</div>
-      <div className="flex-1">
-        <h3 className="text-lg font-semibold">{title}</h3>
-        <p className="mt-1 text-sm text-slate-600">{distance}</p>
-        <p className="mt-2 text-sm font-medium text-emerald-600">{price}</p>
-        <button className="mt-3 inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700">
-          Learn More →
-        </button>
+const TransferCard = ({
+  title, distanceMeta, durationMeta,
+  sedan, van, bus,
+  link, waText,
+  featured, badgeText,
+  accentClass, headerClass,
+  btnView, btnBook,
+}: {
+  title: string; distanceMeta: string; durationMeta: string;
+  sedan: number; van: number; bus: number;
+  link: string; waText: string;
+  featured?: boolean; badgeText?: string;
+  accentClass: string;
+  headerClass: string;
+  btnView: string; btnBook: string;
+}) => (
+  <div className={`relative pt-4 ${featured ? "md:scale-[1.03]" : ""}`}>
+    {featured && badgeText && (
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-amber-400 px-5 py-1.5 text-xs font-bold uppercase tracking-wide text-slate-900 shadow-md z-10">
+        {badgeText}
+      </div>
+    )}
+    <div className={`overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border-2 ${accentClass}`}>
+    <div className={`flex items-center justify-center px-6 py-5 ${headerClass}`}>
+      <h3 className="text-center text-xl font-bold leading-tight text-white drop-shadow">{title}</h3>
+    </div>
+    <div className="p-6">
+    <div className="mb-5 flex justify-center gap-6 border-b border-slate-100 pb-5">
+      <div className="flex items-center gap-1.5 text-sm text-slate-500">
+        <MapPin className="h-4 w-4 text-slate-400" />
+        <span>{distanceMeta}</span>
+      </div>
+      <div className="flex items-center gap-1.5 text-sm text-slate-500">
+        <Clock className="h-4 w-4 text-slate-400" />
+        <span>{durationMeta}</span>
       </div>
     </div>
-  </a>
+    <div className="mb-6 flex flex-wrap justify-center gap-2">
+      <div className="min-w-[68px] rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-600 px-4 py-3 text-center shadow-md shadow-emerald-100">
+        <p className="mb-1 text-xs font-medium text-white/90">Sedan</p>
+        <p className="text-lg font-bold leading-none text-white">${sedan}</p>
+      </div>
+      <div className="min-w-[68px] rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-600 px-4 py-3 text-center shadow-md shadow-emerald-100">
+        <p className="mb-1 text-xs font-medium text-white/90">Van</p>
+        <p className="text-lg font-bold leading-none text-white">${van}</p>
+      </div>
+      <div className="min-w-[68px] rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-600 px-4 py-3 text-center shadow-md shadow-emerald-100">
+        <p className="mb-1 text-xs font-medium text-white/90">Bus</p>
+        <p className="text-lg font-bold leading-none text-white">${bus}</p>
+      </div>
+    </div>
+    <div className="grid grid-cols-2 gap-3">
+      <a href={link}
+        className="flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-teal-500 to-cyan-500 px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-teal-100 transition-all hover:-translate-y-0.5 hover:shadow-lg">
+        <Route className="h-4 w-4" />
+        {btnView}
+      </a>
+      <a href={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(waText)}`}
+        target="_blank" rel="noopener"
+        className="flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-green-100 transition-all hover:-translate-y-0.5 hover:bg-[#128C7E] hover:shadow-lg">
+        <MessageCircle className="h-4 w-4" />
+        {btnBook}
+      </a>
+    </div>
+    </div>
+    </div>
+  </div>
 );
 
 const TourCard = ({
@@ -405,8 +474,9 @@ const TourCard = ({
   price,
   badge,
   image,
-  link,
-  buttonText
+  tourLink,
+  waLink,
+  buttonText,
 }: {
   title: string;
   description: string;
@@ -414,51 +484,61 @@ const TourCard = ({
   price: string;
   badge: string;
   image: string;
-  link: string;
+  tourLink: string;
+  waLink: string;
   buttonText: string;
 }) => (
-  <a
-    href={link}
-    className="group block overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:shadow-xl"
-  >
-    {/* Image Area - 60% */}
-    <div className="relative h-48 overflow-hidden bg-slate-100">
-      <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-teal-400 to-sky-400 opacity-80" />
-      <div className="absolute left-3 top-3">
-        <span className="inline-block rounded-lg bg-black/70 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white backdrop-blur">
-          {badge}
-        </span>
-      </div>
+  <div className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:shadow-xl">
+    {/* Image */}
+    <a href={tourLink} className="relative block h-48 shrink-0 overflow-hidden bg-slate-100">
+      {image ? (
+        <Image
+          src={image}
+          alt={title}
+          fill
+          sizes="(max-width: 768px) 100vw, 400px"
+          className="object-cover"
+        />
+      ) : (
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-teal-400 to-sky-400" />
+      )}
+      <span className="absolute left-3 top-3 inline-block rounded-lg bg-black/70 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white backdrop-blur">
+        {badge}
+      </span>
       <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/30 to-transparent" />
-    </div>
+    </a>
 
-    {/* Content Area - 40% */}
-    <div className="p-4">
+    {/* Content */}
+    <div className="flex flex-1 flex-col p-4">
       <h3 className="text-base font-bold text-slate-900 md:text-lg">{title}</h3>
       <p className="mt-1 text-sm text-slate-600 line-clamp-1">{description}</p>
-
-      {/* Meta Row */}
       <div className="mt-3 flex items-center gap-3 text-xs text-slate-500">
-        <span className="flex items-center gap-1">
-          ⏱ {duration}
-        </span>
-        <span className="flex items-center gap-1">
-          🚗 Private SUV
-        </span>
-        <span className="flex items-center gap-1">
-          🏔 Nature
-        </span>
+        <span>⏱ {duration}</span>
+        <span>🚗 Private SUV</span>
+        <span>🏔 Nature</span>
       </div>
-
-      {/* Price */}
       <p className="mt-3 text-base font-bold text-slate-900">{price}</p>
 
-      {/* CTA Button */}
-      <button className="mt-3 w-full rounded-xl bg-slate-900 py-2.5 text-sm font-semibold text-white transition-all hover:bg-slate-800 group-hover:bg-emerald-600">
-        {buttonText}
-      </button>
+      {/* Buttons */}
+      <div className="mt-3 flex gap-2">
+        <a
+          href={tourLink}
+          className="flex flex-1 items-center justify-center rounded-xl bg-slate-900 py-2.5 text-sm font-semibold text-white hover:bg-emerald-600"
+        >
+          {buttonText}
+        </a>
+        <a
+          href={waLink}
+          target="_blank"
+          rel="noopener"
+          className="flex items-center justify-center rounded-xl bg-emerald-600 px-3 py-2.5 text-white hover:bg-emerald-700"
+          aria-label="WhatsApp"
+        >
+          <MessageCircle className="h-4 w-4" />
+        </a>
+      </div>
     </div>
-  </a>
+  </div>
 );
 
 const RouteCard = ({ title, subtitle, icon: Icon }: { title: string; subtitle: string; icon: any }) => (
@@ -543,8 +623,12 @@ function MobileCTA({ text, reply, lang }: { text: string; reply: string; lang: "
   );
 }
 
-export default function Landing() {
-  const [lang, setLang] = useState(pickLang() as "en" | "ru" | "ko");
+export default function Landing({
+  initialLang,
+}: {
+  initialLang?: "en" | "ru" | "ko";
+}) {
+  const [lang, setLang] = useState<"en" | "ru" | "ko">(initialLang ?? "en");
   const [brand] = useState(pickBrand());
   const [showLangDropdown, setShowLangDropdown] = useState(false);
 
@@ -569,12 +653,28 @@ export default function Landing() {
 
       {/* Header */}
       <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2">
+        <div className="mx-auto grid max-w-6xl grid-cols-3 items-center px-4 py-2">
+          {/* Left: brand */}
           <div className="flex items-center gap-2">
             <Car className="h-5 w-5" />
             <span className="text-sm font-semibold md:text-base">{brand}</span>
           </div>
-          <div className="flex items-center gap-2">
+
+          {/* Center: nav */}
+          <nav className="hidden items-center justify-center gap-1 md:flex">
+            <Link href="/" className="rounded-lg px-3 py-1.5 text-sm font-medium text-emerald-600 hover:bg-slate-100">
+              {lang === "ru" ? "Главная" : lang === "ko" ? "홈" : "Home"}
+            </Link>
+            <Link href="/#curated-tours" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
+              {lang === "ru" ? "Туры" : lang === "ko" ? "투어" : "Tours"}
+            </Link>
+            <Link href="/#route-prices" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
+              {lang === "ru" ? "Трансферы" : lang === "ko" ? "이동" : "Transfers"}
+            </Link>
+          </nav>
+
+          {/* Right: lang + buttons */}
+          <div className="flex items-center justify-end gap-2">
             {/* Language Switcher */}
             <div className="relative">
               <button
@@ -592,7 +692,7 @@ export default function Landing() {
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      setLang("en");
+                      setLang("en"); saveLang("en");
                       setShowLangDropdown(false);
                     }}
                     className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-50 first:rounded-t-xl ${lang === "en" ? "font-semibold bg-slate-50" : ""}`}
@@ -602,7 +702,7 @@ export default function Landing() {
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      setLang("ko");
+                      setLang("ko"); saveLang("ko");
                       setShowLangDropdown(false);
                     }}
                     className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-50 ${lang === "ko" ? "font-semibold bg-slate-50" : ""}`}
@@ -612,7 +712,7 @@ export default function Landing() {
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      setLang("ru");
+                      setLang("ru"); saveLang("ru");
                       setShowLangDropdown(false);
                     }}
                     className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-50 last:rounded-b-xl ${lang === "ru" ? "font-semibold bg-slate-50" : ""}`}
@@ -721,27 +821,40 @@ export default function Landing() {
 
       {/* Routes with Prices */}
       <section id="route-prices" className="mx-auto max-w-6xl px-4 py-10">
-        <div className="mb-4">
+        <div className="mb-8">
           <SectionTitle>{t.routePricesTitle}</SectionTitle>
         </div>
-        <div className="grid gap-4 md:grid-cols-3">
-          <RoutePriceCard
+        <div className="grid items-start gap-6 md:grid-cols-3">
+          <TransferCard
             title={t.route1Title}
-            distance={t.route1Distance}
-            price={t.route1Price}
-            link={lang === "en" ? "/en/bishkek-to-karakol.html" : lang === "ru" ? "/ru/bishkek-karakol.html" : "/ko/bishkek-karakol.html"}
+            distanceMeta="270 km" durationMeta="~5h"
+            sedan={136} van={167} bus={265}
+            link={lang === "en" ? "/transfers/bishkek-to-karakol" : lang === "ru" ? "/ru/transfers/bishkek-to-karakol" : "/ko/transfers/bishkek-to-karakol"}
+            waText={lang === "ru" ? "Привет! Меня интересует трансфер Бишкек → Каракол." : lang === "ko" ? "안녕하세요! 비슈케크 → 카라콜 이동에 관심이 있습니다." : "Hi! I'm interested in the Bishkek → Karakol private transfer."}
+            accentClass="border-cyan-200"
+            headerClass="bg-gradient-to-br from-cyan-500 to-teal-500"
+            btnView={t.viewTransfer} btnBook={t.bookNow}
           />
-          <RoutePriceCard
+          <TransferCard
             title={t.route2Title}
-            distance={t.route2Distance}
-            price={t.route2Price}
-            link={lang === "en" ? "/en/almaty-to-karakol.html" : lang === "ru" ? "/ru/almaty-karakol.html" : "/ko/almaty-karakol.html"}
+            distanceMeta="350 km" durationMeta="~6h"
+            sedan={235} van={275} bus={485}
+            link={lang === "en" ? "/transfers/almaty-to-karakol" : lang === "ru" ? "/ru/transfers/almaty-to-karakol" : "/ko/transfers/almaty-to-karakol"}
+            waText={lang === "ru" ? "Привет! Меня интересует трансфер Алматы → Каракол через Кеген." : lang === "ko" ? "안녕하세요! 알마티 → 카라콜(케겐 경유) 이동에 관심이 있습니다." : "Hi! I'm interested in the Almaty → Karakol transfer via Kegen."}
+            featured badgeText={t.bestseller}
+            accentClass="border-amber-300"
+            headerClass="bg-gradient-to-br from-teal-500 to-cyan-500"
+            btnView={t.viewTransfer} btnBook={t.bookNow}
           />
-          <RoutePriceCard
+          <TransferCard
             title={t.route3Title}
-            distance={t.route3Distance}
-            price={t.route3Price}
-            link={lang === "en" ? "/en/manas-airport-to-karakol.html" : lang === "ru" ? "/ru/manas-karakol.html" : "/ko/manas-karakol.html"}
+            distanceMeta="270 km" durationMeta="~5h"
+            sedan={135} van={155} bus={275}
+            link={lang === "en" ? "/transfers/manas-airport-to-karakol" : lang === "ru" ? "/ru/transfers/manas-airport-to-karakol" : "/ko/transfers/manas-airport-to-karakol"}
+            waText={lang === "ru" ? "Привет! Меня интересует трансфер из аэропорта Манас в Каракол." : lang === "ko" ? "안녕하세요! 마나스 공항 → 카라콜 이동에 관심이 있습니다." : "Hi! I'm interested in the Manas Airport → Karakol private transfer."}
+            accentClass="border-teal-200"
+            headerClass="bg-gradient-to-br from-teal-400 to-cyan-600"
+            btnView={t.viewTransfer} btnBook={t.bookNow}
           />
         </div>
       </section>
@@ -757,11 +870,12 @@ export default function Landing() {
             title={t.tour1Title}
             description={t.tour1Desc}
             duration={t.tour1Duration}
-            price="From $180"
+            price="From $415"
             badge={t.tour1Badge}
-            image=""
+            image="https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg"
             buttonText={t.viewTour}
-            link={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour1Title}. Please share details.`)}`}
+            tourLink="/tours/karakol-sonkul-bishkek"
+            waLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in the Karakol → Son-Kul → Bishkek 2-day tour. Please share details.`)}`}
           />
           <TourCard
             title={t.tour2Title}
@@ -769,9 +883,10 @@ export default function Landing() {
             duration={t.tour2Duration}
             price="From $120"
             badge={t.tour2Badge}
-            image=""
+            image="https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/jeti-oguz.jpg"
             buttonText={t.viewTour}
-            link={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour2Title}. Please share details.`)}`}
+            tourLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour2Title}. Please share details.`)}`}
+            waLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour2Title}. Please share details.`)}`}
           />
           <TourCard
             title={t.tour3Title}
@@ -779,9 +894,10 @@ export default function Landing() {
             duration={t.tour3Duration}
             price="From $250"
             badge={t.tour3Badge}
-            image=""
+            image="https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/tash-rabat.jpg"
             buttonText={t.viewTour}
-            link={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour3Title}. Please share details.`)}`}
+            tourLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour3Title}. Please share details.`)}`}
+            waLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour3Title}. Please share details.`)}`}
           />
           <TourCard
             title={t.tour4Title}
@@ -789,9 +905,10 @@ export default function Landing() {
             duration={t.tour4Duration}
             price="From $80"
             badge={t.tour4Badge}
-            image=""
+            image="https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/burana.jpg"
             buttonText={t.viewTour}
-            link={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour4Title}. Please share details.`)}`}
+            tourLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour4Title}. Please share details.`)}`}
+            waLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour4Title}. Please share details.`)}`}
           />
           <TourCard
             title={t.tour5Title}
@@ -799,9 +916,10 @@ export default function Landing() {
             duration={t.tour5Duration}
             price="From $150"
             badge={t.tour5Badge}
-            image=""
+            image="https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/yurt-camp.jpg"
             buttonText={t.viewTour}
-            link={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour5Title}. Please share details.`)}`}
+            tourLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour5Title}. Please share details.`)}`}
+            waLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour5Title}. Please share details.`)}`}
           />
         </div>
       </section>
@@ -871,19 +989,19 @@ export default function Landing() {
 		<p className="text-xs opacity-80">© {new Date().getFullYear()} {brand}</p>
 		<nav className="text-xs opacity-80 flex flex-col gap-2 text-center md:text-left">
 		  <div className="flex gap-3">
-		    <a href="/en/bishkek-to-karakol.html" className="hover:text-emerald-600">EN: Bishkek → Karakol</a>
-		    <a href="/en/almaty-to-karakol.html" className="hover:text-emerald-600">EN: Almaty → Karakol</a>
-		    <a href="/en/manas-airport-to-karakol.html" className="hover:text-emerald-600">EN: Manas Airport → Karakol</a>
+		    <a href="/transfers/bishkek-to-karakol" className="hover:text-emerald-600">EN: Bishkek → Karakol</a>
+		    <a href="/transfers/almaty-to-karakol" className="hover:text-emerald-600">EN: Almaty → Karakol</a>
+		    <a href="/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">EN: Manas Airport → Karakol</a>
 		  </div>
 		  <div className="flex gap-3">
-		    <a href="/ru/bishkek-karakol.html" className="hover:text-emerald-600">RU: Бишкек → Каракол</a>
-		    <a href="/ru/almaty-karakol.html" className="hover:text-emerald-600">RU: Алматы → Каракол</a>
-		    <a href="/ru/manas-karakol.html" className="hover:text-emerald-600">RU: Манас → Каракол</a>
+		    <a href="/ru/transfers/bishkek-to-karakol" className="hover:text-emerald-600">RU: Бишкек → Каракол</a>
+		    <a href="/ru/transfers/almaty-to-karakol" className="hover:text-emerald-600">RU: Алматы → Каракол</a>
+		    <a href="/ru/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">RU: Манас → Каракол</a>
 		  </div>
 		  <div className="flex gap-3">
-		    <a href="/ko/bishkek-karakol.html" className="hover:text-emerald-600">KO: 비슈케크 → 카라콜</a>
-		    <a href="/ko/almaty-karakol.html" className="hover:text-emerald-600">KO: 알마티 → 카라콜</a>
-		    <a href="/ko/manas-karakol.html" className="hover:text-emerald-600">KO: 마나스 → 카라콜</a>
+		    <a href="/ko/transfers/bishkek-to-karakol" className="hover:text-emerald-600">KO: 비슈케크 → 카라콜</a>
+		    <a href="/ko/transfers/almaty-to-karakol" className="hover:text-emerald-600">KO: 알마티 → 카라콜</a>
+		    <a href="/ko/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">KO: 마나스 → 카라콜</a>
 		  </div>
 		</nav>
 		<div className="flex gap-2">
@@ -904,3 +1022,4 @@ export default function Landing() {
     </div>
   );
 }
+
