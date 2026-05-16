@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
 import "./globals.css";
+import Header from "../src/components/Header";
+import Footer from "../src/components/Footer";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -50,9 +52,16 @@ export default async function RootLayout({
       ? "ko"
       : "en";
 
+  // Check if this is the homepage (App.tsx already has header/footer)
+  const isHomepage = pathname === "/" || pathname === "/ru" || pathname === "/ko";
+
   return (
     <html lang={lang}>
-      <body>{children}</body>
+      <body>
+        {!isHomepage && <Header lang={lang} />}
+        {children}
+        {!isHomepage && <Footer />}
+      </body>
     </html>
   );
 }
