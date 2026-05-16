@@ -33,13 +33,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  // Tour page (English only)
-  entries.push({
-    url: `${BASE}/tours/karakol-sonkul-bishkek`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.9,
-  });
+  // Tour page (en / ru / ko)
+  const tourLangs = {
+    "x-default": `${BASE}/tours/karakol-sonkul-bishkek`,
+    en: `${BASE}/tours/karakol-sonkul-bishkek`,
+    ru: `${BASE}/ru/tours/karakol-sonkul-bishkek`,
+    ko: `${BASE}/ko/tours/karakol-sonkul-bishkek`,
+  };
+  for (const [lang, url] of Object.entries(tourLangs)) {
+    if (lang === "x-default") continue;
+    entries.push({
+      url,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: lang === "en" ? 0.9 : 0.8,
+      alternates: { languages: tourLangs },
+    });
+  }
 
   // Guide pages (en / ru / ko)
   const guideLangs = {

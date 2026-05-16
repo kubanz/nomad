@@ -43,6 +43,8 @@ export const metadata: Metadata = {
     languages: {
       "x-default": "https://nomad-transfer.com/tours/karakol-sonkul-bishkek",
       en: "https://nomad-transfer.com/tours/karakol-sonkul-bishkek",
+      ru: "https://nomad-transfer.com/ru/tours/karakol-sonkul-bishkek",
+      ko: "https://nomad-transfer.com/ko/tours/karakol-sonkul-bishkek",
     },
   },
 };
@@ -162,7 +164,7 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <KarakolSonkulBishkekClient />
+      <KarakolSonkulBishkekClient initialLang="en" />
     </>
   );
 }
