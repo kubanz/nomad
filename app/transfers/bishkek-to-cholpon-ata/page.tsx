@@ -16,13 +16,13 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Bishkek → Cholpon-Ata Private Transfer | Issyk-Kul Beach Resort",
+    title: "Bishkek  to  Cholpon-Ata Private Transfer | Issyk-Kul Beach Resort",
     description: "Bishkek to Cholpon-Ata in ~3–4 hours via the Issyk-Kul north shore. Sedan $115, Van $145.",
     images: [{ url: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg", width: 1200, height: 630, alt: "Bishkek to Cholpon-Ata transfer" }],
     type: "website",
     url: "https://nomad-transfer.com/transfers/bishkek-to-cholpon-ata",
   },
-  twitter: { card: "summary_large_image", title: "Bishkek → Cholpon-Ata Transfer", description: "Sedan $115, Van $145. ~3–4 hours.", images: ["https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg"] },
+  twitter: { card: "summary_large_image", title: "Bishkek  to  Cholpon-Ata Transfer", description: "Sedan $115, Van $145. ~3–4 hours.", images: ["https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg"] },
 };
 
 const jsonLd = {

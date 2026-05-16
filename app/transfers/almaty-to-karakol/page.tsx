@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Almaty → Karakol Transfer via Kegen",
+    title: "Almaty  to  Karakol Transfer via Kegen",
     description: "Private transfer. Sedan $235, Minivan $275. Optional Charyn Canyon stop.",
     images: [
       "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",

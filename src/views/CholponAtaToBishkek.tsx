@@ -8,8 +8,8 @@ import type { MapStop } from "../components/InteractiveRouteMap";
 import FAQSection from "../components/FAQSection";
 import RelatedRoutesSection from "../components/RelatedRoutesSection";
 import {
-  bishkekToCholponAtaFAQ,
-  bishkekToCholponAtaRelatedRoutes,
+  cholponAtaToBishkekFAQ,
+  cholponAtaToBishkekRelatedRoutes,
 } from "../data/seoContent";
 
 const InteractiveRouteMap = dynamic(
@@ -18,9 +18,9 @@ const InteractiveRouteMap = dynamic(
 );
 
 const LANG_ROUTES: Record<"en" | "ru" | "ko", string> = {
-  en: "/transfers/bishkek-to-cholpon-ata",
-  ru: "/ru/transfers/bishkek-to-cholpon-ata",
-  ko: "/ko/transfers/bishkek-to-cholpon-ata",
+  en: "/transfers/cholpon-ata-to-bishkek",
+  ru: "/ru/transfers/cholpon-ata-to-bishkek",
+  ko: "/ko/transfers/cholpon-ata-to-bishkek",
 };
 
 const BISHKEK_MAP_STOPS: MapStop[] = [
@@ -98,10 +98,10 @@ const STOPS: Stop[] = [
 
 const WHATSAPP_PHONE = "+996552291808";
 const WA_LINK = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(
-  "Hi! I'm interested in the Bishkek  to  Cholpon-Ata private transfer. Please share availability and price."
+  "Hi! I'm interested in the Cholpon-Ata  to  Bishkek private transfer. Please share availability and price."
 )}`;
 const WA_LINK_SIMPLE = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(
-  "Hi! I need a simple transfer from Bishkek to Cholpon-Ata. Please share availability and price."
+  "Hi! I need a simple transfer from Cholpon-Ata to Bishkek. Please share availability and price."
 )}`;
 const BRAND = "Nomad Transfer";
 
@@ -131,8 +131,8 @@ const LANGS = [
 
 function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
   const T = {
-    title:   { en: "Bishkek to Cholpon-Ata — Private Transfer", ru: "Бишкек — Чолпон-Ата: Приватный трансфер", ko: "비슈케크  to  촐폰아타 프라이빗 이동" },
-    desc:    { en: "Need to get from Bishkek to Cholpon-Ata quickly and comfortably? We pick you up from your hotel in Bishkek and drop you off at your hotel in Cholpon-Ata. Along the way you can stop 2–3 times for 10–15 min to take photos.", ru: "Нужно быстро добраться из Бишкека в Чолпон-Ату? Забираем из отеля в Бишкеке, довезём до отеля в Чолпон-Ате. По дороге можно остановиться 2–3 раза на 10–15 мин для фотографий.", ko: "비슈케크에서 촐폰아타까지 빠르고 편안하게 이동하고 싶으신가요? 비슈케크 호텔에서 픽업하여 촐폰아타 호텔까지 모셔드립니다. 도중에 2~3번 10~15분 포토 정차 가능합니다." },
+    title:   { en: "Cholpon-Ata to Bishkek — Private Transfer", ru: "Бишкек — Чолпон-Ата: Приватный трансфер", ko: "비슈케크  to  촐폰아타 프라이빗 이동" },
+    desc:    { en: "Need to get from Cholpon-Ata to Bishkek quickly and comfortably? We pick you up from your hotel in Bishkek and drop you off at your hotel in Cholpon-Ata. Along the way you can stop 2–3 times for 10–15 min to take photos.", ru: "Нужно быстро добраться из Бишкека в Чолпон-Ату? Забираем из отеля в Бишкеке, довезём до отеля в Чолпон-Ате. По дороге можно остановиться 2–3 раза на 10–15 мин для фотографий.", ko: "비슈케크에서 촐폰아타까지 빠르고 편안하게 이동하고 싶으신가요? 비슈케크 호텔에서 픽업하여 촐폰아타 호텔까지 모셔드립니다. 도중에 2~3번 10~15분 포토 정차 가능합니다." },
     sedan:   { en: "SEDAN",   ru: "СЕДАН",   ko: "세단" },
     minivan: { en: "MINIVAN", ru: "МИНИВЭН", ko: "미니밴" },
     per4:    { en: "up to 4 passengers", ru: "до 4 пассажиров", ko: "최대 4명" },
@@ -142,7 +142,7 @@ function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
   };
 
   const pills = [
-    { icon: "📍", text: "Bishkek  to  Cholpon-Ata" },
+    { icon: "📍", text: "Cholpon-Ata  to  Bishkek" },
     { icon: "🕐", text: "~3–4 hours" },
     { icon: "📏", text: "~250 km" },
     { icon: "👤", text: "Private" },
@@ -191,7 +191,7 @@ function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
 function UpsellDivider({ lang }: { lang: "en" | "ru" | "ko" }) {
   const T = {
     headline: { en: "✨ Want more than just a transfer?", ru: "✨ Хотите больше, чем просто поездку?", ko: "✨ 단순한 이동 그 이상을 원하시나요?" },
-    body:     { en: "Turn your Bishkek  to  Cholpon-Ata drive into an adventure. Stop at Burana Tower, drive through Boom Gorge, cruise along Issyk-Kul's northern shore. Same route — unforgettable experience.", ru: "Превратите поездку из Бишкека в Чолпон-Ату в незабываемое приключение. Башня Бурана, Боомское ущелье, северный берег Иссык-Куля. Тот же маршрут — незабываемые впечатления.", ko: "비슈케크에서 촐폰아타까지의 드라이브를 모험으로 만들어보세요. 부라나 탑, 붐 협곡, 이식쿨 북쪽 해안. 같은 노선 — 잊을 수 없는 경험." },
+    body:     { en: "Turn your Cholpon-Ata  to  Bishkek drive into an adventure. Stop at Burana Tower, drive through Boom Gorge, cruise along Issyk-Kul's northern shore. Same route — unforgettable experience.", ru: "Превратите поездку из Бишкека в Чолпон-Ату в незабываемое приключение. Башня Бурана, Боомское ущелье, северный берег Иссык-Куля. Тот же маршрут — незабываемые впечатления.", ko: "비슈케크에서 촐폰아타까지의 드라이브를 모험으로 만들어보세요. 부라나 탑, 붐 협곡, 이식쿨 북쪽 해안. 같은 노선 — 잊을 수 없는 경험." },
     btn:      { en: "See the Tour Option ↓", ru: "Смотреть тур ↓", ko: "투어 옵션 보기 ↓" },
   };
   return (
@@ -349,7 +349,7 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
     ? `Здравствуйте! Хочу забронировать тур Бишкек  to  Чолпон-Ата.\nАвтомобиль: ${vehicleLabel[vehicle].ru} ($${basePrice})${extrasLine ? `\nОстановки: ${extrasLine}` : ""}\nИтого: $${total}. Подтвердите наличие.`
     : lang === "ko"
     ? `안녕하세요! 비슈케크 to 카라콜 투어를 예약하고 싶습니다.\n차량: ${vehicleLabel[vehicle].ko} ($${basePrice})${extrasLine ? `\n정류장: ${extrasLine}` : ""}\n총액: $${total}. 예약 가능 여부 확인 부탁드립니다.`
-    : `Hi! I'd like to book the Bishkek  to  Cholpon-Ata scenic tour transfer.\nVehicle: ${vehicleLabel[vehicle].en} ($${basePrice})${extrasLine ? `\nOptional stops: ${extrasLine}` : ""}\nTotal: $${total}. Please confirm availability.`;
+    : `Hi! I'd like to book the Cholpon-Ata  to  Bishkek scenic tour transfer.\nVehicle: ${vehicleLabel[vehicle].en} ($${basePrice})${extrasLine ? `\nOptional stops: ${extrasLine}` : ""}\nTotal: $${total}. Please confirm availability.`;
   const waBookLink = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(waText)}`;
 
   return (
@@ -462,7 +462,7 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
 function CTASection({ lang }: { lang: "en" | "ru" | "ko" }) {
   const T = {
     headline: { en: "Want to customize your route?", ru: "Хотите настроить маршрут?", ko: "노선을 맞춤 설정하고 싶으신가요?" },
-    body:     { en: "Tell us your travel plan and we will build the best route from Bishkek to Cholpon-Ata with stops, timing, and exact pricing.", ru: "Расскажите о своём плане поездки — мы составим лучший маршрут из Бишкека в Чолпон-Ату с остановками, временем и точной ценой.", ko: "여행 계획을 알려주시면 정류장, 타이밍, 정확한 가격이 포함된 최적의 비슈케크 to 카라콜 노선을 만들어 드립니다." },
+    body:     { en: "Tell us your travel plan and we will build the best route from Cholpon-Ata to Bishkek with stops, timing, and exact pricing.", ru: "Расскажите о своём плане поездки — мы составим лучший маршрут из Бишкека в Чолпон-Ату с остановками, временем и точной ценой.", ko: "여행 계획을 알려주시면 정류장, 타이밍, 정확한 가격이 포함된 최적의 비슈케크 to 카라콜 노선을 만들어 드립니다." },
   };
   return (
     <section className="mb-14 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 px-6 py-10 text-center text-white md:py-12">
@@ -484,7 +484,7 @@ function CTASection({ lang }: { lang: "en" | "ru" | "ko" }) {
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
-export default function BishkekToCholponAta({ initialLang }: { initialLang?: "en" | "ru" | "ko" }) {
+export default function CholponAtaToBishkek({ initialLang }: { initialLang?: "en" | "ru" | "ko" }) {
   const [lang, setLang] = useState<"en" | "ru" | "ko">(initialLang ?? pickLang());
   const [showLangDropdown, setShowLangDropdown] = useState(false);
   const router = useRouter();
@@ -549,7 +549,7 @@ export default function BishkekToCholponAta({ initialLang }: { initialLang?: "en
             {lang === "ru" ? "Приватный трансфер · круглый год" : lang === "ko" ? "프라이빗 이동 · 연중 운행" : "Private Transfer · Year-round"}
           </p>
           <h1 className="mt-2 text-2xl font-bold leading-tight md:text-4xl">
-            {lang === "ru" ? "Бишкек  to  Чолпон-Ата: Приватный трансфер через Бурану" : lang === "ko" ? "비슈케크  to  촐폰아타: 부라나 경유 프라이빗 이동" : "Private Transfer from Bishkek to Cholpon-Ata via Burana"}
+            {lang === "ru" ? "Бишкек  to  Чолпон-Ата: Приватный трансфер через Бурану" : lang === "ko" ? "비슈케크  to  촐폰아타: 부라나 경유 프라이빗 이동" : "Private Transfer from Cholpon-Ata to Bishkek via Burana"}
           </h1>
           <p className="mt-2 text-sm text-white/80">
             {lang === "ru" ? "Комфортная поездка через регион Иссык-Куля с живописными остановками · ~250 км · ~3–4 часов" : lang === "ko" ? "이식쿨 지역을 경유하는 편안한 여행 · ~250km · ~3~4시간" : "Comfortable door-to-door journey through Issyk-Kul region with scenic stops along the way · ~270 km · ~4–6 hours"}
@@ -595,7 +595,7 @@ export default function BishkekToCholponAta({ initialLang }: { initialLang?: "en
               </>
             ) : (
               <>
-                <p>Private transfer from Bishkek to Cholpon-Ata is the most comfortable way to travel across Kyrgyzstan. The route passes through scenic mountain landscapes, the northern shore of Issyk-Kul Lake, and historic landmarks along the way.</p>
+                <p>Private transfer from Cholpon-Ata to Bishkek is the most comfortable way to travel across Kyrgyzstan. The route passes through scenic mountain landscapes, the northern shore of Issyk-Kul Lake, and historic landmarks along the way.</p>
                 <p>Unlike public transport, this is a door-to-door service with flexible stops and personalized itinerary.</p>
                 <p>For groups of 8+ passengers, private minibus available from $235. Please contact us for custom group pricing and route planning.</p>
               </>
@@ -629,18 +629,18 @@ export default function BishkekToCholponAta({ initialLang }: { initialLang?: "en
               ? "Трансфер Бишкек — Чолпон-Ата — самый удобный способ добраться до Иссык-Куля. Маршрут проходит через Башню Бурана, Боомское ущелье и живописный северный берег Иссык-Куля. Гибкие остановки и приватный транспорт делают этот вариант лучшим для семей и путешественников, ценящих комфорт."
               : lang === "ko"
               ? "비슈케크에서 촐폰아타까지의 프라이빗 이동은 이식쿨 지역에 도달하는 가장 편안한 방법입니다. 부라나 탑, 붐 협곡, 이식쿨 북쪽 해안선을 지나는 노선입니다. 유연한 정류장과 프라이빗 이동으로 가족과 편안함을 원하는 여행자에게 최고의 선택입니다."
-              : "Bishkek to Cholpon-Ata private transfer is the most comfortable way to reach Cholpon-Ata on Issyk-Kul. The route passes through Burana Tower, Boom Gorge, and scenic northern Issyk-Kul coastline. Flexible stops and private transport make this the best option for families and travelers seeking comfort."}
+              : "Cholpon-Ata to Bishkek private transfer is the most comfortable way to reach Cholpon-Ata on Issyk-Kul. The route passes through Burana Tower, Boom Gorge, and scenic northern Issyk-Kul coastline. Flexible stops and private transport make this the best option for families and travelers seeking comfort."}
           </p>
         </section>
 
         {/* SEO Sections */}
         <FAQSection
-          faqs={bishkekToCholponAtaFAQ[lang].length > 0 ? bishkekToCholponAtaFAQ[lang] : bishkekToCholponAtaFAQ.en}
+          faqs={cholponAtaToBishkekFAQ[lang].length > 0 ? cholponAtaToBishkekFAQ[lang] : cholponAtaToBishkekFAQ.en}
           lang={lang}
         />
 
         <RelatedRoutesSection
-          routes={bishkekToCholponAtaRelatedRoutes[lang].length > 0 ? bishkekToCholponAtaRelatedRoutes[lang] : bishkekToCholponAtaRelatedRoutes.en}
+          routes={cholponAtaToBishkekRelatedRoutes[lang].length > 0 ? cholponAtaToBishkekRelatedRoutes[lang] : cholponAtaToBishkekRelatedRoutes.en}
           lang={lang}
         />
 
@@ -651,17 +651,17 @@ export default function BishkekToCholponAta({ initialLang }: { initialLang?: "en
           <p className="text-xs opacity-80">© {new Date().getFullYear()} {BRAND}</p>
           <nav className="flex flex-col gap-2 text-center text-xs opacity-80 md:text-left">
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
-              <a href="/transfers/bishkek-to-cholpon-ata" className="hover:text-emerald-600">EN: Bishkek  to  Cholpon-Ata</a>
+              <a href="/transfers/cholpon-ata-to-bishkek" className="hover:text-emerald-600">EN: Cholpon-Ata  to  Bishkek</a>
               <a href="/transfers/almaty-to-karakol" className="hover:text-emerald-600">EN: Almaty  to  Karakol</a>
               <a href="/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">EN: Manas  to  Karakol</a>
             </div>
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
-              <a href="/ru/transfers/bishkek-to-cholpon-ata" className="hover:text-emerald-600">RU: Бишкек  to  Чолпон-Ата</a>
+              <a href="/ru/transfers/cholpon-ata-to-bishkek" className="hover:text-emerald-600">RU: Бишкек  to  Чолпон-Ата</a>
               <a href="/ru/transfers/almaty-to-karakol" className="hover:text-emerald-600">RU: Алматы  to  Каракол</a>
               <a href="/ru/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">RU: Манас  to  Каракол</a>
             </div>
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
-              <a href="/ko/transfers/bishkek-to-cholpon-ata" className="hover:text-emerald-600">KO: 비슈케크  to  촐폰아타</a>
+              <a href="/ko/transfers/cholpon-ata-to-bishkek" className="hover:text-emerald-600">KO: 비슈케크  to  촐폰아타</a>
               <a href="/ko/transfers/almaty-to-karakol" className="hover:text-emerald-600">KO: 알마티  to  카라콜</a>
               <a href="/ko/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">KO: 마나스  to  카라콜</a>
             </div>

@@ -6,10 +6,14 @@ import dynamic from "next/dynamic";
 import { Car, MessageCircle, Send, Globe, MapPin } from "lucide-react";
 import type { MapStop } from "../components/InteractiveRouteMap";
 import FAQSection from "../components/FAQSection";
+import CustomerReviewsSection from "../components/CustomerReviewsSection";
+import TravelTipsSection from "../components/TravelTipsSection";
 import RelatedRoutesSection from "../components/RelatedRoutesSection";
 import {
-  bishkekToCholponAtaFAQ,
-  bishkekToCholponAtaRelatedRoutes,
+  karakolToManasAirportFAQ,
+  karakolToManasAirportReviews,
+  karakolToManasAirportTravelTips,
+  karakolToManasAirportRelatedRoutes,
 } from "../data/seoContent";
 
 const InteractiveRouteMap = dynamic(
@@ -18,17 +22,17 @@ const InteractiveRouteMap = dynamic(
 );
 
 const LANG_ROUTES: Record<"en" | "ru" | "ko", string> = {
-  en: "/transfers/bishkek-to-cholpon-ata",
-  ru: "/ru/transfers/bishkek-to-cholpon-ata",
-  ko: "/ko/transfers/bishkek-to-cholpon-ata",
+  en: "/transfers/karakol-to-manas-airport",
+  ru: "/ru/transfers/karakol-to-manas-airport",
+  ko: "/ko/transfers/karakol-to-manas-airport",
 };
 
 const BISHKEK_MAP_STOPS: MapStop[] = [
-  { id: 0, lat: 42.8746, lng: 74.5698, name: "Bishkek",               desc: "Start · Hotel pickup",        day: 1, time: "09:00", type: "start" },
-  { id: 1, lat: 42.7394, lng: 75.2525, name: "Burana Tower",          desc: "Optional stop · ~40 min",     day: 1, time: "10:30" },
-  { id: 2, lat: 42.5978, lng: 75.8500, name: "Boom Gorge",            desc: "Scenic canyon · photo stop",  day: 1, time: "12:00" },
-  { id: 3, lat: 42.6000, lng: 76.9000, name: "Issyk-Kul North Shore", desc: "Panoramic lake drive",         day: 1, time: "13:30" },
-  { id: 4, lat: 42.6505, lng: 77.0817, name: "Cholpon-Ata",               desc: "End · Hotel drop-off",         day: 1, time: "14:00", type: "end" },
+  { id: 0, lat: 43.0613, lng: 74.4776, name: "Manas Airport (FRU)",   desc: "Start · Meet & Greet at arrivals",  day: 1, time: "On arrival", type: "start" },
+  { id: 1, lat: 42.7394, lng: 75.2525, name: "Burana Tower",          desc: "Optional stop · ~40 min",           day: 1, time: "+2h" },
+  { id: 2, lat: 42.5978, lng: 75.8500, name: "Boom Gorge",            desc: "Scenic canyon · photo stop",        day: 1, time: "+3h" },
+  { id: 3, lat: 42.6000, lng: 76.9000, name: "Issyk-Kul North Shore", desc: "Panoramic lake drive",              day: 1, time: "+4h" },
+  { id: 4, lat: 42.4900, lng: 78.3936, name: "Karakol",               desc: "End · Hotel drop-off",              day: 1, time: "+5h", type: "end" },
 ];
 
 interface TimelineStop {
@@ -39,11 +43,11 @@ interface TimelineStop {
 }
 
 const TIMELINE: TimelineStop[] = [
-  { day: "Day 1", time: "09:00", place: { en: "Bishkek", ru: "Бишкек", ko: "비슈케크" }, sub: { en: "Start · Hotel pickup", ru: "Старт · Отель", ko: "출발 · 호텔 픽업" }, type: "start" },
-  { day: "Day 1", time: "10:30", place: { en: "Burana Tower", ru: "Башня Бурана", ko: "부라나 탑" }, sub: { en: "Optional stop · +$15", ru: "Опция · +$15", ko: "선택 정류장 · +$15" } },
-  { day: "Day 1", time: "12:00", place: { en: "Boom Gorge", ru: "Боомское ущелье", ko: "붐 협곡" }, sub: { en: "Scenic canyon · photo stop", ru: "Живописный каньон · фотостоп", ko: "경치 협곡 · 포토 스톱" } },
-  { day: "Day 1", time: "13:30", place: { en: "Issyk-Kul North Shore", ru: "Сев. берег Иссык-Куля", ko: "이식쿨 북쪽 해안" }, sub: { en: "Panoramic lake drive", ru: "Панорамный вид озера", ko: "호수 파노라마 드라이브" } },
-  { day: "Day 1", time: "16:00", place: { en: "Cholpon-Ata", ru: "Чолпон-Ата", ko: "촐폰아타" }, sub: { en: "End · Hotel drop-off", ru: "Финиш · Отель", ko: "종료 · 호텔 하차" }, type: "end" },
+  { day: "Day 1", time: "Arrival", place: { en: "Manas Airport (FRU)", ru: "Аэропорт Манас (FRU)", ko: "마나스 공항 (FRU)" }, sub: { en: "Meet & Greet · name board", ru: "Встреча · табличка", ko: "환영 · 이름판" }, type: "start" },
+  { day: "Day 1", time: "+2h", place: { en: "Burana Tower", ru: "Башня Бурана", ko: "부라나 탑" }, sub: { en: "Optional stop · +$15", ru: "Опция · +$15", ko: "선택 정류장 · +$15" } },
+  { day: "Day 1", time: "+3h", place: { en: "Boom Gorge", ru: "Боомское ущелье", ko: "붐 협곡" }, sub: { en: "Scenic canyon · photo stop", ru: "Живописный каньон · фотостоп", ko: "경치 협곡 · 포토 스톱" } },
+  { day: "Day 1", time: "+4h", place: { en: "Issyk-Kul North Shore", ru: "Сев. берег Иссык-Куля", ko: "이식쿨 북쪽 해안" }, sub: { en: "Panoramic lake drive", ru: "Панорамный вид озера", ko: "호수 파노라마 드라이브" } },
+  { day: "Day 1", time: "+5h", place: { en: "Karakol", ru: "Каракол", ko: "카라콜" }, sub: { en: "End · Hotel drop-off", ru: "Финиш · Отель", ko: "종료 · 호텔 하차" }, type: "end" },
 ];
 
 interface Stop {
@@ -68,9 +72,9 @@ const STOPS: Stop[] = [
     day: "DAY 1", time: "12:00",
     title: { en: "Boom Gorge", ru: "Боомское ущелье", ko: "붐 협곡" },
     desc: {
-      en: "A dramatic river canyon where the Chu River cuts through the Kyrgyz Range. The road winds between towering rock walls with the turquoise river below. One of the most scenic stretches of the Bishkek–Cholpon-Ata highway. Photo stop included.",
-      ru: "Живописное ущелье, где река Чу прорезает Киргизский хребет. Дорога петляет между скалами, а внизу — бирюзовая река. Один из красивейших участков трассы Бишкек–Чолпон-Ата. Фотостоп включён.",
-      ko: "추 강이 키르기스 산맥을 가로지르는 극적인 협곡. 도로가 높은 암벽 사이를 구불구불 지나며 청록빛 강이 흐릅니다. 비슈케크-촐폰아타 고속도로에서 가장 경치 좋은 구간. 포토 스톱 포함.",
+      en: "A dramatic river canyon where the Chu River cuts through the Kyrgyz Range. The road winds between towering rock walls with the turquoise river below. One of the most scenic stretches of the Bishkek–Karakol highway. Photo stop included.",
+      ru: "Живописное ущелье, где река Чу прорезает Киргизский хребет. Дорога петляет между скалами, а внизу — бирюзовая река. Один из красивейших участков трассы Бишкек–Каракол. Фотостоп включён.",
+      ko: "추 강이 키르기스 산맥을 가로지르는 극적인 협곡. 도로가 높은 암벽 사이를 구불구불 지나며 청록빛 강이 흐릅니다. 비슈케크-카라콜 고속도로에서 가장 경치 좋은 구간. 포토 스톱 포함.",
     },
     image: "", mapUrl: "#route-map",
   },
@@ -98,10 +102,10 @@ const STOPS: Stop[] = [
 
 const WHATSAPP_PHONE = "+996552291808";
 const WA_LINK = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(
-  "Hi! I'm interested in the Bishkek  to  Cholpon-Ata private transfer. Please share availability and price."
+  "Hi! I'm interested in the Manas Airport  to  Karakol private transfer. My flight number is: ____. Please share availability and price."
 )}`;
 const WA_LINK_SIMPLE = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(
-  "Hi! I need a simple transfer from Bishkek to Cholpon-Ata. Please share availability and price."
+  "Hi! I need an airport transfer from Manas (FRU) to Karakol. Flight number: ____. Please confirm Meet & Greet and price."
 )}`;
 const BRAND = "Nomad Transfer";
 
@@ -131,22 +135,22 @@ const LANGS = [
 
 function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
   const T = {
-    title:   { en: "Bishkek to Cholpon-Ata — Private Transfer", ru: "Бишкек — Чолпон-Ата: Приватный трансфер", ko: "비슈케크  to  촐폰아타 프라이빗 이동" },
-    desc:    { en: "Need to get from Bishkek to Cholpon-Ata quickly and comfortably? We pick you up from your hotel in Bishkek and drop you off at your hotel in Cholpon-Ata. Along the way you can stop 2–3 times for 10–15 min to take photos.", ru: "Нужно быстро добраться из Бишкека в Чолпон-Ату? Забираем из отеля в Бишкеке, довезём до отеля в Чолпон-Ате. По дороге можно остановиться 2–3 раза на 10–15 мин для фотографий.", ko: "비슈케크에서 촐폰아타까지 빠르고 편안하게 이동하고 싶으신가요? 비슈케크 호텔에서 픽업하여 촐폰아타 호텔까지 모셔드립니다. 도중에 2~3번 10~15분 포토 정차 가능합니다." },
+    title:   { en: "Manas Airport  to  Karakol — Private Transfer", ru: "Аэропорт Манас  to  Каракол: Приватный трансфер", ko: "마나스 공항  to  카라콜 프라이빗 이동" },
+    desc:    { en: "Land at Manas (FRU) and head straight to Karakol. Driver meets you at arrivals with a name board, helps with luggage, and drives door-to-door to your hotel in Karakol. 60-minute free waiting included for flight delays. Available 24/7.", ru: "Прилетели в Манас (FRU) — сразу едем в Каракол. Водитель встречает вас в зоне прилёта с табличкой, помогает с багажом и довозит до отеля в Каракол. Бесплатное ожидание 60 минут на случай задержки рейса. Сервис 24/7.", ko: "마나스(FRU)에 도착하면 바로 카라콜로 출발. 기사가 도착 게이트에서 이름판을 들고 마중 나와 짐을 도와드리고 카라콜 호텔까지 도어 투 도어로 모셔드립니다. 항공편 지연 대비 60분 무료 대기 포함. 24시간 운영." },
     sedan:   { en: "SEDAN",   ru: "СЕДАН",   ko: "세단" },
     minivan: { en: "MINIVAN", ru: "МИНИВЭН", ko: "미니밴" },
     per4:    { en: "up to 4 passengers", ru: "до 4 пассажиров", ko: "최대 4명" },
     per7:    { en: "6–7 passengers",     ru: "6–7 пассажиров",  ko: "6–7명" },
-    busNote: { en: "For groups of 8+ passengers, bus option available from $235. Ask when booking.", ru: "Для групп от 8 человек — автобус от $235. Уточняйте при бронировании.", ko: "8인 이상 그룹은 버스 옵션 $235부터. 예약 시 문의하세요." },
+    busNote: { en: "For groups of 8+ passengers, bus option available from $275. Night surcharge 22:00–06:00 +15%. Ask when booking.", ru: "Для групп от 8 человек — автобус от $275. Ночная доплата 22:00–06:00 +15%. Уточняйте при бронировании.", ko: "8인 이상 그룹은 버스 옵션 $275부터. 야간 할증 22:00~06:00 +15%. 예약 시 문의하세요." },
     wa:      { en: "Book Simple Transfer via WhatsApp", ru: "Забронировать трансфер в WhatsApp", ko: "WhatsApp으로 이동 예약" },
   };
 
   const pills = [
-    { icon: "📍", text: "Bishkek  to  Cholpon-Ata" },
-    { icon: "🕐", text: "~3–4 hours" },
-    { icon: "📏", text: "~250 km" },
-    { icon: "👤", text: "Private" },
-    { icon: "📅", text: "Year-round" },
+    { icon: "✈️", text: "Manas (FRU)  to  Karakol" },
+    { icon: "🕐", text: "~5 hours" },
+    { icon: "📏", text: "~410 km" },
+    { icon: "🛂", text: "Meet & Greet" },
+    { icon: "📅", text: "24/7" },
   ];
 
   return (
@@ -165,14 +169,14 @@ function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
           <div className="absolute -top-3 left-1/2 -translate-x-1/2">
             <span className="rounded-full bg-teal-500 px-4 py-1 text-xs font-bold uppercase tracking-widest text-white">{T.sedan[lang]}</span>
           </div>
-          <p className="mt-3 text-3xl font-extrabold text-slate-900">$115 <span className="text-lg">USD</span></p>
+          <p className="mt-3 text-3xl font-extrabold text-slate-900">$135 <span className="text-lg">USD</span></p>
           <p className="mt-1 text-xs text-slate-500">{T.per4[lang]}</p>
         </div>
         <div className="relative rounded-2xl border-2 border-amber-400 bg-white p-5 text-center shadow-sm">
           <div className="absolute -top-3 left-1/2 -translate-x-1/2">
             <span className="rounded-full bg-amber-400 px-4 py-1 text-xs font-bold uppercase tracking-widest text-slate-900">{T.minivan[lang]}</span>
           </div>
-          <p className="mt-3 text-3xl font-extrabold text-slate-900">$145 <span className="text-lg">USD</span></p>
+          <p className="mt-3 text-3xl font-extrabold text-slate-900">$155 <span className="text-lg">USD</span></p>
           <p className="mt-1 text-xs text-slate-500">{T.per7[lang]}</p>
         </div>
       </div>
@@ -190,8 +194,8 @@ function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
 
 function UpsellDivider({ lang }: { lang: "en" | "ru" | "ko" }) {
   const T = {
-    headline: { en: "✨ Want more than just a transfer?", ru: "✨ Хотите больше, чем просто поездку?", ko: "✨ 단순한 이동 그 이상을 원하시나요?" },
-    body:     { en: "Turn your Bishkek  to  Cholpon-Ata drive into an adventure. Stop at Burana Tower, drive through Boom Gorge, cruise along Issyk-Kul's northern shore. Same route — unforgettable experience.", ru: "Превратите поездку из Бишкека в Чолпон-Ату в незабываемое приключение. Башня Бурана, Боомское ущелье, северный берег Иссык-Куля. Тот же маршрут — незабываемые впечатления.", ko: "비슈케크에서 촐폰아타까지의 드라이브를 모험으로 만들어보세요. 부라나 탑, 붐 협곡, 이식쿨 북쪽 해안. 같은 노선 — 잊을 수 없는 경험." },
+    headline: { en: "✨ Turn your airport ride into a journey", ru: "✨ Превратите трансфер в путешествие", ko: "✨ 공항 이동을 여행으로 만들어보세요" },
+    body:     { en: "Already flying into Manas? Make the drive to Karakol unforgettable. Stop at Burana Tower, drive through Boom Gorge, cruise along Issyk-Kul's northern shore. Same route — first taste of Kyrgyzstan.", ru: "Прилетели в Манас? Сделайте дорогу до Каракола незабываемой. Башня Бурана, Боомское ущелье, северный берег Иссык-Куля — первое знакомство с Кыргызстаном уже в пути.", ko: "마나스에 도착하셨나요? 카라콜까지의 드라이브를 잊을 수 없게 만들어보세요. 부라나 탑, 붐 협곡, 이식쿨 북쪽 해안 — 키르기스스탄의 첫인상을 이동 중에 만끽하세요." },
     btn:      { en: "See the Tour Option ↓", ru: "Смотреть тур ↓", ko: "투어 옵션 보기 ↓" },
   };
   return (
@@ -304,12 +308,12 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
   const [vehicle, setVehicle] = useState<"sedan" | "minivan">("sedan");
   const [addons, setAddons] = useState<Record<AddonKey, boolean>>({ burana: false, cholpon: false });
 
-  const BASE = { sedan: 115, minivan: 145 };
+  const BASE = { sedan: 135, minivan: 155 };
 
   const includedItems = {
-    en: ["Professional local driver", "Fuel and all transportation costs", "Hotel pickup in Bishkek", "Hotel drop-off in Cholpon-Ata", "Scenic Issyk-Kul north shore drive"],
-    ru: ["Профессиональный местный водитель", "Топливо и все транспортные расходы", "Трансфер из отеля в Бишкеке", "Трансфер до отеля в Чолпон-Ате", "Живописная дорога по северному берегу Иссык-Куля"],
-    ko: ["전문 현지 드라이버", "연료 및 모든 교통 비용", "비슈케크 호텔 픽업", "촐폰아타 호텔 하차", "이식쿨 북쪽 해안 경관 드라이브"],
+    en: ["Professional English-speaking driver", "Meet & Greet with name board at arrivals", "60 minutes free waiting (flight delays)", "Fuel and all transportation costs", "Door-to-door drop-off at Karakol hotel", "Flight tracking via your flight number"],
+    ru: ["Профессиональный водитель с английским", "Встреча с табличкой в зоне прилёта", "60 минут бесплатного ожидания (задержки)", "Топливо и все транспортные расходы", "Трансфер до отеля в Каракол", "Отслеживание рейса по номеру"],
+    ko: ["영어 가능 전문 드라이버", "도착장에서 이름판 환영", "60분 무료 대기 (항공편 지연)", "연료 및 모든 교통 비용", "카라콜 호텔까지 도어 투 도어", "항공편 번호로 비행 추적"],
   };
   const notIncluded = {
     en: ["Meals and drinks", "Entry fees to attractions", "Personal travel insurance"],
@@ -317,9 +321,9 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
     ko: ["식사 및 음료", "관광지 입장료", "개인 여행 보험"],
   };
   const whyChoose = {
-    en: ["Private vehicle only", "Professional drivers", "Flexible departure time", "No shared transport", "Door-to-door service", "Custom stops available"],
-    ru: ["Только приватный автомобиль", "Профессиональные водители", "Гибкое время отправления", "Без попутчиков", "Трансфер от двери до двери", "Индивидуальные остановки"],
-    ko: ["프라이빗 차량 전용", "전문 드라이버", "유연한 출발 시간", "합승 없음", "도어 투 도어 서비스", "맞춤 정류장 가능"],
+    en: ["24/7 airport pickups", "Flight tracking included", "60-min free waiting", "Name-board Meet & Greet", "Fixed price — no surge", "Child seats available"],
+    ru: ["Встречаем 24/7", "Отслеживание рейса", "60 мин ожидания бесплатно", "Табличка с именем", "Фиксированная цена", "Детские кресла"],
+    ko: ["24시간 공항 픽업", "항공편 추적 포함", "60분 무료 대기", "이름판 환영", "고정 가격 — 추가 없음", "어린이 카시트 가능"],
   };
 
   const T = {
@@ -346,10 +350,10 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
   const vehicleLabel = { sedan: { en: "Sedan", ru: "Седан", ko: "세단" }, minivan: { en: "Minivan", ru: "Минивэн", ko: "미니밴" } };
   const extrasLine = selectedAddons.map(a => `${a.label.en} (+$${a.price[vehicle]})`).join(", ");
   const waText = lang === "ru"
-    ? `Здравствуйте! Хочу забронировать тур Бишкек  to  Чолпон-Ата.\nАвтомобиль: ${vehicleLabel[vehicle].ru} ($${basePrice})${extrasLine ? `\nОстановки: ${extrasLine}` : ""}\nИтого: $${total}. Подтвердите наличие.`
+    ? `Здравствуйте! Бронирую трансфер Манас (FRU)  to  Каракол.\nНомер рейса: ____\nАвтомобиль: ${vehicleLabel[vehicle].ru} ($${basePrice})${extrasLine ? `\nОстановки: ${extrasLine}` : ""}\nИтого: $${total}. Подтвердите наличие.`
     : lang === "ko"
-    ? `안녕하세요! 비슈케크 to 카라콜 투어를 예약하고 싶습니다.\n차량: ${vehicleLabel[vehicle].ko} ($${basePrice})${extrasLine ? `\n정류장: ${extrasLine}` : ""}\n총액: $${total}. 예약 가능 여부 확인 부탁드립니다.`
-    : `Hi! I'd like to book the Bishkek  to  Cholpon-Ata scenic tour transfer.\nVehicle: ${vehicleLabel[vehicle].en} ($${basePrice})${extrasLine ? `\nOptional stops: ${extrasLine}` : ""}\nTotal: $${total}. Please confirm availability.`;
+    ? `안녕하세요! 마나스(FRU)  to  카라콜 이동 예약합니다.\n항공편 번호: ____\n차량: ${vehicleLabel[vehicle].ko} ($${basePrice})${extrasLine ? `\n정류장: ${extrasLine}` : ""}\n총액: $${total}. 예약 가능 여부 확인 부탁드립니다.`
+    : `Hi! I'd like to book the Manas Airport (FRU)  to  Karakol transfer.\nFlight number: ____\nVehicle: ${vehicleLabel[vehicle].en} ($${basePrice})${extrasLine ? `\nOptional stops: ${extrasLine}` : ""}\nTotal: $${total}. Please confirm availability.`;
   const waBookLink = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(waText)}`;
 
   return (
@@ -461,8 +465,8 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
 
 function CTASection({ lang }: { lang: "en" | "ru" | "ko" }) {
   const T = {
-    headline: { en: "Want to customize your route?", ru: "Хотите настроить маршрут?", ko: "노선을 맞춤 설정하고 싶으신가요?" },
-    body:     { en: "Tell us your travel plan and we will build the best route from Bishkek to Cholpon-Ata with stops, timing, and exact pricing.", ru: "Расскажите о своём плане поездки — мы составим лучший маршрут из Бишкека в Чолпон-Ату с остановками, временем и точной ценой.", ko: "여행 계획을 알려주시면 정류장, 타이밍, 정확한 가격이 포함된 최적의 비슈케크 to 카라콜 노선을 만들어 드립니다." },
+    headline: { en: "Have a flight number? Send it to us.", ru: "Знаете номер рейса? Отправьте нам.", ko: "항공편 번호가 있으신가요? 보내주세요." },
+    body:     { en: "Send your flight number via WhatsApp and we'll track your arrival, prepare the Meet & Greet, and confirm the exact pickup time. Available 24/7 — including night flights.", ru: "Отправьте номер рейса в WhatsApp — отследим прилёт, подготовим встречу с табличкой и подтвердим точное время. Работаем 24/7, в том числе ночные рейсы.", ko: "WhatsApp으로 항공편 번호를 보내주시면 도착을 추적하고 이름판 환영 준비와 정확한 픽업 시간을 확정해드립니다. 야간 항공편 포함 24시간 운영." },
   };
   return (
     <section className="mb-14 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 px-6 py-10 text-center text-white md:py-12">
@@ -484,7 +488,7 @@ function CTASection({ lang }: { lang: "en" | "ru" | "ko" }) {
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
-export default function BishkekToCholponAta({ initialLang }: { initialLang?: "en" | "ru" | "ko" }) {
+export default function KarakolToManasAirport({ initialLang }: { initialLang?: "en" | "ru" | "ko" }) {
   const [lang, setLang] = useState<"en" | "ru" | "ko">(initialLang ?? pickLang());
   const [showLangDropdown, setShowLangDropdown] = useState(false);
   const router = useRouter();
@@ -546,16 +550,16 @@ export default function BishkekToCholponAta({ initialLang }: { initialLang?: "en
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 via-teal-500 to-sky-500" />
         <div className="relative mx-auto max-w-6xl px-4 py-10 text-white md:py-14">
           <p className="text-xs font-medium uppercase tracking-widest text-white/70">
-            {lang === "ru" ? "Приватный трансфер · круглый год" : lang === "ko" ? "프라이빗 이동 · 연중 운행" : "Private Transfer · Year-round"}
+            {lang === "ru" ? "Аэропортовый трансфер · 24/7" : lang === "ko" ? "공항 이동 · 24시간" : "Airport Transfer · 24/7"}
           </p>
           <h1 className="mt-2 text-2xl font-bold leading-tight md:text-4xl">
-            {lang === "ru" ? "Бишкек  to  Чолпон-Ата: Приватный трансфер через Бурану" : lang === "ko" ? "비슈케크  to  촐폰아타: 부라나 경유 프라이빗 이동" : "Private Transfer from Bishkek to Cholpon-Ata via Burana"}
+            {lang === "ru" ? "Аэропорт Манас (FRU)  to  Каракол: Приватный трансфер" : lang === "ko" ? "마나스 공항 (FRU)  to  카라콜: 프라이빗 이동" : "Manas Airport (FRU) to Karakol Private Transfer"}
           </h1>
           <p className="mt-2 text-sm text-white/80">
-            {lang === "ru" ? "Комфортная поездка через регион Иссык-Куля с живописными остановками · ~250 км · ~3–4 часов" : lang === "ko" ? "이식쿨 지역을 경유하는 편안한 여행 · ~250km · ~3~4시간" : "Comfortable door-to-door journey through Issyk-Kul region with scenic stops along the way · ~270 km · ~4–6 hours"}
+            {lang === "ru" ? "Встреча с табличкой в зоне прилёта · 60 мин бесплатного ожидания · ~410 км · ~5 часов" : lang === "ko" ? "도착장에서 이름판 환영 · 60분 무료 대기 · ~410km · ~5시간" : "Meet & Greet at arrivals with name board · 60-min free waiting · ~410 km · ~5 hours"}
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
-            {(lang === "ru" ? ["Приватный трансфер", "Гибкие остановки", "3–4 часов", "Круглый год"] : lang === "ko" ? ["프라이빗 이동", "유연한 정류장", "3~4시간", "연중 운행"] : ["Private transfer", "Flexible stops", "4–6 hours", "Year-round service"]).map(badge => (
+            {(lang === "ru" ? ["Meet & Greet", "Отслеживание рейса", "60 мин ожидания", "24/7"] : lang === "ko" ? ["Meet & Greet", "항공편 추적", "60분 대기", "24시간"] : ["Meet & Greet", "Flight tracking", "60-min waiting", "24/7 service"]).map(badge => (
               <span key={badge} className="rounded-full border border-white/30 bg-white/15 px-3 py-1 text-xs font-medium text-white backdrop-blur">{badge}</span>
             ))}
           </div>
@@ -583,21 +587,21 @@ export default function BishkekToCholponAta({ initialLang }: { initialLang?: "en
           <div className="max-w-2xl space-y-3 text-sm leading-relaxed text-slate-600">
             {lang === "ru" ? (
               <>
-                <p>Приватный трансфер из Бишкека в Чолпон-Ату — самый комфортный способ путешествия по Кыргызстану. Маршрут проходит через живописные горные пейзажи, северный берег Иссык-Куля и исторические достопримечательности.</p>
-                <p>В отличие от общественного транспорта, это сервис «от двери до двери» с гибкими остановками и индивидуальным маршрутом.</p>
-                <p>Для групп от 8 человек — приватный микроавтобус (от $235). Свяжитесь с нами для индивидуального расчёта цены и планирования маршрута.</p>
+                <p>Приватный аэропортовый трансфер из Манаса (FRU) в Каракол — самый удобный способ начать путешествие по Кыргызстану после прилёта. Мы отслеживаем рейс по номеру, встречаем в зоне прилёта с табличкой и довозим до отеля в Каракол.</p>
+                <p>Бесплатное ожидание 60 минут на случай задержки рейса или прохождения паспортного контроля. Маршрут идёт в обход Бишкека через северный берег Иссык-Куля — около 410 км и 5 часов в пути.</p>
+                <p>Сервис работает 24/7, включая ночные рейсы (доплата 22:00–06:00 +15%). Для групп от 8 человек — автобус от $275. Принимаем флайт-номер заранее в WhatsApp.</p>
               </>
             ) : lang === "ko" ? (
               <>
-                <p>비슈케크에서 촐폰아타까지의 프라이빗 이동은 키르기스스탄을 여행하는 가장 편안한 방법입니다. 경치 좋은 산악 경관, 이식쿨 북쪽 해안, 역사적 명소를 지나는 노선입니다.</p>
-                <p>대중교통과 달리 유연한 정류장과 맞춤 일정을 갖춘 도어 투 도어 서비스입니다.</p>
-                <p>8인 이상 그룹의 경우 프라이빗 미니버스($235부터)가 있습니다. 그룹 가격 및 노선 계획 문의는 연락해 주세요.</p>
+                <p>마나스(FRU)에서 카라콜까지의 프라이빗 공항 이동은 키르기스스탄 도착 후 가장 편안하게 여행을 시작하는 방법입니다. 항공편 번호로 비행을 추적하고, 도착장에서 이름판으로 환영하며, 카라콜 호텔까지 모셔드립니다.</p>
+                <p>항공편 지연이나 입국 심사 대비 60분 무료 대기 포함. 노선은 비슈케크를 우회해 이식쿨 북쪽 해안을 따라 약 410km, 5시간 소요.</p>
+                <p>야간 항공편(22:00~06:00 +15%) 포함 24시간 운영. 8인 이상 그룹은 버스 $275부터. WhatsApp으로 항공편 번호를 미리 보내주세요.</p>
               </>
             ) : (
               <>
-                <p>Private transfer from Bishkek to Cholpon-Ata is the most comfortable way to travel across Kyrgyzstan. The route passes through scenic mountain landscapes, the northern shore of Issyk-Kul Lake, and historic landmarks along the way.</p>
-                <p>Unlike public transport, this is a door-to-door service with flexible stops and personalized itinerary.</p>
-                <p>For groups of 8+ passengers, private minibus available from $235. Please contact us for custom group pricing and route planning.</p>
+                <p>Private airport transfer from Manas (FRU) to Karakol is the most comfortable way to start your trip in Kyrgyzstan. We track your flight by number, meet you at arrivals with a name board, and drive you door-to-door to your hotel in Karakol.</p>
+                <p>60 minutes of free waiting is included for flight delays or passport control. The route bypasses Bishkek along the scenic northern shore of Issyk-Kul — about 410 km and 5 hours total.</p>
+                <p>Service operates 24/7, including night flights (22:00–06:00 surcharge +15%). For groups of 8+, bus option from $275. Send us your flight number in advance via WhatsApp.</p>
               </>
             )}
           </div>
@@ -626,21 +630,31 @@ export default function BishkekToCholponAta({ initialLang }: { initialLang?: "en
         <section className="mb-14 rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
           <p className="text-sm leading-relaxed text-slate-600">
             {lang === "ru"
-              ? "Трансфер Бишкек — Чолпон-Ата — самый удобный способ добраться до Иссык-Куля. Маршрут проходит через Башню Бурана, Боомское ущелье и живописный северный берег Иссык-Куля. Гибкие остановки и приватный транспорт делают этот вариант лучшим для семей и путешественников, ценящих комфорт."
+              ? "Аэропортовый трансфер Манас (FRU) — Каракол с встречей в зоне прилёта, отслеживанием рейса и фиксированной ценой за автомобиль. Идеальный выбор для прибывающих ночными или утренними рейсами в Бишкек, кто хочет сразу попасть на Иссык-Куль без пересадок и такси."
               : lang === "ko"
-              ? "비슈케크에서 촐폰아타까지의 프라이빗 이동은 이식쿨 지역에 도달하는 가장 편안한 방법입니다. 부라나 탑, 붐 협곡, 이식쿨 북쪽 해안선을 지나는 노선입니다. 유연한 정류장과 프라이빗 이동으로 가족과 편안함을 원하는 여행자에게 최고의 선택입니다."
-              : "Bishkek to Cholpon-Ata private transfer is the most comfortable way to reach Cholpon-Ata on Issyk-Kul. The route passes through Burana Tower, Boom Gorge, and scenic northern Issyk-Kul coastline. Flexible stops and private transport make this the best option for families and travelers seeking comfort."}
+              ? "마나스 공항(FRU) to 카라콜 이동은 도착장 환영, 항공편 추적, 차량당 고정 가격으로 제공됩니다. 비슈케크에 야간 또는 아침 항공편으로 도착해 환승과 택시 없이 바로 이식쿨로 가고 싶은 여행자에게 이상적입니다."
+              : "Manas Airport (FRU) to Karakol transfer with Meet & Greet at arrivals, flight tracking, and fixed price per vehicle. The ideal choice for travelers landing in Bishkek on night or early-morning flights who want to head straight to Issyk-Kul without taxis or transfers."}
           </p>
         </section>
 
         {/* SEO Sections */}
+        <TravelTipsSection
+          tips={karakolToManasAirportTravelTips[lang].length > 0 ? karakolToManasAirportTravelTips[lang] : karakolToManasAirportTravelTips.en}
+          lang={lang}
+        />
+
+        <CustomerReviewsSection
+          reviews={karakolToManasAirportReviews[lang].length > 0 ? karakolToManasAirportReviews[lang] : karakolToManasAirportReviews.en}
+          lang={lang}
+        />
+
         <FAQSection
-          faqs={bishkekToCholponAtaFAQ[lang].length > 0 ? bishkekToCholponAtaFAQ[lang] : bishkekToCholponAtaFAQ.en}
+          faqs={karakolToManasAirportFAQ[lang].length > 0 ? karakolToManasAirportFAQ[lang] : karakolToManasAirportFAQ.en}
           lang={lang}
         />
 
         <RelatedRoutesSection
-          routes={bishkekToCholponAtaRelatedRoutes[lang].length > 0 ? bishkekToCholponAtaRelatedRoutes[lang] : bishkekToCholponAtaRelatedRoutes.en}
+          routes={karakolToManasAirportRelatedRoutes[lang].length > 0 ? karakolToManasAirportRelatedRoutes[lang] : karakolToManasAirportRelatedRoutes.en}
           lang={lang}
         />
 
@@ -651,19 +665,19 @@ export default function BishkekToCholponAta({ initialLang }: { initialLang?: "en
           <p className="text-xs opacity-80">© {new Date().getFullYear()} {BRAND}</p>
           <nav className="flex flex-col gap-2 text-center text-xs opacity-80 md:text-left">
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
-              <a href="/transfers/bishkek-to-cholpon-ata" className="hover:text-emerald-600">EN: Bishkek  to  Cholpon-Ata</a>
+              <a href="/transfers/bishkek-to-karakol" className="hover:text-emerald-600">EN: Bishkek  to  Karakol</a>
               <a href="/transfers/almaty-to-karakol" className="hover:text-emerald-600">EN: Almaty  to  Karakol</a>
-              <a href="/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">EN: Manas  to  Karakol</a>
+              <a href="/transfers/karakol-to-manas-airport" className="hover:text-emerald-600">EN: Karakol  to  Manas Airport</a>
             </div>
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
-              <a href="/ru/transfers/bishkek-to-cholpon-ata" className="hover:text-emerald-600">RU: Бишкек  to  Чолпон-Ата</a>
+              <a href="/ru/transfers/bishkek-to-karakol" className="hover:text-emerald-600">RU: Бишкек  to  Каракол</a>
               <a href="/ru/transfers/almaty-to-karakol" className="hover:text-emerald-600">RU: Алматы  to  Каракол</a>
-              <a href="/ru/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">RU: Манас  to  Каракол</a>
+              <a href="/ru/transfers/karakol-to-manas-airport" className="hover:text-emerald-600">RU: Манас  to  Каракол</a>
             </div>
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
-              <a href="/ko/transfers/bishkek-to-cholpon-ata" className="hover:text-emerald-600">KO: 비슈케크  to  촐폰아타</a>
+              <a href="/ko/transfers/bishkek-to-karakol" className="hover:text-emerald-600">KO: 비슈케크  to  카라콜</a>
               <a href="/ko/transfers/almaty-to-karakol" className="hover:text-emerald-600">KO: 알마티  to  카라콜</a>
-              <a href="/ko/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">KO: 마나스  to  카라콜</a>
+              <a href="/ko/transfers/karakol-to-manas-airport" className="hover:text-emerald-600">KO: 마나스  to  카라콜</a>
             </div>
           </nav>
           <div className="flex gap-2">

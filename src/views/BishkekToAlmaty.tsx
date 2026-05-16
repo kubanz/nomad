@@ -8,14 +8,14 @@ import type { MapStop } from "../components/InteractiveRouteMap";
 import FAQSection from "../components/FAQSection";
 import RelatedRoutesSection from "../components/RelatedRoutesSection";
 import {
-  almatyToBishkekFAQ,
-  almatyToBishkekRelatedRoutes,
+  bishkekToAlmatyFAQ,
+  bishkekToAlmatyRelatedRoutes,
 } from "../data/seoContent";
 
 const LANG_ROUTES: Record<"en" | "ru" | "ko", string> = {
-  en: "/transfers/almaty-to-bishkek",
-  ru: "/ru/transfers/almaty-to-bishkek",
-  ko: "/ko/transfers/almaty-to-bishkek",
+  en: "/transfers/bishkek-to-almaty",
+  ru: "/ru/transfers/bishkek-to-almaty",
+  ko: "/ko/transfers/bishkek-to-almaty",
 };
 
 const InteractiveRouteMap = dynamic(
@@ -114,10 +114,10 @@ const STOPS: Stop[] = [
 
 const WHATSAPP_PHONE = "+996552291808";
 const WA_LINK = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(
-  "Hi! I'm interested in the Almaty  to  Bishkek private transfer. Please share availability and price."
+  "Hi! I'm interested in the Bishkek  to  Almaty private transfer. Please share availability and price."
 )}`;
 const WA_LINK_SIMPLE = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(
-  "Hi! I need a simple transfer from Almaty to Bishkek. Please share availability and price."
+  "Hi! I need a simple transfer from Bishkek to Almaty. Please share availability and price."
 )}`;
 const BRAND = "Nomad Transfer";
 
@@ -148,12 +148,12 @@ const LANGS: { code: "en" | "ru" | "ko"; label: string; flag: string }[] = [
 function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
   const T = {
     title: {
-      en: "Almaty to Bishkek — Private Transfer",
+      en: "Bishkek to Almaty — Private Transfer",
       ru: "Алматы — Бишкек: Приватный трансфер",
       ko: "알마티  to  비슈케크 프라이빗 이동",
     },
     desc: {
-      en: "Need to get from Almaty to Bishkek quickly and comfortably? We pick you up from your hotel in Almaty and drop you off at your hotel in Bishkek. Professional driver, comfortable car, no hidden fees.",
+      en: "Need to get from Bishkek to Almaty quickly and comfortably? We pick you up from your hotel in Almaty and drop you off at your hotel in Bishkek. Professional driver, comfortable car, no hidden fees.",
       ru: "Нужно просто добраться из Алматы в Бишкек? Забираем из отеля в Алматы, довезём до отеля в Бишкеке. Профессиональный водитель, комфортный автомобиль, никаких скрытых платежей.",
       ko: "알마티에서 비슈케크까지 빠르고 편안하게 이동하고 싶으신가요? 알마티 호텔에서 픽업하여 비슈케크 호텔까지 편안하게 모셔드립니다.",
     },
@@ -174,7 +174,7 @@ function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
   };
 
   const pills = [
-    { icon: "📍", text: "Almaty  to  Bishkek" },
+    { icon: "📍", text: "Bishkek  to  Almaty" },
     { icon: "🕐", text: "~3 hours" },
     { icon: "📏", text: "~240 km" },
     { icon: "👤", text: "Private" },
@@ -483,7 +483,7 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
     ? `Здравствуйте! Хочу забронировать тур Алматы  to  Бишкек.\nАвтомобиль: ${vehicleLabel[vehicle].ru} ($${basePrice})${extrasLine ? `\nОстановки: ${extrasLine}` : ""}\nИтого: $${total}. Подтвердите наличие.`
     : lang === "ko"
     ? `안녕하세요! 알마티 to 비슈케크 투어를 예약하고 싶습니다.\n차량: ${vehicleLabel[vehicle].ko} ($${basePrice})${extrasLine ? `\n정류장: ${extrasLine}` : ""}\n총액: $${total}. 예약 가능 여부 확인 부탁드립니다.`
-    : `Hi! I'd like to book the Almaty  to  Bishkek scenic tour transfer.\nVehicle: ${vehicleLabel[vehicle].en} ($${basePrice})${extrasLine ? `\nOptional stops: ${extrasLine}` : ""}\nTotal: $${total}. Please confirm availability.`;
+    : `Hi! I'd like to book the Bishkek  to  Almaty scenic tour transfer.\nVehicle: ${vehicleLabel[vehicle].en} ($${basePrice})${extrasLine ? `\nOptional stops: ${extrasLine}` : ""}\nTotal: $${total}. Please confirm availability.`;
   const waBookLink = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(waText)}`;
 
   return (
@@ -635,7 +635,7 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
-export default function AlmatyToBishkek({ initialLang }: { initialLang?: "en" | "ru" | "ko" }) {
+export default function BishkekToAlmaty({ initialLang }: { initialLang?: "en" | "ru" | "ko" }) {
   const [lang, setLang] = useState<"en" | "ru" | "ko">(initialLang ?? pickLang());
   const [showLangDropdown, setShowLangDropdown] = useState(false);
   const router = useRouter();
@@ -723,7 +723,7 @@ export default function AlmatyToBishkek({ initialLang }: { initialLang?: "en" | 
               ? "Алматы  to  Бишкек: Приватный трансфер через границу Кордай"
               : lang === "ko"
               ? "알마티  to  비슈케크: 코르다이 국경 경유 프라이빗 이동"
-              : "Almaty to Bishkek Private Transfer via Kordai Border"}
+              : "Bishkek to Almaty Private Transfer via Kordai Border"}
           </h1>
           <p className="mt-2 text-sm text-white/80">
             {lang === "ru"
@@ -777,7 +777,7 @@ export default function AlmatyToBishkek({ initialLang }: { initialLang?: "en" | 
               </>
             ) : (
               <>
-                <p>Private transfer from Almaty to Bishkek is the fastest and most comfortable way to cross the Kazakhstan–Kyrgyzstan border. The route runs along the main highway through the Kordai border crossing (open 24/7) and takes around 3 hours including passport control.</p>
+                <p>Private transfer from Bishkek to Almaty is the fastest and most comfortable way to cross the Kazakhstan–Kyrgyzstan border. The route runs along the main highway through the Kordai border crossing (open 24/7) and takes around 3 hours including passport control.</p>
                 <p>Unlike informal taxis, we offer a fixed price per car, professional English-speaking drivers, and assistance at the border. Ideal for travelers connecting from international flights in Almaty who want to continue their journey across Kyrgyzstan.</p>
                 <p>For groups of 8+ passengers, private minibus available from $220. We can also extend the transfer to Issyk-Kul, Karakol, or Ala-Archa National Park on request.</p>
               </>
@@ -819,12 +819,12 @@ export default function AlmatyToBishkek({ initialLang }: { initialLang?: "en" | 
 
         {/* SEO Sections */}
         <FAQSection
-          faqs={almatyToBishkekFAQ[lang].length > 0 ? almatyToBishkekFAQ[lang] : almatyToBishkekFAQ.en}
+          faqs={bishkekToAlmatyFAQ[lang].length > 0 ? bishkekToAlmatyFAQ[lang] : bishkekToAlmatyFAQ.en}
           lang={lang}
         />
 
         <RelatedRoutesSection
-          routes={almatyToBishkekRelatedRoutes[lang].length > 0 ? almatyToBishkekRelatedRoutes[lang] : almatyToBishkekRelatedRoutes.en}
+          routes={bishkekToAlmatyRelatedRoutes[lang].length > 0 ? bishkekToAlmatyRelatedRoutes[lang] : bishkekToAlmatyRelatedRoutes.en}
           lang={lang}
         />
 
@@ -837,17 +837,17 @@ export default function AlmatyToBishkek({ initialLang }: { initialLang?: "en" | 
           <nav className="flex flex-col gap-2 text-center text-xs opacity-80 md:text-left">
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
               <a href="/transfers/bishkek-to-karakol" className="hover:text-emerald-600">EN: Bishkek  to  Karakol</a>
-              <a href="/transfers/almaty-to-bishkek" className="hover:text-emerald-600">EN: Almaty  to  Bishkek</a>
+              <a href="/transfers/bishkek-to-almaty" className="hover:text-emerald-600">EN: Bishkek  to  Almaty</a>
               <a href="/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">EN: Manas Airport  to  Karakol</a>
             </div>
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
               <a href="/ru/transfers/bishkek-to-karakol" className="hover:text-emerald-600">RU: Бишкек  to  Каракол</a>
-              <a href="/ru/transfers/almaty-to-bishkek" className="hover:text-emerald-600">RU: Алматы  to  Бишкек</a>
+              <a href="/ru/transfers/bishkek-to-almaty" className="hover:text-emerald-600">RU: Алматы  to  Бишкек</a>
               <a href="/ru/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">RU: Манас  to  Каракол</a>
             </div>
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
               <a href="/ko/transfers/bishkek-to-karakol" className="hover:text-emerald-600">KO: 비슈케크  to  카라콜</a>
-              <a href="/ko/transfers/almaty-to-bishkek" className="hover:text-emerald-600">KO: 알마티  to  비슈케크</a>
+              <a href="/ko/transfers/bishkek-to-almaty" className="hover:text-emerald-600">KO: 알마티  to  비슈케크</a>
               <a href="/ko/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">KO: 마나스  to  카라콜</a>
             </div>
           </nav>

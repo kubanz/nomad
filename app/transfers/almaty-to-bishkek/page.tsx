@@ -16,13 +16,13 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Almaty → Bishkek Private Transfer | Kordai Border 24/7",
+    title: "Almaty  to  Bishkek Private Transfer | Kordai Border 24/7",
     description: "Fixed-price private transfer Almaty to Bishkek via Kordai border. Sedan $90, Van $115. ~3 hours.",
     images: [{ url: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg", width: 1200, height: 630, alt: "Almaty to Bishkek private transfer" }],
     type: "website",
     url: "https://nomad-transfer.com/transfers/almaty-to-bishkek",
   },
-  twitter: { card: "summary_large_image", title: "Almaty → Bishkek Transfer", description: "Sedan $90, Van $115. Kordai border 24/7.", images: ["https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg"] },
+  twitter: { card: "summary_large_image", title: "Almaty  to  Bishkek Transfer", description: "Sedan $90, Van $115. Kordai border 24/7.", images: ["https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg"] },
 };
 
 const jsonLd = {
