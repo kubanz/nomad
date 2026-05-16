@@ -89,6 +89,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/ru/manas-karakol-transfer",
+        destination: "/ru/transfers/manas-airport-to-karakol",
+        permanent: true,
+      },
+      {
+        source: "/ru/manas-karakol-transfer.html",
+        destination: "/ru/transfers/manas-airport-to-karakol",
+        permanent: true,
+      },
+      {
         source: "/ru/manas-airport-to-karakol",
         destination: "/ru/transfers/manas-airport-to-karakol",
         permanent: true,
@@ -96,6 +106,16 @@ const nextConfig: NextConfig = {
       {
         source: "/ru/manas-airport-to-karakol.html",
         destination: "/ru/transfers/manas-airport-to-karakol",
+        permanent: true,
+      },
+      {
+        source: "/ko/manas-karakol-transfer",
+        destination: "/ko/transfers/manas-airport-to-karakol",
+        permanent: true,
+      },
+      {
+        source: "/ko/manas-karakol-transfer.html",
+        destination: "/ko/transfers/manas-airport-to-karakol",
         permanent: true,
       },
       {
