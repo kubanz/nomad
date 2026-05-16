@@ -41,6 +41,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   });
 
+  // Guide pages (en / ru / ko)
+  const guideLangs = {
+    "x-default": `${BASE}/guides/karakol-ski-resort`,
+    en: `${BASE}/guides/karakol-ski-resort`,
+    ru: `${BASE}/ru/guides/karakol-ski-resort`,
+    ko: `${BASE}/ko/guides/karakol-ski-resort`,
+  };
+  for (const [lang, url] of Object.entries(guideLangs)) {
+    if (lang === "x-default") continue;
+    entries.push({
+      url,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: lang === "en" ? 0.8 : 0.7,
+      alternates: { languages: guideLangs },
+    });
+  }
+
   // Transfer routes (en / ru / ko)
   for (const slug of TRANSFERS) {
     const langs = {

@@ -9,6 +9,36 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/en/karakol-ski-resort-guide",
+        destination: "/guides/karakol-ski-resort",
+        permanent: true,
+      },
+      {
+        source: "/en/karakol-ski-resort-guide.html",
+        destination: "/guides/karakol-ski-resort",
+        permanent: true,
+      },
+      {
+        source: "/ru/karakol-gornolyzhnaya-baza",
+        destination: "/ru/guides/karakol-ski-resort",
+        permanent: true,
+      },
+      {
+        source: "/ru/karakol-gornolyzhnaya-baza.html",
+        destination: "/ru/guides/karakol-ski-resort",
+        permanent: true,
+      },
+      {
+        source: "/ko/karakol-ski-resort",
+        destination: "/ko/guides/karakol-ski-resort",
+        permanent: true,
+      },
+      {
+        source: "/ko/karakol-ski-resort.html",
+        destination: "/ko/guides/karakol-ski-resort",
+        permanent: true,
+      },
+      {
         source: "/en/almaty-to-karakol",
         destination: "/transfers/almaty-to-karakol",
         permanent: true,
