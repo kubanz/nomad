@@ -5,6 +5,16 @@ import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import { Car, MessageCircle, Send, Globe, MapPin } from "lucide-react";
 import type { MapStop } from "../components/InteractiveRouteMap";
+import FAQSection from "../components/FAQSection";
+import CustomerReviewsSection from "../components/CustomerReviewsSection";
+import TravelTipsSection from "../components/TravelTipsSection";
+import RelatedRoutesSection from "../components/RelatedRoutesSection";
+import {
+  bishkekToKarakolFAQ,
+  bishkekToKarakolReviews,
+  bishkekToKarakolTravelTips,
+  bishkekToKarakolRelatedRoutes,
+} from "../data/seoContent";
 
 const InteractiveRouteMap = dynamic(
   () => import("../components/InteractiveRouteMap"),
@@ -626,6 +636,27 @@ export default function BishkekToKarakol({ initialLang }: { initialLang?: "en" |
               : "Bishkek to Karakol private transfer is the most comfortable way to reach Issyk-Kul region. The route passes through Burana Tower, Boom Gorge, and scenic northern Issyk-Kul coastline. Flexible stops and private transport make this the best option for families and travelers seeking comfort."}
           </p>
         </section>
+
+        {/* SEO Sections */}
+        <TravelTipsSection
+          tips={bishkekToKarakolTravelTips[lang]}
+          lang={lang}
+        />
+
+        <CustomerReviewsSection
+          reviews={bishkekToKarakolReviews[lang].length > 0 ? bishkekToKarakolReviews[lang] : bishkekToKarakolReviews.en}
+          lang={lang}
+        />
+
+        <FAQSection
+          faqs={bishkekToKarakolFAQ[lang].length > 0 ? bishkekToKarakolFAQ[lang] : bishkekToKarakolFAQ.en}
+          lang={lang}
+        />
+
+        <RelatedRoutesSection
+          routes={bishkekToKarakolRelatedRoutes[lang].length > 0 ? bishkekToKarakolRelatedRoutes[lang] : bishkekToKarakolRelatedRoutes.en}
+          lang={lang}
+        />
       </main>
 
       <footer className="border-t bg-white/80">
