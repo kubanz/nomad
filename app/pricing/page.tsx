@@ -39,9 +39,9 @@ const routes = [
 
   // Cross-border (Kazakhstan)
   { from: "Almaty", to: "Bishkek", distance: "230 km", sedan: 127, minivan: 158, bus: null, duration: "4-5h", href: "/transfers/almaty-to-bishkek", badge: "Border" },
-  { from: "Almaty", to: "Karakol", distance: "430 km", sedan: 232, minivan: 277, bus: null, duration: "7-8h", href: "/transfers/almaty-to-karakol", badge: "Border" },
+  { from: "Almaty", to: "Karakol", distance: "430 km", sedan: 235, minivan: 275, bus: 485, duration: "7-8h", href: "/transfers/almaty-to-karakol", badge: "Border" },
   { from: "Bishkek", to: "Almaty", distance: "230 km", sedan: 127, minivan: 158, bus: null, duration: "4-5h", href: "/transfers/bishkek-to-almaty", badge: "Border" },
-  { from: "Karakol", to: "Almaty", distance: "430 km", sedan: 232, minivan: 277, bus: null, duration: "7-8h", href: "/transfers/karakol-to-almaty", badge: "Border" },
+  { from: "Karakol", to: "Almaty", distance: "430 km", sedan: 235, minivan: 275, bus: 485, duration: "7-8h", href: "/transfers/karakol-to-almaty", badge: "Border" },
 ];
 
 export default function PricingPage() {

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import KarakolToAlmaty from "../../../src/views/KarakolToAlmaty";
 
 export const metadata: Metadata = {
-  title: "Karakol to Almaty Private Transfer | Taxi & Shuttle from $232 | Border Crossing | Nomad Transfer",
+  title: "Karakol to Almaty Private Transfer | Taxi & Shuttle from $235 | Border Crossing | Nomad Transfer",
   description:
-    "Book private transfer Karakol to Almaty with English-speaking support. Sedan $232, Minivan $277. Via Karkara border crossing. Includes border assistance. Fixed price, no hidden fees. Free cancellation 24h. WhatsApp booking in 1-2 min.",
+    "Book private transfer Karakol to Almaty with English-speaking support. Sedan $235, Minivan $275. Via Karkara border crossing. Includes border assistance. Fixed price, no hidden fees. Free cancellation 24h. WhatsApp booking in 1-2 min.",
   keywords: [
     "karakol to almaty transfer",
     "karakol almaty taxi",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Karakol to Almaty Private Transfer | Karkara Border Crossing",
     description:
-      "Border crossing transfer via Karkara. Sedan $232, Minivan $277. Private transfer with border assistance.",
+      "Border crossing transfer via Karkara. Sedan $235, Minivan $275. Private transfer with border assistance.",
     images: [
       {
         url: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Karakol to Almaty Private Transfer",
-    description: "Private transfer via Karkara border. Sedan $232, Minivan $277.",
+    description: "Private transfer via Karkara border. Sedan $235, Minivan $275.",
     images: [
       "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
     ],
@@ -70,14 +70,14 @@ const jsonLd = {
         {
           "@type": "Offer",
           "name": "Sedan (up to 4 passengers)",
-          "price": "232",
+          "price": "235",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
         },
         {
           "@type": "Offer",
           "name": "Minivan (6-7 passengers)",
-          "price": "277",
+          "price": "275",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
         },
@@ -98,7 +98,7 @@ const jsonLd = {
           "name": "How much does a private transfer from Karakol to Almaty cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sedan (up to 4 passengers) $232, Minivan (6-7 passengers) $277. Price is per vehicle, not per person. Includes fuel, hotel pickup/drop-off, and border crossing assistance.",
+            "text": "Sedan (up to 4 passengers) $235, Minivan (6-7 passengers) $275. Price is per vehicle, not per person. Includes fuel, hotel pickup/drop-off, and border crossing assistance.",
           },
         },
         {
