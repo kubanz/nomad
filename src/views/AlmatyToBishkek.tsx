@@ -5,6 +5,12 @@ import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import { Car, MessageCircle, Send, Globe, MapPin } from "lucide-react";
 import type { MapStop } from "../components/InteractiveRouteMap";
+import FAQSection from "../components/FAQSection";
+import RelatedRoutesSection from "../components/RelatedRoutesSection";
+import {
+  almatyToBishkekFAQ,
+  almatyToBishkekRelatedRoutes,
+} from "../data/seoContent";
 
 const LANG_ROUTES: Record<"en" | "ru" | "ko", string> = {
   en: "/transfers/almaty-to-bishkek",
@@ -810,6 +816,17 @@ export default function AlmatyToBishkek({ initialLang }: { initialLang?: "en" | 
 
         {/* Pricing */}
         <PricingSection lang={lang} />
+
+        {/* SEO Sections */}
+        <FAQSection
+          faqs={almatyToBishkekFAQ[lang].length > 0 ? almatyToBishkekFAQ[lang] : almatyToBishkekFAQ.en}
+          lang={lang}
+        />
+
+        <RelatedRoutesSection
+          routes={almatyToBishkekRelatedRoutes[lang].length > 0 ? almatyToBishkekRelatedRoutes[lang] : almatyToBishkekRelatedRoutes.en}
+          lang={lang}
+        />
 
       </main>
 

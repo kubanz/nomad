@@ -5,6 +5,16 @@ import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import { Car, MessageCircle, Send, Globe, MapPin } from "lucide-react";
 import type { MapStop } from "../components/InteractiveRouteMap";
+import FAQSection from "../components/FAQSection";
+import CustomerReviewsSection from "../components/CustomerReviewsSection";
+import TravelTipsSection from "../components/TravelTipsSection";
+import RelatedRoutesSection from "../components/RelatedRoutesSection";
+import {
+  almatyToKarakolFAQ,
+  almatyToKarakolReviews,
+  almatyToKarakolTravelTips,
+  almatyToKarakolRelatedRoutes,
+} from "../data/seoContent";
 
 const LANG_ROUTES: Record<"en" | "ru" | "ko", string> = {
   en: "/transfers/almaty-to-karakol",
@@ -848,6 +858,27 @@ export default function AlmatyToKarakol({ initialLang }: { initialLang?: "en" | 
 
         {/* Pricing */}
         <PricingSection lang={lang} />
+
+        {/* SEO Sections */}
+        <TravelTipsSection
+          tips={almatyToKarakolTravelTips[lang].length > 0 ? almatyToKarakolTravelTips[lang] : almatyToKarakolTravelTips.en}
+          lang={lang}
+        />
+
+        <CustomerReviewsSection
+          reviews={almatyToKarakolReviews[lang].length > 0 ? almatyToKarakolReviews[lang] : almatyToKarakolReviews.en}
+          lang={lang}
+        />
+
+        <FAQSection
+          faqs={almatyToKarakolFAQ[lang].length > 0 ? almatyToKarakolFAQ[lang] : almatyToKarakolFAQ.en}
+          lang={lang}
+        />
+
+        <RelatedRoutesSection
+          routes={almatyToKarakolRelatedRoutes[lang].length > 0 ? almatyToKarakolRelatedRoutes[lang] : almatyToKarakolRelatedRoutes.en}
+          lang={lang}
+        />
 
       </main>
 

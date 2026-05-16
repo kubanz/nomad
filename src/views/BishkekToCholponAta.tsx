@@ -5,6 +5,12 @@ import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import { Car, MessageCircle, Send, Globe, MapPin } from "lucide-react";
 import type { MapStop } from "../components/InteractiveRouteMap";
+import FAQSection from "../components/FAQSection";
+import RelatedRoutesSection from "../components/RelatedRoutesSection";
+import {
+  bishkekToCholponAtaFAQ,
+  bishkekToCholponAtaRelatedRoutes,
+} from "../data/seoContent";
 
 const InteractiveRouteMap = dynamic(
   () => import("../components/InteractiveRouteMap"),
@@ -626,6 +632,18 @@ export default function BishkekToCholponAta({ initialLang }: { initialLang?: "en
               : "Bishkek to Cholpon-Ata private transfer is the most comfortable way to reach Cholpon-Ata on Issyk-Kul. The route passes through Burana Tower, Boom Gorge, and scenic northern Issyk-Kul coastline. Flexible stops and private transport make this the best option for families and travelers seeking comfort."}
           </p>
         </section>
+
+        {/* SEO Sections */}
+        <FAQSection
+          faqs={bishkekToCholponAtaFAQ[lang].length > 0 ? bishkekToCholponAtaFAQ[lang] : bishkekToCholponAtaFAQ.en}
+          lang={lang}
+        />
+
+        <RelatedRoutesSection
+          routes={bishkekToCholponAtaRelatedRoutes[lang].length > 0 ? bishkekToCholponAtaRelatedRoutes[lang] : bishkekToCholponAtaRelatedRoutes.en}
+          lang={lang}
+        />
+
       </main>
 
       <footer className="border-t bg-white/80">

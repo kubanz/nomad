@@ -5,6 +5,16 @@ import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import { Car, MessageCircle, Send, Globe, MapPin } from "lucide-react";
 import type { MapStop } from "../components/InteractiveRouteMap";
+import FAQSection from "../components/FAQSection";
+import CustomerReviewsSection from "../components/CustomerReviewsSection";
+import TravelTipsSection from "../components/TravelTipsSection";
+import RelatedRoutesSection from "../components/RelatedRoutesSection";
+import {
+  manasToKarakolFAQ,
+  manasToKarakolReviews,
+  manasToKarakolTravelTips,
+  manasToKarakolRelatedRoutes,
+} from "../data/seoContent";
 
 const InteractiveRouteMap = dynamic(
   () => import("../components/InteractiveRouteMap"),
@@ -626,6 +636,28 @@ export default function ManasToKarakol({ initialLang }: { initialLang?: "en" | "
               : "Manas Airport (FRU) to Karakol transfer with Meet & Greet at arrivals, flight tracking, and fixed price per vehicle. The ideal choice for travelers landing in Bishkek on night or early-morning flights who want to head straight to Issyk-Kul without taxis or transfers."}
           </p>
         </section>
+
+        {/* SEO Sections */}
+        <TravelTipsSection
+          tips={manasToKarakolTravelTips[lang].length > 0 ? manasToKarakolTravelTips[lang] : manasToKarakolTravelTips.en}
+          lang={lang}
+        />
+
+        <CustomerReviewsSection
+          reviews={manasToKarakolReviews[lang].length > 0 ? manasToKarakolReviews[lang] : manasToKarakolReviews.en}
+          lang={lang}
+        />
+
+        <FAQSection
+          faqs={manasToKarakolFAQ[lang].length > 0 ? manasToKarakolFAQ[lang] : manasToKarakolFAQ.en}
+          lang={lang}
+        />
+
+        <RelatedRoutesSection
+          routes={manasToKarakolRelatedRoutes[lang].length > 0 ? manasToKarakolRelatedRoutes[lang] : manasToKarakolRelatedRoutes.en}
+          lang={lang}
+        />
+
       </main>
 
       <footer className="border-t bg-white/80">
