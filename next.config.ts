@@ -69,6 +69,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/en/manas-karakol-transfer",
+        destination: "/transfers/manas-airport-to-karakol",
+        permanent: true,
+      },
+      {
+        source: "/en/manas-karakol-transfer.html",
+        destination: "/transfers/manas-airport-to-karakol",
+        permanent: true,
+      },
+      {
         source: "/en/manas-airport-to-karakol",
         destination: "/transfers/manas-airport-to-karakol",
         permanent: true,
