@@ -4,7 +4,7 @@ import App from "../src/App";
 export const metadata: Metadata = {
   title: "Private Transfers & Tours in Kyrgyzstan | Nomad Transfer",
   description:
-    "Private transfers from Manas Airport, Bishkek, and Almaty to Karakol. Fixed price per car — sedan from $135, minivan from $155. WhatsApp reply in 1–2 min.",
+    "Private transfers from Manas Airport, Bishkek, and Almaty to Karakol. Fixed price per car — sedan from $136, minivan from $167. WhatsApp reply in 1–2 min.",
   keywords: [
     "private transfer Kyrgyzstan",
     "Manas airport transfer",

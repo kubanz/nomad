@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import ManasToKarakol from "../../../../src/views/ManasToKarakol";
 
 export const metadata: Metadata = {
-  title: "마나스 공항 (FRU) → 카라콜 이동 | 24시간 환영 | $135부터",
+  title: "마나스 공항 (FRU) → 카라콜 이동 | 24시간 환영 | $146부터",
   description:
-    "마나스(FRU) → 카라콜 프라이빗 공항 이동. 도착장에서 이름판 환영, 60분 무료 대기, 항공편 추적. 세단 $135, 밴 $155, 버스 $275. WhatsApp 24시간.",
+    "마나스(FRU) → 카라콜 프라이빗 공항 이동. 도착장에서 이름판 환영, 60분 무료 대기, 항공편 추적. 세단 $146, 밴 $177, 버스 $275. WhatsApp 24시간.",
   keywords: [
     "마나스 공항 이동",
     "FRU 카라콜",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "마나스 공항 (FRU) → 카라콜 프라이빗 이동 | 24시간 환영",
-    description: "마나스 도착장에서 이름판 환영, 60분 무료 대기, 항공편 추적. 세단 $135, 밴 $155. 카라콜 호텔까지.",
+    description: "마나스 도착장에서 이름판 환영, 60분 무료 대기, 항공편 추적. 세단 $146, 밴 $177. 카라콜 호텔까지.",
     images: [
       {
         url: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "마나스 공항 → 카라콜 이동",
-    description: "이름판 환영. 세단 $135, 밴 $155. 24시간.",
+    description: "이름판 환영. 세단 $146, 밴 $177. 24시간.",
     images: [
       "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
     ],
@@ -67,8 +67,8 @@ const jsonLd = {
       "touristType": "공항 이동, 프라이빗",
       "duration": "PT5H",
       "offers": [
-        { "@type": "Offer", "name": "세단 (최대 4명)", "price": "135", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
-        { "@type": "Offer", "name": "미니밴 (6-7명)", "price": "155", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+        { "@type": "Offer", "name": "세단 (최대 4명)", "price": "146", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+        { "@type": "Offer", "name": "미니밴 (6-7명)", "price": "177", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
         { "@type": "Offer", "name": "버스 (최대 30명)", "price": "275", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
       ],
       "provider": {
@@ -85,7 +85,7 @@ const jsonLd = {
         {
           "@type": "Question",
           "name": "마나스 공항에서 카라콜까지 이동 요금은 얼마인가요?",
-          "acceptedAnswer": { "@type": "Answer", "text": "세단(최대 4명) $135, 미니밴(6-7명) $155, 버스(최대 30명) $275입니다. 차량당 가격이며 야간(22:00~06:00) 할증 +15%. 연료, 이름판 환영, 60분 무료 대기 포함." },
+          "acceptedAnswer": { "@type": "Answer", "text": "세단(최대 4명) $146, 미니밴(6-7명) $177, 버스(최대 30명) $275입니다. 차량당 가격이며 야간(22:00~06:00) 할증 +15%. 연료, 이름판 환영, 60분 무료 대기 포함." },
         },
         {
           "@type": "Question",
