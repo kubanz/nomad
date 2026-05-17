@@ -497,6 +497,7 @@ const TourCard = ({
           fill
           sizes="(max-width: 768px) 100vw, 400px"
           className="object-cover"
+          quality={65}
         />
       ) : (
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-teal-400 to-sky-400" />

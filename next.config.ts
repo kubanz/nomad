@@ -5,7 +5,6 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { hostname: "59luetpw6qj9z6yg.public.blob.vercel-storage.com" },
     ],
-    quality: 65,
   },
   async redirects() {
     return [
