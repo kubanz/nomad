@@ -8,6 +8,10 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+  },
   title: "Nomad Transfer — Private Transfers & Tours in Kyrgyzstan",
   description:
     "Private transfers and day tours in Kyrgyzstan. Manas Airport, Bishkek, Karakol, Issyk-Kul. Fixed price per car. English-speaking drivers.",
