@@ -40,6 +40,11 @@ export const metadata: Metadata = {
     ],
   },
   metadataBase: new URL("https://nomad-transfer.com"),
+  verification: {
+    other: {
+      "naver-site-verification": "5e9e705a7856464263bc3a853ed6201f24df7504",
+    },
+  },
 };
 
 export default async function RootLayout({
