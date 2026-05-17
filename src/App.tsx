@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { Car, Plane, Mountain, Route, MessageCircle, CheckCircle2, ChevronDown, Send, Globe, MapPin, Clock } from "lucide-react";
 
 // ===== Бренд =====
@@ -755,7 +754,7 @@ export default function Landing({
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 via-teal-500 to-sky-500" />
         <div className="relative mx-auto grid max-w-6xl gap-6 px-4 py-12 md:grid-cols-2 md:py-20">
-          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="text-white">
+          <div className="text-white animate-hero-fade">
             <div className="flex flex-wrap gap-2">
               <Badge>{t.badge1}</Badge>
               <Badge>{t.badge2}</Badge>
@@ -801,8 +800,9 @@ export default function Landing({
                 </span>
               ))}
             </div>
-          </motion.div>
+          </div>
           <div className="hidden md:block" />
+
         </div>
       </section>
 
