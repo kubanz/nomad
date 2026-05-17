@@ -2,8 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { Car, Plane, Mountain, Route, MessageCircle, CheckCircle2, ChevronDown, Send, Globe, MapPin, Clock } from "lucide-react";
+import { Car, Plane, Mountain, Route, MessageCircle, CheckCircle2, ChevronDown, Send, Globe, MapPin, Clock, Menu, X } from "lucide-react";
 
 // ===== Бренд =====
 const BRAND_NAME = "Nomad Transfers KG";
@@ -457,7 +456,7 @@ const TransferCard = ({
       </a>
       <a href={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(waText)}`}
         target="_blank" rel="noopener"
-        className="flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-green-100 transition-all hover:-translate-y-0.5 hover:bg-[#128C7E] hover:shadow-lg">
+        className="flex items-center justify-center gap-2 rounded-full bg-emerald-700 px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-green-100 transition-all hover:-translate-y-0.5 hover:bg-emerald-800 hover:shadow-lg">
         <MessageCircle className="h-4 w-4" />
         {btnBook}
       </a>
@@ -477,6 +476,7 @@ const TourCard = ({
   tourLink,
   waLink,
   buttonText,
+  waLabel,
 }: {
   title: string;
   description: string;
@@ -487,6 +487,7 @@ const TourCard = ({
   tourLink: string;
   waLink: string;
   buttonText: string;
+  waLabel: string;
 }) => (
   <div className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:shadow-xl">
     {/* Image */}
@@ -498,6 +499,7 @@ const TourCard = ({
           fill
           sizes="(max-width: 768px) 100vw, 400px"
           className="object-cover"
+          quality={65}
         />
       ) : (
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-teal-400 to-sky-400" />
@@ -532,7 +534,7 @@ const TourCard = ({
           target="_blank"
           rel="noopener"
           className="flex items-center justify-center rounded-xl bg-emerald-600 px-3 py-2.5 text-white hover:bg-emerald-700"
-          aria-label="WhatsApp"
+          aria-label={waLabel}
         >
           <MessageCircle className="h-4 w-4" />
         </a>
@@ -602,7 +604,7 @@ function MobileCTA({ text, reply, lang }: { text: string; reply: string; lang: "
         <a
           href="https://t.me/nomadtransfer"
           target="_blank"
-          className="flex items-center justify-center gap-2 rounded-xl bg-sky-500 px-3 py-3 text-sm font-semibold text-white hover:bg-sky-600"
+          className="flex items-center justify-center gap-2 rounded-xl bg-sky-700 px-3 py-3 text-sm font-semibold text-white hover:bg-sky-800"
           aria-label="Contact via Telegram"
         >
           <Send className="h-4 w-4" />
@@ -610,7 +612,7 @@ function MobileCTA({ text, reply, lang }: { text: string; reply: string; lang: "
         <a
           href={`https://wa.me/` + WHATSAPP_PHONE.replace(/[^0-9+]/g, "") + `?text=${encodeURIComponent(text)}`}
           target="_blank"
-          className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 text-sm font-semibold text-white hover:bg-emerald-700"
+          className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-emerald-700 px-4 py-3 text-sm font-semibold text-white hover:bg-emerald-800"
           aria-label="Open WhatsApp to get a quick quote"
         >
           <MessageCircle className="h-4 w-4" /> {reply}
@@ -631,6 +633,7 @@ export default function Landing({
   const [lang, setLang] = useState<"en" | "ru" | "ko">(initialLang ?? "en");
   const [brand] = useState(pickBrand());
   const [showLangDropdown, setShowLangDropdown] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -655,14 +658,14 @@ export default function Landing({
       <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur">
         <div className="mx-auto grid max-w-6xl grid-cols-3 items-center px-4 py-2">
           {/* Left: brand */}
-          <div className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <Car className="h-5 w-5" />
             <span className="text-sm font-semibold md:text-base">{brand}</span>
-          </div>
+          </Link>
 
-          {/* Center: nav */}
+          {/* Center: nav (desktop only) */}
           <nav className="hidden items-center justify-center gap-1 md:flex">
-            <Link href="/" className="rounded-lg px-3 py-1.5 text-sm font-medium text-emerald-600 hover:bg-slate-100">
+            <Link href="/" className="rounded-lg px-3 py-1.5 text-sm font-medium text-emerald-700 hover:bg-slate-100">
               {lang === "ru" ? "Главная" : lang === "ko" ? "홈" : "Home"}
             </Link>
             <Link href="/#curated-tours" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
@@ -684,6 +687,14 @@ export default function Landing({
 
           {/* Right: lang + buttons */}
           <div className="flex items-center justify-end gap-2">
+            {/* Hamburger (mobile only) */}
+            <button
+              className="flex items-center justify-center rounded-xl border p-2 md:hidden"
+              onClick={() => setShowMobileMenu((v) => !v)}
+              aria-label={showMobileMenu ? "Close menu" : "Open menu"}
+            >
+              {showMobileMenu ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            </button>
             {/* Language Switcher */}
             <div className="relative">
               <button
@@ -744,7 +755,7 @@ export default function Landing({
             <a
               href="https://t.me/nomadtransfer"
               target="_blank"
-              className="hidden items-center gap-2 rounded-xl bg-sky-500 px-3 py-2 text-sm font-medium text-white hover:bg-sky-600 md:inline-flex"
+              className="hidden items-center gap-2 rounded-xl bg-sky-700 px-3 py-2 text-sm font-medium text-white hover:bg-sky-800 md:inline-flex"
               aria-label="Contact via Telegram"
             >
               <Send className="h-4 w-4" />
@@ -752,19 +763,40 @@ export default function Landing({
             <a
               href={`https://wa.me/` + WHATSAPP_PHONE.replace(/[^0-9+]/g, "") + `?text=${encodeURIComponent(WA_TEXT)}`}
               target="_blank"
-              className="hidden items-center gap-2 rounded-xl bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700 md:inline-flex"
+              className="hidden items-center gap-2 rounded-xl bg-emerald-700 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-800 md:inline-flex"
             >
               <MessageCircle className="h-4 w-4" /> {t.footerWA}
             </a>
           </div>
         </div>
+
+        {/* Mobile nav dropdown */}
+        {showMobileMenu && (
+          <nav className="border-t bg-white/95 px-4 py-3 md:hidden">
+            <div className="flex flex-col gap-1">
+              <Link href="/" onClick={() => setShowMobileMenu(false)}
+                className="rounded-lg px-3 py-2.5 text-sm font-medium text-emerald-700 hover:bg-slate-100">
+                {lang === "ru" ? "Главная" : lang === "ko" ? "홈" : "Home"}
+              </Link>
+              <Link href="/#curated-tours" onClick={() => setShowMobileMenu(false)}
+                className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100">
+                {lang === "ru" ? "Туры" : lang === "ko" ? "투어" : "Tours"}
+              </Link>
+              <Link href="/#route-prices" onClick={() => setShowMobileMenu(false)}
+                className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100">
+                {lang === "ru" ? "Трансферы" : lang === "ko" ? "이동" : "Transfers"}
+              </Link>
+            </div>
+          </nav>
+        )}
       </header>
 
+      <main>
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 via-teal-500 to-sky-500" />
         <div className="relative mx-auto grid max-w-6xl gap-6 px-4 py-12 md:grid-cols-2 md:py-20">
-          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="text-white">
+          <div className="text-white animate-hero-fade">
             <div className="flex flex-wrap gap-2">
               <Badge>{t.badge1}</Badge>
               <Badge>{t.badge2}</Badge>
@@ -783,7 +815,7 @@ export default function Landing({
               <a
                 href="https://t.me/nomadtransfer"
                 target="_blank"
-                className="inline-flex items-center gap-2 rounded-xl bg-sky-500 px-4 py-3 text-sm font-medium text-white hover:bg-sky-600"
+                className="inline-flex items-center gap-2 rounded-xl bg-sky-700 px-4 py-3 text-sm font-medium text-white hover:bg-sky-800"
                 aria-label="Contact via Telegram"
               >
                 <Send className="h-4 w-4" /> Telegram
@@ -810,8 +842,9 @@ export default function Landing({
                 </span>
               ))}
             </div>
-          </motion.div>
+          </div>
           <div className="hidden md:block" />
+
         </div>
       </section>
 
@@ -885,6 +918,7 @@ export default function Landing({
             buttonText={t.viewTour}
             tourLink="/tours/karakol-sonkul-bishkek"
             waLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in the Karakol → Son-Kul → Bishkek 2-day tour. Please share details.`)}`}
+            waLabel={`WhatsApp: ${t.tour1Title}`}
           />
           <TourCard
             title={t.tour2Title}
@@ -896,6 +930,7 @@ export default function Landing({
             buttonText={t.viewTour}
             tourLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour2Title}. Please share details.`)}`}
             waLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour2Title}. Please share details.`)}`}
+            waLabel={`WhatsApp: ${t.tour2Title}`}
           />
           <TourCard
             title={t.tour3Title}
@@ -907,6 +942,7 @@ export default function Landing({
             buttonText={t.viewTour}
             tourLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour3Title}. Please share details.`)}`}
             waLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour3Title}. Please share details.`)}`}
+            waLabel={`WhatsApp: ${t.tour3Title}`}
           />
           <TourCard
             title={t.tour4Title}
@@ -918,6 +954,7 @@ export default function Landing({
             buttonText={t.viewTour}
             tourLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour4Title}. Please share details.`)}`}
             waLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour4Title}. Please share details.`)}`}
+            waLabel={`WhatsApp: ${t.tour4Title}`}
           />
           <TourCard
             title={t.tour5Title}
@@ -929,6 +966,7 @@ export default function Landing({
             buttonText={t.viewTour}
             tourLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour5Title}. Please share details.`)}`}
             waLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour5Title}. Please share details.`)}`}
+            waLabel={`WhatsApp: ${t.tour5Title}`}
           />
         </div>
       </section>
@@ -994,7 +1032,7 @@ export default function Landing({
           <a
             href={`https://wa.me/` + WHATSAPP_PHONE.replace(/[^0-9+]/g, "") + `?text=${encodeURIComponent(WA_TEXT)}`}
             target="_blank"
-            className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-700"
+            className="inline-flex items-center gap-2 rounded-xl bg-emerald-700 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-800"
           >
             <MessageCircle className="h-4 w-4" /> {t.bookWA}
           </a>
@@ -1029,6 +1067,8 @@ export default function Landing({
         <Accordion title={t.faq5q}>{t.faq5a}</Accordion>
         <Accordion title={t.faq6q}>{t.faq6a}</Accordion>
       </section>
+
+      </main>
 
       {/* Footer */}
       <footer className="border-t bg-white/80">
@@ -1087,10 +1127,10 @@ export default function Landing({
 	    <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-6 border-t">
 	      <p className="text-xs text-slate-600">© {new Date().getFullYear()} {brand}</p>
 	      <div className="flex gap-2">
-	        <a href="https://t.me/nomadtransfer" target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border border-sky-500 px-4 py-2 text-sm text-sky-600 hover:bg-sky-50">
+	        <a href="https://t.me/nomadtransfer" target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border border-sky-700 px-4 py-2 text-sm text-sky-700 hover:bg-sky-50">
 	          <Send className="h-4 w-4" /> Telegram
 	        </a>
-	        <a href={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=Hi!%20Karakol%20transfer`} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border border-emerald-500 px-4 py-2 text-sm text-emerald-600 hover:bg-emerald-50">
+	        <a href={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=Hi!%20Karakol%20transfer`} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border border-emerald-700 px-4 py-2 text-sm text-emerald-700 hover:bg-emerald-50">
 	          <MessageCircle className="h-4 w-4" /> WhatsApp
 	        </a>
 	      </div>

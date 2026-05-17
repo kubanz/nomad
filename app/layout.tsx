@@ -8,6 +8,10 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+  },
   title: "Nomad Transfer — Private Transfers & Tours in Kyrgyzstan",
   description:
     "Private transfers and day tours in Kyrgyzstan. Manas Airport, Bishkek, Karakol, Issyk-Kul. Fixed price per car. English-speaking drivers.",
@@ -52,6 +56,14 @@ export default async function RootLayout({
 
   return (
     <html lang={lang}>
+      <head>
+        <link rel="preconnect" href="https://unpkg.com" />
+        <link rel="dns-prefetch" href="https://unpkg.com" />
+        <link rel="preconnect" href="https://router.project-osrm.org" />
+        <link rel="dns-prefetch" href="https://router.project-osrm.org" />
+        <link rel="preconnect" href="https://basemaps.cartocdn.com" />
+        <link rel="dns-prefetch" href="https://basemaps.cartocdn.com" />
+      </head>
       <body>{children}</body>
     </html>
   );

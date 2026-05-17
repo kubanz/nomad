@@ -95,9 +95,9 @@ export default function InteractiveRouteMap({ lang, stops: propStops }: Props) {
     const label = stop.type === "start" ? "▶" : stop.type === "end" ? "✓" : stop.type === "overnight" ? "🌙" : String(stop.id + 1);
     return L.divIcon({
       className: "",
-      html: `<div style="width:30px;height:30px;border-radius:50%;background:${bg};border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;">${label}</div>`,
-      iconSize: [30, 30],
-      iconAnchor: [15, 15],
+      html: `<div style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;"><div style="width:30px;height:30px;border-radius:50%;background:${bg};border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;">${label}</div></div>`,
+      iconSize: [44, 44],
+      iconAnchor: [22, 22],
     });
   }
 
@@ -105,9 +105,9 @@ export default function InteractiveRouteMap({ lang, stops: propStops }: Props) {
     const L = (window as any).L;
     return L.divIcon({
       className: "",
-      html: `<div style="font-size:22px;transform:rotate(${angle}deg);filter:drop-shadow(0 3px 6px rgba(0,0,0,.3));">🚗</div>`,
-      iconSize: [28, 28],
-      iconAnchor: [14, 14],
+      html: `<div style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;"><div style="font-size:22px;transform:rotate(${angle}deg);filter:drop-shadow(0 3px 6px rgba(0,0,0,.3));">🚗</div></div>`,
+      iconSize: [44, 44],
+      iconAnchor: [22, 22],
     });
   }
 
@@ -246,6 +246,10 @@ export default function InteractiveRouteMap({ lang, stops: propStops }: Props) {
 
       const waypoints = s.map((stop) => L.latLng(stop.lat, stop.lng));
 
+      // Use a detached container so the routing machine's turn-by-turn table
+      // never enters the real DOM (avoids ~900 extra DOM nodes).
+      const hiddenContainer = document.createElement("div");
+
       L.Routing.control({
         waypoints,
         routeWhileDragging: false,
@@ -253,6 +257,7 @@ export default function InteractiveRouteMap({ lang, stops: propStops }: Props) {
         show: false,
         createMarker: () => null,
         lineOptions: { styles: [{ color: "#0d9488", weight: 5, opacity: 0.85 }] },
+        container: hiddenContainer,
       })
         .addTo(map)
         .on("routesfound", (e: any) => {
