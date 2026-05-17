@@ -729,7 +729,7 @@ export default function AlmatyToKarakol({ initialLang }: { initialLang?: "en" | 
               )}
             </div>
             <a href="https://t.me/nomadtransfer" target="_blank" rel="noopener"
-              className="hidden items-center gap-2 rounded-xl bg-sky-500 px-3 py-2 text-sm font-medium text-white hover:bg-sky-600 md:inline-flex">
+              className="hidden items-center gap-2 rounded-xl bg-sky-700 px-3 py-2 text-sm font-medium text-white hover:bg-sky-800 md:inline-flex">
               <Send className="h-4 w-4" /> Telegram
             </a>
             <a href={WA_LINK} target="_blank" rel="noopener"
@@ -889,7 +889,8 @@ export default function AlmatyToKarakol({ initialLang }: { initialLang?: "en" | 
       <div className="fixed inset-x-0 bottom-0 z-50 border-t bg-white/95 p-3 shadow-2xl md:hidden">
         <div className="flex gap-2">
           <a href="https://t.me/nomadtransfer" target="_blank" rel="noopener"
-            className="flex items-center justify-center gap-2 rounded-xl bg-sky-500 px-3 py-3 text-sm font-semibold text-white hover:bg-sky-600">
+            className="flex items-center justify-center gap-2 rounded-xl bg-sky-700 px-3 py-3 text-sm font-semibold text-white hover:bg-sky-800"
+            aria-label="Telegram">
             <Send className="h-4 w-4" />
           </a>
           <a href={WA_LINK} target="_blank" rel="noopener"
