@@ -456,7 +456,7 @@ const TransferCard = ({
       </a>
       <a href={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(waText)}`}
         target="_blank" rel="noopener"
-        className="flex items-center justify-center gap-2 rounded-full bg-[#128C7E] px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-green-100 transition-all hover:-translate-y-0.5 hover:bg-[#0a6355] hover:shadow-lg">
+        className="flex items-center justify-center gap-2 rounded-full bg-emerald-700 px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-green-100 transition-all hover:-translate-y-0.5 hover:bg-emerald-800 hover:shadow-lg">
         <MessageCircle className="h-4 w-4" />
         {btnBook}
       </a>
@@ -476,6 +476,7 @@ const TourCard = ({
   tourLink,
   waLink,
   buttonText,
+  waLabel,
 }: {
   title: string;
   description: string;
@@ -486,6 +487,7 @@ const TourCard = ({
   tourLink: string;
   waLink: string;
   buttonText: string;
+  waLabel: string;
 }) => (
   <div className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:shadow-xl">
     {/* Image */}
@@ -532,7 +534,7 @@ const TourCard = ({
           target="_blank"
           rel="noopener"
           className="flex items-center justify-center rounded-xl bg-emerald-600 px-3 py-2.5 text-white hover:bg-emerald-700"
-          aria-label="WhatsApp"
+          aria-label={waLabel}
         >
           <MessageCircle className="h-4 w-4" />
         </a>
@@ -751,6 +753,7 @@ export default function Landing({
         </div>
       </header>
 
+      <main>
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 via-teal-500 to-sky-500" />
@@ -877,6 +880,7 @@ export default function Landing({
             buttonText={t.viewTour}
             tourLink="/tours/karakol-sonkul-bishkek"
             waLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in the Karakol → Son-Kul → Bishkek 2-day tour. Please share details.`)}`}
+            waLabel={`WhatsApp: ${t.tour1Title}`}
           />
           <TourCard
             title={t.tour2Title}
@@ -888,6 +892,7 @@ export default function Landing({
             buttonText={t.viewTour}
             tourLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour2Title}. Please share details.`)}`}
             waLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour2Title}. Please share details.`)}`}
+            waLabel={`WhatsApp: ${t.tour2Title}`}
           />
           <TourCard
             title={t.tour3Title}
@@ -899,6 +904,7 @@ export default function Landing({
             buttonText={t.viewTour}
             tourLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour3Title}. Please share details.`)}`}
             waLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour3Title}. Please share details.`)}`}
+            waLabel={`WhatsApp: ${t.tour3Title}`}
           />
           <TourCard
             title={t.tour4Title}
@@ -910,6 +916,7 @@ export default function Landing({
             buttonText={t.viewTour}
             tourLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour4Title}. Please share details.`)}`}
             waLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour4Title}. Please share details.`)}`}
+            waLabel={`WhatsApp: ${t.tour4Title}`}
           />
           <TourCard
             title={t.tour5Title}
@@ -921,6 +928,7 @@ export default function Landing({
             buttonText={t.viewTour}
             tourLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour5Title}. Please share details.`)}`}
             waLink={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(`Hi! I'm interested in ${t.tour5Title}. Please share details.`)}`}
+            waLabel={`WhatsApp: ${t.tour5Title}`}
           />
         </div>
       </section>
@@ -983,6 +991,8 @@ export default function Landing({
         <Accordion title={t.faq5q}>{t.faq5a}</Accordion>
         <Accordion title={t.faq6q}>{t.faq6a}</Accordion>
       </section>
+
+      </main>
 
       {/* Footer */}
       <footer className="border-t bg-white/80">
