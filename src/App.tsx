@@ -456,7 +456,7 @@ const TransferCard = ({
       </a>
       <a href={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(waText)}`}
         target="_blank" rel="noopener"
-        className="flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-green-100 transition-all hover:-translate-y-0.5 hover:bg-[#128C7E] hover:shadow-lg">
+        className="flex items-center justify-center gap-2 rounded-full bg-[#128C7E] px-4 py-3.5 text-sm font-semibold text-white shadow-md shadow-green-100 transition-all hover:-translate-y-0.5 hover:bg-[#0a6355] hover:shadow-lg">
         <MessageCircle className="h-4 w-4" />
         {btnBook}
       </a>
@@ -601,7 +601,7 @@ function MobileCTA({ text, reply, lang }: { text: string; reply: string; lang: "
         <a
           href="https://t.me/nomadtransfer"
           target="_blank"
-          className="flex items-center justify-center gap-2 rounded-xl bg-sky-500 px-3 py-3 text-sm font-semibold text-white hover:bg-sky-600"
+          className="flex items-center justify-center gap-2 rounded-xl bg-sky-700 px-3 py-3 text-sm font-semibold text-white hover:bg-sky-800"
           aria-label="Contact via Telegram"
         >
           <Send className="h-4 w-4" />
@@ -609,7 +609,7 @@ function MobileCTA({ text, reply, lang }: { text: string; reply: string; lang: "
         <a
           href={`https://wa.me/` + WHATSAPP_PHONE.replace(/[^0-9+]/g, "") + `?text=${encodeURIComponent(text)}`}
           target="_blank"
-          className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 text-sm font-semibold text-white hover:bg-emerald-700"
+          className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-emerald-700 px-4 py-3 text-sm font-semibold text-white hover:bg-emerald-800"
           aria-label="Open WhatsApp to get a quick quote"
         >
           <MessageCircle className="h-4 w-4" /> {reply}
@@ -661,7 +661,7 @@ export default function Landing({
 
           {/* Center: nav */}
           <nav className="hidden items-center justify-center gap-1 md:flex">
-            <Link href="/" className="rounded-lg px-3 py-1.5 text-sm font-medium text-emerald-600 hover:bg-slate-100">
+            <Link href="/" className="rounded-lg px-3 py-1.5 text-sm font-medium text-emerald-700 hover:bg-slate-100">
               {lang === "ru" ? "Главная" : lang === "ko" ? "홈" : "Home"}
             </Link>
             <Link href="/#curated-tours" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
@@ -734,7 +734,7 @@ export default function Landing({
             <a
               href="https://t.me/nomadtransfer"
               target="_blank"
-              className="hidden items-center gap-2 rounded-xl bg-sky-500 px-3 py-2 text-sm font-medium text-white hover:bg-sky-600 md:inline-flex"
+              className="hidden items-center gap-2 rounded-xl bg-sky-700 px-3 py-2 text-sm font-medium text-white hover:bg-sky-800 md:inline-flex"
               aria-label="Contact via Telegram"
             >
               <Send className="h-4 w-4" />
@@ -742,7 +742,7 @@ export default function Landing({
             <a
               href={`https://wa.me/` + WHATSAPP_PHONE.replace(/[^0-9+]/g, "") + `?text=${encodeURIComponent(WA_TEXT)}`}
               target="_blank"
-              className="hidden items-center gap-2 rounded-xl bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700 md:inline-flex"
+              className="hidden items-center gap-2 rounded-xl bg-emerald-700 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-800 md:inline-flex"
             >
               <MessageCircle className="h-4 w-4" /> {t.footerWA}
             </a>
@@ -773,7 +773,7 @@ export default function Landing({
               <a
                 href="https://t.me/nomadtransfer"
                 target="_blank"
-                className="inline-flex items-center gap-2 rounded-xl bg-sky-500 px-4 py-3 text-sm font-medium text-white hover:bg-sky-600"
+                className="inline-flex items-center gap-2 rounded-xl bg-sky-700 px-4 py-3 text-sm font-medium text-white hover:bg-sky-800"
                 aria-label="Contact via Telegram"
               >
                 <Send className="h-4 w-4" /> Telegram
@@ -947,7 +947,7 @@ export default function Landing({
           <a
             href={`https://wa.me/` + WHATSAPP_PHONE.replace(/[^0-9+]/g, "") + `?text=${encodeURIComponent(WA_TEXT)}`}
             target="_blank"
-            className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-700"
+            className="inline-flex items-center gap-2 rounded-xl bg-emerald-700 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-800"
           >
             <MessageCircle className="h-4 w-4" /> {t.bookWA}
           </a>
@@ -1009,10 +1009,10 @@ export default function Landing({
 		  {/* <a href={`https://open.kakao.com/me/nomadtransfers`} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border border-yellow-400 px-4 py-2 text-sm text-yellow-600 hover:bg-yellow-50" title={`KakaoTalk: ${KAKAO_PHONE}`}>
 			<MessageCircle className="h-4 w-4" /> KakaoTalk
 		  </a> */}
-		  <a href="https://t.me/nomadtransfer" target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border border-sky-500 px-4 py-2 text-sm text-sky-600 hover:bg-sky-50">
+		  <a href="https://t.me/nomadtransfer" target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border border-sky-700 px-4 py-2 text-sm text-sky-700 hover:bg-sky-50">
 			<Send className="h-4 w-4" /> Telegram
 		  </a>
-		  <a href={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=Hi!%20Karakol%20transfer`} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border border-emerald-500 px-4 py-2 text-sm text-emerald-600 hover:bg-emerald-50">
+		  <a href={`https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=Hi!%20Karakol%20transfer`} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-xl border border-emerald-700 px-4 py-2 text-sm text-emerald-700 hover:bg-emerald-50">
 			<MessageCircle className="h-4 w-4" /> WhatsApp
 		  </a>
 		</div>
