@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -509,9 +509,12 @@ export default function OshToBishkek({ initialLang }: { initialLang?: "en" | "ru
             <span className="text-sm font-semibold">{BRAND}</span>
           </div>
           <nav className="hidden items-center justify-center gap-1 md:flex">
-            <Link href="/" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">{lang === "ru" ? "Главная" : lang === "ko" ? "홈" : "Home"}</Link>
-            <Link href="/#curated-tours" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">{lang === "ru" ? "Туры" : lang === "ko" ? "투어" : "Tours"}</Link>
-            <Link href="/#route-prices" className="rounded-lg px-3 py-1.5 text-sm font-medium text-emerald-600 hover:bg-slate-100">{lang === "ru" ? "Трансферы" : lang === "ko" ? "이동" : "Transfers"}</Link>
+            <Link href="/" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-emerald-600">{lang === "ru" ? "Главная" : lang === "ko" ? "홈" : "Home"}</Link>
+            <Link href="/#curated-tours" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-emerald-600">{lang === "ru" ? "Туры" : lang === "ko" ? "투어" : "Tours"}</Link>
+            <Link href="/#route-prices" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-emerald-600">{lang === "ru" ? "Трансферы" : lang === "ko" ? "이동" : "Transfers"}</Link>
+            <Link href="/pricing" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-emerald-600">{lang === "ru" ? "Цены" : lang === "ko" ? "가격" : "Pricing"}</Link>
+            <Link href="/#travel-guides" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-emerald-600">{lang === "ru" ? "Гиды" : lang === "ko" ? "가이드" : "Guides"}</Link>
+            <Link href="/about" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-emerald-600">{lang === "ru" ? "О нас" : lang === "ko" ? "회사 소개" : "About"}</Link>
           </nav>
           <div className="flex items-center justify-end gap-2">
             <div className="relative">
