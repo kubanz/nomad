@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Car, Plane, Mountain, Route, MessageCircle, CheckCircle2, ChevronDown, Send, Globe, MapPin, Clock } from "lucide-react";
+import { Car, Plane, Mountain, Route, MessageCircle, CheckCircle2, ChevronDown, Send, Globe, MapPin, Clock, Menu, X } from "lucide-react";
 
 // ===== Бренд =====
 const BRAND_NAME = "Nomad Transfers KG";
@@ -633,6 +633,7 @@ export default function Landing({
   const [lang, setLang] = useState<"en" | "ru" | "ko">(initialLang ?? "en");
   const [brand] = useState(pickBrand());
   const [showLangDropdown, setShowLangDropdown] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -657,12 +658,12 @@ export default function Landing({
       <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur">
         <div className="mx-auto grid max-w-6xl grid-cols-3 items-center px-4 py-2">
           {/* Left: brand */}
-          <div className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <Car className="h-5 w-5" />
             <span className="text-sm font-semibold md:text-base">{brand}</span>
-          </div>
+          </Link>
 
-          {/* Center: nav */}
+          {/* Center: nav (desktop only) */}
           <nav className="hidden items-center justify-center gap-1 md:flex">
             <Link href="/" className="rounded-lg px-3 py-1.5 text-sm font-medium text-emerald-700 hover:bg-slate-100">
               {lang === "ru" ? "Главная" : lang === "ko" ? "홈" : "Home"}
@@ -677,6 +678,14 @@ export default function Landing({
 
           {/* Right: lang + buttons */}
           <div className="flex items-center justify-end gap-2">
+            {/* Hamburger (mobile only) */}
+            <button
+              className="flex items-center justify-center rounded-xl border p-2 md:hidden"
+              onClick={() => setShowMobileMenu((v) => !v)}
+              aria-label={showMobileMenu ? "Close menu" : "Open menu"}
+            >
+              {showMobileMenu ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            </button>
             {/* Language Switcher */}
             <div className="relative">
               <button
@@ -751,6 +760,26 @@ export default function Landing({
             </a>
           </div>
         </div>
+
+        {/* Mobile nav dropdown */}
+        {showMobileMenu && (
+          <nav className="border-t bg-white/95 px-4 py-3 md:hidden">
+            <div className="flex flex-col gap-1">
+              <Link href="/" onClick={() => setShowMobileMenu(false)}
+                className="rounded-lg px-3 py-2.5 text-sm font-medium text-emerald-700 hover:bg-slate-100">
+                {lang === "ru" ? "Главная" : lang === "ko" ? "홈" : "Home"}
+              </Link>
+              <Link href="/#curated-tours" onClick={() => setShowMobileMenu(false)}
+                className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100">
+                {lang === "ru" ? "Туры" : lang === "ko" ? "투어" : "Tours"}
+              </Link>
+              <Link href="/#route-prices" onClick={() => setShowMobileMenu(false)}
+                className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100">
+                {lang === "ru" ? "Трансферы" : lang === "ko" ? "이동" : "Transfers"}
+              </Link>
+            </div>
+          </nav>
+        )}
       </header>
 
       <main>
