@@ -246,6 +246,10 @@ export default function InteractiveRouteMap({ lang, stops: propStops }: Props) {
 
       const waypoints = s.map((stop) => L.latLng(stop.lat, stop.lng));
 
+      // Use a detached container so the routing machine's turn-by-turn table
+      // never enters the real DOM (avoids ~900 extra DOM nodes).
+      const hiddenContainer = document.createElement("div");
+
       L.Routing.control({
         waypoints,
         routeWhileDragging: false,
@@ -253,6 +257,7 @@ export default function InteractiveRouteMap({ lang, stops: propStops }: Props) {
         show: false,
         createMarker: () => null,
         lineOptions: { styles: [{ color: "#0d9488", weight: 5, opacity: 0.85 }] },
+        container: hiddenContainer,
       })
         .addTo(map)
         .on("routesfound", (e: any) => {
