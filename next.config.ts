@@ -1,9 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  experimental: {
-    optimizeCss: true,
-  },
   images: {
     remotePatterns: [
       { hostname: "59luetpw6qj9z6yg.public.blob.vercel-storage.com" },
