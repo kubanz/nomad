@@ -1,9 +1,9 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
-import { Car, MessageCircle, Send, Globe, MapPin } from "lucide-react";
+import { MessageCircle, Send, MapPin } from "lucide-react";
+import SiteHeader from "../components/SiteHeader";
 import type { MapStop } from "../components/InteractiveRouteMap";
 
 const LANG_ROUTES: Record<"en" | "ru" | "ko", string> = {
@@ -666,79 +666,17 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
 
 export default function AlmatyToKarakol({ initialLang }: { initialLang?: "en" | "ru" | "ko" }) {
   const [lang, setLang] = useState<"en" | "ru" | "ko">(initialLang ?? pickLang());
-  const [showLangDropdown, setShowLangDropdown] = useState(false);
   const router = useRouter();
 
   function handleLangChange(code: "en" | "ru" | "ko") {
     setLang(code);
     saveLang(code);
-    setShowLangDropdown(false);
     router.push(LANG_ROUTES[code]);
   }
 
-  useEffect(() => {
-    if (!showLangDropdown) return;
-    const close = () => setShowLangDropdown(false);
-    document.addEventListener("click", close);
-    return () => document.removeEventListener("click", close);
-  }, [showLangDropdown]);
-
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
-      {/* Header */}
-      <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur">
-        <div className="mx-auto grid max-w-6xl grid-cols-3 items-center px-4 py-2">
-          <div className="flex items-center gap-2">
-            <Car className="h-5 w-5" />
-            <span className="text-sm font-semibold">{BRAND}</span>
-          </div>
-
-          <nav className="hidden items-center justify-center gap-1 md:flex">
-            <Link href="/" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
-              {lang === "ru" ? "Главная" : lang === "ko" ? "홈" : "Home"}
-            </Link>
-            <Link href="/#curated-tours" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
-              {lang === "ru" ? "Туры" : lang === "ko" ? "투어" : "Tours"}
-            </Link>
-            <Link href="/#route-prices" className="rounded-lg px-3 py-1.5 text-sm font-medium text-emerald-600 hover:bg-slate-100">
-              {lang === "ru" ? "Трансферы" : lang === "ko" ? "이동" : "Transfers"}
-            </Link>
-          </nav>
-
-          <div className="flex items-center justify-end gap-2">
-            <div className="relative">
-              <button
-                onClick={(e) => { e.stopPropagation(); setShowLangDropdown(!showLangDropdown); }}
-                className="rounded-xl border px-3 py-2 text-xs font-medium hover:bg-slate-50"
-                aria-label="Change language"
-              >
-                <Globe className="h-4 w-4" />
-              </button>
-              {showLangDropdown && (
-                <div className="absolute right-0 top-full mt-2 w-36 rounded-xl border bg-white shadow-lg z-50">
-                  {LANGS.map(({ code, label, flag }) => (
-                    <button
-                      key={code}
-                      onClick={(e) => { e.stopPropagation(); handleLangChange(code); }}
-                      className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-50 first:rounded-t-xl last:rounded-b-xl ${lang === code ? "bg-slate-50 font-semibold" : ""}`}
-                    >
-                      {flag} {label}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-            <a href="https://t.me/nomadtransfer" target="_blank" rel="noopener"
-              className="hidden items-center gap-2 rounded-xl bg-sky-700 px-3 py-2 text-sm font-medium text-white hover:bg-sky-800 md:inline-flex">
-              <Send className="h-4 w-4" /> Telegram
-            </a>
-            <a href={WA_LINK} target="_blank" rel="noopener"
-              className="hidden items-center gap-2 rounded-xl bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700 md:inline-flex">
-              <MessageCircle className="h-4 w-4" /> WhatsApp
-            </a>
-          </div>
-        </div>
-      </header>
+      <SiteHeader lang={lang} waLink={WA_LINK} onLangChange={handleLangChange} activeNav="transfers" />
 
       {/* Hero */}
       <section className="relative overflow-hidden">
