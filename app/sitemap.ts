@@ -2,17 +2,22 @@ import type { MetadataRoute } from "next";
 
 const BASE = "https://nomad-transfer.com";
 
-const TRANSFERS = [
-  "bishkek-to-karakol",
-  "almaty-to-karakol",
-  "manas-airport-to-karakol",
-  "almaty-to-bishkek",
-  "bishkek-to-cholpon-ata",
-  "bishkek-to-osh",
+// Real last-modified dates taken from git commit history per page.
+// Update when content (prices, FAQ, route details) actually changes.
+const TRANSFERS: { slug: string; lastModified: Date }[] = [
+  { slug: "bishkek-to-karakol",      lastModified: new Date("2026-05-15") },
+  { slug: "almaty-to-karakol",       lastModified: new Date("2026-05-15") },
+  { slug: "manas-airport-to-karakol",lastModified: new Date("2026-05-16") },
+  { slug: "almaty-to-bishkek",       lastModified: new Date("2026-05-15") },
+  { slug: "bishkek-to-cholpon-ata",  lastModified: new Date("2026-05-15") },
+  { slug: "bishkek-to-osh",         lastModified: new Date("2026-05-15") },
 ];
 
+const HOME_LAST_MODIFIED   = new Date("2026-05-16");
+const TOUR_LAST_MODIFIED   = new Date("2026-05-16");
+const GUIDE_LAST_MODIFIED  = new Date("2026-05-16");
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
   const entries: MetadataRoute.Sitemap = [];
 
   // Homepage (en / ru / ko)
@@ -26,7 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (lang === "x-default") continue;
     entries.push({
       url,
-      lastModified: now,
+      lastModified: HOME_LAST_MODIFIED,
       changeFrequency: "weekly",
       priority: lang === "en" ? 1.0 : 0.8,
       alternates: { languages: homeLangs },
@@ -44,7 +49,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (lang === "x-default") continue;
     entries.push({
       url,
-      lastModified: now,
+      lastModified: TOUR_LAST_MODIFIED,
       changeFrequency: "monthly",
       priority: lang === "en" ? 0.9 : 0.8,
       alternates: { languages: tourLangs },
@@ -62,7 +67,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (lang === "x-default") continue;
     entries.push({
       url,
-      lastModified: now,
+      lastModified: GUIDE_LAST_MODIFIED,
       changeFrequency: "monthly",
       priority: lang === "en" ? 0.8 : 0.7,
       alternates: { languages: guideLangs },
@@ -70,7 +75,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   // Transfer routes (en / ru / ko)
-  for (const slug of TRANSFERS) {
+  for (const { slug, lastModified } of TRANSFERS) {
     const langs = {
       "x-default": `${BASE}/transfers/${slug}`,
       en: `${BASE}/transfers/${slug}`,
@@ -81,7 +86,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       if (lang === "x-default") continue;
       entries.push({
         url,
-        lastModified: now,
+        lastModified,
         changeFrequency: "monthly",
         priority: lang === "en" ? 0.9 : 0.8,
         alternates: { languages: langs },
