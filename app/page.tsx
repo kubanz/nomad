@@ -67,6 +67,39 @@ const jsonLd = {
   "paymentAccepted": "Cash, Bank Transfer",
   "openingHours": "Mo-Su 00:00-24:00",
   "sameAs": ["https://t.me/nomadtransfer"],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "4",
+    "bestRating": "5",
+    "worstRating": "1",
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Samuel Dow Thomson" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Transfer from Almaty to Karakol. Communication was smooth and fast. They picked us up right where we needed and got us again exactly where we needed. 100% recommended!",
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Ana Isa Correia" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "I used their transfer service from Bishkek airport to Karakol. They were always prompt to respond and the service was excellent.",
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Kasper Valtonen" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Great customer service throughout from reserving the trip to getting to destination! Really easy way of getting from Almaty to Karakol and seeing the Charyn Canyon.",
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Madina Z" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Excellent service! Low prices, experienced drivers, comfortable cars, clients oriented service. We're pleased with this company.",
+    },
+  ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Private Transfer Routes",

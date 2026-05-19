@@ -1021,6 +1021,71 @@ export default function Landing({
         <Accordion title={t.faq6q}>{t.faq6a}</Accordion>
       </section>
 
+      {/* Reviews */}
+      <section id="reviews" className="mx-auto max-w-6xl px-4 py-10">
+        <div className="mb-6 flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-widest text-emerald-600">
+              {lang === "ru" ? "Отзывы" : lang === "ko" ? "리뷰" : "Reviews"}
+            </p>
+            <h2 className="mt-1 text-2xl font-bold md:text-3xl">
+              {lang === "ru" ? "Что говорят наши клиенты" : lang === "ko" ? "고객 후기" : "What Our Clients Say"}
+            </h2>
+          </div>
+          <div className="flex items-center gap-2 rounded-2xl bg-amber-50 px-4 py-2">
+            <span className="text-2xl font-extrabold text-amber-500">5.0</span>
+            <div>
+              <div className="flex gap-0.5 text-amber-400">{"★★★★★"}</div>
+              <p className="text-xs text-slate-500">
+                {lang === "ru" ? "4 отзыва · Google" : lang === "ko" ? "4개 리뷰 · Google" : "4 reviews · Google"}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2">
+          {[
+            {
+              name: "Samuel Dow Thomson",
+              route: lang === "ru" ? "Алматы → Каракол" : lang === "ko" ? "알마티 → 카라콜" : "Almaty → Karakol",
+              text: "Transfer from Almaty to Karakol. Communication was smooth and fast. They picked us up right where we needed and got us again exactly where we needed. 100% recommended!",
+            },
+            {
+              name: "Ana Isa Correia",
+              route: lang === "ru" ? "Аэропорт Бишкек → Каракол" : lang === "ko" ? "비슈케크 공항 → 카라콜" : "Bishkek Airport → Karakol",
+              text: "I used their transfer service from Bishkek airport to Karakol. They were always prompt to respond and the service was excellent.",
+            },
+            {
+              name: "Kasper Valtonen",
+              route: lang === "ru" ? "Алматы → Каракол" : lang === "ko" ? "알마티 → 카라콜" : "Almaty → Karakol",
+              text: "Great customer service throughout from reserving the trip to getting to destination! Really easy way of getting from Almaty to Karakol and seeing the Charyn Canyon.",
+            },
+            {
+              name: "Madina Z",
+              route: lang === "ru" ? "Трансфер" : lang === "ko" ? "이동 서비스" : "Transfer",
+              text: "Excellent service! Low prices, experienced drivers, comfortable cars, clients oriented service. We're pleased with this company.",
+            },
+          ].map((review) => (
+            <div key={review.name} className="flex flex-col gap-3 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-100 text-sm font-bold text-emerald-700">
+                    {review.name[0]}
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-900">{review.name}</p>
+                    <p className="text-xs text-slate-400">{review.route}</p>
+                  </div>
+                </div>
+                <div className="text-sm text-amber-400">★★★★★</div>
+              </div>
+              <p className="text-sm leading-relaxed text-slate-600">"{review.text}"</p>
+              <p className="text-xs text-slate-400">Google</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       </main>
 
       {/* Footer */}
