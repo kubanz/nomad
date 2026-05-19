@@ -1090,6 +1090,20 @@ export default function Landing({
           </div>
         </div>
 
+        <div className="mb-6">
+          <a
+            href="https://www.google.com/maps/place/Nomad+Transfer/@42.4967353,77.6871326,7z/data=!4m6!3m5!1s0x690bdf89a256c3a5:0x79fc60c2de50a6f9!8m2!3d42.0659413!4d77.3465565!16s%2Fg%2F11ykpnh156"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm hover:border-emerald-300 hover:text-emerald-700 transition"
+          >
+            <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+            {lang === "ru" ? "Все отзывы в Google Maps" : lang === "ko" ? "Google Maps에서 전체 리뷰 보기" : "See all reviews on Google Maps"}
+          </a>
+        </div>
+
         <div className="grid gap-4 sm:grid-cols-2">
           {[
             {
