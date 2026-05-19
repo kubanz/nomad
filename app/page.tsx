@@ -85,7 +85,7 @@ const jsonLd = {
       "@type": "Review",
       "author": { "@type": "Person", "name": "Ana Isa Correia" },
       "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-      "reviewBody": "I used their transfer service from Bishkek airport to Karakol. They were always prompt to respond and the service was excellent.",
+      "reviewBody": "I used their transfer service from Bishkek airport to Karakol. They were always prompt to respond, super helpful and nice. The car was spacious, comfortable and warm, and the driver was good. The fees are according to the website. You can pay by money transfer or cash when you arrive. I really enjoyed it and will use their services again. I recommend for anyone coming.",
     },
     {
       "@type": "Review",
