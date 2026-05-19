@@ -1100,7 +1100,7 @@ export default function Landing({
             {
               name: "Ana Isa Correia",
               route: lang === "ru" ? "Аэропорт Бишкек → Каракол" : lang === "ko" ? "비슈케크 공항 → 카라콜" : "Bishkek Airport → Karakol",
-              text: "I used their transfer service from Bishkek airport to Karakol. They were always prompt to respond and the service was excellent.",
+              text: "I used their transfer service from Bishkek airport to Karakol. They were always prompt to respond, super helpful and nice. The car was spacious, comfortable and warm, and the driver was good. The fees are according to the website. You can pay by money transfer or cash when you arrive. Highly recommend!",
             },
             {
               name: "Kasper Valtonen",
