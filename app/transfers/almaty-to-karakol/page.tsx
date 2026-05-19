@@ -101,6 +101,7 @@ const jsonLd = {
       ],
       "provider": {
         "@type": "LocalBusiness",
+        "@id": "https://nomad-transfer.com/#business",
         "name": "Nomad Transfer",
         "telephone": "+996552291808",
         "url": "https://nomad-transfer.com",

@@ -20,6 +20,8 @@ export default function SiteHeader({ lang, waLink, onLangChange, activeNav }: Pr
   const [showLangDropdown, setShowLangDropdown] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
+  const prefix = lang === "ru" ? "/ru" : lang === "ko" ? "/ko" : "";
+
   useEffect(() => {
     if (!showLangDropdown) return;
     const close = () => setShowLangDropdown(false);
@@ -55,16 +57,16 @@ export default function SiteHeader({ lang, waLink, onLangChange, activeNav }: Pr
     <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur">
       <div className="mx-auto grid max-w-6xl grid-cols-3 items-center px-4 py-2">
         {/* Left: brand */}
-        <Link href="/" className="flex items-center gap-2">
+        <Link href={`${prefix}/`} className="flex items-center gap-2">
           <Car className="h-5 w-5" />
           <span className="text-sm font-semibold">Nomad Transfers KG</span>
         </Link>
 
         {/* Center: nav (desktop) */}
         <nav className="hidden items-center justify-center gap-1 md:flex">
-          {navLink("/", "Home", "Главная", "홈", activeNav === "home")}
-          {navLink("/#curated-tours", "Tours", "Туры", "투어", activeNav === "tours")}
-          {navLink("/#route-prices", "Transfers", "Трансферы", "이동", activeNav === "transfers")}
+          {navLink(`${prefix}/`, "Home", "Главная", "홈", activeNav === "home")}
+          {navLink(`${prefix}/#curated-tours`, "Tours", "Туры", "투어", activeNav === "tours")}
+          {navLink(`${prefix}/#route-prices`, "Transfers", "Трансферы", "이동", activeNav === "transfers")}
         </nav>
 
         {/* Right: hamburger + lang + desktop buttons */}
@@ -127,9 +129,9 @@ export default function SiteHeader({ lang, waLink, onLangChange, activeNav }: Pr
       {showMobileMenu && (
         <nav className="border-t bg-white/95 px-4 py-3 md:hidden">
           <div className="flex flex-col gap-1">
-            {mobileNavLink("/", "Home", "Главная", "홈", activeNav === "home")}
-            {mobileNavLink("/#curated-tours", "Tours", "Туры", "투어", activeNav === "tours")}
-            {mobileNavLink("/#route-prices", "Transfers", "Трансферы", "이동", activeNav === "transfers")}
+            {mobileNavLink(`${prefix}/`, "Home", "Главная", "홈", activeNav === "home")}
+            {mobileNavLink(`${prefix}/#curated-tours`, "Tours", "Туры", "투어", activeNav === "tours")}
+            {mobileNavLink(`${prefix}/#route-prices`, "Transfers", "Трансферы", "이동", activeNav === "transfers")}
           </div>
         </nav>
       )}

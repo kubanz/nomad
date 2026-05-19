@@ -5,16 +5,7 @@ import dynamic from "next/dynamic";
 import { MessageCircle, Send, MapPin } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
 import type { MapStop } from "../components/InteractiveRouteMap";
-import FAQSection from "../components/FAQSection";
-import CustomerReviewsSection from "../components/CustomerReviewsSection";
-import TravelTipsSection from "../components/TravelTipsSection";
-import RelatedRoutesSection from "../components/RelatedRoutesSection";
-import {
-  almatyToKarakolFAQ,
-  almatyToKarakolReviews,
-  almatyToKarakolTravelTips,
-  almatyToKarakolRelatedRoutes,
-} from "../data/seoContent";
+import RelatedRoutes from "../components/RelatedRoutes";
 
 const LANG_ROUTES: Record<"en" | "ru" | "ko", string> = {
   en: "/transfers/almaty-to-karakol",
@@ -147,7 +138,7 @@ const STOPS: Stop[] = [
 
 const WHATSAPP_PHONE = "+996552291808";
 const WA_LINK = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(
-  "Hi! I'm interested in the Almaty  to  Karakol private transfer. Please share availability and price."
+  "Hi! I'm interested in the Almaty → Karakol private transfer. Please share availability and price."
 )}`;
 const WA_LINK_SIMPLE = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(
   "Hi! I need a simple transfer from Almaty to Karakol. Please share availability and price."
@@ -183,7 +174,7 @@ function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
     title: {
       en: "Almaty to Karakol — Private Transfer",
       ru: "Алматы — Каракол: Приватный трансфер",
-      ko: "알마티  to  카라콜 프라이빗 이동",
+      ko: "알마티 → 카라콜 프라이빗 이동",
     },
     desc: {
       en: "Need to get from Almaty to Karakol quickly and comfortably? We pick you up from your hotel in Almaty and drop you off at your hotel in Karakol. Professional driver, comfortable car, no hidden fees.",
@@ -207,7 +198,7 @@ function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
   };
 
   const pills = [
-    { icon: "📍", text: "Almaty  to  Karakol" },
+    { icon: "📍", text: "Almaty → Karakol" },
     { icon: "🕐", text: "~6 hours" },
     { icon: "📏", text: "~350 km" },
     { icon: "👤", text: "Private" },
@@ -272,7 +263,7 @@ function UpsellDivider({ lang }: { lang: "en" | "ru" | "ko" }) {
       ko: "✨ 단순한 이동 그 이상을 원하시나요?",
     },
     body: {
-      en: "Turn your Almaty  to  Karakol drive into an adventure. Stop at Charyn Canyon, cross the scenic Kegen mountain pass, visit Kaindy Lake. Same route — unforgettable experience.",
+      en: "Turn your Almaty → Karakol drive into an adventure. Stop at Charyn Canyon, cross the scenic Kegen mountain pass, visit Kaindy Lake. Same route — unforgettable experience.",
       ru: "Превратите дорогу из Алматы в Каракол в приключение. Остановка в Чарынском каньоне, живописный перевал Кеген, озеро Каинды. Тот же маршрут — незабываемые впечатления.",
       ko: "알마티에서 카라콜까지의 드라이브를 모험으로 만들어보세요. 차린 협곡, 케겐 산악 고개, 카인디 호수. 같은 노선 — 잊을 수 없는 경험.",
     },
@@ -519,10 +510,10 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
     ? selectedAddons.map(a => `${a.label.en} (+$${a.price[vehicle]})`).join(", ")
     : "";
   const waText = lang === "ru"
-    ? `Здравствуйте! Хочу забронировать тур Алматы  to  Каракол.\nАвтомобиль: ${vehicleLabel[vehicle].ru} ($${basePrice})${extrasLine ? `\nОстановки: ${extrasLine}` : ""}\nИтого: $${total}. Подтвердите наличие.`
+    ? `Здравствуйте! Хочу забронировать тур Алматы → Каракол.\nАвтомобиль: ${vehicleLabel[vehicle].ru} ($${basePrice})${extrasLine ? `\nОстановки: ${extrasLine}` : ""}\nИтого: $${total}. Подтвердите наличие.`
     : lang === "ko"
-    ? `안녕하세요! 알마티 to 카라콜 투어를 예약하고 싶습니다.\n차량: ${vehicleLabel[vehicle].ko} ($${basePrice})${extrasLine ? `\n정류장: ${extrasLine}` : ""}\n총액: $${total}. 예약 가능 여부 확인 부탁드립니다.`
-    : `Hi! I'd like to book the Almaty  to  Karakol scenic tour transfer.\nVehicle: ${vehicleLabel[vehicle].en} ($${basePrice})${extrasLine ? `\nOptional stops: ${extrasLine}` : ""}\nTotal: $${total}. Please confirm availability.`;
+    ? `안녕하세요! 알마티→카라콜 투어를 예약하고 싶습니다.\n차량: ${vehicleLabel[vehicle].ko} ($${basePrice})${extrasLine ? `\n정류장: ${extrasLine}` : ""}\n총액: $${total}. 예약 가능 여부 확인 부탁드립니다.`
+    : `Hi! I'd like to book the Almaty → Karakol scenic tour transfer.\nVehicle: ${vehicleLabel[vehicle].en} ($${basePrice})${extrasLine ? `\nOptional stops: ${extrasLine}` : ""}\nTotal: $${total}. Please confirm availability.`;
   const waBookLink = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(waText)}`;
 
   return (
@@ -697,9 +688,9 @@ export default function AlmatyToKarakol({ initialLang }: { initialLang?: "en" | 
           </p>
           <h1 className="mt-2 text-2xl font-bold leading-tight md:text-4xl">
             {lang === "ru"
-              ? "Алматы  to  Каракол: трансфер через перевал Кеген"
+              ? "Алматы → Каракол: трансфер через перевал Кеген"
               : lang === "ko"
-              ? "알마티  to  카라콜: 케겐 고개 경유 이동"
+              ? "알마티 → 카라콜: 케겐 고개 경유 이동"
               : "Almaty to Karakol — Private Transfer via Kegen"}
           </h1>
           <p className="mt-2 text-sm text-white/80">
@@ -797,27 +788,7 @@ export default function AlmatyToKarakol({ initialLang }: { initialLang?: "en" | 
         {/* Pricing */}
         <PricingSection lang={lang} />
 
-        {/* SEO Sections */}
-        <TravelTipsSection
-          tips={almatyToKarakolTravelTips[lang].length > 0 ? almatyToKarakolTravelTips[lang] : almatyToKarakolTravelTips.en}
-          lang={lang}
-        />
-
-        <CustomerReviewsSection
-          reviews={almatyToKarakolReviews[lang].length > 0 ? almatyToKarakolReviews[lang] : almatyToKarakolReviews.en}
-          lang={lang}
-        />
-
-        <FAQSection
-          faqs={almatyToKarakolFAQ[lang].length > 0 ? almatyToKarakolFAQ[lang] : almatyToKarakolFAQ.en}
-          lang={lang}
-        />
-
-        <RelatedRoutesSection
-          routes={almatyToKarakolRelatedRoutes[lang].length > 0 ? almatyToKarakolRelatedRoutes[lang] : almatyToKarakolRelatedRoutes.en}
-          lang={lang}
-        />
-
+        <RelatedRoutes currentSlug="almaty-to-karakol" lang={lang} />
       </main>
 
       {/* Footer */}
@@ -826,19 +797,19 @@ export default function AlmatyToKarakol({ initialLang }: { initialLang?: "en" | 
           <p className="text-xs opacity-80">© {new Date().getFullYear()} {BRAND}</p>
           <nav className="flex flex-col gap-2 text-center text-xs opacity-80 md:text-left">
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
-              <a href="/transfers/bishkek-to-karakol" className="hover:text-emerald-600">EN: Bishkek  to  Karakol</a>
-              <a href="/transfers/almaty-to-karakol" className="hover:text-emerald-600">EN: Almaty  to  Karakol</a>
-              <a href="/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">EN: Manas Airport  to  Karakol</a>
+              <a href="/transfers/bishkek-to-karakol" className="hover:text-emerald-600">EN: Bishkek → Karakol</a>
+              <a href="/transfers/almaty-to-karakol" className="hover:text-emerald-600">EN: Almaty → Karakol</a>
+              <a href="/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">EN: Manas Airport → Karakol</a>
             </div>
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
-              <a href="/ru/transfers/bishkek-to-karakol" className="hover:text-emerald-600">RU: Бишкек  to  Каракол</a>
-              <a href="/ru/transfers/almaty-to-karakol" className="hover:text-emerald-600">RU: Алматы  to  Каракол</a>
-              <a href="/ru/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">RU: Манас  to  Каракол</a>
+              <a href="/ru/transfers/bishkek-to-karakol" className="hover:text-emerald-600">RU: Бишкек → Каракол</a>
+              <a href="/ru/transfers/almaty-to-karakol" className="hover:text-emerald-600">RU: Алматы → Каракол</a>
+              <a href="/ru/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">RU: Манас → Каракол</a>
             </div>
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
-              <a href="/ko/transfers/bishkek-to-karakol" className="hover:text-emerald-600">KO: 비슈케크  to  카라콜</a>
-              <a href="/ko/transfers/almaty-to-karakol" className="hover:text-emerald-600">KO: 알마티  to  카라콜</a>
-              <a href="/ko/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">KO: 마나스  to  카라콜</a>
+              <a href="/ko/transfers/bishkek-to-karakol" className="hover:text-emerald-600">KO: 비슈케크 → 카라콜</a>
+              <a href="/ko/transfers/almaty-to-karakol" className="hover:text-emerald-600">KO: 알마티 → 카라콜</a>
+              <a href="/ko/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">KO: 마나스 → 카라콜</a>
             </div>
           </nav>
           <div className="flex gap-2">

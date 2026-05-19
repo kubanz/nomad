@@ -53,16 +53,65 @@ const jsonLd = {
   "@type": "LocalBusiness",
   "@id": "https://nomad-transfer.com/#business",
   "name": "Nomad Transfer",
-  "description": "Private transfers and day tours in Kyrgyzstan. Routes: Manas Airport, Bishkek, Almaty to Karakol.",
+  "description": "Private transfers and day tours in Kyrgyzstan. Routes: Manas Airport, Bishkek, Almaty to Karakol. Fixed price per car, English-speaking drivers.",
   "url": "https://nomad-transfer.com",
   "telephone": "+996552291808",
   "image": "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
-  "areaServed": ["Kyrgyzstan", "Kazakhstan"],
+  "areaServed": [
+    { "@type": "Country", "name": "Kyrgyzstan" },
+    { "@type": "Country", "name": "Kazakhstan" },
+  ],
   "knowsLanguage": ["en", "ru", "ko"],
   "priceRange": "$$",
   "currenciesAccepted": "USD",
   "paymentAccepted": "Cash, Bank Transfer",
-  "serviceType": "Private Transfer",
+  "openingHours": "Mo-Su 00:00-24:00",
+  "sameAs": ["https://t.me/nomadtransfer"],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "4",
+    "bestRating": "5",
+    "worstRating": "1",
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Samuel Dow Thomson" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Transfer from Almaty to Karakol. Communication was smooth and fast. They picked us up right where we needed and got us again exactly where we needed. 100% recommended!",
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Ana Isa Correia" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "I used their transfer service from Bishkek airport to Karakol. They were always prompt to respond and the service was excellent.",
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Kasper Valtonen" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Great customer service throughout from reserving the trip to getting to destination! Really easy way of getting from Almaty to Karakol and seeing the Charyn Canyon.",
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Madina Z" },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "reviewBody": "Excellent service! Low prices, experienced drivers, comfortable cars, clients oriented service. We're pleased with this company.",
+    },
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Private Transfer Routes",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bishkek to Karakol Transfer", "url": "https://nomad-transfer.com/transfers/bishkek-to-karakol" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Almaty to Karakol Transfer", "url": "https://nomad-transfer.com/transfers/almaty-to-karakol" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Manas Airport to Karakol Transfer", "url": "https://nomad-transfer.com/transfers/manas-airport-to-karakol" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Almaty to Bishkek Transfer", "url": "https://nomad-transfer.com/transfers/almaty-to-bishkek" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bishkek to Cholpon-Ata Transfer", "url": "https://nomad-transfer.com/transfers/bishkek-to-cholpon-ata" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bishkek to Osh Transfer", "url": "https://nomad-transfer.com/transfers/bishkek-to-osh" } },
+    ],
+  },
 };
 
 export default function Page() {

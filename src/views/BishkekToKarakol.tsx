@@ -5,16 +5,7 @@ import dynamic from "next/dynamic";
 import { MessageCircle, Send, MapPin } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
 import type { MapStop } from "../components/InteractiveRouteMap";
-import FAQSection from "../components/FAQSection";
-import CustomerReviewsSection from "../components/CustomerReviewsSection";
-import TravelTipsSection from "../components/TravelTipsSection";
-import RelatedRoutesSection from "../components/RelatedRoutesSection";
-import {
-  bishkekToKarakolFAQ,
-  bishkekToKarakolReviews,
-  bishkekToKarakolTravelTips,
-  bishkekToKarakolRelatedRoutes,
-} from "../data/seoContent";
+import RelatedRoutes from "../components/RelatedRoutes";
 
 const InteractiveRouteMap = dynamic(
   () => import("../components/InteractiveRouteMap"),
@@ -102,7 +93,7 @@ const STOPS: Stop[] = [
 
 const WHATSAPP_PHONE = "+996552291808";
 const WA_LINK = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(
-  "Hi! I'm interested in the Bishkek  to  Karakol private transfer. Please share availability and price."
+  "Hi! I'm interested in the Bishkek → Karakol private transfer. Please share availability and price."
 )}`;
 const WA_LINK_SIMPLE = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(
   "Hi! I need a simple transfer from Bishkek to Karakol. Please share availability and price."
@@ -135,7 +126,7 @@ const LANGS = [
 
 function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
   const T = {
-    title:   { en: "Bishkek to Karakol — Private Transfer", ru: "Бишкек — Каракол: Приватный трансфер", ko: "비슈케크  to  카라콜 프라이빗 이동" },
+    title:   { en: "Bishkek to Karakol — Private Transfer", ru: "Бишкек — Каракол: Приватный трансфер", ko: "비슈케크 → 카라콜 프라이빗 이동" },
     desc:    { en: "Need to get from Bishkek to Karakol quickly and comfortably? We pick you up from your hotel in Bishkek and drop you off at your hotel in Karakol. Along the way you can stop 2–3 times for 10–15 min to take photos.", ru: "Нужно быстро добраться из Бишкека в Каракол? Забираем из отеля в Бишкеке, довезём до отеля в Каракол. По дороге можно остановиться 2–3 раза на 10–15 мин для фотографий.", ko: "비슈케크에서 카라콜까지 빠르고 편안하게 이동하고 싶으신가요? 비슈케크 호텔에서 픽업하여 카라콜 호텔까지 모셔드립니다. 도중에 2~3번 10~15분 포토 정차 가능합니다." },
     sedan:   { en: "SEDAN",   ru: "СЕДАН",   ko: "세단" },
     minivan: { en: "MINIVAN", ru: "МИНИВЭН", ko: "미니밴" },
@@ -146,7 +137,7 @@ function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
   };
 
   const pills = [
-    { icon: "📍", text: "Bishkek  to  Karakol" },
+    { icon: "📍", text: "Bishkek → Karakol" },
     { icon: "🕐", text: "~4–6 hours" },
     { icon: "📏", text: "~270 km" },
     { icon: "👤", text: "Private" },
@@ -195,7 +186,7 @@ function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
 function UpsellDivider({ lang }: { lang: "en" | "ru" | "ko" }) {
   const T = {
     headline: { en: "✨ Want more than just a transfer?", ru: "✨ Хотите больше, чем просто поездку?", ko: "✨ 단순한 이동 그 이상을 원하시나요?" },
-    body:     { en: "Turn your Bishkek  to  Karakol drive into an adventure. Stop at Burana Tower, drive through Boom Gorge, cruise along Issyk-Kul's northern shore. Same route — unforgettable experience.", ru: "Превратите поездку из Бишкека в Каракол в незабываемое приключение. Башня Бурана, Боомское ущелье, северный берег Иссык-Куля. Тот же маршрут — незабываемые впечатления.", ko: "비슈케크에서 카라콜까지의 드라이브를 모험으로 만들어보세요. 부라나 탑, 붐 협곡, 이식쿨 북쪽 해안. 같은 노선 — 잊을 수 없는 경험." },
+    body:     { en: "Turn your Bishkek → Karakol drive into an adventure. Stop at Burana Tower, drive through Boom Gorge, cruise along Issyk-Kul's northern shore. Same route — unforgettable experience.", ru: "Превратите поездку из Бишкека в Каракол в незабываемое приключение. Башня Бурана, Боомское ущелье, северный берег Иссык-Куля. Тот же маршрут — незабываемые впечатления.", ko: "비슈케크에서 카라콜까지의 드라이브를 모험으로 만들어보세요. 부라나 탑, 붐 협곡, 이식쿨 북쪽 해안. 같은 노선 — 잊을 수 없는 경험." },
     btn:      { en: "See the Tour Option ↓", ru: "Смотреть тур ↓", ko: "투어 옵션 보기 ↓" },
   };
   return (
@@ -350,10 +341,10 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
   const vehicleLabel = { sedan: { en: "Sedan", ru: "Седан", ko: "세단" }, minivan: { en: "Minivan", ru: "Минивэн", ko: "미니밴" } };
   const extrasLine = selectedAddons.map(a => `${a.label.en} (+$${a.price[vehicle]})`).join(", ");
   const waText = lang === "ru"
-    ? `Здравствуйте! Хочу забронировать тур Бишкек  to  Каракол.\nАвтомобиль: ${vehicleLabel[vehicle].ru} ($${basePrice})${extrasLine ? `\nОстановки: ${extrasLine}` : ""}\nИтого: $${total}. Подтвердите наличие.`
+    ? `Здравствуйте! Хочу забронировать тур Бишкек → Каракол.\nАвтомобиль: ${vehicleLabel[vehicle].ru} ($${basePrice})${extrasLine ? `\nОстановки: ${extrasLine}` : ""}\nИтого: $${total}. Подтвердите наличие.`
     : lang === "ko"
-    ? `안녕하세요! 비슈케크 to 카라콜 투어를 예약하고 싶습니다.\n차량: ${vehicleLabel[vehicle].ko} ($${basePrice})${extrasLine ? `\n정류장: ${extrasLine}` : ""}\n총액: $${total}. 예약 가능 여부 확인 부탁드립니다.`
-    : `Hi! I'd like to book the Bishkek  to  Karakol scenic tour transfer.\nVehicle: ${vehicleLabel[vehicle].en} ($${basePrice})${extrasLine ? `\nOptional stops: ${extrasLine}` : ""}\nTotal: $${total}. Please confirm availability.`;
+    ? `안녕하세요! 비슈케크→카라콜 투어를 예약하고 싶습니다.\n차량: ${vehicleLabel[vehicle].ko} ($${basePrice})${extrasLine ? `\n정류장: ${extrasLine}` : ""}\n총액: $${total}. 예약 가능 여부 확인 부탁드립니다.`
+    : `Hi! I'd like to book the Bishkek → Karakol scenic tour transfer.\nVehicle: ${vehicleLabel[vehicle].en} ($${basePrice})${extrasLine ? `\nOptional stops: ${extrasLine}` : ""}\nTotal: $${total}. Please confirm availability.`;
   const waBookLink = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(waText)}`;
 
   return (
@@ -466,7 +457,7 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
 function CTASection({ lang }: { lang: "en" | "ru" | "ko" }) {
   const T = {
     headline: { en: "Want to customize your route?", ru: "Хотите настроить маршрут?", ko: "노선을 맞춤 설정하고 싶으신가요?" },
-    body:     { en: "Tell us your travel plan and we will build the best route from Bishkek to Karakol with stops, timing, and exact pricing.", ru: "Расскажите о своём плане поездки — мы составим лучший маршрут из Бишкека в Каракол с остановками, временем и точной ценой.", ko: "여행 계획을 알려주시면 정류장, 타이밍, 정확한 가격이 포함된 최적의 비슈케크 to 카라콜 노선을 만들어 드립니다." },
+    body:     { en: "Tell us your travel plan and we will build the best route from Bishkek to Karakol with stops, timing, and exact pricing.", ru: "Расскажите о своём плане поездки — мы составим лучший маршрут из Бишкека в Каракол с остановками, временем и точной ценой.", ko: "여행 계획을 알려주시면 정류장, 타이밍, 정확한 가격이 포함된 최적의 비슈케크→카라콜 노선을 만들어 드립니다." },
   };
   return (
     <section className="mb-14 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 px-6 py-10 text-center text-white md:py-12">
@@ -507,7 +498,7 @@ export default function BishkekToKarakol({ initialLang }: { initialLang?: "en" |
             {lang === "ru" ? "Приватный трансфер · круглый год" : lang === "ko" ? "프라이빗 이동 · 연중 운행" : "Private Transfer · Year-round"}
           </p>
           <h1 className="mt-2 text-2xl font-bold leading-tight md:text-4xl">
-            {lang === "ru" ? "Бишкек  to  Каракол: Приватный трансфер через Бурану" : lang === "ko" ? "비슈케크  to  카라콜: 부라나 경유 프라이빗 이동" : "Private Transfer from Bishkek to Karakol via Burana"}
+            {lang === "ru" ? "Бишкек → Каракол: Приватный трансфер через Бурану" : lang === "ko" ? "비슈케크 → 카라콜: 부라나 경유 프라이빗 이동" : "Private Transfer from Bishkek to Karakol via Burana"}
           </h1>
           <p className="mt-2 text-sm text-white/80">
             {lang === "ru" ? "Комфортная поездка через регион Иссык-Куля с живописными остановками · ~270 км · ~4–6 часов" : lang === "ko" ? "이식쿨 지역을 경유하는 편안한 여행 · ~270km · ~4~6시간" : "Comfortable door-to-door journey through Issyk-Kul region with scenic stops along the way · ~270 km · ~4–6 hours"}
@@ -591,26 +582,7 @@ export default function BishkekToKarakol({ initialLang }: { initialLang?: "en" |
           </p>
         </section>
 
-        {/* SEO Sections */}
-        <TravelTipsSection
-          tips={bishkekToKarakolTravelTips[lang]}
-          lang={lang}
-        />
-
-        <CustomerReviewsSection
-          reviews={bishkekToKarakolReviews[lang].length > 0 ? bishkekToKarakolReviews[lang] : bishkekToKarakolReviews.en}
-          lang={lang}
-        />
-
-        <FAQSection
-          faqs={bishkekToKarakolFAQ[lang].length > 0 ? bishkekToKarakolFAQ[lang] : bishkekToKarakolFAQ.en}
-          lang={lang}
-        />
-
-        <RelatedRoutesSection
-          routes={bishkekToKarakolRelatedRoutes[lang].length > 0 ? bishkekToKarakolRelatedRoutes[lang] : bishkekToKarakolRelatedRoutes.en}
-          lang={lang}
-        />
+        <RelatedRoutes currentSlug="bishkek-to-karakol" lang={lang} />
       </main>
 
       <footer className="border-t bg-white/80">
@@ -618,19 +590,19 @@ export default function BishkekToKarakol({ initialLang }: { initialLang?: "en" |
           <p className="text-xs opacity-80">© {new Date().getFullYear()} {BRAND}</p>
           <nav className="flex flex-col gap-2 text-center text-xs opacity-80 md:text-left">
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
-              <a href="/transfers/bishkek-to-karakol" className="hover:text-emerald-600">EN: Bishkek  to  Karakol</a>
-              <a href="/transfers/almaty-to-karakol" className="hover:text-emerald-600">EN: Almaty  to  Karakol</a>
-              <a href="/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">EN: Manas  to  Karakol</a>
+              <a href="/transfers/bishkek-to-karakol" className="hover:text-emerald-600">EN: Bishkek → Karakol</a>
+              <a href="/transfers/almaty-to-karakol" className="hover:text-emerald-600">EN: Almaty → Karakol</a>
+              <a href="/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">EN: Manas → Karakol</a>
             </div>
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
-              <a href="/ru/transfers/bishkek-to-karakol" className="hover:text-emerald-600">RU: Бишкек  to  Каракол</a>
-              <a href="/ru/transfers/almaty-to-karakol" className="hover:text-emerald-600">RU: Алматы  to  Каракол</a>
-              <a href="/ru/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">RU: Манас  to  Каракол</a>
+              <a href="/ru/transfers/bishkek-to-karakol" className="hover:text-emerald-600">RU: Бишкек → Каракол</a>
+              <a href="/ru/transfers/almaty-to-karakol" className="hover:text-emerald-600">RU: Алматы → Каракол</a>
+              <a href="/ru/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">RU: Манас → Каракол</a>
             </div>
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
-              <a href="/ko/transfers/bishkek-to-karakol" className="hover:text-emerald-600">KO: 비슈케크  to  카라콜</a>
-              <a href="/ko/transfers/almaty-to-karakol" className="hover:text-emerald-600">KO: 알마티  to  카라콜</a>
-              <a href="/ko/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">KO: 마나스  to  카라콜</a>
+              <a href="/ko/transfers/bishkek-to-karakol" className="hover:text-emerald-600">KO: 비슈케크 → 카라콜</a>
+              <a href="/ko/transfers/almaty-to-karakol" className="hover:text-emerald-600">KO: 알마티 → 카라콜</a>
+              <a href="/ko/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">KO: 마나스 → 카라콜</a>
             </div>
           </nav>
           <div className="flex gap-2">

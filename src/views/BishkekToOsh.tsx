@@ -5,12 +5,7 @@ import dynamic from "next/dynamic";
 import { MessageCircle, Send, MapPin } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
 import type { MapStop } from "../components/InteractiveRouteMap";
-import FAQSection from "../components/FAQSection";
-import RelatedRoutesSection from "../components/RelatedRoutesSection";
-import {
-  bishkekToOshFAQ,
-  bishkekToOshRelatedRoutes,
-} from "../data/seoContent";
+import RelatedRoutes from "../components/RelatedRoutes";
 
 const InteractiveRouteMap = dynamic(
   () => import("../components/InteractiveRouteMap"),
@@ -98,7 +93,7 @@ const STOPS: Stop[] = [
 
 const WHATSAPP_PHONE = "+996552291808";
 const WA_LINK = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(
-  "Hi! I'm interested in the Bishkek  to  Osh private transfer. Please share availability and price."
+  "Hi! I'm interested in the Bishkek → Osh private transfer. Please share availability and price."
 )}`;
 const WA_LINK_SIMPLE = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(
   "Hi! I need a simple transfer from Bishkek to Osh. Please share availability and price."
@@ -131,7 +126,7 @@ const LANGS = [
 
 function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
   const T = {
-    title:   { en: "Bishkek to Osh — Private Transfer", ru: "Бишкек — Ош: Приватный трансфер", ko: "비슈케크  to  오쉬 프라이빗 이동" },
+    title:   { en: "Bishkek to Osh — Private Transfer", ru: "Бишкек — Ош: Приватный трансфер", ko: "비슈케크 → 오쉬 프라이빗 이동" },
     desc:    { en: "Need to get from Bishkek to Osh quickly and comfortably? We pick you up from your hotel in Bishkek and drop you off at your hotel in Osh. Along the way you can stop 2–3 times for 10–15 min to take photos.", ru: "Нужно быстро добраться из Бишкека в Ош? Забираем из отеля в Бишкеке, довезём до отеля в Оше. По дороге можно остановиться 2–3 раза на 10–15 мин для фотографий.", ko: "비슈케크에서 오쉬까지 빠르고 편안하게 이동하고 싶으신가요? 비슈케크 호텔에서 픽업하여 오쉬 호텔까지 모셔드립니다. 도중에 2~3번 10~15분 포토 정차 가능합니다." },
     sedan:   { en: "SEDAN",   ru: "СЕДАН",   ko: "세단" },
     minivan: { en: "MINIVAN", ru: "МИНИВЭН", ko: "미니밴" },
@@ -142,7 +137,7 @@ function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
   };
 
   const pills = [
-    { icon: "📍", text: "Bishkek  to  Osh" },
+    { icon: "📍", text: "Bishkek → Osh" },
     { icon: "🕐", text: "~10–12 hours" },
     { icon: "📏", text: "~620 km" },
     { icon: "👤", text: "Private" },
@@ -191,7 +186,7 @@ function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
 function UpsellDivider({ lang }: { lang: "en" | "ru" | "ko" }) {
   const T = {
     headline: { en: "✨ Want more than just a transfer?", ru: "✨ Хотите больше, чем просто поездку?", ko: "✨ 단순한 이동 그 이상을 원하시나요?" },
-    body:     { en: "Long drive ahead? Make it count. The Bishkek  to  Osh route is one of the most scenic in Central Asia: a 3,200 m mountain tunnel, alpine valley with yurt camps, and the turquoise Toktogul Reservoir. Stops for lunch and photos included.", ru: "Долгая дорога? Сделайте её незабываемой. Маршрут Бишкек  to  Ош — один из самых живописных в Центральной Азии: тоннель на 3,200 м, альпийская долина с юртами и бирюзовое Токтогульское водохранилище. Остановки на обед и фото включены.", ko: "긴 여정이신가요? 의미 있게 만들어보세요. 비슈케크  to  오쉬 노선은 중앙아시아에서 가장 경치 좋은 노선 중 하나: 3,200m 산악 터널, 유르트가 있는 고산 계곡, 청록빛 톡토굴 저수지. 점심과 사진 정류장 포함." },
+    body:     { en: "Long drive ahead? Make it count. The Bishkek → Osh route is one of the most scenic in Central Asia: a 3,200 m mountain tunnel, alpine valley with yurt camps, and the turquoise Toktogul Reservoir. Stops for lunch and photos included.", ru: "Долгая дорога? Сделайте её незабываемой. Маршрут Бишкек → Ош — один из самых живописных в Центральной Азии: тоннель на 3,200 м, альпийская долина с юртами и бирюзовое Токтогульское водохранилище. Остановки на обед и фото включены.", ko: "긴 여정이신가요? 의미 있게 만들어보세요. 비슈케크 → 오쉬 노선은 중앙아시아에서 가장 경치 좋은 노선 중 하나: 3,200m 산악 터널, 유르트가 있는 고산 계곡, 청록빛 톡토굴 저수지. 점심과 사진 정류장 포함." },
     btn:      { en: "See the Tour Option ↓", ru: "Смотреть тур ↓", ko: "투어 옵션 보기 ↓" },
   };
   return (
@@ -346,10 +341,10 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
   const vehicleLabel = { sedan: { en: "Sedan", ru: "Седан", ko: "세단" }, minivan: { en: "Minivan", ru: "Минивэн", ko: "미니밴" } };
   const extrasLine = selectedAddons.map(a => `${a.label.en} (+$${a.price[vehicle]})`).join(", ");
   const waText = lang === "ru"
-    ? `Здравствуйте! Хочу забронировать тур Бишкек  to  Ош.\nАвтомобиль: ${vehicleLabel[vehicle].ru} ($${basePrice})${extrasLine ? `\nОстановки: ${extrasLine}` : ""}\nИтого: $${total}. Подтвердите наличие.`
+    ? `Здравствуйте! Хочу забронировать тур Бишкек → Ош.\nАвтомобиль: ${vehicleLabel[vehicle].ru} ($${basePrice})${extrasLine ? `\nОстановки: ${extrasLine}` : ""}\nИтого: $${total}. Подтвердите наличие.`
     : lang === "ko"
-    ? `안녕하세요! 비슈케크 to 카라콜 투어를 예약하고 싶습니다.\n차량: ${vehicleLabel[vehicle].ko} ($${basePrice})${extrasLine ? `\n정류장: ${extrasLine}` : ""}\n총액: $${total}. 예약 가능 여부 확인 부탁드립니다.`
-    : `Hi! I'd like to book the Bishkek  to  Osh scenic tour transfer.\nVehicle: ${vehicleLabel[vehicle].en} ($${basePrice})${extrasLine ? `\nOptional stops: ${extrasLine}` : ""}\nTotal: $${total}. Please confirm availability.`;
+    ? `안녕하세요! 비슈케크→카라콜 투어를 예약하고 싶습니다.\n차량: ${vehicleLabel[vehicle].ko} ($${basePrice})${extrasLine ? `\n정류장: ${extrasLine}` : ""}\n총액: $${total}. 예약 가능 여부 확인 부탁드립니다.`
+    : `Hi! I'd like to book the Bishkek → Osh scenic tour transfer.\nVehicle: ${vehicleLabel[vehicle].en} ($${basePrice})${extrasLine ? `\nOptional stops: ${extrasLine}` : ""}\nTotal: $${total}. Please confirm availability.`;
   const waBookLink = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(waText)}`;
 
   return (
@@ -462,7 +457,7 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
 function CTASection({ lang }: { lang: "en" | "ru" | "ko" }) {
   const T = {
     headline: { en: "Want to customize your route?", ru: "Хотите настроить маршрут?", ko: "노선을 맞춤 설정하고 싶으신가요?" },
-    body:     { en: "Tell us your travel plan and we will build the best route from Bishkek to Osh with stops, timing, and exact pricing.", ru: "Расскажите о своём плане поездки — мы составим лучший маршрут из Бишкека в Ош с остановками, временем и точной ценой.", ko: "여행 계획을 알려주시면 정류장, 타이밍, 정확한 가격이 포함된 최적의 비슈케크 to 카라콜 노선을 만들어 드립니다." },
+    body:     { en: "Tell us your travel plan and we will build the best route from Bishkek to Osh with stops, timing, and exact pricing.", ru: "Расскажите о своём плане поездки — мы составим лучший маршрут из Бишкека в Ош с остановками, временем и точной ценой.", ko: "여행 계획을 알려주시면 정류장, 타이밍, 정확한 가격이 포함된 최적의 비슈케크→카라콜 노선을 만들어 드립니다." },
   };
   return (
     <section className="mb-14 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 px-6 py-10 text-center text-white md:py-12">
@@ -503,7 +498,7 @@ export default function BishkekToOsh({ initialLang }: { initialLang?: "en" | "ru
             {lang === "ru" ? "Приватный трансфер · круглый год" : lang === "ko" ? "프라이빗 이동 · 연중 운행" : "Private Transfer · Year-round"}
           </p>
           <h1 className="mt-2 text-2xl font-bold leading-tight md:text-4xl">
-            {lang === "ru" ? "Бишкек  to  Ош: Приватный трансфер через перевал Тоо-Ашуу" : lang === "ko" ? "비슈케크  to  오쉬: 토오-아슈 고개 경유 프라이빗 이동" : "Bishkek to Osh Private Transfer via Too-Ashuu Pass"}
+            {lang === "ru" ? "Бишкек → Ош: Приватный трансфер через перевал Тоо-Ашуу" : lang === "ko" ? "비슈케크 → 오쉬: 토오-아슈 고개 경유 프라이빗 이동" : "Bishkek to Osh Private Transfer via Too-Ashuu Pass"}
           </h1>
           <p className="mt-2 text-sm text-white/80">
             {lang === "ru" ? "Через высокогорный тоннель, Суусамырскую долину и Токтогульское вдхр. · ~620 км · ~10–12 часов" : lang === "ko" ? "고산 터널, 수사미르 계곡, 톡토굴 저수지 경유 · ~620km · ~10~12시간" : "Through a high-altitude tunnel, Suusamyr Valley, and Toktogul Reservoir · ~620 km · ~10–12 hours"}
@@ -587,17 +582,7 @@ export default function BishkekToOsh({ initialLang }: { initialLang?: "en" | "ru
           </p>
         </section>
 
-        {/* SEO Sections */}
-        <FAQSection
-          faqs={bishkekToOshFAQ[lang].length > 0 ? bishkekToOshFAQ[lang] : bishkekToOshFAQ.en}
-          lang={lang}
-        />
-
-        <RelatedRoutesSection
-          routes={bishkekToOshRelatedRoutes[lang].length > 0 ? bishkekToOshRelatedRoutes[lang] : bishkekToOshRelatedRoutes.en}
-          lang={lang}
-        />
-
+        <RelatedRoutes currentSlug="bishkek-to-osh" lang={lang} />
       </main>
 
       <footer className="border-t bg-white/80">
@@ -605,19 +590,19 @@ export default function BishkekToOsh({ initialLang }: { initialLang?: "en" | "ru
           <p className="text-xs opacity-80">© {new Date().getFullYear()} {BRAND}</p>
           <nav className="flex flex-col gap-2 text-center text-xs opacity-80 md:text-left">
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
-              <a href="/transfers/bishkek-to-osh" className="hover:text-emerald-600">EN: Bishkek  to  Osh</a>
-              <a href="/transfers/almaty-to-karakol" className="hover:text-emerald-600">EN: Almaty  to  Karakol</a>
-              <a href="/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">EN: Manas  to  Karakol</a>
+              <a href="/transfers/bishkek-to-osh" className="hover:text-emerald-600">EN: Bishkek → Osh</a>
+              <a href="/transfers/almaty-to-karakol" className="hover:text-emerald-600">EN: Almaty → Karakol</a>
+              <a href="/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">EN: Manas → Karakol</a>
             </div>
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
-              <a href="/ru/transfers/bishkek-to-osh" className="hover:text-emerald-600">RU: Бишкек  to  Ош</a>
-              <a href="/ru/transfers/almaty-to-karakol" className="hover:text-emerald-600">RU: Алматы  to  Каракол</a>
-              <a href="/ru/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">RU: Манас  to  Каракол</a>
+              <a href="/ru/transfers/bishkek-to-osh" className="hover:text-emerald-600">RU: Бишкек → Ош</a>
+              <a href="/ru/transfers/almaty-to-karakol" className="hover:text-emerald-600">RU: Алматы → Каракол</a>
+              <a href="/ru/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">RU: Манас → Каракол</a>
             </div>
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
-              <a href="/ko/transfers/bishkek-to-osh" className="hover:text-emerald-600">KO: 비슈케크  to  오쉬</a>
-              <a href="/ko/transfers/almaty-to-karakol" className="hover:text-emerald-600">KO: 알마티  to  카라콜</a>
-              <a href="/ko/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">KO: 마나스  to  카라콜</a>
+              <a href="/ko/transfers/bishkek-to-osh" className="hover:text-emerald-600">KO: 비슈케크 → 오쉬</a>
+              <a href="/ko/transfers/almaty-to-karakol" className="hover:text-emerald-600">KO: 알마티 → 카라콜</a>
+              <a href="/ko/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">KO: 마나스 → 카라콜</a>
             </div>
           </nav>
           <div className="flex gap-2">

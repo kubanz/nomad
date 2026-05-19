@@ -5,16 +5,7 @@ import dynamic from "next/dynamic";
 import { MessageCircle, Send, MapPin } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
 import type { MapStop } from "../components/InteractiveRouteMap";
-import FAQSection from "../components/FAQSection";
-import CustomerReviewsSection from "../components/CustomerReviewsSection";
-import TravelTipsSection from "../components/TravelTipsSection";
-import RelatedRoutesSection from "../components/RelatedRoutesSection";
-import {
-  manasToKarakolFAQ,
-  manasToKarakolReviews,
-  manasToKarakolTravelTips,
-  manasToKarakolRelatedRoutes,
-} from "../data/seoContent";
+import RelatedRoutes from "../components/RelatedRoutes";
 
 const InteractiveRouteMap = dynamic(
   () => import("../components/InteractiveRouteMap"),
@@ -102,7 +93,7 @@ const STOPS: Stop[] = [
 
 const WHATSAPP_PHONE = "+996552291808";
 const WA_LINK = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(
-  "Hi! I'm interested in the Manas Airport  to  Karakol private transfer. My flight number is: ____. Please share availability and price."
+  "Hi! I'm interested in the Manas Airport → Karakol private transfer. My flight number is: ____. Please share availability and price."
 )}`;
 const WA_LINK_SIMPLE = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(
   "Hi! I need an airport transfer from Manas (FRU) to Karakol. Flight number: ____. Please confirm Meet & Greet and price."
@@ -135,7 +126,7 @@ const LANGS = [
 
 function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
   const T = {
-    title:   { en: "Manas Airport  to  Karakol — Private Transfer", ru: "Аэропорт Манас  to  Каракол: Приватный трансфер", ko: "마나스 공항  to  카라콜 프라이빗 이동" },
+    title:   { en: "Manas Airport → Karakol — Private Transfer", ru: "Аэропорт Манас → Каракол: Приватный трансфер", ko: "마나스 공항 → 카라콜 프라이빗 이동" },
     desc:    { en: "Land at Manas (FRU) and head straight to Karakol. Driver meets you at arrivals with a name board, helps with luggage, and drives door-to-door to your hotel in Karakol. 60-minute free waiting included for flight delays. Available 24/7.", ru: "Прилетели в Манас (FRU) — сразу едем в Каракол. Водитель встречает вас в зоне прилёта с табличкой, помогает с багажом и довозит до отеля в Каракол. Бесплатное ожидание 60 минут на случай задержки рейса. Сервис 24/7.", ko: "마나스(FRU)에 도착하면 바로 카라콜로 출발. 기사가 도착 게이트에서 이름판을 들고 마중 나와 짐을 도와드리고 카라콜 호텔까지 도어 투 도어로 모셔드립니다. 항공편 지연 대비 60분 무료 대기 포함. 24시간 운영." },
     sedan:   { en: "SEDAN",   ru: "СЕДАН",   ko: "세단" },
     minivan: { en: "MINIVAN", ru: "МИНИВЭН", ko: "미니밴" },
@@ -146,7 +137,7 @@ function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
   };
 
   const pills = [
-    { icon: "✈️", text: "Manas (FRU)  to  Karakol" },
+    { icon: "✈️", text: "Manas (FRU) → Karakol" },
     { icon: "🕐", text: "~5 hours" },
     { icon: "📏", text: "~410 km" },
     { icon: "🛂", text: "Meet & Greet" },
@@ -350,10 +341,10 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
   const vehicleLabel = { sedan: { en: "Sedan", ru: "Седан", ko: "세단" }, minivan: { en: "Minivan", ru: "Минивэн", ko: "미니밴" } };
   const extrasLine = selectedAddons.map(a => `${a.label.en} (+$${a.price[vehicle]})`).join(", ");
   const waText = lang === "ru"
-    ? `Здравствуйте! Бронирую трансфер Манас (FRU)  to  Каракол.\nНомер рейса: ____\nАвтомобиль: ${vehicleLabel[vehicle].ru} ($${basePrice})${extrasLine ? `\nОстановки: ${extrasLine}` : ""}\nИтого: $${total}. Подтвердите наличие.`
+    ? `Здравствуйте! Бронирую трансфер Манас (FRU) → Каракол.\nНомер рейса: ____\nАвтомобиль: ${vehicleLabel[vehicle].ru} ($${basePrice})${extrasLine ? `\nОстановки: ${extrasLine}` : ""}\nИтого: $${total}. Подтвердите наличие.`
     : lang === "ko"
-    ? `안녕하세요! 마나스(FRU)  to  카라콜 이동 예약합니다.\n항공편 번호: ____\n차량: ${vehicleLabel[vehicle].ko} ($${basePrice})${extrasLine ? `\n정류장: ${extrasLine}` : ""}\n총액: $${total}. 예약 가능 여부 확인 부탁드립니다.`
-    : `Hi! I'd like to book the Manas Airport (FRU)  to  Karakol transfer.\nFlight number: ____\nVehicle: ${vehicleLabel[vehicle].en} ($${basePrice})${extrasLine ? `\nOptional stops: ${extrasLine}` : ""}\nTotal: $${total}. Please confirm availability.`;
+    ? `안녕하세요! 마나스(FRU) → 카라콜 이동 예약합니다.\n항공편 번호: ____\n차량: ${vehicleLabel[vehicle].ko} ($${basePrice})${extrasLine ? `\n정류장: ${extrasLine}` : ""}\n총액: $${total}. 예약 가능 여부 확인 부탁드립니다.`
+    : `Hi! I'd like to book the Manas Airport (FRU) → Karakol transfer.\nFlight number: ____\nVehicle: ${vehicleLabel[vehicle].en} ($${basePrice})${extrasLine ? `\nOptional stops: ${extrasLine}` : ""}\nTotal: $${total}. Please confirm availability.`;
   const waBookLink = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(waText)}`;
 
   return (
@@ -507,7 +498,7 @@ export default function ManasToKarakol({ initialLang }: { initialLang?: "en" | "
             {lang === "ru" ? "Аэропортовый трансфер · 24/7" : lang === "ko" ? "공항 이동 · 24시간" : "Airport Transfer · 24/7"}
           </p>
           <h1 className="mt-2 text-2xl font-bold leading-tight md:text-4xl">
-            {lang === "ru" ? "Аэропорт Манас (FRU)  to  Каракол: Приватный трансфер" : lang === "ko" ? "마나스 공항 (FRU)  to  카라콜: 프라이빗 이동" : "Manas Airport (FRU) to Karakol Private Transfer"}
+            {lang === "ru" ? "Аэропорт Манас (FRU) → Каракол: Приватный трансфер" : lang === "ko" ? "마나스 공항 (FRU) → 카라콜: 프라이빗 이동" : "Manas Airport (FRU) to Karakol Private Transfer"}
           </h1>
           <p className="mt-2 text-sm text-white/80">
             {lang === "ru" ? "Встреча с табличкой в зоне прилёта · 60 мин бесплатного ожидания · ~410 км · ~5 часов" : lang === "ko" ? "도착장에서 이름판 환영 · 60분 무료 대기 · ~410km · ~5시간" : "Meet & Greet at arrivals with name board · 60-min free waiting · ~410 km · ~5 hours"}
@@ -586,32 +577,12 @@ export default function ManasToKarakol({ initialLang }: { initialLang?: "en" | "
             {lang === "ru"
               ? "Аэропортовый трансфер Манас (FRU) — Каракол с встречей в зоне прилёта, отслеживанием рейса и фиксированной ценой за автомобиль. Идеальный выбор для прибывающих ночными или утренними рейсами в Бишкек, кто хочет сразу попасть на Иссык-Куль без пересадок и такси."
               : lang === "ko"
-              ? "마나스 공항(FRU) to 카라콜 이동은 도착장 환영, 항공편 추적, 차량당 고정 가격으로 제공됩니다. 비슈케크에 야간 또는 아침 항공편으로 도착해 환승과 택시 없이 바로 이식쿨로 가고 싶은 여행자에게 이상적입니다."
+              ? "마나스 공항(FRU)→카라콜 이동은 도착장 환영, 항공편 추적, 차량당 고정 가격으로 제공됩니다. 비슈케크에 야간 또는 아침 항공편으로 도착해 환승과 택시 없이 바로 이식쿨로 가고 싶은 여행자에게 이상적입니다."
               : "Manas Airport (FRU) to Karakol transfer with Meet & Greet at arrivals, flight tracking, and fixed price per vehicle. The ideal choice for travelers landing in Bishkek on night or early-morning flights who want to head straight to Issyk-Kul without taxis or transfers."}
           </p>
         </section>
 
-        {/* SEO Sections */}
-        <TravelTipsSection
-          tips={manasToKarakolTravelTips[lang].length > 0 ? manasToKarakolTravelTips[lang] : manasToKarakolTravelTips.en}
-          lang={lang}
-        />
-
-        <CustomerReviewsSection
-          reviews={manasToKarakolReviews[lang].length > 0 ? manasToKarakolReviews[lang] : manasToKarakolReviews.en}
-          lang={lang}
-        />
-
-        <FAQSection
-          faqs={manasToKarakolFAQ[lang].length > 0 ? manasToKarakolFAQ[lang] : manasToKarakolFAQ.en}
-          lang={lang}
-        />
-
-        <RelatedRoutesSection
-          routes={manasToKarakolRelatedRoutes[lang].length > 0 ? manasToKarakolRelatedRoutes[lang] : manasToKarakolRelatedRoutes.en}
-          lang={lang}
-        />
-
+        <RelatedRoutes currentSlug="manas-airport-to-karakol" lang={lang} />
       </main>
 
       <footer className="border-t bg-white/80">
@@ -619,19 +590,19 @@ export default function ManasToKarakol({ initialLang }: { initialLang?: "en" | "
           <p className="text-xs opacity-80">© {new Date().getFullYear()} {BRAND}</p>
           <nav className="flex flex-col gap-2 text-center text-xs opacity-80 md:text-left">
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
-              <a href="/transfers/bishkek-to-karakol" className="hover:text-emerald-600">EN: Bishkek  to  Karakol</a>
-              <a href="/transfers/almaty-to-karakol" className="hover:text-emerald-600">EN: Almaty  to  Karakol</a>
-              <a href="/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">EN: Manas  to  Karakol</a>
+              <a href="/transfers/bishkek-to-karakol" className="hover:text-emerald-600">EN: Bishkek → Karakol</a>
+              <a href="/transfers/almaty-to-karakol" className="hover:text-emerald-600">EN: Almaty → Karakol</a>
+              <a href="/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">EN: Manas → Karakol</a>
             </div>
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
-              <a href="/ru/transfers/bishkek-to-karakol" className="hover:text-emerald-600">RU: Бишкек  to  Каракол</a>
-              <a href="/ru/transfers/almaty-to-karakol" className="hover:text-emerald-600">RU: Алматы  to  Каракол</a>
-              <a href="/ru/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">RU: Манас  to  Каракол</a>
+              <a href="/ru/transfers/bishkek-to-karakol" className="hover:text-emerald-600">RU: Бишкек → Каракол</a>
+              <a href="/ru/transfers/almaty-to-karakol" className="hover:text-emerald-600">RU: Алматы → Каракол</a>
+              <a href="/ru/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">RU: Манас → Каракол</a>
             </div>
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
-              <a href="/ko/transfers/bishkek-to-karakol" className="hover:text-emerald-600">KO: 비슈케크  to  카라콜</a>
-              <a href="/ko/transfers/almaty-to-karakol" className="hover:text-emerald-600">KO: 알마티  to  카라콜</a>
-              <a href="/ko/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">KO: 마나스  to  카라콜</a>
+              <a href="/ko/transfers/bishkek-to-karakol" className="hover:text-emerald-600">KO: 비슈케크 → 카라콜</a>
+              <a href="/ko/transfers/almaty-to-karakol" className="hover:text-emerald-600">KO: 알마티 → 카라콜</a>
+              <a href="/ko/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">KO: 마나스 → 카라콜</a>
             </div>
           </nav>
           <div className="flex gap-2">
