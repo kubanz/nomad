@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { MessageCircle, Send, MapPin } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
 import type { MapStop } from "../components/InteractiveRouteMap";
+import RelatedRoutes from "../components/RelatedRoutes";
 
 const InteractiveRouteMap = dynamic(
   () => import("../components/InteractiveRouteMap"),
@@ -580,6 +581,8 @@ export default function BishkekToOsh({ initialLang }: { initialLang?: "en" | "ru
               : "Bishkek to Osh private transfer is the most comfortable way to reach southern Kyrgyzstan. The route passes through the famous Too-Ashuu tunnel at 3,200 m, the Suusamyr Valley, and Toktogul Reservoir. A great alternative to domestic flights for travelers who want to see the country."}
           </p>
         </section>
+
+        <RelatedRoutes currentSlug="bishkek-to-osh" lang={lang} />
       </main>
 
       <footer className="border-t bg-white/80">

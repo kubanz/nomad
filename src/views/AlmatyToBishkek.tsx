@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { MessageCircle, Send, MapPin } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
 import type { MapStop } from "../components/InteractiveRouteMap";
+import RelatedRoutes from "../components/RelatedRoutes";
 
 const LANG_ROUTES: Record<"en" | "ru" | "ko", string> = {
   en: "/transfers/almaty-to-bishkek",
@@ -749,6 +750,7 @@ export default function AlmatyToBishkek({ initialLang }: { initialLang?: "en" | 
         {/* Pricing */}
         <PricingSection lang={lang} />
 
+        <RelatedRoutes currentSlug="almaty-to-bishkek" lang={lang} />
       </main>
 
       {/* Footer */}

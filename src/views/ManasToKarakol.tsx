@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { MessageCircle, Send, MapPin } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
 import type { MapStop } from "../components/InteractiveRouteMap";
+import RelatedRoutes from "../components/RelatedRoutes";
 
 const InteractiveRouteMap = dynamic(
   () => import("../components/InteractiveRouteMap"),
@@ -580,6 +581,8 @@ export default function ManasToKarakol({ initialLang }: { initialLang?: "en" | "
               : "Manas Airport (FRU) to Karakol transfer with Meet & Greet at arrivals, flight tracking, and fixed price per vehicle. The ideal choice for travelers landing in Bishkek on night or early-morning flights who want to head straight to Issyk-Kul without taxis or transfers."}
           </p>
         </section>
+
+        <RelatedRoutes currentSlug="manas-airport-to-karakol" lang={lang} />
       </main>
 
       <footer className="border-t bg-white/80">

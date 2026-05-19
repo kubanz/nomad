@@ -53,16 +53,32 @@ const jsonLd = {
   "@type": "LocalBusiness",
   "@id": "https://nomad-transfer.com/#business",
   "name": "Nomad Transfer",
-  "description": "Private transfers and day tours in Kyrgyzstan. Routes: Manas Airport, Bishkek, Almaty to Karakol.",
+  "description": "Private transfers and day tours in Kyrgyzstan. Routes: Manas Airport, Bishkek, Almaty to Karakol. Fixed price per car, English-speaking drivers.",
   "url": "https://nomad-transfer.com",
   "telephone": "+996552291808",
   "image": "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
-  "areaServed": ["Kyrgyzstan", "Kazakhstan"],
+  "areaServed": [
+    { "@type": "Country", "name": "Kyrgyzstan" },
+    { "@type": "Country", "name": "Kazakhstan" },
+  ],
   "knowsLanguage": ["en", "ru", "ko"],
   "priceRange": "$$",
   "currenciesAccepted": "USD",
   "paymentAccepted": "Cash, Bank Transfer",
-  "serviceType": "Private Transfer",
+  "openingHours": "Mo-Su 00:00-24:00",
+  "sameAs": ["https://t.me/nomadtransfer"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Private Transfer Routes",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bishkek to Karakol Transfer", "url": "https://nomad-transfer.com/transfers/bishkek-to-karakol" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Almaty to Karakol Transfer", "url": "https://nomad-transfer.com/transfers/almaty-to-karakol" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Manas Airport to Karakol Transfer", "url": "https://nomad-transfer.com/transfers/manas-airport-to-karakol" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Almaty to Bishkek Transfer", "url": "https://nomad-transfer.com/transfers/almaty-to-bishkek" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bishkek to Cholpon-Ata Transfer", "url": "https://nomad-transfer.com/transfers/bishkek-to-cholpon-ata" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bishkek to Osh Transfer", "url": "https://nomad-transfer.com/transfers/bishkek-to-osh" } },
+    ],
+  },
 };
 
 export default function Page() {

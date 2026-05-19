@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { MessageCircle, Send, MapPin } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
 import type { MapStop } from "../components/InteractiveRouteMap";
+import RelatedRoutes from "../components/RelatedRoutes";
 
 const InteractiveRouteMap = dynamic(
   () => import("../components/InteractiveRouteMap"),
@@ -580,6 +581,8 @@ export default function BishkekToKarakol({ initialLang }: { initialLang?: "en" |
               : "Bishkek to Karakol private transfer is the most comfortable way to reach Issyk-Kul region. The route passes through Burana Tower, Boom Gorge, and scenic northern Issyk-Kul coastline. Flexible stops and private transport make this the best option for families and travelers seeking comfort."}
           </p>
         </section>
+
+        <RelatedRoutes currentSlug="bishkek-to-karakol" lang={lang} />
       </main>
 
       <footer className="border-t bg-white/80">
