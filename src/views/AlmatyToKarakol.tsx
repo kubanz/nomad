@@ -438,7 +438,7 @@ function ItineraryCard({ stop, idx, lang }: { stop: Stop; idx: number; lang: "en
 const ADDON_DEFS = [
   {
     key: "charyn" as const,
-    price: { sedan: 25, minivan: 35 },
+    price: { sedan: 35, minivan: 35 },
     label: { en: "Charyn Canyon stop", ru: "Остановка в Чарынском каньоне", ko: "차린 협곡 정류장" },
     sub:   { en: "12 km off the main road · ~1.5 hrs", ru: "12 км от основной дороги · ~1.5 ч", ko: "메인 도로에서 12km · 약 1.5시간" },
   },
