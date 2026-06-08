@@ -45,7 +45,7 @@ const jsonLd = {
         { "@type": "Offer", "name": "미니밴 (6-7명)",     "price": "340", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
         { "@type": "Offer", "name": "버스 (최대 30명)",   "price": "590", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
       ],
-      "provider": { "@type": "LocalBusiness", "name": "Nomad Transfer", "telephone": "+996556080714", "url": "https://nomad-transfer.com", "areaServed": ["키르기스스탄"] },
+      "provider": { "@type": "LocalBusiness", "name": "Nomad Transfer", "telephone": "+996552291808", "url": "https://nomad-transfer.com", "areaServed": ["키르기스스탄"] },
     },
     { "@type": "FAQPage", "mainEntity": [
       { "@type": "Question", "name": "비슈케크에서 오쉬까지 이동 요금은 얼마인가요?", "acceptedAnswer": { "@type": "Answer", "text": "세단(최대 4명) $290, 미니밴(6-7명) $340, 버스(최대 30명) $590. 차량당 가격. 연료, 비슈케크 호텔 픽업, 오쉬 호텔 하차, 수사미르 계곡 점심 정류장 포함." } },

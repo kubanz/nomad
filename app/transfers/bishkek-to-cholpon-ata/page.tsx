@@ -45,7 +45,7 @@ const jsonLd = {
         { "@type": "Offer", "name": "Minivan (6-7)",   "price": "145", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
         { "@type": "Offer", "name": "Bus (up to 30)",  "price": "235", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
       ],
-      "provider": { "@type": "LocalBusiness", "name": "Nomad Transfer", "telephone": "+996556080714", "url": "https://nomad-transfer.com", "areaServed": ["Kyrgyzstan"] },
+      "provider": { "@type": "LocalBusiness", "name": "Nomad Transfer", "telephone": "+996552291808", "url": "https://nomad-transfer.com", "areaServed": ["Kyrgyzstan"] },
     },
     { "@type": "FAQPage", "mainEntity": [
       { "@type": "Question", "name": "How much is a private transfer from Bishkek to Cholpon-Ata?", "acceptedAnswer": { "@type": "Answer", "text": "Sedan (up to 4 passengers) $115, Minivan (6-7 passengers) $145, Bus (up to 30 passengers) $235. Price is per vehicle, not per person. Includes fuel and hotel pickup/drop-off." } },

@@ -16,7 +16,7 @@ const TRANSFER_ROUTES: Record<"en" | "ru" | "ko", string> = {
   ko: "/ko/transfers/manas-airport-to-karakol",
 };
 
-const WHATSAPP_PHONE = "+996556080714";
+const WHATSAPP_PHONE = "+996552291808";
 const WA_SKI = `https://wa.me/${WHATSAPP_PHONE.replace(/\D/g, "")}?text=${encodeURIComponent(
   "Hi! I want to visit Karakol Ski Resort. Please send me a transfer quote."
 )}`;

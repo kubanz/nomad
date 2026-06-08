@@ -56,7 +56,7 @@ const jsonLd = {
   "name": "Nomad Transfer",
   "description": "Частные трансферы и однодневные туры по Кыргызстану. Маршруты: аэропорт Манас, Бишкек, Алматы — Каракол.",
   "url": "https://nomad-transfer.com",
-  "telephone": "+996556080714",
+  "telephone": "+996552291808",
   "image": "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
   "areaServed": ["Kyrgyzstan", "Kazakhstan"],
   "knowsLanguage": ["en", "ru", "ko"],
