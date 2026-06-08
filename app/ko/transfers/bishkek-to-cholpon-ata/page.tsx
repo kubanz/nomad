@@ -45,7 +45,7 @@ const jsonLd = {
         { "@type": "Offer", "name": "미니밴 (6-7명)",     "price": "145", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
         { "@type": "Offer", "name": "버스 (최대 30명)",   "price": "235", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
       ],
-      "provider": { "@type": "LocalBusiness", "name": "Nomad Transfer", "telephone": "+996557081821", "url": "https://nomad-transfer.com", "areaServed": ["키르기스스탄"] },
+      "provider": { "@type": "LocalBusiness", "name": "Nomad Transfer", "telephone": "+996556080714", "url": "https://nomad-transfer.com", "areaServed": ["키르기스스탄"] },
     },
     { "@type": "FAQPage", "mainEntity": [
       { "@type": "Question", "name": "비슈케크에서 촐폰아타까지 이동 요금은 얼마인가요?", "acceptedAnswer": { "@type": "Answer", "text": "세단(최대 4명) $115, 미니밴(6-7명) $145, 버스(최대 30명) $235. 차량당 가격. 연료, 호텔 픽업/하차 포함." } },

@@ -45,7 +45,7 @@ const jsonLd = {
         { "@type": "Offer", "name": "Минивэн (6-7)",    "price": "145", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
         { "@type": "Offer", "name": "Автобус (до 30)",  "price": "235", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
       ],
-      "provider": { "@type": "LocalBusiness", "name": "Nomad Transfer", "telephone": "+996557081821", "url": "https://nomad-transfer.com", "areaServed": ["Кыргызстан"] },
+      "provider": { "@type": "LocalBusiness", "name": "Nomad Transfer", "telephone": "+996556080714", "url": "https://nomad-transfer.com", "areaServed": ["Кыргызстан"] },
     },
     { "@type": "FAQPage", "mainEntity": [
       { "@type": "Question", "name": "Сколько стоит трансфер Бишкек — Чолпон-Ата?", "acceptedAnswer": { "@type": "Answer", "text": "Седан (до 4 пассажиров) — $115, минивэн (6-7) — $145, автобус (до 30) — $235. Цена за автомобиль. Включает топливо и трансфер от/до отеля." } },

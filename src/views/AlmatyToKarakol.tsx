@@ -135,7 +135,7 @@ const STOPS: Stop[] = [
   },
 ];
 
-const WHATSAPP_PHONE = "+996557081821";
+const WHATSAPP_PHONE = "+996556080714";
 const WA_LINK = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(
   "Hi! I'm interested in the Almaty → Karakol private transfer. Please share availability and price."
 )}`;
