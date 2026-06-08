@@ -45,7 +45,7 @@ const jsonLd = {
         { "@type": "Offer", "name": "Minivan (6-7)",   "price": "340", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
         { "@type": "Offer", "name": "Bus (up to 30)",  "price": "590", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
       ],
-      "provider": { "@type": "LocalBusiness", "name": "Nomad Transfer", "telephone": "+996557081821", "url": "https://nomad-transfer.com", "areaServed": ["Kyrgyzstan"] },
+      "provider": { "@type": "LocalBusiness", "name": "Nomad Transfer", "telephone": "+996556080714", "url": "https://nomad-transfer.com", "areaServed": ["Kyrgyzstan"] },
     },
     { "@type": "FAQPage", "mainEntity": [
       { "@type": "Question", "name": "How much is a private transfer from Bishkek to Osh?", "acceptedAnswer": { "@type": "Answer", "text": "Sedan (up to 4 passengers) $290, Minivan (6-7 passengers) $340, Bus (up to 30 passengers) $590. Price is per vehicle, not per person. Includes fuel, hotel pickup in Bishkek, hotel drop-off in Osh, and lunch stop at Suusamyr Valley." } },

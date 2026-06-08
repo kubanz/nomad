@@ -45,7 +45,7 @@ const jsonLd = {
         { "@type": "Offer", "name": "Minivan (6-7)",    "price": "115", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
         { "@type": "Offer", "name": "Bus (up to 30)",   "price": "220", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
       ],
-      "provider": { "@type": "LocalBusiness", "name": "Nomad Transfer", "telephone": "+996557081821", "url": "https://nomad-transfer.com", "areaServed": ["Kazakhstan", "Kyrgyzstan"] },
+      "provider": { "@type": "LocalBusiness", "name": "Nomad Transfer", "telephone": "+996556080714", "url": "https://nomad-transfer.com", "areaServed": ["Kazakhstan", "Kyrgyzstan"] },
     },
     { "@type": "FAQPage", "mainEntity": [
       { "@type": "Question", "name": "How much is a private transfer from Almaty to Bishkek?", "acceptedAnswer": { "@type": "Answer", "text": "Sedan (up to 4 passengers) $90, Minivan (6-7 passengers) $115, Bus (up to 30 passengers) $220. Price is per vehicle, not per person. Includes fuel, hotel pickup in Almaty, hotel drop-off in Bishkek, and assistance at the Kordai border." } },

@@ -74,7 +74,7 @@ const jsonLd = {
       "provider": {
         "@type": "LocalBusiness",
         "name": "Nomad Transfer",
-        "telephone": "+996557081821",
+        "telephone": "+996556080714",
         "url": "https://nomad-transfer.com",
         "areaServed": ["키르기스스탄"],
       },
