@@ -55,7 +55,7 @@ const jsonLd = {
   "name": "Nomad Transfer",
   "description": "Private transfers and day tours in Kyrgyzstan. Routes: Manas Airport, Bishkek, Almaty to Karakol.",
   "url": "https://nomad-transfer.com",
-  "telephone": "+996552291808",
+  "telephone": "+996557081821",
   "image": "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
   "areaServed": ["Kyrgyzstan", "Kazakhstan"],
   "knowsLanguage": ["en", "ru", "ko"],

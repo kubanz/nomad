@@ -56,7 +56,7 @@ const jsonLd = {
   "name": "Nomad Transfer",
   "description": "키르기스스탄 전용 차량 이동 및 당일 투어. 노선: 마나스 공항, 비슈케크, 알마티 — 카라콜.",
   "url": "https://nomad-transfer.com",
-  "telephone": "+996552291808",
+  "telephone": "+996557081821",
   "image": "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
   "areaServed": ["Kyrgyzstan", "Kazakhstan"],
   "knowsLanguage": ["en", "ru", "ko"],

@@ -29,7 +29,7 @@ function saveLang(code: "en" | "ru" | "ko") {
 }
 
 // ===== WhatsApp & Messengers =====
-const WHATSAPP_PHONE = "+996552291808";
+const WHATSAPP_PHONE = "+996557081821";
 const KAKAO_PHONE = "+996557081821";
 
 // ===== Тексты =====
