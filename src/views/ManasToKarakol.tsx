@@ -90,7 +90,7 @@ const STOPS: Stop[] = [
   },
 ];
 
-const WHATSAPP_PHONE = "+996556080714";
+const WHATSAPP_PHONE = "+996552291808";
 const WA_LINK = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?text=${encodeURIComponent(
   "Hi! I'm interested in the Manas Airport → Karakol private transfer. My flight number is: ____. Please share availability and price."
 )}`;
