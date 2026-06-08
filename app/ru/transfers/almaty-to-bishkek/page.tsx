@@ -45,7 +45,7 @@ const jsonLd = {
         { "@type": "Offer", "name": "Минивэн (6-7)",    "price": "115", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
         { "@type": "Offer", "name": "Автобус (до 30)",  "price": "220", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
       ],
-      "provider": { "@type": "LocalBusiness", "name": "Nomad Transfer", "telephone": "+996552291808", "url": "https://nomad-transfer.com", "areaServed": ["Казахстан", "Кыргызстан"] },
+      "provider": { "@type": "LocalBusiness", "name": "Nomad Transfer", "telephone": "+996557081821", "url": "https://nomad-transfer.com", "areaServed": ["Казахстан", "Кыргызстан"] },
     },
     { "@type": "FAQPage", "mainEntity": [
       { "@type": "Question", "name": "Сколько стоит трансфер из Алматы в Бишкек?", "acceptedAnswer": { "@type": "Answer", "text": "Седан (до 4 пассажиров) — $90, минивэн (6-7) — $115, автобус (до 30) — $220. Цена за автомобиль, не за человека. Включает топливо, трансфер от отеля в Алматы до отеля в Бишкеке, помощь на границе Кордай." } },
