@@ -1,7 +1,7 @@
 "use client";
 
 import Script from "next/script";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface LineItem {
   id: number;
@@ -31,12 +31,32 @@ function newItem(): LineItem {
   return { id: nextId++, description: "", route: "", date: "", qty: 1, unitPrice: 0 };
 }
 
+function peekNextNumber(): string {
+  const year = new Date().getFullYear();
+  const last = parseInt(localStorage.getItem(`nomad_inv_${year}`) || "0");
+  return `NT-${year}-${String(last + 1).padStart(3, "0")}`;
+}
+
+function commitNumber(invNum: string) {
+  const match = invNum.match(/^NT-(\d{4})-(\d+)$/);
+  if (!match) return;
+  const key = `nomad_inv_${match[1]}`;
+  const num = parseInt(match[2]);
+  if (num > parseInt(localStorage.getItem(key) || "0")) {
+    localStorage.setItem(key, String(num));
+  }
+}
+
 export default function InvoiceGenerator() {
   const today = new Date().toISOString().split("T")[0];
   const tomorrow = new Date(Date.now() + 86400000).toISOString().split("T")[0];
   const previewRef = useRef<HTMLDivElement>(null);
 
   const [invNumber, setInvNumber] = useState("NT-2025-001");
+
+  useEffect(() => {
+    setInvNumber(peekNextNumber());
+  }, []);
   const [invDate, setInvDate] = useState(today);
   const [dueDate, setDueDate] = useState(tomorrow);
 
@@ -104,6 +124,7 @@ export default function InvoiceGenerator() {
       const pdfWidth = 210;
       const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
       doc.addImage(imgData, "PNG", 0, 0, pdfWidth, Math.min(pdfHeight, 297));
+      commitNumber(invNumber);
       doc.save(`NomadTransfer-Invoice-${invNumber}.pdf`);
 
       setShowSuccess(true);
