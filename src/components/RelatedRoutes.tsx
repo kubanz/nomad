@@ -60,6 +60,13 @@ const ROUTES: Route[] = [
     desc: { en: "City centre pickup, meet & greet included", ru: "В центр города, встреча с табличкой", ko: "시내 픽업, 이름판 환영 포함" },
     badge: { en: "~30–40 min", ru: "~30–40 мин", ko: "~30–40분" },
   },
+  {
+    slug: "bishkek-to-manas-airport",
+    price: 25,
+    name: { en: "Bishkek → Manas Airport", ru: "Бишкек → Аэропорт Манас", ko: "비슈케크 → 마나스 공항" },
+    desc: { en: "Hotel pickup and direct terminal drop-off", ru: "Подача к отелю и доставка к терминалу", ko: "숙소 픽업 및 터미널 직접 하차" },
+    badge: { en: "~30–40 min", ru: "~30–40 мин", ko: "~30–40분" },
+  },
 ];
 
 const LABELS = {

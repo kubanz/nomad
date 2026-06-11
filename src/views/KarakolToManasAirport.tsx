@@ -515,7 +515,7 @@ export default function KarakolToManasAirport({ initialLang }: { initialLang?: "
           <nav className="hidden items-center justify-center gap-1 md:flex">
             <Link href="/" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">{lang === "ru" ? "Главная" : lang === "ko" ? "홈" : "Home"}</Link>
             <Link href="/#curated-tours" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">{lang === "ru" ? "Туры" : lang === "ko" ? "투어" : "Tours"}</Link>
-            <Link href="/#route-prices" className="rounded-lg px-3 py-1.5 text-sm font-medium text-emerald-600 hover:bg-slate-100">{lang === "ru" ? "Трансферы" : lang === "ko" ? "이동" : "Transfers"}</Link>
+            <Link href="/transfers" className="rounded-lg px-3 py-1.5 text-sm font-medium text-emerald-600 hover:bg-slate-100">{lang === "ru" ? "Трансферы" : lang === "ko" ? "이동" : "Transfers"}</Link>
           </nav>
           <div className="flex items-center justify-end gap-2">
             <div className="relative">

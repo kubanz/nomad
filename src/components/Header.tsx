@@ -8,9 +8,10 @@ const WHATSAPP_PHONE = "+996552291808";
 
 interface HeaderProps {
   lang?: "en" | "ru" | "ko";
+  languagePath?: string;
 }
 
-export default function Header({ lang = "en" }: HeaderProps) {
+export default function Header({ lang = "en", languagePath = "" }: HeaderProps) {
   const [showLangDropdown, setShowLangDropdown] = useState(false);
 
   useEffect(() => {
@@ -63,7 +64,7 @@ export default function Header({ lang = "en" }: HeaderProps) {
             {t.tours}
           </Link>
           <Link
-            href={`${homeUrl}#route-prices`}
+            href={`${homeUrl === "/" ? "" : homeUrl}/transfers`}
             className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-emerald-600"
           >
             {t.transfers}
@@ -105,19 +106,19 @@ export default function Header({ lang = "en" }: HeaderProps) {
             {showLangDropdown && (
               <div className="absolute right-0 top-full z-50 mt-2 w-36 rounded-xl border bg-white shadow-lg">
                 <a
-                  href="/"
+                  href={languagePath || "/"}
                   className={`block w-full rounded-t-xl px-4 py-2 text-left text-sm hover:bg-slate-50 ${lang === "en" ? "bg-slate-50 font-semibold" : ""}`}
                 >
                   🇬🇧 English
                 </a>
                 <a
-                  href="/ko"
+                  href={`/ko${languagePath}`}
                   className={`block w-full px-4 py-2 text-left text-sm hover:bg-slate-50 ${lang === "ko" ? "bg-slate-50 font-semibold" : ""}`}
                 >
                   🇰🇷 Korean
                 </a>
                 <a
-                  href="/ru"
+                  href={`/ru${languagePath}`}
                   className={`block w-full rounded-b-xl px-4 py-2 text-left text-sm hover:bg-slate-50 ${lang === "ru" ? "bg-slate-50 font-semibold" : ""}`}
                 >
                   🇷🇺 Russian

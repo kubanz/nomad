@@ -54,7 +54,7 @@ const jsonLd = {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nomad-transfer.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Transfers", "item": "https://nomad-transfer.com/#transfers" },
+        { "@type": "ListItem", "position": 2, "name": "Transfers", "item": "https://nomad-transfer.com/transfers" },
         { "@type": "ListItem", "position": 3, "name": "Cholpon-Ata to Bishkek", "item": "https://nomad-transfer.com/transfers/cholpon-ata-to-bishkek" },
       ],
     },

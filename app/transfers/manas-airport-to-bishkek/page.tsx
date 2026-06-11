@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ManasAirportToBishkek from "../../../src/views/ManasAirportToBishkek";
 
 export const metadata: Metadata = {
-  title: "Manas Airport (FRU) to Bishkek Transfer | Meet & Greet 24/7 | From $25",
+  title: "Manas Airport to Bishkek Transfer | Meet & Greet from $25",
   description:
     "Private airport transfer from Manas (FRU) to Bishkek city centre. Meet & Greet with name board at arrivals, 60-min free waiting, flight tracking. Sedan $25, Minivan $30. Fixed price, no surprises. WhatsApp 24/7.",
   keywords: [
@@ -29,6 +29,12 @@ export const metadata: Metadata = {
       "Meet & Greet with name board at Manas arrivals, 60-min free waiting, flight tracking. Sedan $25, Minivan $30. Door-to-door to your hotel in Bishkek.",
     type: "website",
     url: "https://nomad-transfer.com/transfers/manas-airport-to-bishkek",
+    images: [{
+      url: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
+      width: 1200,
+      height: 630,
+      alt: "Private transfer from Manas Airport to Bishkek",
+    }],
   },
   twitter: {
     card: "summary_large_image",
@@ -44,7 +50,7 @@ const jsonLd = {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home",      item: "https://nomad-transfer.com/" },
-        { "@type": "ListItem", position: 2, name: "Transfers", item: "https://nomad-transfer.com/#transfers" },
+        { "@type": "ListItem", position: 2, name: "Transfers", item: "https://nomad-transfer.com/transfers" },
         { "@type": "ListItem", position: 3, name: "Manas Airport to Bishkek", item: "https://nomad-transfer.com/transfers/manas-airport-to-bishkek" },
       ],
     },

@@ -208,7 +208,7 @@ export default function AboutPage() {
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
                 <Link
-                  href="/#route-prices"
+                  href="/transfers"
                   className="w-full rounded-full bg-white px-7 py-3 text-center font-semibold text-teal-700 transition hover:bg-teal-50 sm:w-auto"
                 >
                   View Routes

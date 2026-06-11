@@ -55,7 +55,7 @@ const jsonLd = {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://nomad-transfer.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Трансферы", "item": "https://nomad-transfer.com/#transfers" },
+        { "@type": "ListItem", "position": 2, "name": "Трансферы", "item": "https://nomad-transfer.com/ru/transfers" },
         { "@type": "ListItem", "position": 3, "name": "Аэропорт Манас — Каракол", "item": "https://nomad-transfer.com/ru/transfers/manas-airport-to-karakol" },
       ],
     },

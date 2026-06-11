@@ -10,6 +10,7 @@ const TRANSFERS_MULTILANG: { slug: string; lastModified: Date }[] = [
   { slug: "almaty-to-karakol",        lastModified: new Date("2026-06-11") },
   { slug: "manas-airport-to-karakol", lastModified: new Date("2026-05-16") },
   { slug: "manas-airport-to-bishkek", lastModified: new Date("2026-06-11") },
+  { slug: "bishkek-to-manas-airport", lastModified: new Date("2026-06-11") },
   { slug: "almaty-to-bishkek",        lastModified: new Date("2026-05-15") },
   { slug: "bishkek-to-cholpon-ata",   lastModified: new Date("2026-05-15") },
   { slug: "bishkek-to-osh",           lastModified: new Date("2026-05-15") },
@@ -131,6 +132,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly",
       priority: 0.9,
+    });
+  }
+
+  // Transfer catalog (en / ru / ko)
+  const transferCatalogLangs = {
+    "x-default": `${BASE}/transfers`,
+    en: `${BASE}/transfers`,
+    ru: `${BASE}/ru/transfers`,
+    ko: `${BASE}/ko/transfers`,
+  };
+  for (const [lang, url] of Object.entries(transferCatalogLangs)) {
+    if (lang === "x-default") continue;
+    entries.push({
+      url,
+      lastModified: new Date("2026-06-11"),
+      changeFrequency: "weekly",
+      priority: lang === "en" ? 0.95 : 0.85,
+      alternates: { languages: transferCatalogLangs },
     });
   }
 

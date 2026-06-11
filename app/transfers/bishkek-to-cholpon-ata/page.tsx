@@ -30,7 +30,7 @@ const jsonLd = {
   "@graph": [
     { "@type": "BreadcrumbList", "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nomad-transfer.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Transfers", "item": "https://nomad-transfer.com/#transfers" },
+      { "@type": "ListItem", "position": 2, "name": "Transfers", "item": "https://nomad-transfer.com/transfers" },
       { "@type": "ListItem", "position": 3, "name": "Bishkek to Cholpon-Ata", "item": "https://nomad-transfer.com/transfers/bishkek-to-cholpon-ata" },
     ]},
     {

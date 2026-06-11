@@ -66,7 +66,7 @@ export default function SiteHeader({ lang, waLink, onLangChange, activeNav }: Pr
         <nav className="hidden items-center justify-center gap-1 md:flex">
           {navLink(`${prefix}/`, "Home", "Главная", "홈", activeNav === "home")}
           {navLink(`${prefix}/#curated-tours`, "Tours", "Туры", "투어", activeNav === "tours")}
-          {navLink(`${prefix}/#route-prices`, "Transfers", "Трансферы", "이동", activeNav === "transfers")}
+          {navLink(`${prefix}/transfers`, "Transfers", "Трансферы", "이동", activeNav === "transfers")}
         </nav>
 
         {/* Right: hamburger + lang + desktop buttons */}
@@ -131,7 +131,7 @@ export default function SiteHeader({ lang, waLink, onLangChange, activeNav }: Pr
           <div className="flex flex-col gap-1">
             {mobileNavLink(`${prefix}/`, "Home", "Главная", "홈", activeNav === "home")}
             {mobileNavLink(`${prefix}/#curated-tours`, "Tours", "Туры", "투어", activeNav === "tours")}
-            {mobileNavLink(`${prefix}/#route-prices`, "Transfers", "Трансферы", "이동", activeNav === "transfers")}
+            {mobileNavLink(`${prefix}/transfers`, "Transfers", "Трансферы", "이동", activeNav === "transfers")}
           </div>
         </nav>
       )}

@@ -671,7 +671,7 @@ export default function BishkekToAlmaty({ initialLang }: { initialLang?: "en" | 
             <Link href="/#curated-tours" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
               {lang === "ru" ? "Туры" : lang === "ko" ? "투어" : "Tours"}
             </Link>
-            <Link href="/#route-prices" className="rounded-lg px-3 py-1.5 text-sm font-medium text-emerald-600 hover:bg-slate-100">
+            <Link href="/transfers" className="rounded-lg px-3 py-1.5 text-sm font-medium text-emerald-600 hover:bg-slate-100">
               {lang === "ru" ? "Трансферы" : lang === "ko" ? "이동" : "Transfers"}
             </Link>
           </nav>

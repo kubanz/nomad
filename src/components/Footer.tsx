@@ -14,6 +14,9 @@ export default function Footer() {
           <div>
             <h3 className="mb-3 font-bold text-slate-900">Company</h3>
             <div className="flex flex-col gap-2 text-sm text-slate-600">
+              <a href="/transfers" className="font-semibold text-emerald-700 hover:text-emerald-800">
+                All Transfers
+              </a>
               <a href="/about" className="hover:text-emerald-600">
                 About Us
               </a>
@@ -76,6 +79,9 @@ export default function Footer() {
               </a>
               <a href="/transfers/bishkek-to-almaty" className="hover:text-emerald-600">
                 Bishkek → Almaty
+              </a>
+              <a href="/transfers/bishkek-to-manas-airport" className="hover:text-emerald-600">
+                Bishkek → Manas Airport
               </a>
             </div>
           </div>

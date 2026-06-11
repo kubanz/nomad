@@ -671,7 +671,7 @@ export default function Landing({
             <Link href="/#curated-tours" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
               {lang === "ru" ? "Туры" : lang === "ko" ? "투어" : "Tours"}
             </Link>
-            <Link href="/#route-prices" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
+            <Link href={lang === "en" ? "/transfers" : `/${lang}/transfers`} className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
               {lang === "ru" ? "Трансферы" : lang === "ko" ? "이동" : "Transfers"}
             </Link>
             <Link href="/pricing" className="rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100">
@@ -782,7 +782,7 @@ export default function Landing({
                 className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100">
                 {lang === "ru" ? "Туры" : lang === "ko" ? "투어" : "Tours"}
               </Link>
-              <Link href="/#route-prices" onClick={() => setShowMobileMenu(false)}
+              <Link href={lang === "en" ? "/transfers" : `/${lang}/transfers`} onClick={() => setShowMobileMenu(false)}
                 className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100">
                 {lang === "ru" ? "Трансферы" : lang === "ko" ? "이동" : "Transfers"}
               </Link>

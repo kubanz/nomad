@@ -43,7 +43,7 @@ const jsonLd = {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "홈",    item: "https://nomad-transfer.com/" },
-        { "@type": "ListItem", position: 2, name: "이동",  item: "https://nomad-transfer.com/#transfers" },
+        { "@type": "ListItem", position: 2, name: "이동",  item: "https://nomad-transfer.com/ko/transfers" },
         { "@type": "ListItem", position: 3, name: "마나스 공항 → 비슈케크", item: "https://nomad-transfer.com/ko/transfers/manas-airport-to-bishkek" },
       ],
     },
