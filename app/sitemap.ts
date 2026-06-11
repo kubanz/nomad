@@ -6,7 +6,7 @@ const BASE = "https://nomad-transfer.com";
 // Real last-modified dates taken from git commit history.
 // Update when content (prices, FAQ, route details) actually changes.
 const TRANSFERS_MULTILANG: { slug: string; lastModified: Date }[] = [
-  { slug: "bishkek-to-karakol",       lastModified: new Date("2026-05-15") },
+  { slug: "bishkek-to-karakol",       lastModified: new Date("2026-06-11") },
   { slug: "almaty-to-karakol",        lastModified: new Date("2026-06-11") },
   { slug: "manas-airport-to-karakol", lastModified: new Date("2026-05-16") },
   { slug: "manas-airport-to-bishkek", lastModified: new Date("2026-06-11") },
@@ -18,7 +18,7 @@ const TRANSFERS_MULTILANG: { slug: string; lastModified: Date }[] = [
 
 // Reverse routes — English only
 const TRANSFERS_EN: { slug: string; lastModified: Date }[] = [
-  { slug: "karakol-to-bishkek",       lastModified: new Date("2026-05-19") },
+  { slug: "karakol-to-bishkek",       lastModified: new Date("2026-06-11") },
   { slug: "karakol-to-almaty",        lastModified: new Date("2026-06-11") },
   { slug: "karakol-to-manas-airport", lastModified: new Date("2026-05-19") },
   { slug: "cholpon-ata-to-bishkek",   lastModified: new Date("2026-05-19") },

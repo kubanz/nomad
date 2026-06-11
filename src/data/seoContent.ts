@@ -794,7 +794,7 @@ export const karakolToBishkekRelatedRoutes: Record<"en" | "ru" | "ko", RelatedRo
     {
       title: "Karakol to Almaty",
       href: "/transfers/karakol-to-almaty",
-      price: "From $232",
+      price: "From $235",
       duration: "~7-8 hours",
       distance: "~430 km",
     },

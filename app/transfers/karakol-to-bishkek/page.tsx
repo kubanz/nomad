@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import KarakolToBishkek from "../../../src/views/KarakolToBishkek";
 
 export const metadata: Metadata = {
-  title: "Karakol to Bishkek Private Transfer | Taxi & Shuttle from $136 | English Driver | Nomad Transfer",
+  title: "Karakol to Bishkek Transfer from $136 | Nomad Transfer",
   description:
-    "Book private transfer Karakol to Bishkek with English-speaking support. Sedan $136, Minivan $167. Scenic route via Issyk-Kul lake. Optional stops: Cholpon-Ata, Boom Gorge. Fixed price, no hidden fees. Free cancellation 24h. WhatsApp booking in 1-2 min.",
+    "Return from Karakol to Bishkek along Issyk-Kul's north shore via Cholpon-Ata and Boom Gorge. Sedan $136, minivan $167, bus $265 per vehicle.",
   keywords: [
     "karakol to bishkek transfer",
     "karakol bishkek taxi",
