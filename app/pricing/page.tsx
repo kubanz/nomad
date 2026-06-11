@@ -1,422 +1,327 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Car, Users, Bus, CheckCircle, ArrowRight, Calculator } from "lucide-react";
+import {
+  ArrowRight,
+  Banknote,
+  Bus,
+  Car,
+  CheckCircle,
+  Clock,
+  Luggage,
+  MapPin,
+  MessageCircle,
+  Route,
+  ShieldCheck,
+  Users,
+} from "lucide-react";
+
+const pageUrl = "https://nomad-transfer.com/pricing";
+const whatsappUrl =
+  "https://wa.me/996552291808?text=Hi!%20I%20need%20a%20quote%20for%20a%20private%20transfer";
 
 export const metadata: Metadata = {
-  title: "Transfer Prices Kyrgyzstan 2026 | All Routes, Fixed Pricing, No Hidden Fees | Nomad Transfer",
+  title: "Private Transfer Prices in Kyrgyzstan | Nomad Transfer",
   description:
-    "Complete price list for all transfer routes in Kyrgyzstan. Bishkek-Karakol $136, Almaty-Bishkek $127, airport transfers from $25. Fixed prices, fuel included, free cancellation. Sedan, minivan, bus options. Book via WhatsApp in 1-2 minutes.",
-  keywords: [
-    "transfer prices kyrgyzstan",
-    "bishkek karakol price",
-    "almaty bishkek cost",
-    "kyrgyzstan taxi prices",
-    "private transfer cost",
-    "airport transfer price",
-    "nomad transfer pricing",
-  ],
+    "Compare fixed private transfer prices across Kyrgyzstan and Kazakhstan. Prices are per vehicle and include fuel, pickup, drop-off, and route support.",
+  alternates: { canonical: pageUrl },
   openGraph: {
-    title: "Transfer Prices Kyrgyzstan 2026 | Fixed Pricing, All Routes",
-    description: "Complete price list. Bishkek-Karakol $136, Almaty-Bishkek $127. Fixed prices, no hidden fees.",
-    url: "https://nomad-transfer.com/pricing",
+    title: "Private Transfer Prices in Kyrgyzstan | Nomad Transfer",
+    description:
+      "Clear prices per vehicle for private transfers across Kyrgyzstan and Kazakhstan.",
+    type: "website",
+    url: pageUrl,
+    siteName: "Nomad Transfer",
+    images: [{
+      url: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
+      width: 1200,
+      height: 630,
+      alt: "Private transfer routes and prices in Kyrgyzstan",
+    }],
   },
-  alternates: {
-    canonical: "https://nomad-transfer.com/pricing",
+  twitter: {
+    card: "summary_large_image",
+    title: "Private Transfer Prices in Kyrgyzstan",
+    description: "Fixed prices per vehicle for routes across Kyrgyzstan and Kazakhstan.",
+    images: ["https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg"],
   },
 };
 
-const routes = [
-  // Within Kyrgyzstan
-  { from: "Bishkek", to: "Cholpon-Ata", distance: "250 km", sedan: 97, minivan: 128, bus: 210, duration: "4-5h", href: "/transfers/bishkek-to-cholpon-ata" },
-  { from: "Bishkek", to: "Karakol", distance: "360 km", sedan: 136, minivan: 167, bus: 265, duration: "6-7h", href: "/transfers/bishkek-to-karakol" },
-  { from: "Bishkek", to: "Osh", distance: "650 km", sedan: 298, minivan: 345, bus: 485, duration: "10-12h", href: "/transfers/bishkek-to-osh" },
-  { from: "Manas Airport", to: "Bishkek City", distance: "30 km", sedan: 25, minivan: 30, bus: null, duration: "30-40min", href: "/guides/manas-airport-to-bishkek-city" },
-  { from: "Manas Airport", to: "Karakol", distance: "390 km", sedan: 146, minivan: 177, bus: 275, duration: "6.5-7.5h", href: "/transfers/manas-airport-to-karakol" },
-  { from: "Cholpon-Ata", to: "Bishkek", distance: "250 km", sedan: 97, minivan: 128, bus: 210, duration: "4-5h", href: "/transfers/cholpon-ata-to-bishkek" },
-  { from: "Karakol", to: "Bishkek", distance: "360 km", sedan: 136, minivan: 167, bus: 265, duration: "6-7h", href: "/transfers/karakol-to-bishkek" },
-  { from: "Karakol", to: "Manas Airport", distance: "390 km", sedan: 146, minivan: 177, bus: 275, duration: "6.5-7.5h", href: "/transfers/karakol-to-manas-airport" },
-  { from: "Osh", to: "Bishkek", distance: "650 km", sedan: 298, minivan: 345, bus: 485, duration: "10-12h", href: "/transfers/osh-to-bishkek" },
+type TransferRoute = {
+  from: string;
+  to: string;
+  distance: string;
+  duration: string;
+  sedan: number;
+  minivan: number;
+  group: number | null;
+  href: string;
+  region: "Kyrgyzstan" | "Cross-border";
+};
 
-  // Cross-border (Kazakhstan)
-  { from: "Almaty", to: "Bishkek", distance: "230 km", sedan: 127, minivan: 158, bus: null, duration: "4-5h", href: "/transfers/almaty-to-bishkek", badge: "Border" },
-  { from: "Almaty", to: "Karakol", distance: "430 km", sedan: 235, minivan: 275, bus: 485, duration: "7-8h", href: "/transfers/almaty-to-karakol", badge: "Border" },
-  { from: "Bishkek", to: "Almaty", distance: "230 km", sedan: 127, minivan: 158, bus: null, duration: "4-5h", href: "/transfers/bishkek-to-almaty", badge: "Border" },
-  { from: "Karakol", to: "Almaty", distance: "430 km", sedan: 235, minivan: 275, bus: 485, duration: "7-8h", href: "/transfers/karakol-to-almaty", badge: "Border" },
+const routes: TransferRoute[] = [
+  { from: "Bishkek", to: "Cholpon-Ata", distance: "250 km", duration: "3-4h", sedan: 115, minivan: 145, group: 235, href: "/transfers/bishkek-to-cholpon-ata", region: "Kyrgyzstan" },
+  { from: "Bishkek", to: "Karakol", distance: "360 km", duration: "6-7h", sedan: 136, minivan: 167, group: 265, href: "/transfers/bishkek-to-karakol", region: "Kyrgyzstan" },
+  { from: "Bishkek", to: "Osh", distance: "620 km", duration: "10-12h", sedan: 290, minivan: 340, group: 590, href: "/transfers/bishkek-to-osh", region: "Kyrgyzstan" },
+  { from: "Manas Airport", to: "Bishkek", distance: "30 km", duration: "30-40min", sedan: 25, minivan: 30, group: null, href: "/guides/manas-airport-to-bishkek-city", region: "Kyrgyzstan" },
+  { from: "Manas Airport", to: "Karakol", distance: "390 km", duration: "6.5-7.5h", sedan: 146, minivan: 177, group: 275, href: "/transfers/manas-airport-to-karakol", region: "Kyrgyzstan" },
+  { from: "Cholpon-Ata", to: "Bishkek", distance: "250 km", duration: "3-4h", sedan: 115, minivan: 145, group: 235, href: "/transfers/cholpon-ata-to-bishkek", region: "Kyrgyzstan" },
+  { from: "Karakol", to: "Bishkek", distance: "360 km", duration: "6-7h", sedan: 136, minivan: 167, group: 265, href: "/transfers/karakol-to-bishkek", region: "Kyrgyzstan" },
+  { from: "Karakol", to: "Manas Airport", distance: "390 km", duration: "6.5-7.5h", sedan: 146, minivan: 177, group: 275, href: "/transfers/karakol-to-manas-airport", region: "Kyrgyzstan" },
+  { from: "Osh", to: "Bishkek", distance: "620 km", duration: "10-12h", sedan: 290, minivan: 340, group: 590, href: "/transfers/osh-to-bishkek", region: "Kyrgyzstan" },
+  { from: "Almaty", to: "Bishkek", distance: "240 km", duration: "3-4h", sedan: 90, minivan: 115, group: 220, href: "/transfers/almaty-to-bishkek", region: "Cross-border" },
+  { from: "Bishkek", to: "Almaty", distance: "240 km", duration: "3-4h", sedan: 90, minivan: 115, group: 220, href: "/transfers/bishkek-to-almaty", region: "Cross-border" },
+  { from: "Almaty", to: "Karakol", distance: "430 km", duration: "7-8h", sedan: 235, minivan: 275, group: 485, href: "/transfers/almaty-to-karakol", region: "Cross-border" },
+  { from: "Karakol", to: "Almaty", distance: "430 km", duration: "7-8h", sedan: 235, minivan: 275, group: 485, href: "/transfers/karakol-to-almaty", region: "Cross-border" },
 ];
 
-export default function PricingPage() {
+const vehicles = [
+  { name: "Sedan", icon: Car, capacity: "Up to 4 passengers", luggage: "2-3 suitcases", best: "Couples, families, and small groups", style: "bg-teal-100 text-teal-700" },
+  { name: "Minivan", icon: Users, capacity: "Up to 6-7 passengers", luggage: "4-6 suitcases", best: "Families and groups with luggage", style: "bg-amber-100 text-amber-700" },
+  { name: "Group vehicle", icon: Bus, capacity: "Up to 30 passengers", luggage: "Large luggage capacity", best: "Tour groups and organized travel", style: "bg-blue-100 text-blue-700" },
+];
+
+const included = [
+  "Fuel and standard road costs",
+  "Pickup and drop-off at the agreed addresses",
+  "Private vehicle for your group",
+  "Driver and route coordination",
+  "English-speaking WhatsApp support",
+  "Short rest and photo stops when possible",
+  "Winter equipment when required",
+  "Border-route guidance for Kazakhstan transfers",
+];
+
+const faqItems = [
+  { question: "Are prices per person or per vehicle?", answer: "All prices are per vehicle for a private one-way transfer, not per passenger. Your group does not share the vehicle with other travelers." },
+  { question: "What is included in the price?", answer: "The listed price includes the vehicle, driver, fuel, standard road costs, pickup, and drop-off. Attractions, meals, overnight stays, and major detours may cost extra." },
+  { question: "Can I request a route that is not listed?", answer: "Yes. Send us your pickup point, destination, date, passenger count, and luggage for an individual quote across Kyrgyzstan or Kazakhstan." },
+  { question: "Can the confirmed price change?", answer: "The confirmed price stays fixed unless you request a different route, additional stops, another vehicle, or extra services." },
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "CollectionPage", "@id": `${pageUrl}#webpage`, url: pageUrl, name: "Private Transfer Prices in Kyrgyzstan", description: "Fixed private transfer prices per vehicle for routes across Kyrgyzstan and Kazakhstan.", inLanguage: "en", about: { "@id": "https://nomad-transfer.com/#organization" } },
+    { "@type": "BreadcrumbList", itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://nomad-transfer.com/" },
+      { "@type": "ListItem", position: 2, name: "Transfer Prices", item: pageUrl },
+    ] },
+    { "@type": "ItemList", name: "Nomad Transfer routes and prices", numberOfItems: routes.length, itemListElement: routes.map((route, index) => ({
+      "@type": "ListItem", position: index + 1, url: `https://nomad-transfer.com${route.href}`,
+      item: { "@type": "Service", name: `${route.from} to ${route.to} private transfer`, provider: { "@id": "https://nomad-transfer.com/#organization" }, offers: { "@type": "Offer", price: route.sedan, priceCurrency: "USD", description: "Starting price for a private sedan transfer" } },
+    })) },
+    { "@type": "FAQPage", mainEntity: faqItems.map((item) => ({ "@type": "Question", name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })) },
+  ],
+};
+
+function Price({ value }: { value: number | null }) {
+  return value === null
+    ? <span className="text-xs text-slate-400">On request</span>
+    : <span className="font-bold text-slate-900">${value}</span>;
+}
+
+function RouteCard({ route }: { route: TransferRoute }) {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-      {/* Hero */}
-      <section className="relative bg-gradient-to-r from-teal-600 to-blue-600 py-20 text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl font-bold md:text-5xl">Transfer Pricing</h1>
-            <p className="mt-6 text-xl text-teal-50">
-              Fixed prices for all routes. No hidden fees, no surge pricing, no surprises. What you see is what you pay.
-            </p>
-          </div>
-        </div>
-      </section>
+    <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+      <p className="text-xs font-semibold uppercase tracking-wider text-teal-700">{route.region}</p>
+      <h3 className="mt-2 flex flex-wrap items-center gap-2 text-lg font-bold text-slate-900">
+        {route.from}<ArrowRight className="h-4 w-4 text-slate-400" />{route.to}
+      </h3>
+      <div className="mt-3 flex gap-4 text-sm text-slate-600">
+        <span className="inline-flex items-center gap-1"><MapPin className="h-4 w-4" />{route.distance}</span>
+        <span className="inline-flex items-center gap-1"><Clock className="h-4 w-4" />{route.duration}</span>
+      </div>
+      <div className="mt-5 grid grid-cols-3 gap-2 border-y border-slate-100 py-4 text-center text-sm">
+        <div><Car className="mx-auto h-4 w-4 text-teal-600" /><p className="my-1 text-xs text-slate-500">Sedan</p><Price value={route.sedan} /></div>
+        <div><Users className="mx-auto h-4 w-4 text-amber-600" /><p className="my-1 text-xs text-slate-500">Minivan</p><Price value={route.minivan} /></div>
+        <div><Bus className="mx-auto h-4 w-4 text-blue-600" /><p className="my-1 text-xs text-slate-500">Group</p><Price value={route.group} /></div>
+      </div>
+      <Link href={route.href} className="mt-4 inline-flex items-center gap-2 font-semibold text-teal-700">
+        Route details <ArrowRight className="h-4 w-4" />
+      </Link>
+    </article>
+  );
+}
 
-      {/* Value Props */}
-      <section className="container mx-auto px-4 py-12">
-        <div className="grid gap-6 md:grid-cols-3">
-          <div className="rounded-2xl border border-green-200 bg-green-50 p-6 text-center">
-            <CheckCircle className="mx-auto mb-3 h-10 w-10 text-green-600" />
-            <h3 className="mb-2 font-bold text-slate-900">Fixed Prices</h3>
-            <p className="text-sm text-slate-700">Price confirmed upfront. No haggling, no surge pricing, no "extra fees" at the end.</p>
-          </div>
-          <div className="rounded-2xl border border-blue-200 bg-blue-50 p-6 text-center">
-            <CheckCircle className="mx-auto mb-3 h-10 w-10 text-blue-600" />
-            <h3 className="mb-2 font-bold text-slate-900">All Inclusive</h3>
-            <p className="text-sm text-slate-700">Fuel, tolls, parking, winter equipment — everything included in the price.</p>
-          </div>
-          <div className="rounded-2xl border border-purple-200 bg-purple-50 p-6 text-center">
-            <CheckCircle className="mx-auto mb-3 h-10 w-10 text-purple-600" />
-            <h3 className="mb-2 font-bold text-slate-900">Free Cancellation</h3>
-            <p className="text-sm text-slate-700">Cancel free up to 24h before pickup. Plans change, we get it.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Vehicle Types */}
-      <section className="bg-slate-50 py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900">Choose Your Vehicle</h2>
-          <div className="grid gap-8 lg:grid-cols-3">
-            {/* Sedan */}
-            <div className="rounded-2xl border-2 border-teal-300 bg-white p-8 shadow-lg">
-              <Car className="mb-4 h-12 w-12 text-teal-600" />
-              <h3 className="mb-4 text-2xl font-bold text-slate-900">Sedan</h3>
-              <ul className="mb-6 space-y-2 text-slate-700">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-teal-600" />
-                  <span>Up to 4 passengers</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-teal-600" />
-                  <span>2-3 large suitcases</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-teal-600" />
-                  <span>Air conditioning</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-teal-600" />
-                  <span>Perfect for couples/small groups</span>
-                </li>
-              </ul>
-              <p className="text-sm text-slate-500">Models: Toyota Camry, Hyundai Sonata, VW Passat</p>
-            </div>
-
-            {/* Minivan */}
-            <div className="rounded-2xl border-2 border-amber-300 bg-white p-8 shadow-lg">
-              <Users className="mb-4 h-12 w-12 text-amber-600" />
-              <h3 className="mb-4 text-2xl font-bold text-slate-900">Minivan</h3>
-              <ul className="mb-6 space-y-2 text-slate-700">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-amber-600" />
-                  <span>6-7 passengers</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-amber-600" />
-                  <span>4-6 large suitcases</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-amber-600" />
-                  <span>Extra luggage space</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-amber-600" />
-                  <span>Ideal for families/groups</span>
-                </li>
-              </ul>
-              <p className="text-sm text-slate-500">Models: Hyundai H1, Toyota Hiace, Mercedes Vito</p>
-            </div>
-
-            {/* Bus */}
-            <div className="rounded-2xl border-2 border-blue-300 bg-white p-8 shadow-lg">
-              <Bus className="mb-4 h-12 w-12 text-blue-600" />
-              <h3 className="mb-4 text-2xl font-bold text-slate-900">Bus</h3>
-              <ul className="mb-6 space-y-2 text-slate-700">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-blue-600" />
-                  <span>Up to 30 passengers</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-blue-600" />
-                  <span>Large luggage compartment</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-blue-600" />
-                  <span>Coach seating</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-blue-600" />
-                  <span>Perfect for tour groups</span>
-                </li>
-              </ul>
-              <p className="text-sm text-slate-500">Models: Mercedes Sprinter, Hyundai County, Toyota Coaster</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Price Table */}
-      <section className="container mx-auto px-4 py-16">
-        <h2 className="mb-12 text-center text-3xl font-bold text-slate-900">All Routes & Prices</h2>
-
-        <div className="mb-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl">
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead className="bg-teal-600 text-white">
-                <tr>
-                  <th className="p-4 text-left font-semibold">Route</th>
-                  <th className="p-4 text-center font-semibold">Distance</th>
-                  <th className="p-4 text-center font-semibold">Duration</th>
-                  <th className="p-4 text-center font-semibold">
-                    <div className="flex items-center justify-center gap-2">
-                      <Car className="h-4 w-4" />
-                      <span>Sedan</span>
-                    </div>
-                  </th>
-                  <th className="p-4 text-center font-semibold">
-                    <div className="flex items-center justify-center gap-2">
-                      <Users className="h-4 w-4" />
-                      <span>Minivan</span>
-                    </div>
-                  </th>
-                  <th className="p-4 text-center font-semibold">
-                    <div className="flex items-center justify-center gap-2">
-                      <Bus className="h-4 w-4" />
-                      <span>Bus</span>
-                    </div>
-                  </th>
-                  <th className="p-4 text-center font-semibold">Book</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-200">
-                {routes.map((route, idx) => (
-                  <tr key={idx} className="hover:bg-slate-50">
-                    <td className="p-4">
-                      <div className="flex items-center gap-2">
-                        <span className="font-medium text-slate-900">{route.from}</span>
-                        <ArrowRight className="h-4 w-4 text-slate-400" />
-                        <span className="font-medium text-slate-900">{route.to}</span>
-                        {route.badge && (
-                          <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700">
-                            {route.badge}
-                          </span>
-                        )}
-                      </div>
-                    </td>
-                    <td className="p-4 text-center text-sm text-slate-600">{route.distance}</td>
-                    <td className="p-4 text-center text-sm text-slate-600">{route.duration}</td>
-                    <td className="p-4 text-center">
-                      <span className="font-bold text-teal-600">${route.sedan}</span>
-                    </td>
-                    <td className="p-4 text-center">
-                      <span className="font-bold text-amber-600">${route.minivan}</span>
-                    </td>
-                    <td className="p-4 text-center">
-                      {route.bus ? (
-                        <span className="font-bold text-blue-600">${route.bus}</span>
-                      ) : (
-                        <span className="text-slate-400">—</span>
-                      )}
-                    </td>
-                    <td className="p-4 text-center">
-                      <Link
-                        href={route.href}
-                        className="inline-flex items-center gap-1 text-sm font-semibold text-teal-600 hover:text-teal-700"
-                      >
-                        View <ArrowRight className="h-3 w-3" />
-                      </Link>
-                    </td>
-                  </tr>
+function RouteTable({ items, crossBorder = false }: { items: TransferRoute[]; crossBorder?: boolean }) {
+  return (
+    <>
+      <div className="grid gap-4 md:hidden">
+        {items.map((route) => <RouteCard key={`${route.from}-${route.to}`} route={route} />)}
+      </div>
+      <div className="hidden overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm md:block">
+        <div className="overflow-x-auto">
+          <table className="w-full min-w-[850px]">
+            <thead className={crossBorder ? "bg-amber-700 text-white" : "bg-slate-900 text-white"}>
+              <tr>
+                {["Route", "Distance", "Time", "Sedan", "Minivan", "Group", "Details"].map((label) => (
+                  <th key={label} className={`p-4 text-sm font-semibold ${label === "Route" ? "text-left" : label === "Details" ? "text-right" : "text-center"}`}>{label}</th>
                 ))}
-              </tbody>
-            </table>
-          </div>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              {items.map((route) => (
+                <tr key={`${route.from}-${route.to}`} className="hover:bg-slate-50">
+                  <td className="p-4"><div className="flex items-center gap-2 font-semibold text-slate-900">{route.from}<ArrowRight className="h-4 w-4 text-slate-400" />{route.to}</div></td>
+                  <td className="p-4 text-center text-sm text-slate-600">{route.distance}</td>
+                  <td className="p-4 text-center text-sm text-slate-600">{route.duration}</td>
+                  <td className="p-4 text-center"><Price value={route.sedan} /></td>
+                  <td className="p-4 text-center"><Price value={route.minivan} /></td>
+                  <td className="p-4 text-center"><Price value={route.group} /></td>
+                  <td className="p-4 text-right"><Link href={route.href} className={crossBorder ? "font-semibold text-amber-700" : "font-semibold text-teal-700"}>View route</Link></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
+      </div>
+    </>
+  );
+}
 
-        <p className="text-center text-sm text-slate-500">
-          * Prices are per vehicle (not per person). Border crossing routes include assistance with Korday/Karkara checkpoints.
-        </p>
-      </section>
+export default function PricingPage() {
+  const domestic = routes.filter((route) => route.region === "Kyrgyzstan");
+  const crossBorder = routes.filter((route) => route.region === "Cross-border");
 
-      {/* What's Included */}
-      <section className="bg-slate-50 py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="mb-12 text-center text-3xl font-bold text-slate-900">What's Included in Every Transfer</h2>
-          <div className="mx-auto max-w-4xl">
-            <div className="grid gap-6 md:grid-cols-2">
-              <div className="flex items-start gap-4 rounded-xl bg-white p-6">
-                <CheckCircle className="mt-1 h-6 w-6 flex-shrink-0 text-green-600" />
-                <div>
-                  <h3 className="mb-1 font-bold text-slate-900">Fuel</h3>
-                  <p className="text-sm text-slate-600">All fuel costs included, no matter the distance or route.</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 rounded-xl bg-white p-6">
-                <CheckCircle className="mt-1 h-6 w-6 flex-shrink-0 text-green-600" />
-                <div>
-                  <h3 className="mb-1 font-bold text-slate-900">Hotel Pickup & Drop-off</h3>
-                  <p className="text-sm text-slate-600">Door-to-door service. We pick you up and drop you off at your exact address.</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 rounded-xl bg-white p-6">
-                <CheckCircle className="mt-1 h-6 w-6 flex-shrink-0 text-green-600" />
-                <div>
-                  <h3 className="mb-1 font-bold text-slate-900">English WhatsApp Support</h3>
-                  <p className="text-sm text-slate-600">Real-time support team available via WhatsApp. Book in 1-2 minutes.</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 rounded-xl bg-white p-6">
-                <CheckCircle className="mt-1 h-6 w-6 flex-shrink-0 text-green-600" />
-                <div>
-                  <h3 className="mb-1 font-bold text-slate-900">Photo Stops</h3>
-                  <p className="text-sm text-slate-600">2-3 free photo stops at scenic viewpoints (Boom Gorge, Issyk-Kul, etc.)</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 rounded-xl bg-white p-6">
-                <CheckCircle className="mt-1 h-6 w-6 flex-shrink-0 text-green-600" />
-                <div>
-                  <h3 className="mb-1 font-bold text-slate-900">Winter Equipment</h3>
-                  <p className="text-sm text-slate-600">Winter tires & snow chains included Nov-Mar. No extra fees.</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 rounded-xl bg-white p-6">
-                <CheckCircle className="mt-1 h-6 w-6 flex-shrink-0 text-green-600" />
-                <div>
-                  <h3 className="mb-1 font-bold text-slate-900">Border Assistance</h3>
-                  <p className="text-sm text-slate-600">For cross-border routes: driver helps with paperwork and procedures.</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 rounded-xl bg-white p-6">
-                <CheckCircle className="mt-1 h-6 w-6 flex-shrink-0 text-green-600" />
-                <div>
-                  <h3 className="mb-1 font-bold text-slate-900">Child Seats</h3>
-                  <p className="text-sm text-slate-600">Free child seats available on request. Mention when booking.</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 rounded-xl bg-white p-6">
-                <CheckCircle className="mt-1 h-6 w-6 flex-shrink-0 text-green-600" />
-                <div>
-                  <h3 className="mb-1 font-bold text-slate-900">Tolls & Parking</h3>
-                  <p className="text-sm text-slate-600">Any road tolls or parking fees included in the price.</p>
-                </div>
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <main className="min-h-screen bg-white">
+        <section className="bg-gradient-to-br from-teal-700 via-cyan-700 to-blue-700 py-12 text-white md:py-20">
+          <div className="mx-auto max-w-6xl px-4">
+            <div className="max-w-4xl">
+              <p className="text-sm font-semibold uppercase tracking-widest text-cyan-100">Clear prices before you travel</p>
+              <h1 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl md:text-6xl">Private Transfer Prices</h1>
+              <p className="mt-6 max-w-3xl text-lg leading-relaxed text-cyan-50 md:text-xl">
+                Compare private transfer prices across Kyrgyzstan and Kazakhstan. Every listed price is for the whole vehicle, not per passenger.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a href="#routes" className="w-full rounded-full bg-white px-7 py-3 text-center font-semibold text-teal-700 sm:w-auto">View Route Prices</a>
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-white px-7 py-3 font-semibold sm:w-auto">
+                  <MessageCircle className="h-5 w-5" />Request a Quote
+                </a>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Calculator CTA */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="mx-auto max-w-2xl rounded-2xl border-2 border-teal-300 bg-gradient-to-br from-teal-50 to-blue-50 p-8 text-center">
-          <Calculator className="mx-auto mb-4 h-12 w-12 text-teal-600" />
-          <h2 className="mb-4 text-2xl font-bold text-slate-900">Need a Custom Quote?</h2>
-          <p className="mb-6 text-slate-700">
-            Not sure which vehicle or route? Have special requirements? Multiple stops? Large group?
-          </p>
-          <a
-            href="https://wa.me/996552291808?text=Hi!%20I%20need%20a%20custom%20quote%20for%20my%20transfer"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block rounded-full bg-green-500 px-8 py-4 font-semibold text-white hover:bg-green-600"
-          >
-            Get Custom Quote via WhatsApp
-          </a>
-        </div>
-      </section>
-
-      {/* Payment & Cancellation */}
-      <section className="bg-slate-50 py-16">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-4xl">
-            <div className="grid gap-8 md:grid-cols-2">
-              <div className="rounded-2xl bg-white p-8 shadow-sm">
-                <h3 className="mb-4 text-xl font-bold text-slate-900">Payment Methods</h3>
-                <ul className="space-y-3 text-slate-700">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-teal-600" />
-                    <span><strong>Cash (preferred):</strong> USD, KGS, or KZT. Pay driver at end of journey.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-teal-600" />
-                    <span><strong>Bank transfer:</strong> Available for advance payment.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-teal-600" />
-                    <span><strong>Card payment:</strong> Can be arranged in advance.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-teal-600" />
-                    <span><strong>No upfront payment:</strong> Most transfers don't require prepayment.</span>
-                  </li>
-                </ul>
+        <section className="mx-auto max-w-6xl px-4 py-10 md:py-14">
+          <div className="grid gap-4 md:grid-cols-3">
+            {[
+              { icon: Banknote, title: "Price per vehicle", text: "The price is not multiplied by the number of passengers.", style: "border-emerald-200 bg-emerald-50 text-emerald-700" },
+              { icon: ShieldCheck, title: "Confirmed before pickup", text: "We confirm the route, vehicle, included services, and total.", style: "border-blue-200 bg-blue-50 text-blue-700" },
+              { icon: Route, title: "Custom routes available", text: "Send your itinerary if your destination is not listed.", style: "border-amber-200 bg-amber-50 text-amber-700" },
+            ].map(({ icon: Icon, title, text, style }) => (
+              <div key={title} className={`rounded-2xl border p-5 sm:p-6 ${style}`}>
+                <Icon className="h-9 w-9" />
+                <h2 className="mt-4 font-bold text-slate-900">{title}</h2>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
               </div>
+            ))}
+          </div>
+        </section>
 
-              <div className="rounded-2xl bg-white p-8 shadow-sm">
-                <h3 className="mb-4 text-xl font-bold text-slate-900">Cancellation Policy</h3>
-                <ul className="space-y-3 text-slate-700">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-green-600" />
-                    <span><strong>Free cancellation:</strong> Up to 24 hours before pickup — full refund.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-amber-600" />
-                    <span><strong>Within 24 hours:</strong> 50% cancellation fee applies.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-red-600" />
-                    <span><strong>No-show:</strong> Full charge (please notify if you can't make it).</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-green-600" />
-                    <span><strong>Weather/road closures:</strong> Free reschedule or full refund if unsafe.</span>
-                  </li>
-                </ul>
-              </div>
+        <section className="bg-slate-50 py-12 md:py-16">
+          <div className="mx-auto max-w-6xl px-4">
+            <div className="text-center">
+              <h2 className="text-2xl font-bold text-slate-900 md:text-3xl">Choose the Right Vehicle</h2>
+              <p className="mx-auto mt-4 max-w-2xl text-slate-600">Capacity depends on passenger count and luggage. We confirm the best option before booking.</p>
+            </div>
+            <div className="mt-10 grid gap-5 lg:grid-cols-3">
+              {vehicles.map(({ name, icon: Icon, capacity, luggage, best, style }) => (
+                <article key={name} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                  <div className={`inline-flex rounded-2xl p-3 ${style}`}><Icon className="h-8 w-8" /></div>
+                  <h3 className="mt-5 text-2xl font-bold text-slate-900">{name}</h3>
+                  <ul className="mt-5 space-y-3 text-sm text-slate-600">
+                    <li className="flex gap-3"><Users className="h-5 w-5 flex-none" />{capacity}</li>
+                    <li className="flex gap-3"><Luggage className="h-5 w-5 flex-none" />{luggage}</li>
+                    <li className="flex gap-3"><CheckCircle className="h-5 w-5 flex-none text-emerald-600" />{best}</li>
+                  </ul>
+                </article>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Final CTA */}
-      <section className="bg-gradient-to-r from-teal-600 to-blue-600 py-16 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="mb-4 text-3xl font-bold">Ready to Book Your Transfer?</h2>
-          <p className="mb-8 text-xl text-teal-50">
-            Fixed prices. No hidden fees. Book in 1-2 minutes via WhatsApp.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href="https://wa.me/996552291808?text=Hi!%20I%20need%20a%20transfer%20in%20Kyrgyzstan"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full bg-green-500 px-8 py-4 font-semibold text-white hover:bg-green-600"
-            >
-              Book via WhatsApp
+        <section id="routes" className="mx-auto max-w-6xl scroll-mt-20 px-4 py-12 md:py-16">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold text-slate-900 md:text-3xl">Routes and Prices</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-slate-600">One-way prices in USD for a private vehicle. Optional stops and major route changes are quoted separately.</p>
+          </div>
+          <div className="mt-10 space-y-12">
+            <div>
+              <h3 className="mb-5 flex items-center gap-3 text-xl font-bold text-slate-900"><MapPin className="h-6 w-6 text-teal-700" />Transfers within Kyrgyzstan</h3>
+              <RouteTable items={domestic} />
+            </div>
+            <div>
+              <h3 className="mb-5 flex items-center gap-3 text-xl font-bold text-slate-900"><Route className="h-6 w-6 text-amber-700" />Kazakhstan and cross-border transfers</h3>
+              <RouteTable items={crossBorder} crossBorder />
+            </div>
+          </div>
+          <div className="mt-8 rounded-2xl border border-teal-200 bg-teal-50 p-5 text-sm leading-relaxed text-slate-700">
+            <strong>Important:</strong> prices are for a private one-way transfer. Entrance tickets, meals, accommodation, and optional detours are not included unless stated.
+          </div>
+        </section>
+
+        <section className="bg-slate-50 py-12 md:py-16">
+          <div className="mx-auto max-w-6xl px-4">
+            <h2 className="text-center text-2xl font-bold text-slate-900 md:text-3xl">Included in Your Transfer</h2>
+            <div className="mx-auto mt-10 grid max-w-5xl gap-4 sm:grid-cols-2">
+              {included.map((item) => (
+                <div key={item} className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-white p-5">
+                  <CheckCircle className="mt-0.5 h-5 w-5 flex-none text-emerald-600" />
+                  <p className="text-sm leading-relaxed text-slate-700">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-6xl px-4 py-12 md:py-16">
+          <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+            <div className="rounded-3xl bg-slate-900 p-6 text-white sm:p-8">
+              <p className="text-sm font-semibold uppercase tracking-widest text-cyan-300">Custom destination or itinerary</p>
+              <h2 className="mt-3 text-2xl font-bold md:text-3xl">Need an Individual Quote?</h2>
+              <p className="mt-4 leading-relaxed text-slate-300">Send your pickup, destination, date, passenger count, luggage, and planned stops. We will recommend a vehicle and calculate the price.</p>
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-emerald-600 px-7 py-3 font-semibold sm:w-auto">
+                <MessageCircle className="h-5 w-5" />Request via WhatsApp
+              </a>
+            </div>
+            <div className="rounded-3xl border border-slate-200 p-6 sm:p-8">
+              <h2 className="text-xl font-bold text-slate-900">To calculate your price</h2>
+              <ol className="mt-6 space-y-4">
+                {["Pickup and destination", "Date, time, and passengers", "Luggage and planned stops", "Vehicle option and confirmed total"].map((step, index) => (
+                  <li key={step} className="flex gap-3"><span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-teal-100 font-bold text-teal-700">{index + 1}</span><p className="pt-1 text-sm text-slate-700">{step}</p></li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-slate-50 py-12 md:py-16">
+          <div className="mx-auto max-w-4xl px-4">
+            <h2 className="text-center text-2xl font-bold text-slate-900 md:text-3xl">Pricing Questions</h2>
+            <div className="mt-10 space-y-4">
+              {faqItems.map((item) => (
+                <details key={item.question} className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
+                  <summary className="cursor-pointer list-none font-semibold text-slate-900"><span className="flex items-center justify-between gap-4">{item.question}<CheckCircle className="h-5 w-5 flex-none text-teal-600" /></span></summary>
+                  <p className="mt-4 leading-relaxed text-slate-600">{item.answer}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-gradient-to-r from-teal-700 to-blue-700 py-12 text-white md:py-16">
+          <div className="mx-auto max-w-6xl px-4 text-center">
+            <h2 className="text-2xl font-bold md:text-3xl">Ready to Plan Your Transfer?</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-cyan-50">Choose a listed route or send us your itinerary for an individual quote.</p>
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="mx-auto mt-8 inline-flex w-full max-w-md items-center justify-center gap-2 rounded-full bg-white px-7 py-3 font-semibold text-teal-700 sm:w-auto">
+              <MessageCircle className="h-5 w-5" />Request a Quote
             </a>
-            <Link
-              href="/#transfers"
-              className="rounded-full border-2 border-white bg-transparent px-8 py-4 font-semibold text-white hover:bg-white hover:text-teal-600"
-            >
-              View All Routes
-            </Link>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </main>
+    </>
   );
 }
