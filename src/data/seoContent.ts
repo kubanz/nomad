@@ -258,7 +258,7 @@ export const almatyToKarakolFAQ: Record<"en" | "ru" | "ko", FAQItem[]> = {
     },
     {
       question: "How long does the transfer from Almaty to Karakol take?",
-      answer: "The transfer from Almaty to Karakol takes approximately 6-7 hours including border crossing (~350 km via Kegen route). Border processing typically takes 30-45 minutes. With optional Charyn Canyon stop and lunch break, allow 8-9 hours total.",
+      answer: "Allow approximately 7-8 hours for the ~430 km journey, including the Kegen–Karkara border crossing. Optional stops, traffic, weather, and border queues may add time.",
     },
     {
       question: "Can I stop at Charyn Canyon on the way from Almaty to Karakol?",
@@ -270,11 +270,11 @@ export const almatyToKarakolFAQ: Record<"en" | "ru" | "ko", FAQItem[]> = {
     },
     {
       question: "What is the Kegen border crossing like from Almaty to Karakol?",
-      answer: "Kegen-Karkara border is a scenic mountain crossing between Kazakhstan and Kyrgyzstan. It's typically quick (30-45 min) with minimal queues. Friendly staff. Bring passport and small cash (USD or KGS) for any fees. Open May-October, 8am-6pm daily.",
+      answer: "Kegen–Karkara is a scenic mountain checkpoint between Kazakhstan and Kyrgyzstan. Bring a valid passport and check entry requirements for your nationality. Operating dates and hours can change, so we confirm the schedule before departure.",
     },
     {
       question: "Is the transfer from Almaty to Karakol available in winter?",
-      answer: "In winter (November-April), Kegen border is closed due to snow. We offer alternative route via Korday border near Bishkek. This route takes 8-9 hours but is available year-round. Price: $280 sedan, $320 minivan. Contact us for winter bookings.",
+      answer: "Winter transfers are available, but the route depends on current road and border conditions. When the direct Kegen–Karkara crossing is unavailable, we can quote an alternative route via Bishkek after confirming your date.",
     },
     {
       question: "What payment methods do you accept for Almaty to Karakol transfer?",
@@ -825,15 +825,15 @@ export const karakolToAlmatyFAQ: Record<"en" | "ru" | "ko", FAQItem[]> = {
   en: [
     {
       question: "How much does a private transfer from Karakol to Almaty cost?",
-      answer: "Sedan (up to 4 passengers) $232, Minivan (6-7 passengers) $277. Price is per vehicle, not per person. Includes fuel, hotel pickup/drop-off, and border crossing assistance.",
+      answer: "Sedan (up to 4 passengers) $235, Minivan (6-7 passengers) $275. Price is per vehicle, not per person. Includes fuel, hotel pickup/drop-off, and border crossing assistance.",
     },
     {
       question: "How long does the drive from Karakol to Almaty take?",
-      answer: "Approximately 7-8 hours including border crossing at Karkara (~430 km). Border processing usually takes 30-60 minutes depending on queue.",
+      answer: "Allow approximately 7-8 hours including the Karkara–Kegen border crossing. Travel and processing times depend on traffic, weather, and the border queue.",
     },
     {
       question: "Which border crossing is used for Karakol to Almaty transfer?",
-      answer: "We use the Karkara border crossing, which is the closest and most direct route from Karakol to Almaty. This border operates year-round.",
+      answer: "The direct route normally uses the Karkara–Kegen checkpoint. Operating dates and hours can change, so we confirm the available crossing and route before departure.",
     },
     {
       question: "Do I need a visa for the Karkara border crossing?",
@@ -876,7 +876,7 @@ export const karakolToAlmatyTravelTips: Record<"en" | "ru" | "ko", TravelTip[]> 
     {
       icon: "info",
       title: "Border crossing requirements",
-      content: "Ensure your passport is valid for 6+ months. Most nationalities can enter Kazakhstan visa-free. Have your passport ready at Karkara border. Driver will assist with formalities.",
+      content: "Bring a valid passport and check Kazakhstan entry requirements for your nationality before travel. Have your documents ready at the Karkara–Kegen checkpoint; your driver will guide you through the transfer process.",
     },
     {
       icon: "calendar",
@@ -886,7 +886,7 @@ export const karakolToAlmatyTravelTips: Record<"en" | "ru" | "ko", TravelTip[]> 
     {
       icon: "clock",
       title: "Travel duration",
-      content: "Total journey is 7-8 hours including 30-60 minutes at Karkara border. Plan arrival time accordingly if you have connecting flights from Almaty airport.",
+      content: "Allow 7-8 hours for the journey, including the border crossing. Traffic, weather, and border queues may add time, so avoid tight same-day flight connections from Almaty.",
     },
   ],
   ru: [],
@@ -905,7 +905,7 @@ export const karakolToAlmatyRelatedRoutes: Record<"en" | "ru" | "ko", RelatedRou
     {
       title: "Almaty to Karakol",
       href: "/transfers/almaty-to-karakol",
-      price: "From $232",
+      price: "From $235",
       duration: "~7-8 hours",
       distance: "~430 km",
     },

@@ -1,9 +1,8 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
-import { Car, MessageCircle, Send, Globe, MapPin } from "lucide-react";
+import { Car, MessageCircle, Send, MapPin } from "lucide-react";
 import type { MapStop } from "../components/InteractiveRouteMap";
 import FAQSection from "../components/FAQSection";
 import CustomerReviewsSection from "../components/CustomerReviewsSection";
@@ -16,12 +15,6 @@ import {
   karakolToAlmatyRelatedRoutes,
 } from "../data/seoContent";
 
-const LANG_ROUTES: Record<"en" | "ru" | "ko", string> = {
-  en: "/transfers/karakol-to-almaty",
-  ru: "/ru/transfers/karakol-to-almaty",
-  ko: "/ko/transfers/karakol-to-almaty",
-};
-
 const InteractiveRouteMap = dynamic(
   () => import("../components/InteractiveRouteMap"),
   { ssr: false }
@@ -29,12 +22,12 @@ const InteractiveRouteMap = dynamic(
 
 // ─── Map stops ────────────────────────────────────────────────────────────────
 
-const ALMATY_MAP_STOPS: MapStop[] = [
-  { id: 0, lat: 43.2220, lng: 76.8512, name: "Almaty",         desc: "Start · Hotel pickup",         day: 1, time: "08:00", type: "start" },
-  { id: 1, lat: 43.3547, lng: 79.0833, name: "Charyn Canyon",  desc: "Optional stop · +$35",          day: 1, time: "10:30" },
-  { id: 2, lat: 42.9833, lng: 79.2167, name: "Kegen Border",   desc: "Passport control · 8am–6pm",   day: 1, time: "12:00" },
-  { id: 3, lat: 42.5833, lng: 79.0833, name: "Karkara Valley", desc: "Scenic mountain valley",         day: 1, time: "13:30" },
-  { id: 4, lat: 42.4900, lng: 78.3936, name: "Karakol",        desc: "End · Hotel drop-off",           day: 1, time: "17:00", type: "end" },
+const KARAKOL_TO_ALMATY_MAP_STOPS: MapStop[] = [
+  { id: 0, lat: 42.4900, lng: 78.3936, name: "Karakol",        desc: "Start · Hotel pickup",          day: 1, time: "08:00", type: "start" },
+  { id: 1, lat: 42.5833, lng: 79.0833, name: "Karkara Valley", desc: "Scenic mountain valley",         day: 1, time: "09:30" },
+  { id: 2, lat: 42.9833, lng: 79.2167, name: "Kegen Border",   desc: "Passport control",               day: 1, time: "11:00" },
+  { id: 3, lat: 43.3547, lng: 79.0833, name: "Charyn Canyon",  desc: "Optional stop · +$35",           day: 1, time: "13:30" },
+  { id: 4, lat: 43.2220, lng: 76.8512, name: "Almaty",         desc: "End · Hotel drop-off",           day: 1, time: "17:00", type: "end" },
 ];
 
 // ─── Timeline data ────────────────────────────────────────────────────────────
@@ -50,33 +43,28 @@ interface TimelineStop {
 const TIMELINE: TimelineStop[] = [
   {
     day: "Day 1", time: "08:00",
-    place: { en: "Almaty", ru: "Алматы", ko: "알마티" },
+    place: { en: "Karakol", ru: "Каракол", ko: "카라콜" },
     sub: { en: "Start · Hotel pickup", ru: "Старт · Отель", ko: "출발 · 호텔 픽업" },
     type: "start",
   },
   {
-    day: "Day 1", time: "10:30",
-    place: { en: "Charyn Canyon", ru: "Чарынский каньон", ko: "차린 협곡" },
-    sub: { en: "Optional stop · +$35", ru: "Опция · +$35", ko: "선택 정류장 · +$35" },
-  },
-  {
-    day: "Day 1", time: "12:00",
-    place: { en: "Kegen Border", ru: "Граница Кеген", ko: "케겐 국경" },
-    sub: { en: "Passport control · 8am–6pm", ru: "Паспортный контроль · 8:00–18:00", ko: "여권 심사 · 오전8시~오후6시" },
-  },
-  {
-    day: "Day 1", time: "13:30",
+    day: "Day 1", time: "09:30",
     place: { en: "Karkara Valley", ru: "Долина Каркара", ko: "카르카라 계곡" },
     sub: { en: "Scenic mountain valley", ru: "Живописная долина", ko: "풍경 좋은 산악 계곡" },
   },
   {
-    day: "Day 1", time: "15:00",
-    place: { en: "Kaindy Lake", ru: "Озеро Каинды", ko: "카인디 호수" },
-    sub: { en: "Optional · Price on request", ru: "Опция · Цена по запросу", ko: "선택 · 가격 문의" },
+    day: "Day 1", time: "11:00",
+    place: { en: "Kegen Border", ru: "Граница Кеген", ko: "케겐 국경" },
+    sub: { en: "Passport control", ru: "Паспортный контроль", ko: "여권 심사" },
+  },
+  {
+    day: "Day 1", time: "13:30",
+    place: { en: "Charyn Canyon", ru: "Чарынский каньон", ko: "차린 협곡" },
+    sub: { en: "Optional stop · +$35", ru: "Опция · +$35", ko: "선택 정류장 · +$35" },
   },
   {
     day: "Day 1", time: "17:00",
-    place: { en: "Karakol", ru: "Каракол", ko: "카라콜" },
+    place: { en: "Almaty", ru: "Алматы", ko: "알마티" },
     sub: { en: "End · Hotel drop-off", ru: "Финиш · Отель", ko: "종료 · 호텔 하차" },
     type: "end",
   },
@@ -97,10 +85,10 @@ interface Stop {
 const STOPS: Stop[] = [
   {
     day: "DAY 1",
-    time: "10:30",
-    title: { en: "Charyn Canyon", ru: "Чарынский каньон", ko: "차린 협곡" },
+    time: "09:30",
+    title: { en: "Karkara Valley", ru: "Долина Каркара", ko: "카르카라 계곡" },
     desc: {
-      en: "One of Central Asia's most spectacular canyons — dramatic red rock formations carved by wind and water over millions of years. A short detour of 12 km from the main Almaty–Karakol road. Add this stop for +$35.",
+      en: "The journey begins through the high-altitude Karkara Valley on the Kyrgyz side of the border, surrounded by wide steppe, a clear mountain river, and views of the Tien Shan.",
       ru: "Один из самых впечатляющих каньонов Центральной Азии — красные скалы, вырезанные ветром и водой. Небольшой крюк 12 км от основной дороги. Добавьте эту остановку за +$35.",
       ko: "중앙아시아에서 가장 장관을 이루는 협곡 중 하나 — 수백만 년에 걸쳐 바람과 물이 만들어낸 극적인 붉은 암석. 알마티-카라콜 메인 도로에서 12km 우회. +$35 추가.",
     },
@@ -109,12 +97,12 @@ const STOPS: Stop[] = [
   },
   {
     day: "DAY 1",
-    time: "12:00",
+    time: "11:00",
     title: { en: "Kegen Border Crossing", ru: "Пограничный переход Кеген", ko: "케겐 국경 통과" },
     desc: {
-      en: "Cross from Kazakhstan into Kyrgyzstan at the scenic Kegen–Karkara checkpoint. Open daily 8am–6pm. Passport required. Your driver will guide you through the process.",
-      ru: "Переход из Казахстана в Кыргызстан через живописный КПП Кеген–Каркара. Открыт ежедневно с 8:00 до 18:00. Необходим паспорт. Водитель поможет с прохождением.",
-      ko: "케겐-카르카라 검문소에서 카자흐스탄에서 키르기스스탄으로 입국합니다. 매일 오전 8시~오후 6시 운영. 여권 필수. 드라이버가 안내해 드립니다.",
+      en: "Cross from Kyrgyzstan into Kazakhstan at the Karkara–Kegen checkpoint. A valid passport is required. Operating dates and hours can change, so we confirm the checkpoint schedule before departure.",
+      ru: "Переход из Кыргызстана в Казахстан через КПП Каркара–Кеген. Необходим действующий паспорт. Даты и часы работы могут меняться, поэтому мы подтверждаем график КПП перед выездом.",
+      ko: "카르카라-케겐 검문소에서 키르기스스탄에서 카자흐스탄으로 입국합니다. 유효한 여권이 필요하며 운영 일정은 변경될 수 있어 출발 전에 확인합니다.",
     },
     image: "",
     mapUrl: "#route-map",
@@ -122,9 +110,9 @@ const STOPS: Stop[] = [
   {
     day: "DAY 1",
     time: "13:30",
-    title: { en: "Karkara Valley", ru: "Долина Каркара", ko: "카르카라 계곡" },
+    title: { en: "Charyn Canyon (Optional)", ru: "Чарынский каньон (опционально)", ko: "차린 협곡 (선택)" },
     desc: {
-      en: "A breathtaking high-altitude valley on the Kyrgyz side of the border. Surrounded by snow-capped Tien-Shan peaks, wide open steppe and a crystal-clear river. Perfect for a short stop and photos.",
+      en: "Add a stop at one of Kazakhstan's best-known natural landmarks before continuing to Almaty. The canyon visit adds driving and sightseeing time and should be requested when booking.",
       ru: "Живописная высокогорная долина на кыргызской стороне границы. Горные вершины, широкая степь и кристально чистая река. Отличное место для короткой остановки.",
       ko: "국경의 키르기스 측에 있는 숨막히는 고지대 계곡. 설산으로 둘러싸인 탁 트인 초원과 맑은 강. 짧은 정차와 사진 촬영에 완벽합니다.",
     },
@@ -133,10 +121,10 @@ const STOPS: Stop[] = [
   },
   {
     day: "DAY 1",
-    time: "15:00",
-    title: { en: "Kaindy Lake (Optional)", ru: "Озеро Каинды (опционально)", ko: "카인디 호수 (선택)" },
+    time: "17:00",
+    title: { en: "Arrival in Almaty", ru: "Прибытие в Алматы", ko: "알마티 도착" },
     desc: {
-      en: "A unique submerged forest lake created by a 1911 earthquake. Ghostly tree trunks rise from the turquoise water. Available as an optional detour — ask for price when booking.",
+      en: "Your driver takes you directly to your hotel, apartment, or another agreed drop-off point in Almaty after the border crossing and planned stops.",
       ru: "Уникальное затопленное озеро, образованное землетрясением 1911 года. Стволы деревьев поднимаются из бирюзовой воды. Доступно как опция — уточните цену при бронировании.",
       ko: "1911년 지진으로 생긴 독특한 수몰 숲 호수. 청록빛 물에서 유령 같은 나무 줄기가 솟아 있습니다. 선택적 우회 가능 — 예약 시 가격 문의.",
     },
@@ -154,28 +142,6 @@ const WA_LINK_SIMPLE = `https://wa.me/${WHATSAPP_PHONE.replace(/[^0-9+]/g, "")}?
 )}`;
 const BRAND = "Nomad Transfers KG";
 
-function pickLang(): "en" | "ru" | "ko" {
-  if (typeof window !== "undefined") {
-    const saved = localStorage.getItem("lang");
-    if (saved === "en" || saved === "ru" || saved === "ko") return saved;
-  }
-  if (typeof navigator !== "undefined") {
-    const l = navigator.language?.toLowerCase() || "";
-    if (l.startsWith("ko")) return "ko";
-    if (l.startsWith("ru")) return "ru";
-  }
-  return "en";
-}
-function saveLang(code: "en" | "ru" | "ko") {
-  if (typeof window !== "undefined") localStorage.setItem("lang", code);
-}
-
-const LANGS: { code: "en" | "ru" | "ko"; label: string; flag: string }[] = [
-  { code: "en", label: "English", flag: "🇬🇧" },
-  { code: "ko", label: "Korean", flag: "🇰🇷" },
-  { code: "ru", label: "Russian", flag: "🇷🇺" },
-];
-
 // ─── Simple Transfer Block ────────────────────────────────────────────────────
 
 function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
@@ -186,7 +152,7 @@ function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
       ko: "알마티  to  카라콜 프라이빗 이동",
     },
     desc: {
-      en: "Need to get from Karakol to Almaty quickly and comfortably? We pick you up from your hotel in Almaty and drop you off at your hotel in Karakol. Professional driver, comfortable car, no hidden fees.",
+      en: "Travel from Karakol to Almaty in a private vehicle with hotel pickup in Karakol and drop-off at your chosen address in Almaty. The price is confirmed before departure, with no hidden fees.",
       ru: "Нужно просто добраться из Алматы в Каракол? Забираем из отеля в Алматы, довезём до отеля в Каракол. Профессиональный водитель, комфортный автомобиль, никаких скрытых платежей.",
       ko: "알마티에서 카라콜까지 빠르고 편안하게 이동하고 싶으신가요? 알마티 호텔에서 픽업하여 카라콜 호텔까지 편안하게 모셔드립니다.",
     },
@@ -208,8 +174,8 @@ function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
 
   const pills = [
     { icon: "📍", text: "Karakol  to  Almaty" },
-    { icon: "🕐", text: "~6 hours" },
-    { icon: "📏", text: "~350 km" },
+    { icon: "🕐", text: "7–8 hours" },
+    { icon: "📏", text: "~430 km" },
     { icon: "👤", text: "Private" },
   ];
 
@@ -272,7 +238,7 @@ function UpsellDivider({ lang }: { lang: "en" | "ru" | "ko" }) {
       ko: "✨ 단순한 이동 그 이상을 원하시나요?",
     },
     body: {
-      en: "Turn your Karakol  to  Almaty drive into an adventure. Stop at Charyn Canyon, cross the scenic Kegen mountain pass, visit Kaindy Lake. Same route — unforgettable experience.",
+      en: "Turn your Karakol to Almaty drive into a scenic journey. Travel through Karkara Valley and add a stop at Charyn Canyon before arriving in Almaty.",
       ru: "Превратите дорогу из Алматы в Каракол в приключение. Остановка в Чарынском каньоне, живописный перевал Кеген, озеро Каинды. Тот же маршрут — незабываемые впечатления.",
       ko: "알마티에서 카라콜까지의 드라이브를 모험으로 만들어보세요. 차린 협곡, 케겐 산악 고개, 카인디 호수. 같은 노선 — 잊을 수 없는 경험.",
     },
@@ -304,9 +270,9 @@ function UpsellDivider({ lang }: { lang: "en" | "ru" | "ko" }) {
 
 function NoticeBanner({ lang }: { lang: "en" | "ru" | "ko" }) {
   const text = {
-    en: "Border at Kegen is open daily 8:00 AM – 6:00 PM. Passport required. This route operates May–October. In winter, transfer goes via Bishkek (northern route).",
-    ru: "Граница Кеген открыта ежедневно с 8:00 до 18:00. Необходим паспорт. Маршрут работает май–октябрь. Зимой трансфер идёт через Бишкек (северный маршрут).",
-    ko: "케겐 국경은 매일 오전 8시~오후 6시 운영. 여권 필수. 이 노선은 5월~10월 운영됩니다. 겨울에는 비슈케크 경유 북쪽 노선으로 이동합니다.",
+    en: "A valid passport is required. Karkara–Kegen checkpoint dates and hours can change due to official or seasonal restrictions. We confirm the available route before your departure; an alternative route via Bishkek may be used when necessary.",
+    ru: "Необходим действующий паспорт. Даты и часы работы КПП Каркара–Кеген могут меняться. Перед выездом мы подтверждаем доступный маршрут; при необходимости поездка проходит через Бишкек.",
+    ko: "유효한 여권이 필요합니다. 카르카라-케겐 검문소 운영 일정은 변경될 수 있습니다. 출발 전에 이용 가능한 경로를 확인하며 필요하면 비슈케크 경유 노선을 이용합니다.",
   };
   return (
     <div className="mb-10 rounded-2xl border border-amber-200 bg-amber-50 p-5">
@@ -475,7 +441,7 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
   const BASE = { sedan: 235, minivan: 275 };
 
   const includedItems = {
-    en: ["Professional local driver", "Fuel and all transportation costs", "Hotel pickup in Almaty", "Hotel drop-off in Karakol", "Border crossing guidance"],
+    en: ["Professional local driver", "Fuel and all transportation costs", "Hotel pickup in Karakol", "Drop-off at your address in Almaty", "Border crossing guidance"],
     ru: ["Профессиональный местный водитель", "Топливо и все транспортные расходы", "Трансфер из отеля в Алматы", "Трансфер до отеля в Каракол", "Помощь при прохождении границы"],
     ko: ["전문 현지 드라이버", "연료 및 모든 교통 비용", "알마티 호텔 픽업", "카라콜 호텔 하차", "국경 통과 안내"],
   };
@@ -675,23 +641,7 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function KarakolToAlmaty({ initialLang }: { initialLang?: "en" | "ru" | "ko" }) {
-  const [lang, setLang] = useState<"en" | "ru" | "ko">(initialLang ?? pickLang());
-  const [showLangDropdown, setShowLangDropdown] = useState(false);
-  const router = useRouter();
-
-  function handleLangChange(code: "en" | "ru" | "ko") {
-    setLang(code);
-    saveLang(code);
-    setShowLangDropdown(false);
-    router.push(LANG_ROUTES[code]);
-  }
-
-  useEffect(() => {
-    if (!showLangDropdown) return;
-    const close = () => setShowLangDropdown(false);
-    document.addEventListener("click", close);
-    return () => document.removeEventListener("click", close);
-  }, [showLangDropdown]);
+  const lang = initialLang ?? "en";
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
@@ -716,28 +666,6 @@ export default function KarakolToAlmaty({ initialLang }: { initialLang?: "en" | 
           </nav>
 
           <div className="flex items-center justify-end gap-2">
-            <div className="relative">
-              <button
-                onClick={(e) => { e.stopPropagation(); setShowLangDropdown(!showLangDropdown); }}
-                className="rounded-xl border px-3 py-2 text-xs font-medium hover:bg-slate-50"
-                aria-label="Change language"
-              >
-                <Globe className="h-4 w-4" />
-              </button>
-              {showLangDropdown && (
-                <div className="absolute right-0 top-full mt-2 w-36 rounded-xl border bg-white shadow-lg z-50">
-                  {LANGS.map(({ code, label, flag }) => (
-                    <button
-                      key={code}
-                      onClick={(e) => { e.stopPropagation(); handleLangChange(code); }}
-                      className={`w-full px-4 py-2 text-left text-sm hover:bg-slate-50 first:rounded-t-xl last:rounded-b-xl ${lang === code ? "bg-slate-50 font-semibold" : ""}`}
-                    >
-                      {flag} {label}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
             <a href="https://t.me/nomadtransfer" target="_blank" rel="noopener"
               className="hidden items-center gap-2 rounded-xl bg-sky-500 px-3 py-2 text-sm font-medium text-white hover:bg-sky-600 md:inline-flex">
               <Send className="h-4 w-4" /> Telegram
@@ -759,17 +687,17 @@ export default function KarakolToAlmaty({ initialLang }: { initialLang?: "en" | 
           </p>
           <h1 className="mt-2 text-2xl font-bold leading-tight md:text-4xl">
             {lang === "ru"
-              ? "Алматы  to  Каракол: трансфер через перевал Кеген"
+              ? "Каракол — Алматы: трансфер через Каркару и Кеген"
               : lang === "ko"
-              ? "알마티  to  카라콜: 케겐 고개 경유 이동"
-              : "Karakol to Almaty — Private Transfer via Kegen"}
+              ? "카라콜에서 알마티까지: 카르카라·케겐 경유 이동"
+              : "Karakol to Almaty — Private Transfer via Karkara and Kegen"}
           </h1>
           <p className="mt-2 text-sm text-white/80">
             {lang === "ru"
-              ? "Чарынский каньон · Граница Кеген · Долина Каркара · ~350 км · ~6 часов"
+              ? "Долина Каркара · Граница Кеген · Чарынский каньон · ~430 км · 7–8 часов"
               : lang === "ko"
-              ? "차린 협곡 · 케겐 국경 · 카르카라 계곡 · ~350km · ~6시간"
-              : "Charyn Canyon · Kegen Border · Karkara Valley · ~350 km · ~6 hours"}
+              ? "카르카라 계곡 · 케겐 국경 · 차린 협곡 · ~430km · 7–8시간"
+              : "Karkara Valley · Kegen Border · Optional Charyn Canyon · ~430 km · 7–8 hours"}
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a href={WA_LINK} target="_blank" rel="noopener"
@@ -805,22 +733,22 @@ export default function KarakolToAlmaty({ initialLang }: { initialLang?: "en" | 
             {lang === "ru" ? (
               <>
                 <p>Этот приватный трансфер из Алматы в Каракол — один из самых живописных и комфортных маршрутов в Центральной Азии. Вместо стандартного северного шоссе вы путешествуете через захватывающие горные пейзажи — драматические каньоны, широкие степи, альпийские долины и знаменитый перевал Кеген.</p>
-                <p>Маршрут работает с мая по октябрь и предлагает гибкие остановки для осмотра достопримечательностей. Популярные варианты: Чарынский каньон, а также озёра Каинды и Кольсай по запросу.</p>
+                <p>Прямой маршрут обычно проходит через КПП Каркара–Кеген. Поскольку график границы может меняться, перед выездом мы подтверждаем переход и маршрут. На казахстанской стороне можно добавить остановку в Чарынском каньоне.</p>
                 <p>Для семей, небольших групп и путешественников, ценящих комфорт, — это самый быстрый и удобный способ добраться до Каракола.</p>
                 <p>Для групп от 8 человек — приватный микроавтобус (от $485). Свяжитесь с нами для индивидуального расчёта и планирования маршрута.</p>
               </>
             ) : lang === "ko" ? (
               <>
                 <p>알마티에서 카라콜까지의 이 프라이빗 이동은 중앙아시아에서 가장 경치 좋고 편안한 여행 노선 중 하나입니다. 일반적인 북쪽 고속도로 대신, 극적인 협곡, 탁 트인 초원, 고산 계곡, 유명한 케겐 고개를 지나는 숨막히는 산악 경관을 즐길 수 있습니다.</p>
-                <p>이 노선은 5월부터 10월까지 운행되며 이동 중 유연한 관광 정류장을 제공합니다. 인기 있는 선택지로는 차린 협곡이 있으며, 카인디 호수와 콜사이 호수도 요청 시 방문 가능합니다.</p>
+                <p>직행 노선은 일반적으로 카르카라-케겐 검문소를 이용합니다. 국경 일정이 변경될 수 있어 출발 전에 검문소와 경로를 확인합니다. 카자흐스탄 구간에서 차린 협곡 정류장을 추가할 수 있습니다.</p>
                 <p>가족, 소규모 그룹, 편안함을 원하는 여행자에게 카라콜로 가는 가장 빠르고 편리한 방법입니다.</p>
                 <p>8인 이상 그룹의 경우 프라이빗 미니버스($485부터) 옵션이 있습니다. 맞춤 그룹 가격 및 노선 계획은 문의해 주세요.</p>
               </>
             ) : (
               <>
                 <p>This private transfer from Karakol to Almaty is one of the most scenic and comfortable travel routes in Central Asia. Instead of the standard northern highway, you journey through breathtaking mountain landscapes — dramatic canyons, wide-open steppe, alpine valleys, and the famous Kegen mountain pass.</p>
-                <p>The route is available from May to October and offers flexible sightseeing stops along the way. Popular optional destinations include Charyn Canyon, as well as Kaindy Lake and Kolsai Lakes upon request.</p>
-                <p>For families, small groups, and travelers seeking comfort, this is the fastest and most convenient way to reach Karakol.</p>
+                <p>The direct route normally uses the Karkara–Kegen checkpoint. Because border schedules can change, we confirm the crossing and route before departure. Charyn Canyon can be added as an optional stop on the Kazakhstan side.</p>
+                <p>For families, small groups, and travelers seeking comfort, this is a convenient private way to travel from Karakol directly to Almaty.</p>
                 <p>For groups of 8+ passengers, private minibus available from $485. Please contact us for custom group pricing and route planning.</p>
               </>
             )}
@@ -854,7 +782,7 @@ export default function KarakolToAlmaty({ initialLang }: { initialLang?: "en" | 
         </section>
 
         {/* Interactive Map */}
-        <InteractiveRouteMap lang={lang} stops={ALMATY_MAP_STOPS} />
+        <InteractiveRouteMap lang={lang} stops={KARAKOL_TO_ALMATY_MAP_STOPS} />
 
         {/* Pricing */}
         <PricingSection lang={lang} />
@@ -891,16 +819,6 @@ export default function KarakolToAlmaty({ initialLang }: { initialLang?: "en" | 
               <a href="/transfers/bishkek-to-karakol" className="hover:text-emerald-600">EN: Bishkek  to  Karakol</a>
               <a href="/transfers/karakol-to-almaty" className="hover:text-emerald-600">EN: Karakol  to  Almaty</a>
               <a href="/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">EN: Manas Airport  to  Karakol</a>
-            </div>
-            <div className="flex flex-wrap justify-center gap-3 md:justify-start">
-              <a href="/ru/transfers/bishkek-to-karakol" className="hover:text-emerald-600">RU: Бишкек  to  Каракол</a>
-              <a href="/ru/transfers/karakol-to-almaty" className="hover:text-emerald-600">RU: Алматы  to  Каракол</a>
-              <a href="/ru/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">RU: Манас  to  Каракол</a>
-            </div>
-            <div className="flex flex-wrap justify-center gap-3 md:justify-start">
-              <a href="/ko/transfers/bishkek-to-karakol" className="hover:text-emerald-600">KO: 비슈케크  to  카라콜</a>
-              <a href="/ko/transfers/karakol-to-almaty" className="hover:text-emerald-600">KO: 알마티  to  카라콜</a>
-              <a href="/ko/transfers/manas-airport-to-karakol" className="hover:text-emerald-600">KO: 마나스  to  카라콜</a>
             </div>
           </nav>
           <div className="flex gap-2">

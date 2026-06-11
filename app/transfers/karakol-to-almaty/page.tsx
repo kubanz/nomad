@@ -4,7 +4,7 @@ import KarakolToAlmaty from "../../../src/views/KarakolToAlmaty";
 export const metadata: Metadata = {
   title: "Karakol to Almaty Private Transfer | Taxi & Shuttle from $235 | Border Crossing | Nomad Transfer",
   description:
-    "Book private transfer Karakol to Almaty with English-speaking support. Sedan $235, Minivan $275. Via Karkara border crossing. Includes border assistance. Fixed price, no hidden fees. Free cancellation 24h. WhatsApp booking in 1-2 min.",
+    "Book a private transfer from Karakol to Almaty via the Karkara–Kegen border. Hotel pickup, border guidance, fixed prices from $235, and English-speaking WhatsApp support.",
   keywords: [
     "karakol to almaty transfer",
     "karakol almaty taxi",
@@ -62,7 +62,7 @@ const jsonLd = {
       "@type": "TouristTrip",
       "name": "Karakol to Almaty Private Transfer via Karkara Border",
       "description":
-        "Private transfer from Karakol to Almaty via Karkara border crossing. Includes border assistance and all fees. English-speaking support available.",
+        "Private transfer from Karakol to Almaty via the Karkara–Kegen border crossing, with hotel pickup, border guidance, and English-speaking support.",
       "url": "https://nomad-transfer.com/transfers/karakol-to-almaty",
       "touristType": "Transfer, Border Crossing",
       "duration": "P1D",
@@ -106,7 +106,7 @@ const jsonLd = {
           "name": "How long does the drive from Karakol to Almaty take?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Approximately 7-8 hours including border crossing at Karkara (~430 km). Border processing usually takes 30-60 minutes depending on queue.",
+            "text": "Allow approximately 7-8 hours for the journey, including the Karkara–Kegen border crossing. Travel and processing times depend on traffic, weather, and the border queue.",
           },
         },
         {
@@ -114,7 +114,7 @@ const jsonLd = {
           "name": "Which border crossing is used for Karakol to Almaty transfer?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We use the Karkara border crossing, which is the closest and most direct route from Karakol to Almaty. This border operates year-round.",
+            "text": "The direct route normally uses the Karkara–Kegen checkpoint. Operating dates and hours can change, so the available crossing and route are confirmed before departure.",
           },
         },
         {

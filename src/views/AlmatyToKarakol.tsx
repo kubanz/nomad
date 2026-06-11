@@ -23,7 +23,7 @@ const InteractiveRouteMap = dynamic(
 const ALMATY_MAP_STOPS: MapStop[] = [
   { id: 0, lat: 43.2220, lng: 76.8512, name: "Almaty",         desc: "Start · Hotel pickup",         day: 1, time: "08:00", type: "start" },
   { id: 1, lat: 43.3547, lng: 79.0833, name: "Charyn Canyon",  desc: "Optional stop · +$35",          day: 1, time: "10:30" },
-  { id: 2, lat: 42.9833, lng: 79.2167, name: "Kegen Border",   desc: "Passport control · 8am–6pm",   day: 1, time: "12:00" },
+  { id: 2, lat: 42.9833, lng: 79.2167, name: "Kegen Border",   desc: "Passport control",              day: 1, time: "12:00" },
   { id: 3, lat: 42.5833, lng: 79.0833, name: "Karkara Valley", desc: "Scenic mountain valley",         day: 1, time: "13:30" },
   { id: 4, lat: 42.4900, lng: 78.3936, name: "Karakol",        desc: "End · Hotel drop-off",           day: 1, time: "17:00", type: "end" },
 ];
@@ -53,7 +53,7 @@ const TIMELINE: TimelineStop[] = [
   {
     day: "Day 1", time: "12:00",
     place: { en: "Kegen Border", ru: "Граница Кеген", ko: "케겐 국경" },
-    sub: { en: "Passport control · 8am–6pm", ru: "Паспортный контроль · 8:00–18:00", ko: "여권 심사 · 오전8시~오후6시" },
+    sub: { en: "Passport control", ru: "Паспортный контроль", ko: "여권 심사" },
   },
   {
     day: "Day 1", time: "13:30",
@@ -103,9 +103,9 @@ const STOPS: Stop[] = [
     time: "12:00",
     title: { en: "Kegen Border Crossing", ru: "Пограничный переход Кеген", ko: "케겐 국경 통과" },
     desc: {
-      en: "Cross from Kazakhstan into Kyrgyzstan at the scenic Kegen–Karkara checkpoint. Open daily 8am–6pm. Passport required. Your driver will guide you through the process.",
-      ru: "Переход из Казахстана в Кыргызстан через живописный КПП Кеген–Каркара. Открыт ежедневно с 8:00 до 18:00. Необходим паспорт. Водитель поможет с прохождением.",
-      ko: "케겐-카르카라 검문소에서 카자흐스탄에서 키르기스스탄으로 입국합니다. 매일 오전 8시~오후 6시 운영. 여권 필수. 드라이버가 안내해 드립니다.",
+      en: "Cross from Kazakhstan into Kyrgyzstan at the Kegen–Karkara checkpoint. A valid passport is required. Operating dates and hours can change, so we confirm the checkpoint schedule before departure.",
+      ru: "Переход из Казахстана в Кыргызстан через КПП Кеген–Каркара. Необходим действующий паспорт. Даты и часы работы могут меняться, поэтому мы подтверждаем график КПП перед выездом.",
+      ko: "케겐-카르카라 검문소에서 카자흐스탄에서 키르기스스탄으로 입국합니다. 유효한 여권이 필요하며 운영 일정은 변경될 수 있어 출발 전에 확인합니다.",
     },
     image: "",
     mapUrl: "#route-map",
@@ -199,8 +199,8 @@ function SimpleTransferBlock({ lang }: { lang: "en" | "ru" | "ko" }) {
 
   const pills = [
     { icon: "📍", text: "Almaty → Karakol" },
-    { icon: "🕐", text: "~6 hours" },
-    { icon: "📏", text: "~350 km" },
+    { icon: "🕐", text: "7–8 hours" },
+    { icon: "📏", text: "~430 km" },
     { icon: "👤", text: "Private" },
   ];
 
@@ -295,9 +295,9 @@ function UpsellDivider({ lang }: { lang: "en" | "ru" | "ko" }) {
 
 function NoticeBanner({ lang }: { lang: "en" | "ru" | "ko" }) {
   const text = {
-    en: "Border at Kegen is open daily 8:00 AM – 6:00 PM. Passport required. This route operates May–October. In winter, transfer goes via Bishkek (northern route).",
-    ru: "Граница Кеген открыта ежедневно с 8:00 до 18:00. Необходим паспорт. Маршрут работает май–октябрь. Зимой трансфер идёт через Бишкек (северный маршрут).",
-    ko: "케겐 국경은 매일 오전 8시~오후 6시 운영. 여권 필수. 이 노선은 5월~10월 운영됩니다. 겨울에는 비슈케크 경유 북쪽 노선으로 이동합니다.",
+    en: "A valid passport is required. Kegen–Karkara checkpoint dates and hours can change due to official or seasonal restrictions. We confirm the available route before departure; an alternative route via Bishkek may be used when necessary.",
+    ru: "Необходим действующий паспорт. Даты и часы работы КПП Кеген–Каркара могут меняться из-за официальных или сезонных ограничений. Перед выездом мы подтверждаем доступный маршрут; при необходимости поездка проходит через Бишкек.",
+    ko: "유효한 여권이 필요합니다. 케겐-카르카라 검문소의 운영 일정은 공식 또는 계절 제한에 따라 변경될 수 있습니다. 출발 전에 이용 가능한 경로를 확인하며 필요하면 비슈케크 경유 노선을 이용합니다.",
   };
   return (
     <div className="mb-10 rounded-2xl border border-amber-200 bg-amber-50 p-5">
@@ -695,10 +695,10 @@ export default function AlmatyToKarakol({ initialLang }: { initialLang?: "en" | 
           </h1>
           <p className="mt-2 text-sm text-white/80">
             {lang === "ru"
-              ? "Чарынский каньон · Граница Кеген · Долина Каркара · ~350 км · ~6 часов"
+              ? "Чарынский каньон · Граница Кеген · Долина Каркара · ~430 км · 7–8 часов"
               : lang === "ko"
-              ? "차린 협곡 · 케겐 국경 · 카르카라 계곡 · ~350km · ~6시간"
-              : "Charyn Canyon · Kegen Border · Karkara Valley · ~350 km · ~6 hours"}
+              ? "차린 협곡 · 케겐 국경 · 카르카라 계곡 · ~430km · 7–8시간"
+              : "Charyn Canyon · Kegen Border · Karkara Valley · ~430 km · 7–8 hours"}
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a href={WA_LINK} target="_blank" rel="noopener"
@@ -734,21 +734,21 @@ export default function AlmatyToKarakol({ initialLang }: { initialLang?: "en" | 
             {lang === "ru" ? (
               <>
                 <p>Этот приватный трансфер из Алматы в Каракол — один из самых живописных и комфортных маршрутов в Центральной Азии. Вместо стандартного северного шоссе вы путешествуете через захватывающие горные пейзажи — драматические каньоны, широкие степи, альпийские долины и знаменитый перевал Кеген.</p>
-                <p>Маршрут работает с мая по октябрь и предлагает гибкие остановки для осмотра достопримечательностей. Популярные варианты: Чарынский каньон, а также озёра Каинды и Кольсай по запросу.</p>
+                <p>Прямой маршрут обычно проходит через КПП Кеген–Каркара. Поскольку график границы может меняться, перед выездом мы подтверждаем переход и маршрут. По запросу можно добавить Чарынский каньон, озёра Каинды и Кольсай.</p>
                 <p>Для семей, небольших групп и путешественников, ценящих комфорт, — это самый быстрый и удобный способ добраться до Каракола.</p>
                 <p>Для групп от 8 человек — приватный микроавтобус (от $485). Свяжитесь с нами для индивидуального расчёта и планирования маршрута.</p>
               </>
             ) : lang === "ko" ? (
               <>
                 <p>알마티에서 카라콜까지의 이 프라이빗 이동은 중앙아시아에서 가장 경치 좋고 편안한 여행 노선 중 하나입니다. 일반적인 북쪽 고속도로 대신, 극적인 협곡, 탁 트인 초원, 고산 계곡, 유명한 케겐 고개를 지나는 숨막히는 산악 경관을 즐길 수 있습니다.</p>
-                <p>이 노선은 5월부터 10월까지 운행되며 이동 중 유연한 관광 정류장을 제공합니다. 인기 있는 선택지로는 차린 협곡이 있으며, 카인디 호수와 콜사이 호수도 요청 시 방문 가능합니다.</p>
+                <p>직행 노선은 일반적으로 케겐-카르카라 검문소를 이용합니다. 국경 일정이 변경될 수 있어 출발 전에 검문소와 경로를 확인합니다. 요청 시 차린 협곡, 카인디 호수, 콜사이 호수를 추가할 수 있습니다.</p>
                 <p>가족, 소규모 그룹, 편안함을 원하는 여행자에게 카라콜로 가는 가장 빠르고 편리한 방법입니다.</p>
                 <p>8인 이상 그룹의 경우 프라이빗 미니버스($485부터) 옵션이 있습니다. 맞춤 그룹 가격 및 노선 계획은 문의해 주세요.</p>
               </>
             ) : (
               <>
                 <p>This private transfer from Almaty to Karakol is one of the most scenic and comfortable travel routes in Central Asia. Instead of the standard northern highway, you journey through breathtaking mountain landscapes — dramatic canyons, wide-open steppe, alpine valleys, and the famous Kegen mountain pass.</p>
-                <p>The route is available from May to October and offers flexible sightseeing stops along the way. Popular optional destinations include Charyn Canyon, as well as Kaindy Lake and Kolsai Lakes upon request.</p>
+                <p>The direct route normally uses the Kegen–Karkara checkpoint. Because border schedules can change, we confirm the crossing and route before departure. Popular optional stops include Charyn Canyon, Kaindy Lake, and Kolsai Lakes.</p>
                 <p>For families, small groups, and travelers seeking comfort, this is the fastest and most convenient way to reach Karakol.</p>
                 <p>For groups of 8+ passengers, private minibus available from $485. Please contact us for custom group pricing and route planning.</p>
               </>

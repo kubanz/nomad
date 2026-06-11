@@ -4,7 +4,7 @@ import AlmatyToKarakol from "../../../src/views/AlmatyToKarakol";
 export const metadata: Metadata = {
   title: "Transfer from Almaty to Karakol | Private Car with Charyn Canyon Stop | From $235",
   description:
-    "Book private transfer from Almaty to Karakol, Kazakhstan to Kyrgyzstan. Scenic route via Charyn Canyon & Kegen border. Sedan $235, Van $275. English-speaking driver. Fixed price per car. WhatsApp reply in 1-2 min. Daily departures.",
+    "Book a private transfer from Almaty to Karakol via the Kegen–Karkara border. Fixed prices from $235, optional Charyn Canyon stop, and English-speaking WhatsApp support.",
   keywords: [
     "from almaty to karakol",
     "transfer from almaty to karakol",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Private Transfer from Almaty to Karakol | Charyn Canyon Stop | $235",
     description:
-      "Daily transfers from Almaty to Karakol via scenic Kegen border. Charyn Canyon, Karkara Valley stops. Sedan $235, Van $275. English-speaking driver.",
+      "Private Almaty to Karakol transfer via the Kegen–Karkara border. Optional Charyn Canyon stop. Sedan $235, minivan $275.",
     images: [
       {
         url: "https://59luetpw6qj9z6yg.public.blob.vercel-storage.com/tour-images/son-kul.jpg",
@@ -66,7 +66,7 @@ const jsonLd = {
       "@type": "TouristTrip",
       "name": "Private Transfer from Almaty to Karakol via Charyn Canyon & Kegen Border",
       "description":
-        "Private 1-day transfer from Almaty, Kazakhstan to Karakol, Kyrgyzstan via the scenic Kegen mountain pass and Charyn Canyon. English-speaking driver, daily departures. Fixed price per car: Sedan $235, Van $275. Optional stops: Charyn Canyon (+$35), Kaindy Lake, Kolsai Lakes.",
+        "Private 1-day transfer from Almaty, Kazakhstan to Karakol, Kyrgyzstan via the Kegen–Karkara border. Fixed price per car: Sedan $235, Van $275. Optional stops include Charyn Canyon, Kaindy Lake, and Kolsai Lakes.",
       "url": "https://nomad-transfer.com/transfers/almaty-to-karakol",
       "touristType": "Adventure, Transfer, Scenic, Cross-Border",
       "itinerary": {
@@ -74,7 +74,7 @@ const jsonLd = {
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Almaty — hotel pickup" },
           { "@type": "ListItem", "position": 2, "name": "Charyn Canyon — optional stop (+$35)" },
-          { "@type": "ListItem", "position": 3, "name": "Kegen border crossing (open 8am–6pm, May–Oct)" },
+          { "@type": "ListItem", "position": 3, "name": "Kegen–Karkara border crossing" },
           { "@type": "ListItem", "position": 4, "name": "Karkara Valley — scenic mountain valley" },
           { "@type": "ListItem", "position": 5, "name": "Kaindy Lake — optional detour (price on request)" },
           { "@type": "ListItem", "position": 6, "name": "Karakol — hotel drop-off" },
@@ -129,10 +129,10 @@ const jsonLd = {
         },
         {
           "@type": "Question",
-          "name": "Is the Kegen border crossing open year-round?",
+          "name": "How is the Kegen–Karkara border schedule confirmed?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. The Kegen–Karkara border checkpoint is open May to October, daily from 8:00 AM to 6:00 PM. In winter months (November–April), transfers from Almaty to Karakol travel via the northern route through Bishkek.",
+            "text": "Operating dates and hours can change due to official or seasonal restrictions. We confirm the available checkpoint and route before departure; an alternative route via Bishkek may be used when necessary.",
           },
         },
         {
@@ -148,7 +148,7 @@ const jsonLd = {
           "name": "How long is the drive from Almaty to Karakol?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Approximately 6 hours without stops along the ~350 km route. With a Charyn Canyon stop, expect 7-8 hours. Border crossing time varies but is typically 20-40 minutes.",
+            "text": "Allow approximately 7-8 hours for the ~430 km journey, including the border crossing. Optional stops, traffic, weather, and border queues may add time.",
           },
         },
       ],
