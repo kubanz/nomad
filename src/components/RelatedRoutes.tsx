@@ -53,6 +53,13 @@ const ROUTES: Route[] = [
     desc: { en: "South Kyrgyzstan, over Taldyk Pass", ru: "Юг Кыргызстана, через перевал Талдык", ko: "남 키르기스스탄, 탈딕 패스 경유" },
     badge: { en: "~10–11 h", ru: "~10–11 ч", ko: "~10–11시간" },
   },
+  {
+    slug: "manas-airport-to-bishkek",
+    price: 25,
+    name: { en: "Manas Airport → Bishkek", ru: "Аэропорт Манас → Бишкек", ko: "마나스 공항 → 비슈케크" },
+    desc: { en: "City centre pickup, meet & greet included", ru: "В центр города, встреча с табличкой", ko: "시내 픽업, 이름판 환영 포함" },
+    badge: { en: "~30–40 min", ru: "~30–40 мин", ko: "~30–40분" },
+  },
 ];
 
 const LABELS = {
