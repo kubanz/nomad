@@ -192,13 +192,13 @@ export default function AboutPage() {
       />
 
       <main className="min-h-screen bg-white">
-        <section className="bg-gradient-to-br from-teal-700 via-teal-600 to-emerald-600 py-20 text-white">
-          <div className="container mx-auto px-4">
+        <section className="bg-gradient-to-br from-teal-700 via-teal-600 to-emerald-600 py-12 text-white md:py-20">
+          <div className="mx-auto max-w-6xl px-4">
             <div className="max-w-4xl">
               <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-teal-100">
                 Family-run since 2024
               </p>
-              <h1 className="text-4xl font-bold leading-tight md:text-6xl">
+              <h1 className="text-3xl font-bold leading-tight sm:text-4xl md:text-6xl">
                 About Nomad Transfer
               </h1>
               <p className="mt-6 max-w-3xl text-lg leading-relaxed text-teal-50 md:text-xl">
@@ -206,10 +206,10 @@ export default function AboutPage() {
                 explore Kyrgyzstan and Kazakhstan with comfortable vehicles,
                 experienced local drivers, and clear communication.
               </p>
-              <div className="mt-8 flex flex-wrap gap-4">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
                 <Link
                   href="/#route-prices"
-                  className="rounded-full bg-white px-7 py-3 font-semibold text-teal-700 transition hover:bg-teal-50"
+                  className="w-full rounded-full bg-white px-7 py-3 text-center font-semibold text-teal-700 transition hover:bg-teal-50 sm:w-auto"
                 >
                   View Routes
                 </Link>
@@ -217,7 +217,7 @@ export default function AboutPage() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border-2 border-white px-7 py-3 font-semibold text-white transition hover:bg-white hover:text-teal-700"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-white px-7 py-3 font-semibold text-white transition hover:bg-white hover:text-teal-700 sm:w-auto"
                 >
                   <MessageCircle className="h-5 w-5" />
                   Book via WhatsApp
@@ -227,9 +227,9 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="container mx-auto px-4 py-16">
+        <section className="mx-auto max-w-6xl px-4 py-12 md:py-16">
           <div className="mx-auto max-w-4xl text-center">
-            <h2 className="text-3xl font-bold text-slate-900">
+            <h2 className="text-2xl font-bold text-slate-900 md:text-3xl">
               Who We Are
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-slate-600">
@@ -248,14 +248,14 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="mx-auto mt-12 grid max-w-5xl gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mx-auto mt-10 grid max-w-5xl grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
             {facts.map(({ icon: Icon, value, label }) => (
               <div
                 key={label}
-                className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center"
+                className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-center sm:p-6"
               >
                 <Icon className="mx-auto h-9 w-9 text-teal-600" />
-                <p className="mt-4 text-3xl font-bold text-slate-900">
+                <p className="mt-3 text-2xl font-bold text-slate-900 sm:mt-4 sm:text-3xl">
                   {value}
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">
@@ -266,14 +266,14 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="bg-slate-50 py-16">
-          <div className="container mx-auto grid items-start gap-12 px-4 lg:grid-cols-[0.8fr_1.2fr]">
-            <div className="rounded-3xl bg-teal-700 p-8 text-white lg:sticky lg:top-24">
+        <section className="bg-slate-50 py-12 md:py-16">
+          <div className="mx-auto grid max-w-6xl items-start gap-8 px-4 md:gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+            <div className="rounded-3xl bg-teal-700 p-6 text-white sm:p-8 lg:sticky lg:top-24">
               <Route className="h-12 w-12 text-teal-100" />
               <p className="mt-8 text-sm font-semibold uppercase tracking-widest text-teal-100">
                 Where we started
               </p>
-              <p className="mt-3 text-3xl font-bold">
+              <p className="mt-3 text-2xl font-bold sm:text-3xl">
                 One car. One route.
               </p>
               <p className="mt-3 text-lg text-teal-50">
@@ -282,8 +282,8 @@ export default function AboutPage() {
             </div>
 
             <div>
-              <h2 className="text-3xl font-bold text-slate-900">Our Story</h2>
-              <div className="mt-6 space-y-5 text-lg leading-relaxed text-slate-600">
+              <h2 className="text-2xl font-bold text-slate-900 md:text-3xl">Our Story</h2>
+              <div className="mt-6 space-y-5 text-base leading-relaxed text-slate-600 sm:text-lg">
                 <p>
                   Nomad Transfer began with our father. He worked as a taxi
                   driver, accepted private bookings, and helped people reach
@@ -315,9 +315,9 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="container mx-auto px-4 py-16">
+        <section className="mx-auto max-w-6xl px-4 py-12 md:py-16">
           <div className="grid gap-8 lg:grid-cols-2">
-            <article className="rounded-3xl border border-slate-200 p-8">
+            <article className="rounded-3xl border border-slate-200 p-6 sm:p-8">
               <Wrench className="h-11 w-11 text-teal-600" />
               <h2 className="mt-5 text-2xl font-bold text-slate-900">
                 Vehicles and Maintenance
@@ -336,7 +336,7 @@ export default function AboutPage() {
               </Link>
             </article>
 
-            <article className="rounded-3xl border border-slate-200 p-8">
+            <article className="rounded-3xl border border-slate-200 p-6 sm:p-8">
               <Users className="h-11 w-11 text-teal-600" />
               <h2 className="mt-5 text-2xl font-bold text-slate-900">
                 Experienced Local Drivers
@@ -357,12 +357,12 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="bg-teal-50 py-16">
-          <div className="container mx-auto px-4">
+        <section className="bg-teal-50 py-12 md:py-16">
+          <div className="mx-auto max-w-6xl px-4">
             <div className="mx-auto max-w-5xl">
               <div className="text-center">
                 <Shield className="mx-auto h-12 w-12 text-teal-700" />
-                <h2 className="mt-5 text-3xl font-bold text-slate-900">
+                <h2 className="mt-5 text-2xl font-bold text-slate-900 md:text-3xl">
                   How We Organize Your Transfer
                 </h2>
                 <p className="mx-auto mt-4 max-w-2xl text-slate-600">
@@ -375,7 +375,7 @@ export default function AboutPage() {
                 {steps.map((step, index) => (
                   <li
                     key={step}
-                    className="flex gap-4 rounded-2xl bg-white p-6 shadow-sm"
+                    className="flex gap-4 rounded-2xl bg-white p-5 shadow-sm sm:p-6"
                   >
                     <span className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-teal-700 font-bold text-white">
                       {index + 1}
@@ -388,15 +388,15 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="container mx-auto px-4 py-16">
-          <div className="mx-auto grid max-w-5xl gap-10 rounded-3xl bg-slate-900 p-8 text-white md:grid-cols-[auto_1fr] md:p-12">
+        <section className="mx-auto max-w-6xl px-4 py-12 md:py-16">
+          <div className="mx-auto grid max-w-5xl gap-6 rounded-3xl bg-slate-900 p-6 text-white sm:p-8 md:grid-cols-[auto_1fr] md:gap-10 md:p-12">
             <TentTree className="h-14 w-14 text-amber-300" />
             <div>
               <p className="text-sm font-semibold uppercase tracking-widest text-amber-300">
                 What comes next
               </p>
-              <h2 className="mt-3 text-3xl font-bold">Our Plans</h2>
-              <p className="mt-5 max-w-3xl text-lg leading-relaxed text-slate-300">
+              <h2 className="mt-3 text-2xl font-bold md:text-3xl">Our Plans</h2>
+              <p className="mt-5 max-w-3xl text-base leading-relaxed text-slate-300 sm:text-lg">
                 We are expanding our routes and improving the tools available
                 on our website. One of our next planned services is yurt
                 booking. We intend to add selected yurt camps so travelers can
@@ -410,17 +410,17 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="bg-slate-50 py-16">
-          <div className="container mx-auto px-4">
+        <section className="bg-slate-50 py-12 md:py-16">
+          <div className="mx-auto max-w-6xl px-4">
             <div className="mx-auto max-w-4xl">
-              <h2 className="text-center text-3xl font-bold text-slate-900">
+              <h2 className="text-center text-2xl font-bold text-slate-900 md:text-3xl">
                 Frequently Asked Questions
               </h2>
               <div className="mt-10 space-y-4">
                 {faqItems.map((item) => (
                   <details
                     key={item.question}
-                    className="group rounded-2xl border border-slate-200 bg-white p-6"
+                    className="group rounded-2xl border border-slate-200 bg-white p-5 sm:p-6"
                   >
                     <summary className="cursor-pointer list-none font-semibold text-slate-900">
                       <span className="flex items-center justify-between gap-4">
@@ -438,27 +438,27 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="bg-gradient-to-r from-teal-700 to-emerald-600 py-16 text-white">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold">Planning a Trip?</h2>
+        <section className="bg-gradient-to-r from-teal-700 to-emerald-600 py-12 text-white md:py-16">
+          <div className="mx-auto max-w-6xl px-4 text-center">
+            <h2 className="text-2xl font-bold md:text-3xl">Planning a Trip?</h2>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-teal-50">
               Tell us your route, travel date, number of passengers, and
               luggage. We will recommend a suitable vehicle and confirm the
               price before your trip.
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <div className="mx-auto mt-8 flex max-w-md flex-col justify-center gap-3 sm:max-w-none sm:flex-row sm:flex-wrap sm:gap-4">
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 font-semibold text-teal-700 transition hover:bg-teal-50"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-7 py-3 font-semibold text-teal-700 transition hover:bg-teal-50 sm:w-auto"
               >
                 <MessageCircle className="h-5 w-5" />
                 Book via WhatsApp
               </a>
               <Link
                 href="/pricing"
-                className="rounded-full border-2 border-white px-7 py-3 font-semibold transition hover:bg-white hover:text-teal-700"
+                className="w-full rounded-full border-2 border-white px-7 py-3 font-semibold transition hover:bg-white hover:text-teal-700 sm:w-auto"
               >
                 View Prices
               </Link>
