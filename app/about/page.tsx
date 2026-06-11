@@ -239,6 +239,13 @@ export default function AboutPage() {
               minivans, and larger vehicles, allowing us to match each trip to
               the route, group size, and luggage.
             </p>
+            <p className="mt-5 text-lg leading-relaxed text-slate-600">
+              Today, we arrange private transfers to destinations across
+              Kyrgyzstan and Kazakhstan, including cities, airports, mountain
+              regions, resorts, border crossings, and remote locations. If
+              your destination is not listed on our website, contact us and we
+              will prepare an individual route and price.
+            </p>
           </div>
 
           <div className="mx-auto mt-12 grid max-w-5xl gap-5 sm:grid-cols-2 lg:grid-cols-4">
