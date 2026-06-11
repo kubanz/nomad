@@ -283,7 +283,7 @@ export default function AboutPage() {
 
             <div>
               <h2 className="text-2xl font-bold text-slate-900 md:text-3xl">Our Story</h2>
-              <div className="mt-6 space-y-5 text-base leading-relaxed text-slate-600 sm:text-lg">
+              <div className="mt-6 space-y-5 text-justify text-base leading-relaxed text-slate-600 [hyphens:auto] sm:text-lg">
                 <p>
                   Nomad Transfer began with our father. He worked as a taxi
                   driver, accepted private bookings, and helped people reach
