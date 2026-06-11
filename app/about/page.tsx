@@ -328,12 +328,6 @@ export default function AboutPage() {
                 and essential equipment. We choose a vehicle based on the
                 route, passenger count, road conditions, and luggage.
               </p>
-              <Link
-                href="/fleet"
-                className="mt-6 inline-flex font-semibold text-teal-700 hover:underline"
-              >
-                Explore our vehicle categories
-              </Link>
             </article>
 
             <article className="rounded-3xl border border-slate-200 p-6 sm:p-8">
@@ -347,12 +341,6 @@ export default function AboutPage() {
                 roads, changing weather conditions, border routes, and the
                 needs of international travelers.
               </p>
-              <Link
-                href="/drivers"
-                className="mt-6 inline-flex font-semibold text-teal-700 hover:underline"
-              >
-                Learn about our drivers
-              </Link>
             </article>
           </div>
         </section>
