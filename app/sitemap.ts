@@ -7,39 +7,45 @@ const BASE = "https://nomad-transfer.com";
 // Update when content (prices, FAQ, route details) actually changes.
 const TRANSFERS_MULTILANG: { slug: string; lastModified: Date }[] = [
   { slug: "bishkek-to-karakol",       lastModified: new Date("2026-05-15") },
-  { slug: "almaty-to-karakol",        lastModified: new Date("2026-05-15") },
+  { slug: "almaty-to-karakol",        lastModified: new Date("2026-06-11") },
   { slug: "manas-airport-to-karakol", lastModified: new Date("2026-05-16") },
+  { slug: "manas-airport-to-bishkek", lastModified: new Date("2026-06-11") },
   { slug: "almaty-to-bishkek",        lastModified: new Date("2026-05-15") },
   { slug: "bishkek-to-cholpon-ata",   lastModified: new Date("2026-05-15") },
   { slug: "bishkek-to-osh",           lastModified: new Date("2026-05-15") },
 ];
 
 // Reverse routes — English only
-const TRANSFERS_EN = [
-  "karakol-to-bishkek",
-  "karakol-to-almaty",
-  "karakol-to-manas-airport",
-  "cholpon-ata-to-bishkek",
-  "osh-to-bishkek",
-  "bishkek-to-almaty",
+const TRANSFERS_EN: { slug: string; lastModified: Date }[] = [
+  { slug: "karakol-to-bishkek",       lastModified: new Date("2026-05-19") },
+  { slug: "karakol-to-almaty",        lastModified: new Date("2026-06-11") },
+  { slug: "karakol-to-manas-airport", lastModified: new Date("2026-05-19") },
+  { slug: "cholpon-ata-to-bishkek",   lastModified: new Date("2026-05-19") },
+  { slug: "osh-to-bishkek",           lastModified: new Date("2026-05-19") },
+  { slug: "bishkek-to-almaty",        lastModified: new Date("2026-05-19") },
 ];
 
-const GUIDES = [
-  "bishkek-to-karakol-winter",
-  "best-time-visit-karakol",
-  "almaty-to-bishkek-travel-guide",
-  "transfer-prices-kyrgyzstan",
-  "kyrgyzstan-kazakhstan-border-crossing",
-  "issyk-kul-travel-guide",
-  "manas-airport-to-bishkek-city",
+const GUIDES: { slug: string; lastModified: Date }[] = [
+  { slug: "bishkek-to-karakol-winter",            lastModified: new Date("2026-05-19") },
+  { slug: "best-time-visit-karakol",               lastModified: new Date("2026-05-19") },
+  { slug: "almaty-to-bishkek-travel-guide",        lastModified: new Date("2026-05-19") },
+  { slug: "transfer-prices-kyrgyzstan",            lastModified: new Date("2026-05-19") },
+  { slug: "kyrgyzstan-kazakhstan-border-crossing", lastModified: new Date("2026-05-19") },
+  { slug: "issyk-kul-travel-guide",                lastModified: new Date("2026-05-19") },
+  { slug: "manas-airport-to-bishkek-city",         lastModified: new Date("2026-05-19") },
 ];
 
-const EEAT_PAGES = ["about", "drivers", "fleet", "why-choose-us", "pricing"];
+const EEAT_PAGES: { slug: string; lastModified: Date }[] = [
+  { slug: "about",         lastModified: new Date("2026-06-11") },
+  { slug: "drivers",       lastModified: new Date("2026-05-19") },
+  { slug: "fleet",         lastModified: new Date("2026-05-19") },
+  { slug: "why-choose-us", lastModified: new Date("2026-05-19") },
+  { slug: "pricing",       lastModified: new Date("2026-06-11") },
+];
 
 const HOME_LAST_MODIFIED  = new Date("2026-05-16");
 const TOUR_LAST_MODIFIED  = new Date("2026-05-16");
 const GUIDE_LAST_MODIFIED = new Date("2026-05-16");
-const NEW_PAGE_DATE       = new Date("2026-05-19");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
@@ -119,30 +125,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   // Transfer routes — reverse routes (English only)
-  for (const slug of TRANSFERS_EN) {
+  for (const { slug, lastModified } of TRANSFERS_EN) {
     entries.push({
       url: `${BASE}/transfers/${slug}`,
-      lastModified: NEW_PAGE_DATE,
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.9,
     });
   }
 
   // Guide pages (English only for now)
-  for (const slug of GUIDES) {
+  for (const { slug, lastModified } of GUIDES) {
     entries.push({
       url: `${BASE}/guides/${slug}`,
-      lastModified: NEW_PAGE_DATE,
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
     });
   }
 
   // E-E-A-T pages (English only)
-  for (const slug of EEAT_PAGES) {
+  for (const { slug, lastModified } of EEAT_PAGES) {
     entries.push({
       url: `${BASE}/${slug}`,
-      lastModified: NEW_PAGE_DATE,
+      lastModified,
       changeFrequency: "monthly",
       priority: 0.7,
     });
