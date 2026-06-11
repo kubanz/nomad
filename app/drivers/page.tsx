@@ -5,7 +5,7 @@ import { Shield, Award, MessageCircle, MapPin, Star, Languages } from "lucide-re
 export const metadata: Metadata = {
   title: "Our Drivers | Professional Licensed Drivers in Kyrgyzstan | Nomad Transfer",
   description:
-    "Meet our team of professional, licensed drivers. Every driver is vetted, experienced with mountain roads, and trained in customer service. English-speaking support available. Average 7+ years driving experience in Kyrgyzstan.",
+    "Meet our experienced local drivers. Many have 10+ years in tourist and long-distance passenger transport across Kyrgyzstan.",
   keywords: [
     "professional drivers kyrgyzstan",
     "licensed drivers kyrgyzstan",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Our Drivers | Professional Licensed Drivers in Kyrgyzstan",
-    description: "Professional, licensed drivers with 7+ years experience. Mountain road experts. English-speaking support.",
+    description: "Experienced local drivers, many with 10+ years in tourist and long-distance passenger transport.",
     type: "website",
     url: "https://nomad-transfer.com/drivers",
   },
@@ -63,7 +63,7 @@ export default function DriversPage() {
               <li>✓ Minimum 5 years driving experience</li>
               <li>✓ Mountain road expertise required</li>
               <li>✓ Border crossing experience</li>
-              <li>✓ Average driver tenure: 7+ years</li>
+              <li>✓ Many drivers have 10+ years in tourist transport</li>
             </ul>
           </div>
 

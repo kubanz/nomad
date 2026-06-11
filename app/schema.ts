@@ -21,8 +21,8 @@ export const organizationSchema = {
     height: "630",
   },
   description:
-    "Licensed private transfer company in Kyrgyzstan since 2019. Fixed prices, English-speaking support, professional drivers. Bishkek, Karakol, Almaty, Osh transfers.",
-  foundingDate: "2019",
+    "Private transfer company in Kyrgyzstan since 2024. Fixed prices, English-speaking support, professional drivers. Bishkek, Karakol, Almaty, and Osh transfers.",
+  foundingDate: "2024",
   telephone: "+996552291808",
   email: "info@nomad-transfer.com",
   address: {

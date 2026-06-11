@@ -212,7 +212,7 @@ export default function BishkekToKarakolWinterPage() {
                   Is the road safe in winter?
                 </summary>
                 <p className="mt-3 text-slate-600">
-                  Yes, but conditions vary. The Bishkek-Karakol highway is a major route and is maintained year-round. Our drivers have 7+ years experience with winter mountain driving. We monitor weather and will reschedule if conditions are too dangerous.
+                  Yes, but conditions vary. The Bishkek-Karakol highway is a major route and is maintained year-round. Many of our drivers have 10+ years of experience in tourist and long-distance transport. We monitor weather and will reschedule if conditions are too dangerous.
                 </p>
               </details>
 

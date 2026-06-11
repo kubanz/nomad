@@ -16,7 +16,7 @@ import {
 export const metadata: Metadata = {
   title: "Why Choose Nomad Transfer | Best Private Transfer Service in Kyrgyzstan",
   description:
-    "Fixed prices with no hidden fees. Free cancellation 24h. English-speaking WhatsApp support. Licensed drivers with 7+ years experience. 1000+ satisfied customers. 4.9/5 rating. Book in 1-2 minutes. Why travelers choose Nomad Transfer over taxis and shared marshrutkas.",
+    "Fixed prices, English-speaking WhatsApp support, 20+ vehicles, and experienced local drivers. Learn why travelers choose Nomad Transfer.",
   keywords: [
     "why choose nomad transfer",
     "best transfer kyrgyzstan",
@@ -126,7 +126,7 @@ export default function WhyChooseUsPage() {
             <Award className="mb-4 h-12 w-12 text-amber-600" />
             <h3 className="mb-3 text-xl font-bold text-slate-900">Experienced Drivers</h3>
             <p className="mb-4 text-slate-600">
-              Average 7+ years driving experience. Mountain road experts. Know every route, border crossing, and scenic stop.
+              Many drivers have 10+ years of experience in tourist and long-distance transport, including mountain roads and border routes.
             </p>
             <ul className="space-y-2 text-sm text-slate-700">
               <li className="flex items-start gap-2">
@@ -183,7 +183,7 @@ export default function WhyChooseUsPage() {
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-rose-600" />
-                <span>Operating since 2019</span>
+                <span>Operating since 2024</span>
               </li>
             </ul>
           </div>

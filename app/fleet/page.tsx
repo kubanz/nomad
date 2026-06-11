@@ -5,7 +5,7 @@ import { Car, Users, Package, Snowflake, Shield, Award } from "lucide-react";
 export const metadata: Metadata = {
   title: "Our Fleet | Modern Vehicles for Kyrgyzstan Transfers | Nomad Transfer",
   description:
-    "15+ modern, well-maintained vehicles. Sedans (4 passengers), Minivans (6-7 passengers), Buses (up to 30). All vehicles fully insured, air-conditioned, winter-ready. Regular maintenance every 10,000 km. Toyota Camry, Hyundai H1, Mercedes Sprinter.",
+    "20+ well-maintained vehicles for private transfers in Kyrgyzstan, including sedans, SUVs, minivans, and larger vehicles for groups.",
   keywords: [
     "transfer vehicles kyrgyzstan",
     "modern fleet kyrgyzstan",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Our Fleet | Modern Vehicles for Kyrgyzstan Transfers",
-    description: "15+ modern vehicles. Sedans, Minivans, Buses. Fully insured. Air-conditioned. Winter-ready.",
+    description: "20+ well-maintained vehicles, including sedans, SUVs, minivans, and larger vehicles for groups.",
     type: "website",
     url: "https://nomad-transfer.com/fleet",
   },
@@ -35,7 +35,7 @@ export default function FleetPage() {
           <div className="max-w-3xl">
             <h1 className="text-4xl font-bold md:text-5xl">Our Modern Fleet</h1>
             <p className="mt-6 text-xl text-amber-50">
-              15+ well-maintained vehicles ready to take you anywhere in Kyrgyzstan. Comfortable, safe, and winter-ready.
+              20+ well-maintained vehicles of different types for private trips across Kyrgyzstan.
             </p>
           </div>
         </div>
