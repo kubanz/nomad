@@ -1,10 +1,13 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 
 interface FAQItem {
   question: string;
   answer: string;
+  href?: string;
+  linkLabel?: string;
 }
 
 interface FAQSectionProps {
@@ -54,6 +57,14 @@ export default function FAQSection({ title, faqs, lang = "en" }: FAQSectionProps
                 <p className="text-sm leading-relaxed text-slate-700 md:text-base">
                   {faq.answer}
                 </p>
+                {faq.href && faq.linkLabel && (
+                  <Link
+                    href={faq.href}
+                    className="mt-3 inline-flex rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-emerald-700"
+                  >
+                    {faq.linkLabel}
+                  </Link>
+                )}
               </div>
             )}
           </div>

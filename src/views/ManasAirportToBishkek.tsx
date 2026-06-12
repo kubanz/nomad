@@ -36,19 +36,34 @@ const AIRPORT_FAQ = {
     { question: "How much is a transfer from Manas Airport to Bishkek?", answer: "A private sedan costs $35 and a minivan costs $45 per vehicle for one direct airport pickup and one Bishkek drop-off. Extra stops or additional drop-off addresses cost extra. A 15% surcharge applies to pickups between 22:00 and 06:00." },
     { question: "How will I find the driver at Manas Airport?", answer: "The driver waits in the arrivals hall after passport control and baggage claim with a name board. Send your flight number before travel." },
     { question: "What happens if my flight is delayed?", answer: "We track the flight number and adjust the pickup to the actual landing time. The service includes 60 minutes of free waiting after landing." },
-    { question: "Can I book the return transfer from Bishkek to Manas Airport?", answer: "Yes. Book the separate Bishkek to Manas Airport route so we can plan pickup time around your flight departure and check-in." },
+    {
+      question: "Can I book the return transfer from Bishkek to Manas Airport?",
+      answer: "Yes. Open the return route page to see the price and plan pickup time around your flight departure and check-in.",
+      href: "/transfers/bishkek-to-manas-airport",
+      linkLabel: "View Bishkek to Manas Airport transfer",
+    },
   ],
   ru: [
     { question: "Сколько стоит трансфер из аэропорта Манас в Бишкек?", answer: "Приватный седан стоит $35, минивэн — $45 за автомобиль при прямой поездке из аэропорта до одного адреса в Бишкеке. Дополнительные заезды и адреса оплачиваются отдельно. Для пикапов с 22:00 до 06:00 действует доплата 15%." },
     { question: "Как найти водителя в аэропорту?", answer: "Водитель ждёт в зоне прилёта после паспортного контроля и багажа с табличкой с вашим именем. Заранее отправьте номер рейса." },
     { question: "Что будет при задержке рейса?", answer: "Мы отслеживаем номер рейса и корректируем время встречи по фактической посадке. Включено 60 минут бесплатного ожидания." },
-    { question: "Можно заказать обратный трансфер Бишкек — Манас?", answer: "Да. Для обратной поездки используйте отдельную страницу Бишкек — аэропорт Манас, чтобы рассчитать время подачи относительно вылета и регистрации." },
+    {
+      question: "Можно заказать обратный трансфер Бишкек — Манас?",
+      answer: "Да. Откройте страницу обратного маршрута, чтобы посмотреть цену и рассчитать время подачи относительно вылета и регистрации.",
+      href: "/ru/transfers/bishkek-to-manas-airport",
+      linkLabel: "Открыть трансфер Бишкек — аэропорт Манас",
+    },
   ],
   ko: [
     { question: "마나스 공항에서 비슈케크 이동 요금은 얼마인가요?", answer: "공항 픽업 후 비슈케크의 한 주소까지 직접 이동하는 차량당 요금은 세단 $35, 미니밴 $45입니다. 추가 경유지나 하차 주소는 별도 요금이 적용됩니다. 22:00~06:00 픽업에는 15% 야간 할증이 적용됩니다." },
     { question: "마나스 공항에서 기사를 어떻게 찾나요?", answer: "기사가 여권 심사와 수하물 수취 후 도착장에서 이름판을 들고 기다립니다. 출발 전에 항공편 번호를 보내주세요." },
     { question: "항공편이 지연되면 어떻게 되나요?", answer: "항공편 번호를 추적하여 실제 착륙 시간에 맞춰 픽업을 조정합니다. 착륙 후 60분 무료 대기가 포함됩니다." },
-    { question: "비슈케크에서 마나스 공항으로 돌아가는 이동도 예약할 수 있나요?", answer: "네. 출발 항공편과 체크인 시간을 기준으로 픽업 시간을 계획할 수 있도록 별도의 비슈케크 → 마나스 공항 페이지에서 예약하세요." },
+    {
+      question: "비슈케크에서 마나스 공항으로 돌아가는 이동도 예약할 수 있나요?",
+      answer: "네. 돌아가는 노선 페이지에서 요금을 확인하고 항공편 출발 및 체크인 시간에 맞춰 픽업 시간을 계획할 수 있습니다.",
+      href: "/ko/transfers/bishkek-to-manas-airport",
+      linkLabel: "비슈케크 → 마나스 공항 이동 보기",
+    },
   ],
 };
 
