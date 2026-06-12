@@ -438,19 +438,19 @@ function ItineraryCard({ stop, idx, lang }: { stop: Stop; idx: number; lang: "en
 const ADDON_DEFS = [
   {
     key: "charyn" as const,
-    price: { sedan: 35, minivan: 35 },
+    price: { sedan: 35, minivan: 45 },
     label: { en: "Charyn Canyon stop", ru: "Остановка в Чарынском каньоне", ko: "차린 협곡 정류장" },
     sub:   { en: "12 km off the main road · ~1.5 hrs", ru: "12 км от основной дороги · ~1.5 ч", ko: "메인 도로에서 12km · 약 1.5시간" },
   },
   {
     key: "kaindy" as const,
-    price: { sedan: 45, minivan: 57 },
+    price: { sedan: 65, minivan: 75 },
     label: { en: "Kaindy Lake detour", ru: "Крюк к озеру Каинды", ko: "카인디 호수 우회" },
     sub:   { en: "Submerged forest lake", ru: "Затопленный лес", ko: "수몰 숲 호수" },
   },
   {
     key: "kolsai" as const,
-    price: { sedan: 53, minivan: 68 },
+    price: { sedan: 65, minivan: 75 },
     label: { en: "Kolsai Lakes detour", ru: "Крюк к Кольсайским озёрам", ko: "콜사이 호수 우회" },
     sub:   { en: "Mountain lakes", ru: "Горные озёра", ko: "산악 호수" },
   },
