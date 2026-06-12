@@ -17,9 +17,15 @@ export default async function PanelLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const auth = await getAuth();
   // Middleware проверяет только подпись токена; здесь — полная проверка
-  // (блокировка, sessionVersion).
+  // (блокировка, sessionVersion). Ошибки конфигурации/хранилища не роняют
+  // страницу, а уводят на /admin/login, где показывается диагностика.
+  let auth: Awaited<ReturnType<typeof getAuth>> = null;
+  try {
+    auth = await getAuth();
+  } catch {
+    auth = null;
+  }
   if (!auth) redirect("/admin/login");
 
   const visibleNav = NAV_ITEMS.filter((item) =>

@@ -27,7 +27,13 @@ export async function loginAction(
   if (!username || !password)
     return { error: "Введите логин и пароль" };
 
-  const result = await login(username, password);
+  let result: Awaited<ReturnType<typeof login>>;
+  try {
+    result = await login(username, password);
+  } catch (error) {
+    // Ошибки конфигурации/хранилища показываем в форме, а не роняем экшен.
+    return { error: (error as Error).message };
+  }
   if (!result.ok) return { error: result.error };
 
   redirect(safeNextPath(formData.get("next")));
@@ -46,9 +52,6 @@ export async function setupAction(
   _prev: FormState,
   formData: FormData,
 ): Promise<FormState> {
-  if (await hasAnyUsers())
-    return { error: "Администратор уже создан. Войдите через страницу входа." };
-
   const username = String(formData.get("username") ?? "");
   const name = String(formData.get("name") ?? "");
   const password = String(formData.get("password") ?? "");
@@ -58,12 +61,17 @@ export async function setupAction(
   const weakness = validatePasswordStrength(password);
   if (weakness) return { error: weakness };
 
-  // Гарантируем, что группы по умолчанию созданы.
-  await getGroups();
-
   let userId: string;
   let sessionVersion: number;
   try {
+    if (await hasAnyUsers())
+      return {
+        error: "Администратор уже создан. Войдите через страницу входа.",
+      };
+
+    // Гарантируем, что группы по умолчанию созданы.
+    await getGroups();
+
     const user = await createUser({
       username,
       name,

@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { getAuth } from "@/lib/admin/auth";
 import { hasAnyUsers } from "@/lib/admin/db";
+import { ConfigError } from "../../_components/ConfigError";
 import { LoginForm } from "../../_components/AuthForms";
 
 export const metadata = { title: "Вход — Админ-панель Nomad Transfer" };
@@ -10,9 +11,21 @@ export default async function LoginPage({
 }: {
   searchParams: Promise<{ next?: string }>;
 }) {
+  // Ошибки конфигурации показываем человеку, а не роняем страницу.
+  let usersExist: boolean;
+  let authed: boolean;
+  try {
+    if (!process.env.ADMIN_AUTH_SECRET)
+      throw new Error("ADMIN_AUTH_SECRET не задан в переменных окружения.");
+    usersExist = await hasAnyUsers();
+    authed = Boolean(await getAuth());
+  } catch (error) {
+    return <ConfigError message={(error as Error).message} />;
+  }
+
   // Пока нет ни одного пользователя — отправляем на первичную настройку.
-  if (!(await hasAnyUsers())) redirect("/admin/setup");
-  if (await getAuth()) redirect("/admin");
+  if (!usersExist) redirect("/admin/setup");
+  if (authed) redirect("/admin");
 
   const { next } = await searchParams;
   const nextPath = next && next.startsWith("/admin") ? next : "/admin";

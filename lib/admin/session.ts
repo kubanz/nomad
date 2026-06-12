@@ -63,8 +63,22 @@ export async function createSessionToken(
   return `${body}.${signature}`;
 }
 
-/** Проверяет подпись и срок действия. Возвращает payload или null. */
+/**
+ * Проверяет подпись и срок действия. Возвращает payload или null.
+ * Никогда не бросает исключений (в т.ч. при отсутствии ADMIN_AUTH_SECRET) —
+ * вызывается из middleware, где ошибка уронила бы все страницы сайта.
+ */
 export async function verifySessionToken(
+  token: string,
+): Promise<SessionPayload | null> {
+  try {
+    return await verifySessionTokenUnsafe(token);
+  } catch {
+    return null;
+  }
+}
+
+async function verifySessionTokenUnsafe(
   token: string,
 ): Promise<SessionPayload | null> {
   const [body, signature] = token.split(".");

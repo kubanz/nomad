@@ -96,7 +96,8 @@ async function blobWrite(name: string, content: string): Promise<void> {
     access: "public",
     addRandomSuffix: false,
     contentType: "application/json",
-    cacheControlMaxAge: 0,
+    // Минимально допустимый TTL кеша CDN у Vercel Blob — 60 секунд.
+    cacheControlMaxAge: 60,
   });
 }
 
