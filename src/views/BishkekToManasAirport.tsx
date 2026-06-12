@@ -1,8 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
-import { Car, CheckCircle, Clock, MapPin, MessageCircle, Plane, ShieldCheck, Users } from "lucide-react";
+import { CheckCircle, Clock, MessageCircle, Plane, ShieldCheck } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
 import FAQSection from "../components/FAQSection";
 import RelatedRoutes from "../components/RelatedRoutes";
@@ -83,6 +84,135 @@ const content = {
   },
 };
 
+function RouteInfoSection({ lang }: { lang: Lang }) {
+  const copy = {
+    en: {
+      title: "Route Details",
+      items: [
+        ["🚩", "From", "Bishkek hotel or address"],
+        ["🛫", "To", "Manas International Airport (FRU)"],
+        ["📏", "Distance", "30 km"],
+        ["🕐", "Drive time", "~30-40 min (traffic-dependent)"],
+        ["💵", "Price", "Sedan $35 · Minivan $45"],
+        ["🌙", "Night hours", "22:00-06:00 surcharge +15%"],
+      ],
+    },
+    ru: {
+      title: "Информация о маршруте",
+      items: [
+        ["🚩", "Откуда", "Отель или адрес в Бишкеке"],
+        ["🛫", "Куда", "Международный аэропорт Манас (FRU)"],
+        ["📏", "Расстояние", "30 км"],
+        ["🕐", "Время в пути", "~30-40 мин (зависит от пробок)"],
+        ["💵", "Цена", "Седан $35 · Минивэн $45"],
+        ["🌙", "Ночные часы", "22:00-06:00 доплата +15%"],
+      ],
+    },
+    ko: {
+      title: "노선 정보",
+      items: [
+        ["🚩", "출발지", "비슈케크 호텔 또는 주소"],
+        ["🛫", "도착지", "마나스 국제공항 (FRU)"],
+        ["📏", "거리", "30 km"],
+        ["🕐", "소요 시간", "약 30-40분 (교통 상황에 따라)"],
+        ["💵", "요금", "세단 $35 · 미니밴 $45"],
+        ["🌙", "야간 시간", "22:00-06:00 할증 +15%"],
+      ],
+    },
+  };
+  const t = copy[lang];
+
+  return (
+    <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+      <h2 className="mb-6 text-2xl font-bold">{t.title}</h2>
+      <dl className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {t.items.map(([icon, label, value]) => (
+          <div key={label} className="flex items-start gap-4 rounded-xl bg-slate-50 p-5">
+            <span className="text-2xl">{icon}</span>
+            <div>
+              <dt className="text-xs font-bold uppercase tracking-wide text-slate-400">{label}</dt>
+              <dd className="mt-1 font-semibold text-slate-900">{value}</dd>
+            </div>
+          </div>
+        ))}
+      </dl>
+    </section>
+  );
+}
+
+function PricingSection({ lang, priceNote, waLink }: { lang: Lang; priceNote: string; waLink: string }) {
+  const [vehicle, setVehicle] = useState<"sedan" | "minivan">("sedan");
+  const copy = {
+    en: {
+      choose: "Choose your vehicle",
+      sedan: "Sedan",
+      minivan: "Minivan",
+      sedanCapacity: "up to 4 passengers",
+      minivanCapacity: "6-7 passengers",
+      night: "Night surcharge (22:00-06:00): +15%",
+      book: "Book via WhatsApp",
+    },
+    ru: {
+      choose: "Выберите автомобиль",
+      sedan: "Седан",
+      minivan: "Минивэн",
+      sedanCapacity: "до 4 пассажиров",
+      minivanCapacity: "6-7 пассажиров",
+      night: "Ночная доплата (22:00-06:00): +15%",
+      book: "Забронировать в WhatsApp",
+    },
+    ko: {
+      choose: "차량 선택",
+      sedan: "세단",
+      minivan: "미니밴",
+      sedanCapacity: "최대 4명",
+      minivanCapacity: "6-7명",
+      night: "야간 할증 (22:00-06:00): +15%",
+      book: "WhatsApp으로 예약",
+    },
+  };
+  const t = copy[lang];
+  const vehicles = [
+    { key: "sedan" as const, label: t.sedan, capacity: t.sedanCapacity, price: 35 },
+    { key: "minivan" as const, label: t.minivan, capacity: t.minivanCapacity, price: 45 },
+  ];
+
+  return (
+    <section className="my-12 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+      <p className="text-xs font-bold uppercase tracking-widest text-slate-500">{t.choose}</p>
+      <div className="mt-5 grid gap-4 sm:grid-cols-2">
+        {vehicles.map((item) => {
+          const selected = vehicle === item.key;
+          return (
+            <button
+              key={item.key}
+              type="button"
+              onClick={() => setVehicle(item.key)}
+              className={`relative rounded-2xl border-2 p-5 text-left transition ${
+                selected ? "border-teal-400 bg-teal-50" : "border-slate-200 bg-white hover:border-slate-300"
+              }`}
+            >
+              {selected && (
+                <span className="absolute right-4 top-4 flex h-6 w-6 items-center justify-center rounded-full bg-teal-500 text-sm font-bold text-white">✓</span>
+              )}
+              <p className={`text-sm font-bold uppercase tracking-widest ${selected ? "text-teal-700" : "text-slate-400"}`}>{item.label}</p>
+              <p className="mt-3 text-3xl font-extrabold">${item.price} <span className="text-base font-normal text-slate-400">USD</span></p>
+              <p className="mt-1 text-sm text-slate-500">{item.capacity}</p>
+            </button>
+          );
+        })}
+      </div>
+      <p className="mt-4 text-sm text-slate-400">{t.night}</p>
+      <div className="mt-4 rounded-2xl border border-amber-300 bg-amber-50 p-5 text-sm leading-relaxed text-amber-950">
+        {priceNote}
+      </div>
+      <a href={waLink} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 rounded-full bg-emerald-600 px-6 py-3 font-semibold text-white hover:bg-emerald-700">
+        <MessageCircle className="h-5 w-5" />{t.book}
+      </a>
+    </section>
+  );
+}
+
 export default function BishkekToManasAirport({ initialLang }: { initialLang: Lang }) {
   const router = useRouter();
   const t = content[initialLang];
@@ -110,14 +240,7 @@ export default function BishkekToManasAirport({ initialLang }: { initialLang: La
         </section>
 
         <div className="mx-auto max-w-6xl px-4 py-12">
-          <section className="grid gap-5 md:grid-cols-4">
-            {t.route.map((item, index) => {
-              const icons = [MapPin, Clock, Car, Users];
-              const Icon = icons[index];
-              return <div key={item} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"><Icon className="h-6 w-6 text-blue-700" /><p className="mt-3 font-bold">{item}</p></div>;
-            })}
-          </section>
-          <p className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-relaxed text-amber-950">{t.priceNote}</p>
+          <RouteInfoSection lang={initialLang} />
 
           <section className="my-12 grid gap-6 lg:grid-cols-2">
             <div className="rounded-3xl bg-white p-7 shadow-sm">
@@ -133,6 +256,7 @@ export default function BishkekToManasAirport({ initialLang }: { initialLang: La
           </section>
 
           <InteractiveRouteMap lang={initialLang} stops={mapStops} />
+          <PricingSection lang={initialLang} priceNote={t.priceNote} waLink={waLink} />
 
           <section className="my-12">
             <h2 className="text-center text-2xl font-bold md:text-3xl">{initialLang === "ru" ? "Что включено" : initialLang === "ko" ? "포함 사항" : "What Is Included"}</h2>
