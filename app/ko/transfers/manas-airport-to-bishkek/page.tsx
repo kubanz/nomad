@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import ManasAirportToBishkek from "../../../../src/views/ManasAirportToBishkek";
 
 export const metadata: Metadata = {
-  title: "마나스 공항 (FRU) → 비슈케크 이동 | 24시간 Meet & Greet | $25부터",
+  title: "마나스 공항 → 비슈케크 프라이빗 이동 | $35부터",
   description:
-    "마나스 공항(FRU)에서 비슈케크 시내까지 프라이빗 이동. 도착장 이름판 환영, 60분 무료 대기, 항공편 추적. 세단 $25, 미니밴 $30. 고정 요금. WhatsApp 24시간.",
+    "마나스 공항에서 비슈케크 한 주소까지 직접 이동: 세단 $35, 미니밴 $45. 추가 경유지는 별도 요금입니다. 이름판 환영 및 항공편 추적.",
   keywords: [
     "마나스 공항 비슈케크 이동",
     "FRU 비슈케크 트랜스퍼",
@@ -25,14 +25,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "마나스 공항 (FRU) → 비슈케크 프라이빗 이동 | 24시간 Meet & Greet",
     description:
-      "마나스 도착장에서 이름판 환영, 60분 무료 대기, 항공편 추적. 세단 $25, 미니밴 $30. 비슈케크 호텔까지 도어 투 도어.",
+      "이름판 환영, 항공편 추적 및 60분 무료 대기. 비슈케크 한 주소까지 세단 $35, 미니밴 $45.",
     type: "website",
     url: "https://nomad-transfer.com/ko/transfers/manas-airport-to-bishkek",
   },
   twitter: {
     card: "summary_large_image",
     title: "마나스 공항 (FRU) → 비슈케크 이동",
-    description: "이름판 환영. 세단 $25, 미니밴 $30. 24시간 공항 픽업.",
+    description: "이름판 환영. 비슈케크 한 주소까지 세단 $35, 미니밴 $45.",
   },
 };
 
@@ -56,8 +56,8 @@ const jsonLd = {
       touristType: "공항 이동, 프라이빗",
       duration: "PT40M",
       offers: [
-        { "@type": "Offer", name: "세단 (최대 4명)",  price: "25", priceCurrency: "USD", availability: "https://schema.org/InStock" },
-        { "@type": "Offer", name: "미니밴 (6-7명)", price: "30", priceCurrency: "USD", availability: "https://schema.org/InStock" },
+        { "@type": "Offer", name: "세단 (최대 4명)",  price: "35", priceCurrency: "USD", availability: "https://schema.org/InStock" },
+        { "@type": "Offer", name: "미니밴 (6-7명)", price: "45", priceCurrency: "USD", availability: "https://schema.org/InStock" },
       ],
       provider: {
         "@type": "LocalBusiness",
@@ -73,7 +73,7 @@ const jsonLd = {
         {
           "@type": "Question",
           name: "마나스 공항에서 비슈케크까지 이동 요금은 얼마인가요?",
-          acceptedAnswer: { "@type": "Answer", text: "세단(최대 4명) $25, 미니밴(6-7명) $30. 차량당 요금(인당 아님). 야간 할증 22:00–06:00 +15%. 연료, 도착장 환영, 60분 무료 대기 포함." },
+          acceptedAnswer: { "@type": "Answer", text: "공항 픽업 후 비슈케크 한 주소까지 직접 이동하는 차량당 요금은 세단 $35, 미니밴 $45입니다. 추가 경유지나 주소는 별도 요금입니다. 22:00~06:00 픽업에는 15% 야간 할증이 적용됩니다." },
         },
         {
           "@type": "Question",

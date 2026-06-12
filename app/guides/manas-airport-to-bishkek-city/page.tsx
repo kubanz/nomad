@@ -5,7 +5,7 @@ import { Plane, Car, Bus, DollarSign, Clock, MapPin, AlertTriangle, Luggage } fr
 export const metadata: Metadata = {
   title: "Manas Airport to Bishkek City | Transfer Options, Prices & Travel Time 2026",
   description:
-    "Complete guide Manas Airport (FRU) to Bishkek city center 2026. Distance 25-30 km. Transfer options: private car $25-30, shared marshrutka $1-2, taxi $15-20. Travel time 30-45 min. Where to catch marshrutkas, scam warnings, booking private transfers, luggage considerations.",
+    "Complete guide Manas Airport (FRU) to Bishkek city center 2026. Distance 25-30 km. Private transfer: sedan $35, minivan $45. Compare marshrutka, taxi, and pre-booked transfers.",
   keywords: [
     "manas airport to bishkek",
     "bishkek airport transfer",
@@ -61,7 +61,7 @@ export default function ManasAirportToBishkekPage() {
           <div className="rounded-2xl border border-green-200 bg-green-50 p-6">
             <DollarSign className="mb-3 h-8 w-8 text-green-600" />
             <h3 className="mb-2 font-bold text-slate-900">Price Range</h3>
-            <p className="text-sm text-slate-700">Marshrutka $1-2, Taxi $15-20, Private transfer $25-30. Pay in som or USD.</p>
+            <p className="text-sm text-slate-700">Marshrutka $1-2, Taxi $15-20, Private transfer $35-45. Pay in som or USD.</p>
           </div>
         </div>
       </section>
@@ -138,7 +138,7 @@ export default function ManasAirportToBishkekPage() {
                   </tr>
                   <tr className="bg-white">
                     <td className="border border-slate-300 p-3 font-semibold">Private Transfer</td>
-                    <td className="border border-slate-300 p-3 text-blue-700">$25-30</td>
+                    <td className="border border-slate-300 p-3 text-blue-700">$35-45</td>
                     <td className="border border-slate-300 p-3">30-35 min</td>
                     <td className="border border-slate-300 p-3">★★★★★</td>
                     <td className="border border-slate-300 p-3">First-timers, families, peace of mind</td>
@@ -303,7 +303,7 @@ export default function ManasAirportToBishkekPage() {
                 <Car className="h-8 w-8 text-blue-600" />
                 <div>
                   <h3 className="text-xl font-bold text-slate-900">Private Transfer - The Hassle-Free Option</h3>
-                  <p className="text-sm text-slate-600">$25-30 | 30-35 minutes | Fixed price, no surprises</p>
+                  <p className="text-sm text-slate-600">$35-45 | 30-40 minutes | One direct airport-to-address transfer</p>
                 </div>
               </div>
 
@@ -327,7 +327,7 @@ export default function ManasAirportToBishkekPage() {
                 </div>
                 <div className="rounded-lg bg-green-50 p-4">
                   <p className="mb-2 font-semibold text-green-900">During Ride:</p>
-                  <p className="text-green-800">Comfortable sedan or minivan (depending on group size). Direct route to hotel. Driver can stop for SIM card or ATM if you ask.</p>
+                  <p className="text-green-800">Comfortable sedan or minivan (depending on group size) with a direct route to your hotel. A SIM card, ATM, or other extra stop can be added for an additional charge confirmed before travel.</p>
                 </div>
                 <div className="rounded-lg bg-green-50 p-4">
                   <p className="mb-2 font-semibold text-green-900">At Hotel:</p>
@@ -339,7 +339,7 @@ export default function ManasAirportToBishkekPage() {
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="rounded-xl bg-blue-50 p-4 text-center">
                   <p className="mb-2 text-lg font-bold text-slate-900">Sedan (1-4 pax)</p>
-                  <p className="mb-3 text-4xl font-extrabold text-blue-600">$25</p>
+                  <p className="mb-3 text-4xl font-extrabold text-blue-600">$35</p>
                   <ul className="space-y-1 text-left text-xs text-blue-800">
                     <li>✓ 3 large suitcases + hand luggage</li>
                     <li>✓ Comfortable sedan (Toyota Camry or similar)</li>
@@ -350,7 +350,7 @@ export default function ManasAirportToBishkekPage() {
 
                 <div className="rounded-xl bg-purple-50 p-4 text-center">
                   <p className="mb-2 text-lg font-bold text-slate-900">Minivan (5-7 pax)</p>
-                  <p className="mb-3 text-4xl font-extrabold text-purple-600">$30</p>
+                  <p className="mb-3 text-4xl font-extrabold text-purple-600">$45</p>
                   <ul className="space-y-1 text-left text-xs text-purple-800">
                     <li>✓ 6-7 large suitcases + hand luggage</li>
                     <li>✓ Spacious minivan (Toyota Alphard or similar)</li>
@@ -359,6 +359,9 @@ export default function ManasAirportToBishkekPage() {
                   </ul>
                 </div>
               </div>
+              <p className="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-950">
+                These prices cover one direct airport pickup and one drop-off address in Bishkek. Extra stops or additional addresses are charged separately and confirmed before travel.
+              </p>
 
               <h4 className="mb-3 mt-6 font-bold text-slate-900">Why Choose Private Transfer?</h4>
               <div className="grid gap-4 md:grid-cols-2">
@@ -760,7 +763,7 @@ export default function ManasAirportToBishkekPage() {
 
             <div className="not-prose my-8 space-y-4">
               <div className="rounded-xl bg-green-50 p-6">
-                <h4 className="mb-3 font-bold text-green-900">First-Time Visitors → Private Transfer ($25-30)</h4>
+                <h4 className="mb-3 font-bold text-green-900">First-Time Visitors → Private Transfer ($35-45)</h4>
                 <p className="text-sm text-green-800">
                   Don't stress on day 1. Pre-book a transfer, arrive to your name on a sign, and start your trip smoothly. The $15-20 extra over a taxi is worth it for peace of mind. Plus you can ask driver for tips on Bishkek.
                 </p>
@@ -774,14 +777,14 @@ export default function ManasAirportToBishkekPage() {
               </div>
 
               <div className="rounded-xl bg-purple-50 p-6">
-                <h4 className="mb-3 font-bold text-purple-900">Families/Groups → Private Minivan ($30)</h4>
+                <h4 className="mb-3 font-bold text-purple-900">Families/Groups → Private Minivan ($45)</h4>
                 <p className="text-sm text-purple-800">
                   With kids, luggage, and multiple people, you want door-to-door service. Split among 4-6 people, it's only $5-7 per person. Way better than cramming into taxi or dealing with marshrutka logistics.
                 </p>
               </div>
 
               <div className="rounded-xl bg-amber-50 p-6">
-                <h4 className="mb-3 font-bold text-amber-900">Night Arrivals (After 8 PM) → Pre-booked Transfer ($25-30)</h4>
+                <h4 className="mb-3 font-bold text-amber-900">Night Arrivals (After 8 PM) → Pre-booked Transfer ($35-45)</h4>
                 <p className="text-sm text-amber-800">
                   Marshrutkas don't run. Airport taxis can be sketchy late night. Pre-booking means someone is waiting, no matter what time you land. Critical for peace of mind when arriving to unfamiliar city at midnight.
                 </p>
@@ -804,11 +807,11 @@ export default function ManasAirportToBishkekPage() {
             </p>
             <div className="mb-6 grid gap-4 text-sm md:grid-cols-3">
               <div className="rounded-lg bg-white/10 p-4">
-                <p className="text-2xl font-bold">$25</p>
+                <p className="text-2xl font-bold">$35</p>
                 <p className="text-indigo-100">Sedan (1-4 pax)</p>
               </div>
               <div className="rounded-lg bg-white/10 p-4">
-                <p className="text-2xl font-bold">$30</p>
+                <p className="text-2xl font-bold">$45</p>
                 <p className="text-indigo-100">Minivan (5-7 pax)</p>
               </div>
               <div className="rounded-lg bg-white/10 p-4">

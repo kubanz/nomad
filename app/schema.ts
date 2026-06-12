@@ -52,7 +52,7 @@ export const organizationSchema = {
     "Multi-day Tours",
     "Border Crossing Transfer",
   ],
-  priceRange: "$25-$500",
+  priceRange: "$35-$590",
   currenciesAccepted: "USD, KGS, KZT",
   paymentAccepted: "Cash, Bank Transfer, Card",
   openingHours: "Mo-Su 00:00-24:00",

@@ -32,10 +32,11 @@ const content = {
     intro: "We pick you up from your hotel, apartment, or another address in Bishkek and take you directly to the correct terminal at Manas International Airport. Send us your flight number and departure time so we can recommend a pickup time with a suitable traffic and check-in buffer.",
     timingTitle: "When should I leave Bishkek?",
     timing: "For international flights, we normally recommend leaving Bishkek about 3 hours before departure. For domestic flights, about 2 hours is usually suitable. Morning and evening traffic, weather, baggage, and airline requirements may require extra time.",
-    route: ["~25-30 km", "~30-40 min", "Sedan $25", "Minivan $30"],
+    route: ["30 km", "30-40 min", "Sedan $35", "Minivan $45"],
+    priceNote: "The price covers one direct pickup point in Bishkek and drop-off at Manas Airport. Extra stops or additional pickup addresses are charged separately and confirmed before travel. Group vehicle price is available on request.",
     included: ["Pickup from your Bishkek address", "Direct terminal drop-off", "Flight-time planning assistance", "Fuel and standard road costs", "Child seat on request", "24/7 booking support"],
     faq: [
-      { question: "How much is a transfer from Bishkek to Manas Airport?", answer: "A private sedan costs $25 and a minivan costs $30 per vehicle. A 15% surcharge applies for pickups between 22:00 and 06:00." },
+      { question: "How much is a transfer from Bishkek to Manas Airport?", answer: "A private sedan costs $35 and a minivan costs $45 per vehicle for one direct pickup and airport drop-off. Extra stops or additional pickup addresses cost extra. A 15% surcharge applies for pickups between 22:00 and 06:00." },
       { question: "What pickup time should I book?", answer: "Send us your flight number and departure time. We normally recommend leaving about 3 hours before an international flight or 2 hours before a domestic flight, with extra time during heavy traffic or bad weather." },
       { question: "Where can you pick me up in Bishkek?", answer: "We can collect you from a hotel, apartment, office, or another agreed address within Bishkek." },
       { question: "Can I book an early-morning airport transfer?", answer: "Yes. Transfers operate 24/7. The pickup address, time, vehicle, and night surcharge are confirmed before travel." },
@@ -50,10 +51,11 @@ const content = {
     intro: "Заберём вас из отеля, квартиры или другого адреса в Бишкеке и доставим прямо к нужному терминалу аэропорта Манас. Отправьте номер рейса и время вылета, чтобы мы рекомендовали время подачи с учётом регистрации и пробок.",
     timingTitle: "Когда выезжать из Бишкека?",
     timing: "Для международных рейсов обычно рекомендуем выезжать примерно за 3 часа до вылета, для внутренних — за 2 часа. В часы пик, зимой или при большом багаже лучше добавить запас.",
-    route: ["~25-30 км", "~30-40 мин", "Седан $25", "Минивэн $30"],
+    route: ["30 км", "30-40 мин", "Седан $35", "Минивэн $45"],
+    priceNote: "Цена действует для прямой поездки от одного адреса в Бишкеке до аэропорта Манас. Дополнительные заезды и адреса оплачиваются отдельно, стоимость подтверждается заранее. Цена группового транспорта — по запросу.",
     included: ["Подача по адресу в Бишкеке", "Доставка к терминалу", "Помощь с расчётом времени", "Топливо и дорожные расходы", "Детское кресло по запросу", "Поддержка 24/7"],
     faq: [
-      { question: "Сколько стоит трансфер Бишкек — аэропорт Манас?", answer: "Приватный седан стоит $25, минивэн — $30 за автомобиль. Для подачи с 22:00 до 06:00 действует доплата 15%." },
+      { question: "Сколько стоит трансфер Бишкек — аэропорт Манас?", answer: "Приватный седан стоит $35, минивэн — $45 за автомобиль при прямой поездке от одного адреса до аэропорта. Дополнительные заезды и адреса оплачиваются отдельно. Для подачи с 22:00 до 06:00 действует доплата 15%." },
       { question: "На какое время заказывать машину?", answer: "Отправьте номер рейса и время вылета. Обычно рекомендуем выезд за 3 часа до международного рейса или за 2 часа до внутреннего, с дополнительным запасом в часы пик и плохую погоду." },
       { question: "Откуда можно забрать в Бишкеке?", answer: "Заберём из отеля, квартиры, офиса или другого согласованного адреса в пределах Бишкека." },
       { question: "Можно заказать ранний утренний трансфер?", answer: "Да, работаем 24/7. Адрес, время подачи, автомобиль и ночная доплата подтверждаются заранее." },
@@ -68,10 +70,11 @@ const content = {
     intro: "비슈케크의 호텔, 아파트 또는 지정 주소에서 픽업하여 마나스 국제공항 터미널까지 직접 이동합니다. 항공편 번호와 출발 시간을 보내주시면 체크인과 교통 상황을 고려한 픽업 시간을 안내합니다.",
     timingTitle: "비슈케크에서 언제 출발해야 하나요?",
     timing: "국제선은 보통 출발 약 3시간 전, 국내선은 약 2시간 전 비슈케크 출발을 권장합니다. 출퇴근 교통, 날씨, 수하물 및 항공사 규정에 따라 추가 여유 시간이 필요할 수 있습니다.",
-    route: ["~25-30 km", "~30-40분", "세단 $25", "미니밴 $30"],
+    route: ["30 km", "30-40분", "세단 $35", "미니밴 $45"],
+    priceNote: "요금은 비슈케크의 한 픽업 지점에서 마나스 공항까지 직접 이동하는 기준입니다. 추가 경유지나 픽업 주소는 별도 요금이 적용되며 출발 전에 안내합니다. 단체 차량 요금은 문의해 주세요.",
     included: ["비슈케크 주소 픽업", "공항 터미널 직접 하차", "항공편 시간 계획 지원", "연료 및 기본 도로 비용", "요청 시 어린이 카시트", "24시간 예약 지원"],
     faq: [
-      { question: "비슈케크에서 마나스 공항 이동 요금은 얼마인가요?", answer: "프라이빗 세단은 차량당 $25, 미니밴은 $30입니다. 22:00~06:00 픽업에는 15% 야간 할증이 적용됩니다." },
+      { question: "비슈케크에서 마나스 공항 이동 요금은 얼마인가요?", answer: "한 곳에서 픽업하여 공항까지 직접 이동하는 차량당 요금은 세단 $35, 미니밴 $45입니다. 추가 경유지나 픽업 주소는 별도 요금이 적용됩니다. 22:00~06:00 픽업에는 15% 야간 할증이 적용됩니다." },
       { question: "몇 시에 픽업을 예약해야 하나요?", answer: "항공편 번호와 출발 시간을 보내주세요. 국제선은 약 3시간 전, 국내선은 약 2시간 전 출발을 권장하며 교통과 날씨에 따라 여유 시간을 추가합니다." },
       { question: "비슈케크 어디에서 픽업할 수 있나요?", answer: "비슈케크 내 호텔, 아파트, 사무실 또는 합의한 주소에서 픽업합니다." },
       { question: "이른 아침 공항 이동도 가능한가요?", answer: "네, 24시간 운영합니다. 픽업 주소, 시간, 차량 및 야간 할증을 출발 전에 확인합니다." },
@@ -114,6 +117,7 @@ export default function BishkekToManasAirport({ initialLang }: { initialLang: La
               return <div key={item} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"><Icon className="h-6 w-6 text-blue-700" /><p className="mt-3 font-bold">{item}</p></div>;
             })}
           </section>
+          <p className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-relaxed text-amber-950">{t.priceNote}</p>
 
           <section className="my-12 grid gap-6 lg:grid-cols-2">
             <div className="rounded-3xl bg-white p-7 shadow-sm">
@@ -141,7 +145,7 @@ export default function BishkekToManasAirport({ initialLang }: { initialLang: La
 
           <section className="mb-14 rounded-3xl bg-slate-900 p-7 text-white md:p-10">
             <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
-              <div><ShieldCheck className="h-8 w-8 text-emerald-400" /><h2 className="mt-3 text-2xl font-bold">{t.cta}</h2><p className="mt-2 text-slate-300">Sedan $25 · Minivan $30 · 24/7</p></div>
+              <div><ShieldCheck className="h-8 w-8 text-emerald-400" /><h2 className="mt-3 text-2xl font-bold">{t.cta}</h2><p className="mt-2 text-slate-300">Sedan $35 · Minivan $45 · 24/7</p></div>
               <a href={waLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-600 px-7 py-3 font-semibold"><MessageCircle className="h-5 w-5" />WhatsApp</a>
             </div>
           </section>

@@ -33,19 +33,19 @@ const BRAND = "Nomad Transfer";
 
 const AIRPORT_FAQ = {
   en: [
-    { question: "How much is a transfer from Manas Airport to Bishkek?", answer: "A private sedan costs $25 and a minivan costs $30 per vehicle. A 15% surcharge applies to pickups between 22:00 and 06:00." },
+    { question: "How much is a transfer from Manas Airport to Bishkek?", answer: "A private sedan costs $35 and a minivan costs $45 per vehicle for one direct airport pickup and one Bishkek drop-off. Extra stops or additional drop-off addresses cost extra. A 15% surcharge applies to pickups between 22:00 and 06:00." },
     { question: "How will I find the driver at Manas Airport?", answer: "The driver waits in the arrivals hall after passport control and baggage claim with a name board. Send your flight number before travel." },
     { question: "What happens if my flight is delayed?", answer: "We track the flight number and adjust the pickup to the actual landing time. The service includes 60 minutes of free waiting after landing." },
     { question: "Can I book the return transfer from Bishkek to Manas Airport?", answer: "Yes. Book the separate Bishkek to Manas Airport route so we can plan pickup time around your flight departure and check-in." },
   ],
   ru: [
-    { question: "Сколько стоит трансфер из аэропорта Манас в Бишкек?", answer: "Приватный седан стоит $25, минивэн — $30 за автомобиль. Для пикапов с 22:00 до 06:00 действует доплата 15%." },
+    { question: "Сколько стоит трансфер из аэропорта Манас в Бишкек?", answer: "Приватный седан стоит $35, минивэн — $45 за автомобиль при прямой поездке из аэропорта до одного адреса в Бишкеке. Дополнительные заезды и адреса оплачиваются отдельно. Для пикапов с 22:00 до 06:00 действует доплата 15%." },
     { question: "Как найти водителя в аэропорту?", answer: "Водитель ждёт в зоне прилёта после паспортного контроля и багажа с табличкой с вашим именем. Заранее отправьте номер рейса." },
     { question: "Что будет при задержке рейса?", answer: "Мы отслеживаем номер рейса и корректируем время встречи по фактической посадке. Включено 60 минут бесплатного ожидания." },
     { question: "Можно заказать обратный трансфер Бишкек — Манас?", answer: "Да. Для обратной поездки используйте отдельную страницу Бишкек — аэропорт Манас, чтобы рассчитать время подачи относительно вылета и регистрации." },
   ],
   ko: [
-    { question: "마나스 공항에서 비슈케크 이동 요금은 얼마인가요?", answer: "프라이빗 세단은 차량당 $25, 미니밴은 $30입니다. 22:00~06:00 픽업에는 15% 야간 할증이 적용됩니다." },
+    { question: "마나스 공항에서 비슈케크 이동 요금은 얼마인가요?", answer: "공항 픽업 후 비슈케크의 한 주소까지 직접 이동하는 차량당 요금은 세단 $35, 미니밴 $45입니다. 추가 경유지나 하차 주소는 별도 요금이 적용됩니다. 22:00~06:00 픽업에는 15% 야간 할증이 적용됩니다." },
     { question: "마나스 공항에서 기사를 어떻게 찾나요?", answer: "기사가 여권 심사와 수하물 수취 후 도착장에서 이름판을 들고 기다립니다. 출발 전에 항공편 번호를 보내주세요." },
     { question: "항공편이 지연되면 어떻게 되나요?", answer: "항공편 번호를 추적하여 실제 착륙 시간에 맞춰 픽업을 조정합니다. 착륙 후 60분 무료 대기가 포함됩니다." },
     { question: "비슈케크에서 마나스 공항으로 돌아가는 이동도 예약할 수 있나요?", answer: "네. 출발 항공편과 체크인 시간을 기준으로 픽업 시간을 계획할 수 있도록 별도의 비슈케크 → 마나스 공항 페이지에서 예약하세요." },
@@ -77,9 +77,9 @@ function RouteInfoSection({ lang }: { lang: "en" | "ru" | "ko" }) {
       items: [
         { icon: "🛫", label: "From",        value: "Manas International Airport (FRU)" },
         { icon: "📍", label: "To",          value: "Bishkek city centre" },
-        { icon: "📏", label: "Distance",    value: "~25–30 km" },
+        { icon: "📏", label: "Distance",    value: "30 km" },
         { icon: "🕐", label: "Drive Time",  value: "~30–40 min (traffic-dependent)" },
-        { icon: "💵", label: "Price",       value: "Sedan $25 · Minivan $30" },
+        { icon: "💵", label: "Price",       value: "Sedan $35 · Minivan $45" },
         { icon: "🌙", label: "Night Hours", value: "22:00–06:00 surcharge +15%" },
       ],
     },
@@ -88,9 +88,9 @@ function RouteInfoSection({ lang }: { lang: "en" | "ru" | "ko" }) {
       items: [
         { icon: "🛫", label: "Откуда",        value: "Международный аэропорт Манас (FRU)" },
         { icon: "📍", label: "Куда",          value: "Центр Бишкека" },
-        { icon: "📏", label: "Расстояние",    value: "~25–30 км" },
+        { icon: "📏", label: "Расстояние",    value: "30 км" },
         { icon: "🕐", label: "Время в пути",  value: "~30–40 мин (зависит от пробок)" },
-        { icon: "💵", label: "Цена",          value: "Седан $25 · Минивэн $30" },
+        { icon: "💵", label: "Цена",          value: "Седан $35 · Минивэн $45" },
         { icon: "🌙", label: "Ночные часы",   value: "22:00–06:00 доплата +15%" },
       ],
     },
@@ -99,9 +99,9 @@ function RouteInfoSection({ lang }: { lang: "en" | "ru" | "ko" }) {
       items: [
         { icon: "🛫", label: "출발지",    value: "마나스 국제공항 (FRU)" },
         { icon: "📍", label: "도착지",    value: "비슈케크 시내" },
-        { icon: "📏", label: "거리",      value: "~25–30 km" },
+        { icon: "📏", label: "거리",      value: "30 km" },
         { icon: "🕐", label: "소요시간",  value: "~30–40분 (교통 상황에 따라)" },
-        { icon: "💵", label: "요금",      value: "세단 $25 · 미니밴 $30" },
+        { icon: "💵", label: "요금",      value: "세단 $35 · 미니밴 $45" },
         { icon: "🌙", label: "야간 시간", value: "22:00–06:00 할증 +15%" },
       ],
     },
@@ -130,7 +130,7 @@ function RouteInfoSection({ lang }: { lang: "en" | "ru" | "ko" }) {
 function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
   const [vehicle, setVehicle] = useState<"sedan" | "minivan">("sedan");
 
-  const BASE = { sedan: 25, minivan: 30 };
+  const BASE = { sedan: 35, minivan: 45 };
 
   const includedItems = {
     en: [
@@ -168,7 +168,7 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
   const whyChoose = {
     en: ["24/7 airport pickups", "Flight tracking included", "60-min free waiting", "Name-board Meet & Greet", "Fixed price — no surge", "Child seats available"],
     ru: ["Встречаем 24/7", "Отслеживание рейса", "60 мин ожидания бесплатно", "Табличка с именем", "Фиксированная цена", "Детские кресла"],
-    ko: ["24시간 공항 픽업", "항공편 추적 포함", "60분 무료 대기", "이름판 환영", "고정 가격 — 추가 없음", "어린이 카시트 가능"],
+    ko: ["24시간 공항 픽업", "항공편 추적 포함", "60분 무료 대기", "이름판 환영", "직행 기준 고정 요금", "어린이 카시트 가능"],
   };
 
   const T = {
@@ -179,6 +179,11 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
     per4:          { en: "up to 4 passengers",          ru: "до 4 пассажиров",           ko: "최대 4명" },
     per7:          { en: "6–7 passengers",              ru: "6–7 пассажиров",            ko: "6–7명" },
     nightNote:     { en: "Night surcharge (22:00–06:00): +15%", ru: "Ночная доплата (22:00–06:00): +15%", ko: "야간 할증 (22:00~06:00): +15%" },
+    directNote:    {
+      en: "Price covers one direct airport pickup and one drop-off address in Bishkek. Extra stops or additional addresses are charged separately. Group vehicle price is available on request.",
+      ru: "Цена действует для прямой поездки из аэропорта до одного адреса в Бишкеке. Дополнительные заезды и адреса оплачиваются отдельно. Цена группового транспорта — по запросу.",
+      ko: "요금은 공항 픽업 후 비슈케크의 한 주소까지 직접 이동하는 기준입니다. 추가 경유지나 주소는 별도 요금이 적용됩니다. 단체 차량 요금은 문의해 주세요.",
+    },
     totalLabel:    { en: "Your total",                  ru: "Итого",                    ko: "총 금액" },
     included:      { en: "What's included",             ru: "Что включено",              ko: "포함 사항" },
     notIncl:       { en: "Not Included",                ru: "Не включено",               ko: "미포함 사항" },
@@ -236,6 +241,7 @@ function PricingSection({ lang }: { lang: "en" | "ru" | "ko" }) {
               ))}
             </div>
             <p className="mt-3 text-xs text-slate-400">{T.nightNote[lang]}</p>
+            <p className="mt-3 rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm leading-relaxed text-amber-950">{T.directNote[lang]}</p>
           </div>
 
           <div className="rounded-2xl border-2 border-emerald-400 bg-emerald-50 p-6">

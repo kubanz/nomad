@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import ManasAirportToBishkek from "../../../../src/views/ManasAirportToBishkek";
 
 export const metadata: Metadata = {
-  title: "Трансфер Аэропорт Манас (FRU) — Бишкек | Встреча 24/7 | От $25",
+  title: "Трансфер аэропорт Манас — Бишкек | От $35",
   description:
-    "Приватный трансфер из аэропорта Манас (FRU) в Бишкек. Встреча с табличкой в зоне прилёта, 60 мин бесплатного ожидания, отслеживание рейса. Седан $25, Минивэн $30. Фиксированная цена. WhatsApp 24/7.",
+    "Прямой трансфер из аэропорта Манас до одного адреса в Бишкеке: седан $35, минивэн $45. Дополнительные заезды оплачиваются отдельно. Встреча с табличкой.",
   keywords: [
     "трансфер из аэропорта Манас в Бишкек",
     "Манас Бишкек трансфер",
@@ -26,14 +26,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Трансфер Аэропорт Манас (FRU) → Бишкек | Встреча 24/7",
     description:
-      "Встреча с табличкой в Манасе, 60 мин ожидания, отслеживание рейса. Седан $25, Минивэн $30. До отеля в Бишкеке.",
+      "Встреча с табличкой, отслеживание рейса и 60 мин ожидания. Седан $35, минивэн $45 до одного адреса в Бишкеке.",
     type: "website",
     url: "https://nomad-transfer.com/ru/transfers/manas-airport-to-bishkek",
   },
   twitter: {
     card: "summary_large_image",
     title: "Трансфер Аэропорт Манас → Бишкек",
-    description: "Встреча с табличкой. Седан $25, Минивэн $30. 24/7.",
+    description: "Встреча с табличкой. Седан $35, минивэн $45 до одного адреса в Бишкеке.",
   },
 };
 
@@ -57,8 +57,8 @@ const jsonLd = {
       touristType: "Аэропортовый трансфер, Приватный",
       duration: "PT40M",
       offers: [
-        { "@type": "Offer", name: "Седан (до 4 пассажиров)",    price: "25", priceCurrency: "USD", availability: "https://schema.org/InStock" },
-        { "@type": "Offer", name: "Минивэн (6-7 пассажиров)",   price: "30", priceCurrency: "USD", availability: "https://schema.org/InStock" },
+        { "@type": "Offer", name: "Седан (до 4 пассажиров)",    price: "35", priceCurrency: "USD", availability: "https://schema.org/InStock" },
+        { "@type": "Offer", name: "Минивэн (6-7 пассажиров)",   price: "45", priceCurrency: "USD", availability: "https://schema.org/InStock" },
       ],
       provider: {
         "@type": "LocalBusiness",
@@ -74,7 +74,7 @@ const jsonLd = {
         {
           "@type": "Question",
           name: "Сколько стоит трансфер из аэропорта Манас в Бишкек?",
-          acceptedAnswer: { "@type": "Answer", text: "Седан (до 4 пассажиров) — $25, минивэн (6-7 пассажиров) — $30. Цена за автомобиль, не за человека. Ночная доплата 22:00–06:00 +15%. Включает топливо, встречу с табличкой и 60 мин бесплатного ожидания." },
+          acceptedAnswer: { "@type": "Answer", text: "Седан (до 4 пассажиров) — $35, минивэн (6-7 пассажиров) — $45. Цена за автомобиль при прямой поездке из аэропорта до одного адреса в Бишкеке. Дополнительные заезды и адреса оплачиваются отдельно. Ночная доплата 22:00–06:00 +15%." },
         },
         {
           "@type": "Question",

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import ManasAirportToBishkek from "../../../src/views/ManasAirportToBishkek";
 
 export const metadata: Metadata = {
-  title: "Manas Airport to Bishkek Transfer | Meet & Greet from $25",
+  title: "Manas Airport to Bishkek Transfer from $35 | Nomad Transfer",
   description:
-    "Private airport transfer from Manas (FRU) to Bishkek city centre. Meet & Greet with name board at arrivals, 60-min free waiting, flight tracking. Sedan $25, Minivan $30. Fixed price, no surprises. WhatsApp 24/7.",
+    "Private transfer from Manas Airport to one Bishkek address. Sedan $35, minivan $45. Extra stops cost extra. Meet & Greet, flight tracking, 60-min waiting.",
   keywords: [
     "Manas airport to Bishkek",
     "FRU to Bishkek transfer",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Manas Airport (FRU) to Bishkek Private Transfer | 24/7 Meet & Greet",
     description:
-      "Meet & Greet with name board at Manas arrivals, 60-min free waiting, flight tracking. Sedan $25, Minivan $30. Door-to-door to your hotel in Bishkek.",
+      "Meet & Greet with name board, flight tracking, and 60-min free waiting. Sedan $35, minivan $45 for one direct Bishkek drop-off.",
     type: "website",
     url: "https://nomad-transfer.com/transfers/manas-airport-to-bishkek",
     images: [{
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Manas Airport (FRU) to Bishkek Transfer",
-    description: "Meet & Greet at arrivals. Sedan $25, Minivan $30. 24/7 airport pickups.",
+    description: "Meet & Greet at arrivals. Sedan $35, minivan $45 for one direct Bishkek drop-off.",
   },
 };
 
@@ -66,14 +66,14 @@ const jsonLd = {
         {
           "@type": "Offer",
           name: "Sedan (up to 4 passengers)",
-          price: "25",
+          price: "35",
           priceCurrency: "USD",
           availability: "https://schema.org/InStock",
         },
         {
           "@type": "Offer",
           name: "Minivan (6-7 passengers)",
-          price: "30",
+          price: "45",
           priceCurrency: "USD",
           availability: "https://schema.org/InStock",
         },
@@ -95,7 +95,7 @@ const jsonLd = {
           name: "How much is a transfer from Manas Airport to Bishkek?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Sedan (up to 4 passengers) $25, Minivan (6-7 passengers) $30. Price is per vehicle, not per person. Night surcharge 22:00–06:00 is +15%. Includes fuel, Meet & Greet at arrivals, and 60 minutes free waiting.",
+            text: "Sedan (up to 4 passengers) $35, Minivan (6-7 passengers) $45. Price is per vehicle for one direct airport pickup and one Bishkek drop-off. Extra stops or additional addresses cost extra. Night surcharge 22:00–06:00 is +15%.",
           },
         },
         {
