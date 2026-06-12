@@ -20,7 +20,19 @@ const jsonLd = {
       { "@type": "ListItem", position: 2, name: "Transfers", item: "https://nomad-transfer.com/transfers" },
       { "@type": "ListItem", position: 3, name: "Bishkek to Manas Airport", item: url },
     ] },
-    { "@type": "Service", name: "Bishkek to Manas Airport Private Transfer", url, provider: { "@type": "LocalBusiness", name: "Nomad Transfer", telephone: "+996552291808" }, offers: [{ "@type": "Offer", price: "35", priceCurrency: "USD", name: "Sedan" }, { "@type": "Offer", price: "45", priceCurrency: "USD", name: "Minivan" }] },
+    {
+      "@type": "Service",
+      name: "Bishkek to Manas Airport Private Transfer",
+      description: "Direct private transfer from one Bishkek pickup address to Manas Airport. Extra stops or additional pickup addresses cost extra. Group vehicles are available on request.",
+      serviceType: "Private airport transfer",
+      areaServed: "Bishkek, Kyrgyzstan",
+      url,
+      provider: { "@type": "LocalBusiness", "@id": "https://nomad-transfer.com/#business", name: "Nomad Transfer", telephone: "+996552291808" },
+      offers: [
+        { "@type": "Offer", price: "35", priceCurrency: "USD", name: "Sedan (up to 4 passengers)", availability: "https://schema.org/InStock" },
+        { "@type": "Offer", price: "45", priceCurrency: "USD", name: "Minivan (6-7 passengers)", availability: "https://schema.org/InStock" },
+      ],
+    },
     { "@type": "FAQPage", mainEntity: bishkekToManasFaq.en.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
   ],
 };
