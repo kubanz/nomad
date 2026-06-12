@@ -20,6 +20,9 @@ yarn-debug.log*
 yarn-error.log*
 *.log
 
+# данные админ-панели (локальное хранилище)
+.data/
+
 # окружение (не коммитим ключи)
 .env
 .env.local
